@@ -36,7 +36,7 @@ export function generateDeviceId(): string {
  * Get or create device ID in localStorage
  */
 export function getOrCreateDeviceId(): string {
-  const key = 'chase_device_id'
+  const key = 'Crestline_device_id'
   let deviceId = localStorage.getItem(key)
 
   if (!deviceId) {
@@ -200,7 +200,7 @@ export function showNotification(
       new Notification(title, {
         icon: '/logo.png',
         badge: '/badge.png',
-        tag: 'chase-notification',
+        tag: 'Crestline-notification',
         ...options,
       })
       console.log('[v0] Notification shown:', title)
@@ -279,7 +279,7 @@ export async function sendTestNotification(
       },
       body: JSON.stringify({
         userId,
-        title: 'Chase Notification',
+        title: 'Crestline Capital Notification',
         message: 'You have successfully registered this device for notifications',
         data: {
           type: 'test',

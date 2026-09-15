@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { ArrowLeft, Lock, Shield, Eye, AlertTriangle, CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Security Center | Chase Bank',
-  description: 'Learn about Chase security features and how to protect your account.',
+  title: 'Security Center | Crestline Capital Bank',
+  description: 'Learn about Crestline Capital security features and how to protect your account.',
 }
 
 export default function SecurityPage() {
@@ -28,7 +28,7 @@ export default function SecurityPage() {
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12">
           <h2 className="text-xl font-bold text-gray-900 mb-2">Your Security is Our Priority</h2>
           <p className="text-gray-700">
-            Chase employs industry-leading security technology and practices to protect your accounts and personal information from fraud and unauthorized access.
+            Crestline Capital employs industry-leading security technology and practices to protect your accounts and personal information from fraud and unauthorized access.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export default function SecurityPage() {
                 <Lock className="w-6 h-6 text-[#117aca] flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">SSL Encryption</h3>
-                  <p className="text-gray-700">256-bit SSL encryption secures all data transmitted between your device and Chase servers.</p>
+                  <p className="text-gray-700">256-bit SSL encryption secures all data transmitted between your device and Crestline Capital servers.</p>
                 </div>
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function SecurityPage() {
               <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Don't Share Personal Information</h3>
-                <p className="text-gray-700">Chase will never ask for your password, full SSN, or account PIN via email or phone.</p>
+                <p className="text-gray-700">Crestline Capital will never ask for your password, full SSN, or account PIN via email or phone.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -121,7 +121,7 @@ export default function SecurityPage() {
               <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Use Secure Connections</h3>
-                <p className="text-gray-700">Always access Chase through https://www.chase.com or the official mobile app, never through links in emails.</p>
+                <p className="text-gray-700">Always access Crestline Capital through https://www.Crestline.com or the official mobile app, never through links in emails.</p>
               </div>
             </div>
           </div>
@@ -131,10 +131,10 @@ export default function SecurityPage() {
         <section className="mb-12 bg-white rounded-lg shadow-sm p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Fraud Liability Protection</h2>
           <p className="text-gray-700 mb-4">
-            Chase offers comprehensive fraud protection. If fraudulent activity occurs on your account:
+            Crestline Capital offers comprehensive fraud protection. If fraudulent activity occurs on your account:
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
-            <li>Report the fraud immediately to Chase</li>
+            <li>Report the fraud immediately to Crestline Capital</li>
             <li>You are generally not liable for unauthorized transactions if reported promptly</li>
             <li>We will investigate the claims and work to resolve the issue</li>
             <li>A replacement debit card will be issued if needed</li>
@@ -148,7 +148,7 @@ export default function SecurityPage() {
         <section className="mb-12 bg-white rounded-lg shadow-sm p-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Identity Protection Services</h2>
           <p className="text-gray-700 mb-4">
-            Chase offers identity protection services to help safeguard your personal information:
+            Crestline Capital offers identity protection services to help safeguard your personal information:
           </p>
           <ul className="list-disc list-inside text-gray-700 space-y-2">
             <li>Credit monitoring and alerts</li>
@@ -172,11 +172,11 @@ export default function SecurityPage() {
             </div>
             <div>
               <p className="text-gray-700"><strong>Security Vulnerability:</strong></p>
-              <p className="text-gray-600 ml-4">Email: security@chase.com</p>
+              <p className="text-gray-600 ml-4">Email: security@Crestline.com</p>
             </div>
             <div>
               <p className="text-gray-700"><strong>Customer Service:</strong></p>
-              <p className="text-gray-600 ml-4">Call: 1-800-935-9935 or visit <span className="text-[#117aca]">chase.com</span></p>
+              <p className="text-gray-600 ml-4">Call: 1-800-935-9935 or visit <span className="text-[#117aca]">Crestline.com</span></p>
             </div>
           </div>
         </section>

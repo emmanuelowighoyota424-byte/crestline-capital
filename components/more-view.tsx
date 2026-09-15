@@ -114,7 +114,7 @@ const defaultUserProfile = {
   ssn: "***-**-4521",
   memberSince: "March 2018",
   profilePicture: "",
-  tier: "Chase Private Client",
+  tier: "Crestline Capital Private Client",
   ultimateRewardsPoints: 287450,
   preferredLanguage: "English",
   currency: "USD",
@@ -377,7 +377,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
   const [chatMessages, setChatMessages] = useState<{ from: "user" | "bot"; content: string; time: string }[]>([
     {
       from: "bot",
-      content: "Hello! I'm Chase Virtual Assistant. How can I help you today?",
+      content: "Hello! I'm Crestline Capital Virtual Assistant. How can I help you today?",
       time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     },
   ])
@@ -455,12 +455,12 @@ export function MoreView({ onLogout }: MoreViewProps) {
     const registerCurrentDevice = async () => {
       const { deviceName, deviceType, browser, os } = detectDeviceInfo()
       const location = await getDeviceLocation()
-      const currentDeviceId = localStorage.getItem("chase_device_id")
+      const currentDeviceId = localStorage.getItem("Crestline_device_id")
 
       if (!currentDeviceId) {
         // Register new device
         const newDeviceId = `dev_${Date.now()}`
-        localStorage.setItem("chase_device_id", newDeviceId)
+        localStorage.setItem("Crestline_device_id", newDeviceId)
 
         // Check if this device already exists in linked devices
         const existingDevice = linkedDevices?.find((d) => d.browser === browser && d.os === os)
@@ -526,13 +526,13 @@ export function MoreView({ onLogout }: MoreViewProps) {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem("chase_logged_in")
-    localStorage.removeItem("chase_username")
-    localStorage.removeItem("chase_device_id") // Remove device ID on logout
+    localStorage.removeItem("Crestline_logged_in")
+    localStorage.removeItem("Crestline_username")
+    localStorage.removeItem("Crestline_device_id") // Remove device ID on logout
 
     toast({
       title: "Signed Out",
-      description: "You have been successfully signed out of Chase.",
+      description: "You have been successfully signed out of Crestline Capital.",
     })
 
     addActivity({
@@ -743,7 +743,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
     setSearchedLocations([
       {
         id: "1",
-        name: "Chase Bank - Main Street",
+        name: "Crestline Capital Bank - Main Street",
         type: "Branch",
         address: "123 Main St, New York, NY 10001",
         distance: "0.3 mi",
@@ -751,7 +751,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
       },
       {
         id: "2",
-        name: "Chase ATM - Broadway",
+        name: "Crestline Capital ATM - Broadway",
         type: "ATM",
         address: "456 Broadway, New York, NY 10002",
         distance: "0.5 mi",
@@ -759,7 +759,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
       },
       {
         id: "3",
-        name: "Chase Bank - Financial District",
+        name: "Crestline Capital Bank - Financial District",
         type: "Branch",
         address: "789 Wall St, New York, NY 10003",
         distance: "0.8 mi",
@@ -793,7 +793,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
       botResponse = `You have ${safeUserProfile.ultimateRewardsPoints.toLocaleString()} Ultimate Rewards points. That's worth up to $${(safeUserProfile.ultimateRewardsPoints * 0.0125).toFixed(2)} in travel!` // Changed currency symbol
     } else if (lowerInput.includes("human") || lowerInput.includes("agent") || lowerInput.includes("representative")) {
       botResponse =
-        "I'll connect you with a customer service representative. Please call 1-800-935-9935 or email chase.org_info247@zohomail.com for immediate assistance."
+        "I'll connect you with a customer service representative. Please call 1-800-935-9935 or email Crestline.org_info247@zohomail.com for immediate assistance."
     }
 
     setTimeout(() => {
@@ -856,7 +856,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
     },
     {
       label: "Messages",
-      description: "View communications from Chase",
+      description: "View communications from Crestline Capital",
       icon: Mail,
       view: "messages" as ViewType,
       badge: unreadMessageCount > 0 ? unreadMessageCount.toString() : undefined,
@@ -868,7 +868,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
       view: "cards" as ViewType,
     },
     {
-      label: "Chase Ultimate Rewards",
+      label: "Crestline Capital Ultimate Rewards",
       description: "View and redeem your reward points",
       icon: Award,
       view: "rewards" as ViewType,
@@ -902,7 +902,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
     return (
       <div className="pb-24 touch-pan-y overscroll-contain">
         <div className="flex flex-col items-center justify-center min-h-[40dvh] vt-loading-enter">
-          <div className="chase-spinner" />
+          <div className="Crestline-spinner" />
           <p className="text-xs text-muted-foreground mt-3 font-medium tracking-wide">Loading...</p>
         </div>
       </div>
@@ -913,7 +913,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
   if (currentView === "main") {
     return (
       <div className="pb-24 touch-pan-y overscroll-contain">
-        <Card className="p-4 mb-4 chase-card-shadow option-press cursor-pointer" onClick={() => setCurrentView("profile")}>
+        <Card className="p-4 mb-4 Crestline-card-shadow option-press cursor-pointer" onClick={() => setCurrentView("profile")}>
           <div className="flex items-center gap-4">
             <div className="relative">
               <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#0a4fa6] to-[#117aca] flex items-center justify-center overflow-hidden">
@@ -947,7 +947,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
               />
             </div>
             <div className="flex-1">
-              <h2 className="font-bold text-lg">{safeUserProfile.name || "Chase User"}</h2>
+              <h2 className="font-bold text-lg">{safeUserProfile.name || "Crestline Capital User"}</h2>
               <p className="text-sm text-muted-foreground">{safeUserProfile.email}</p>
               <Badge variant="secondary" className="mt-1 bg-[#0a4fa6]/10 text-[#0a4fa6]">
                 {safeUserProfile.tier || "Member"}
@@ -961,7 +961,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
           {menuItems.map((item) => (
             <Card
               key={item.label}
-              className="p-4 cursor-pointer hover:bg-accent transition-all duration-150 chase-card-shadow option-press"
+              className="p-4 cursor-pointer hover:bg-accent transition-all duration-150 Crestline-card-shadow option-press"
               onClick={() => setCurrentView(item.view)}
             >
               <div className="flex items-center gap-4">
@@ -985,7 +985,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
           ))}
 
           <Card
-            className="p-4 cursor-pointer hover:bg-red-50 dark:hover:bg-red-950/20 transition-all duration-150 chase-card-shadow mt-4 option-press"
+            className="p-4 cursor-pointer hover:bg-red-50 dark:hover:bg-red-950/20 transition-all duration-150 Crestline-card-shadow mt-4 option-press"
             onClick={handleLogout}
           >
             <div className="flex items-center gap-4">
@@ -994,7 +994,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
               </div>
               <div className="flex-1">
                 <span className="font-medium text-red-600">Sign Out</span>
-                <p className="text-sm text-muted-foreground">Sign out of your Chase account</p>
+                <p className="text-sm text-muted-foreground">Sign out of your Crestline Capital account</p>
               </div>
               <ChevronRight className="h-5 w-5 text-muted-foreground" />
             </div>
@@ -1002,7 +1002,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         </div>
 
         <div className="mt-6 text-center text-sm text-muted-foreground">
-          <p>Chase Mobile® App</p>
+          <p>Crestline Capital Mobile® App</p>
           <p>Version 5.67.0</p>
         </div>
       </div>
@@ -1377,7 +1377,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="text-xs opacity-70">CHASE</p>
+                    <p className="text-xs opacity-70">CRESTLINE</p>
                     <p className="font-semibold">{card.name}</p>
                   </div>
                   {card.locked ? (
@@ -1859,7 +1859,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         {/* Contact Us View */}
         {helpSubView === "contact" && (
           <Card className="p-6 space-y-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Contact Chase</h3>
+            <h3 className="font-semibold text-[#0a4fa6]">Contact Crestline Capital</h3>
             <div className="space-y-4">
               <div
                 className="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-muted/50"
@@ -1878,14 +1878,14 @@ export function MoreView({ onLogout }: MoreViewProps) {
               <div
                 className="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-muted/50"
                 onClick={() => {
-                  navigator.clipboard.writeText("chase.org_info247@zohomail.com")
+                  navigator.clipboard.writeText("Crestline.org_info247@zohomail.com")
                   toast({ title: "Copied!", description: "Email copied to clipboard." })
                 }}
               >
                 <Mail className="h-5 w-5 text-[#0a4fa6]" />
                 <div className="flex-1">
                   <p className="font-medium">Email Support</p>
-                  <p className="text-sm text-muted-foreground">chase.org_info247@zohomail.com</p>
+                  <p className="text-sm text-muted-foreground">Crestline.org_info247@zohomail.com</p>
                 </div>
                 <Copy className="h-4 w-4 text-muted-foreground" />
               </div>
@@ -1908,7 +1908,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                 <Bot className="h-5 w-5 text-white" />
               </div>
               <div>
-                <p className="font-semibold">Chase Virtual Assistant</p>
+                <p className="font-semibold">Crestline Capital Virtual Assistant</p>
                 <p className="text-xs text-green-600">Online</p>
               </div>
             </div>
@@ -2199,7 +2199,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             <h3 className="font-semibold text-[#0a4fa6]">Transfers & Payments</h3>
             <div className="space-y-3">
               {[
-                { title: "Transfer Between Accounts", desc: "Move money between your Chase accounts instantly" },
+                { title: "Transfer Between Accounts", desc: "Move money between your Crestline Capital accounts instantly" },
                 { title: "Send with Zelle", desc: "Send money to friends and family using email or phone" },
                 { title: "Wire Transfers", desc: "Domestic and international wire transfers" },
                 { title: "Pay Bills", desc: "Set up one-time or recurring bill payments" },
@@ -2413,7 +2413,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
     )
   }
 
-  // Chase Ultimate Rewards View
+  // Crestline Capital Ultimate Rewards View
   if (currentView === "rewards") {
     return (
       <div className={`pb-24 space-y-6 touch-pan-y overscroll-contain ${viewAnimClass}`}>
@@ -2421,7 +2421,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
           <Button variant="ghost" size="icon" onClick={() => setCurrentView("main")}>
             <ChevronLeft className="h-5 w-5" />
           </Button>
-          <h2 className="text-2xl font-semibold">Chase Ultimate Rewards</h2>
+          <h2 className="text-2xl font-semibold">Crestline Capital Ultimate Rewards</h2>
         </div>
 
         <Card className="p-6 bg-gradient-to-r from-[#0a4fa6] to-[#117aca] text-white">
@@ -2744,7 +2744,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
               <p className="font-medium">Security Tips</p>
               <ul className="text-xs mt-1 space-y-1">
                 <li>• Never share your password with anyone</li>
-                <li>• Chase will never ask for your password via email or phone</li>
+                <li>• Crestline Capital will never ask for your password via email or phone</li>
                 <li>• Use a unique password not used on other sites</li>
               </ul>
             </div>
@@ -2902,7 +2902,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="h-4 w-4 text-green-600" />
-              <span>Point of sale purchases</span>
+              <span>Point of sale purCrestlines</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="h-4 w-4 text-green-600" />
@@ -3005,12 +3005,12 @@ export function MoreView({ onLogout }: MoreViewProps) {
     }
 
     const downloadBackupCodes = () => {
-      const content = `Chase Banking Backup Codes\nGenerated: ${new Date().toLocaleDateString()}\n\n${backupCodes.join("\n")}\n\nKeep these codes safe. Each code can only be used once.`
+      const content = `Crestline Capital Banking Backup Codes\nGenerated: ${new Date().toLocaleDateString()}\n\n${backupCodes.join("\n")}\n\nKeep these codes safe. Each code can only be used once.`
       const blob = new Blob([content], { type: "text/plain" })
       const url = URL.createObjectURL(blob)
       const a = document.createElement("a")
       a.href = url
-      a.download = "chase-backup-codes.txt"
+      a.download = "Crestline-backup-codes.txt"
       a.click()
       URL.revokeObjectURL(url)
       toast({

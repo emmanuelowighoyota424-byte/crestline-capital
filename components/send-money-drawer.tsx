@@ -159,7 +159,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
     setIsLoading(true)
     setStep("confirm")
 
-    // Call real Chase Bank Zelle API
+    // Call real Crestline Capital Bank Zelle API
     fetch('/api/transfers', {
       method: 'POST',
       headers: {

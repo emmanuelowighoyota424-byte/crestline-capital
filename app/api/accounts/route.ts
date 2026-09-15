@@ -1,5 +1,5 @@
 /**
- * Accounts API Route - Real-time account management with Chase integration
+ * Accounts API Route - Real-time account management with Crestline Capital integration
  */
 
 import { NextRequest, NextResponse } from 'next/server'
@@ -32,11 +32,11 @@ export async function GET(request: NextRequest) {
       )
     }
 
-    // In production, sync with real Chase API for current balances
+    // In production, sync with real Crestline Capital API for current balances
     // Using setTimeout to simulate real API call
     const enrichedAccounts = await Promise.all(
       accounts.map(async (account) => {
-        // Simulate fetching real balance from Chase API
+        // Simulate fetching real balance from Crestline Capital API
         return {
           ...account,
           lastSyncedAt: new Date().toISOString(),
@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // In production: Call Chase API to verify and sync account
+    // In production: Call Crestline Capital API to verify and sync account
     console.log('[v0] Account created:', data[0]?.id)
 
     return NextResponse.json({

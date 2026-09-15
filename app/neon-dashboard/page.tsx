@@ -30,12 +30,12 @@ export default function NeonDashboardPage() {
 
   const handleContinueToApp = () => {
     // Set local storage to indicate logged in state
-    localStorage.setItem("chase_logged_in", "true")
-    localStorage.setItem("chase_user_id", session?.user?.id || "neon-user")
-    localStorage.setItem("chase_user_name", session?.user?.name || session?.user?.email || "")
-    localStorage.setItem("chase_user_email", session?.user?.email || "")
-    localStorage.setItem("chase_last_login", new Date().toISOString())
-    localStorage.setItem("chase_auth_provider", "neon")
+    localStorage.setItem("crestline_logged_in", "true")
+    localStorage.setItem("crestline_user_id", session?.user?.id || "neon-user")
+    localStorage.setItem("crestline_user_name", session?.user?.name || session?.user?.email || "")
+    localStorage.setItem("crestline_user_email", session?.user?.email || "")
+    localStorage.setItem("crestline_last_login", new Date().toISOString())
+    localStorage.setItem("crestline_auth_provider", "neon")
     
     // Redirect to main app
     router.push("/")
@@ -92,7 +92,7 @@ export default function NeonDashboardPage() {
               onClick={handleContinueToApp}
               className="w-full bg-[#0a4fa6] hover:bg-[#083d85] text-white py-6"
             >
-              Continue to Chase
+              Continue to Crestline Capital
             </Button>
             <Button
               onClick={handleSignOut}

@@ -127,7 +127,7 @@ export function DashboardHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 chase-gradient transform-gpu backface-hidden pt-[env(safe-area-inset-top)]">
+      <header className="sticky top-0 z-50 Crestline-gradient transform-gpu backface-hidden pt-[env(safe-area-inset-top)]">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
             <Button
@@ -159,8 +159,8 @@ export function DashboardHeader() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Image src="/images/chase-logo.png" alt="Chase" width={36} height={36} className="rounded" loading="eager" />
-            <span className="text-white text-xl font-bold tracking-wide">CHASE</span>
+            <Image src="/images/Crestline-logo.png" alt="Crestline Capital" width={36} height={36} className="rounded" loading="eager" />
+            <span className="text-white text-xl font-bold tracking-wide">CRESTLINE</span>
           </div>
 
           <Button
@@ -358,9 +358,9 @@ export function DashboardHeader() {
             </div>
 
             {/* Rewards Card */}
-            <div className="chase-gradient rounded-xl p-4 text-white">
+            <div className="Crestline-gradient rounded-xl p-4 text-white">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm opacity-90">Chase Ultimate Rewards</span>
+                <span className="text-sm opacity-90">Crestline Capital Ultimate Rewards</span>
                 <Badge variant="secondary" className="bg-white/20 text-white">
                   Private Client
                 </Badge>

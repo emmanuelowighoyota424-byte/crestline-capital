@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Toaster } from "@/components/ui/toaster"
 import { BankingProvider } from "@/lib/banking-context"
-import { RealtimeProvider } from "@/lib/realtime-orchestrator"
+import { ConvexClientProvider } from "@/components/convex-client-provider"
 import { ErrorBoundary } from "@/components/error-boundary"
 import "./globals.css"
 
@@ -19,13 +19,37 @@ export const viewport: Viewport = {
   minimumScale: 1,
   userScalable: false,
   viewportFit: "cover",
-  themeColor: "#0a4fa6",
+  themeColor: "#0b0f19",
 }
 
 export const metadata: Metadata = {
-  title: "Enterprise Financial System",
-  description: "Integrated financial management with real-time updates",
-  generator: "v0.app",
+  title: {
+    default: "Crestline Capital — Premium Digital Banking",
+    template: "%s | Crestline Capital",
+  },
+  description:
+    "Experience the future of banking with Crestline Capital. Secure, intelligent, and beautifully designed digital banking for personal and business accounts.",
+  keywords: [
+    "digital banking",
+    "fintech",
+    "personal banking",
+    "business banking",
+    "savings",
+    "investments",
+    "loans",
+    "cards",
+    "transfers",
+  ],
+  authors: [{ name: "Crestline Capital" }],
+  creator: "Crestline Capital",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "Crestline Capital",
+    title: "Crestline Capital — Premium Digital Banking",
+    description:
+      "Secure, intelligent digital banking for personal and business accounts.",
+  },
   icons: {
     icon: [
       {
@@ -51,17 +75,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased overflow-x-hidden overscroll-none touch-pan-y">
+    <html lang="en" className="dark">
+      <body className="font-sans antialiased overflow-x-hidden overscroll-none touch-pan-y bg-[#0b0f19] text-[#f8fafc]">
         <ErrorBoundary>
-          <RealtimeProvider>
+          <ConvexClientProvider>
             <BankingProvider>
               {children}
               <Toaster />
               <Analytics />
               <SpeedInsights />
             </BankingProvider>
-          </RealtimeProvider>
+          </ConvexClientProvider>
         </ErrorBoundary>
       </body>
     </html>

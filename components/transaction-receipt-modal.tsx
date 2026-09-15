@@ -40,7 +40,7 @@ export function TransactionReceiptModal({ open, onOpenChange, transactionId, onD
 
   const transaction = transactionId ? transactions.find((t) => t.id === transactionId) : null
 
-  // Simulate receipt loading for smooth UX (like Chase app)
+  // Simulate receipt loading for smooth UX (like Crestline Capital app)
   useEffect(() => {
     if (open && transaction) {
       setIsLoading(true)
@@ -81,7 +81,7 @@ export function TransactionReceiptModal({ open, onOpenChange, transactionId, onD
     
     return `
 ╔════════════════════════════════════════════════════════════╗
-║                   JPMORGAN CHASE BANK                      ║
+║                   JPMORGAN CRESTLINE BANK                      ║
 ║                 TRANSACTION RECEIPT                         ║
 ╚════════════════════════════════════════════════════════════╝
 
@@ -128,15 +128,15 @@ IMPORTANT INFORMATION
 ════════════════════════════════════════════════════════════
 • Receipt generated digitally at ${new Date().toLocaleTimeString('en-US')}
 • Keep this receipt for your records
-• For disputes, contact Chase immediately
+• For disputes, contact Crestline Capital immediately
 • Reference this receipt ID for customer service inquiries
 • This transaction has been verified and secured
 
 ═══════════════════════════════════════════════════════════════
-                     CHASE CUSTOMER SERVICE
+                     CRESTLINE CUSTOMER SERVICE
                         1-800-935-9935
-            www.chase.com | chase.com/support
-                © ${new Date().getFullYear()} JPMorgan Chase & Co.
+            www.Crestline.com | Crestline.com/support
+                © ${new Date().getFullYear()} JPMorgan Crestline Capital & Co.
 ═══════════════════════════════════════════════════════════════
     `
   }
@@ -152,7 +152,7 @@ IMPORTANT INFORMATION
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chase Bank Receipt - ${transaction.reference}</title>
+  <title>Crestline Capital Bank Receipt - ${transaction.reference}</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
@@ -331,7 +331,7 @@ IMPORTANT INFORMATION
   <div class="receipt-container">
     <!-- Header -->
     <div class="header">
-      <div class="header-logo">CHASE</div>
+      <div class="header-logo">CRESTLINE</div>
       <div class="header-subtitle">Digital Banking Receipt</div>
       <div class="receipt-number">Receipt: ${receiptNumber}</div>
     </div>
@@ -422,18 +422,18 @@ IMPORTANT INFORMATION
       
       <!-- Receipt Notice -->
       <div style="background: #faf8f3; border-left: 4px solid #ffc000; padding: 12px; border-radius: 4px; font-size: 11px; color: #666; margin-bottom: 20px;">
-        <strong style="color: #333;">Important Notice:</strong> Keep this receipt for your records. For disputes or inquiries, contact Chase Customer Service with your reference ID.
+        <strong style="color: #333;">Important Notice:</strong> Keep this receipt for your records. For disputes or inquiries, contact Crestline Capital Customer Service with your reference ID.
       </div>
     </div>
     
     <!-- Footer -->
     <div class="footer">
-      <div class="footer-title">Chase Customer Service</div>
+      <div class="footer-title">Crestline Capital Customer Service</div>
       <div class="footer-contact">Phone: 1-800-935-9935</div>
-      <div class="footer-contact">Website: www.chase.com</div>
-      <div class="footer-contact">Support: chase.com/support</div>
+      <div class="footer-contact">Website: www.Crestline.com</div>
+      <div class="footer-contact">Support: Crestline.com/support</div>
       <div class="footer-copyright">
-        © ${new Date().getFullYear()} JPMorgan Chase & Co. All rights reserved.<br/>
+        © ${new Date().getFullYear()} JPMorgan Crestline Capital & Co. All rights reserved.<br/>
         Generated: ${new Date().toLocaleString('en-US')}
       </div>
     </div>
@@ -449,7 +449,7 @@ IMPORTANT INFORMATION
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `chase-receipt-${transaction.reference}.txt`
+    a.download = `Crestline-receipt-${transaction.reference}.txt`
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
@@ -468,10 +468,10 @@ IMPORTANT INFORMATION
   }
 
   const handleShare = async () => {
-    const shareText = `Chase Receipt: ${transaction.description} - $${(transaction.amount ?? 0).toFixed(2)} - Ref: ${transaction.reference}`
+    const shareText = `Crestline Capital Receipt: ${transaction.description} - $${(transaction.amount ?? 0).toFixed(2)} - Ref: ${transaction.reference}`
     if (navigator.share) {
       try {
-        await navigator.share({ title: "Chase Transaction Receipt", text: shareText })
+        await navigator.share({ title: "Crestline Capital Transaction Receipt", text: shareText })
       } catch {
         navigator.clipboard.writeText(shareText)
         toast({ title: "Copied to Clipboard", description: "Receipt details copied." })
@@ -490,7 +490,7 @@ IMPORTANT INFORMATION
   }
 
   const handleEmailReceipt = () => {
-    const subject = encodeURIComponent(`Chase Receipt - ${transaction.reference}`)
+    const subject = encodeURIComponent(`Crestline Capital Receipt - ${transaction.reference}`)
     const body = encodeURIComponent(generateReceiptText())
     window.open(`mailto:?subject=${subject}&body=${body}`)
     toast({ title: "Email Client Opened", description: "Receipt ready to send via email." })
@@ -524,21 +524,21 @@ IMPORTANT INFORMATION
 
   const handleToggleFavorite = () => {
     setIsFavorite(!isFavorite)
-    const favoriteReceipts = JSON.parse(localStorage.getItem("chase_favorite_receipts") || "[]")
+    const favoriteReceipts = JSON.parse(localStorage.getItem("Crestline_favorite_receipts") || "[]")
     if (!isFavorite) {
       favoriteReceipts.push(transactionId)
-      localStorage.setItem("chase_favorite_receipts", JSON.stringify(favoriteReceipts))
+      localStorage.setItem("Crestline_favorite_receipts", JSON.stringify(favoriteReceipts))
       toast({ title: "Added to Favorites", description: "Receipt saved to favorites." })
     } else {
       const updated = favoriteReceipts.filter((id: string) => id !== transactionId)
-      localStorage.setItem("chase_favorite_receipts", JSON.stringify(updated))
+      localStorage.setItem("Crestline_favorite_receipts", JSON.stringify(updated))
       toast({ title: "Removed from Favorites", description: "Receipt removed from favorites." })
     }
   }
 
   const handleSendSMS = () => {
     const message = encodeURIComponent(
-      `Chase Receipt: ${transaction.description} - $${(transaction.amount ?? 0).toFixed(2)} - Ref: ${transaction.reference}`,
+      `Crestline Capital Receipt: ${transaction.description} - $${(transaction.amount ?? 0).toFixed(2)} - Ref: ${transaction.reference}`,
     )
     window.open(`sms:?body=${message}`)
     toast({ title: "SMS App Opened", description: "Receipt ready to send via text message." })

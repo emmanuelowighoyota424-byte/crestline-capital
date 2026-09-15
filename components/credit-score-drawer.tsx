@@ -35,7 +35,7 @@ export function CreditScoreDrawer({ open, onOpenChange }: CreditScoreDrawerProps
 
   useEffect(() => {
     // Load credit score data from localStorage
-    const savedData = localStorage.getItem("chase_credit_score")
+    const savedData = localStorage.getItem("crestline_credit_score")
     if (savedData) {
       const data = JSON.parse(savedData)
       setCreditScore(data.score)
@@ -57,7 +57,7 @@ export function CreditScoreDrawer({ open, onOpenChange }: CreditScoreDrawerProps
 
   const saveCreditData = (score: number, prevScore: number, history: { date: string; score: number }[]) => {
     localStorage.setItem(
-      "chase_credit_score",
+      "crestline_credit_score",
       JSON.stringify({
         score,
         previousScore: prevScore,

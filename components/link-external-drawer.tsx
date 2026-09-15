@@ -26,7 +26,7 @@ export function LinkExternalDrawer({ open, onOpenChange }: LinkExternalDrawerPro
   const { addAccount, addNotification } = useBanking()
 
   const usBanks = [
-    "Chase",
+    "Crestline Capital",
     "Bank of America",
     "Wells Fargo",
     "Citibank",

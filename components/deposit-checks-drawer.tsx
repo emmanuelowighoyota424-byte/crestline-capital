@@ -560,7 +560,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                 <AlertCircle className="h-5 w-5 text-amber-600 mt-0.5" />
                 <div className="text-sm">
                   <p className="font-medium text-amber-800">Don't forget to endorse!</p>
-                  <p className="text-amber-700">Sign the back and write "For Mobile Deposit Only to Chase"</p>
+                  <p className="text-amber-700">Sign the back and write "For Mobile Deposit Only to Crestline Capital"</p>
                 </div>
               </div>
 

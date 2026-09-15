@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Chase Bank',
-  description: 'Review the terms and conditions for using Chase Bank services.',
+  title: 'Terms of Service | Crestline Capital Bank',
+  description: 'Review the terms and conditions for using Crestline Capital Bank services.',
 }
 
 export default function TermsPage() {
@@ -29,27 +29,27 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Agreement to Terms</h2>
             <p className="text-gray-700 leading-relaxed">
-              These Terms of Service ("Terms") govern your access to and use of Chase Bank's website, mobile applications, and banking services. By accessing or using Chase services, you agree to be bound by these Terms. If you do not agree to any part of these Terms, you may not use our services.
+              These Terms of Service ("Terms") govern your access to and use of Crestline Capital Bank's website, mobile applications, and banking services. By accessing or using Crestline Capital services, you agree to be bound by these Terms. If you do not agree to any part of these Terms, you may not use our services.
             </p>
           </section>
 
           {/* Account Eligibility */}
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Account Eligibility</h2>
-            <p className="text-gray-700 mb-4">To open and maintain a Chase account, you must:</p>
+            <p className="text-gray-700 mb-4">To open and maintain a Crestline Capital account, you must:</p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li>Be at least 18 years old</li>
               <li>Be a citizen or permanent resident of the United States</li>
               <li>Provide accurate and complete information</li>
               <li>Comply with all applicable laws and regulations</li>
-              <li>Not have had a Chase account closed for cause within the last 2 years</li>
+              <li>Not have had a Crestline Capital account closed for cause within the last 2 years</li>
             </ul>
           </section>
 
           {/* Use Restrictions */}
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Use Restrictions</h2>
-            <p className="text-gray-700 mb-4">You agree not to use Chase services to:</p>
+            <p className="text-gray-700 mb-4">You agree not to use Crestline Capital services to:</p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
               <li>Engage in any illegal activity</li>
               <li>Violate any applicable law or regulation</li>
@@ -79,10 +79,10 @@ export default function TermsPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Transactions and Transfers</h2>
             <div className="space-y-4 text-gray-700">
               <p>
-                Chase will process authorized transactions submitted through our services. All transactions are subject to verification and security reviews.
+                Crestline Capital will process authorized transactions submitted through our services. All transactions are subject to verification and security reviews.
               </p>
               <p>
-                Wire transfers and other payment instructions must include accurate recipient information. Chase is not responsible for errors in recipient information provided by you.
+                Wire transfers and other payment instructions must include accurate recipient information. Crestline Capital is not responsible for errors in recipient information provided by you.
               </p>
               <p>
                 Some transactions may be delayed pending verification or compliance reviews. We will notify you of any delays.
@@ -94,7 +94,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Fees and Charges</h2>
             <p className="text-gray-700 mb-4">
-              Chase may charge fees for certain services as described in our Fee Schedule. Fees may be adjusted with notice. You authorize Chase to debit your account for any applicable fees.
+              Crestline Capital may charge fees for certain services as described in our Fee Schedule. Fees may be adjusted with notice. You authorize Crestline Capital to debit your account for any applicable fees.
             </p>
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
               <p className="text-sm text-gray-700">
@@ -107,7 +107,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Limitation of Liability</h2>
             <p className="text-gray-700 leading-relaxed">
-              To the extent permitted by law, Chase shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services, including loss of profits, data, or business opportunities.
+              To the extent permitted by law, Crestline Capital shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services, including loss of profits, data, or business opportunities.
             </p>
           </section>
 
@@ -115,7 +115,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Indemnification</h2>
             <p className="text-gray-700 leading-relaxed">
-              You agree to indemnify and hold harmless Chase, its affiliates, and their respective officers, directors, employees, and agents from any claims, damages, or losses arising from your use of our services or violation of these Terms.
+              You agree to indemnify and hold harmless Crestline Capital, its affiliates, and their respective officers, directors, employees, and agents from any claims, damages, or losses arising from your use of our services or violation of these Terms.
             </p>
           </section>
 
@@ -139,7 +139,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Changes to Terms</h2>
             <p className="text-gray-700 leading-relaxed">
-              Chase reserves the right to modify these Terms at any time. Changes will be effective upon posting to our website. Your continued use of our services constitutes acceptance of modified Terms.
+              Crestline Capital reserves the right to modify these Terms at any time. Changes will be effective upon posting to our website. Your continued use of our services constitutes acceptance of modified Terms.
             </p>
           </section>
 
@@ -150,7 +150,7 @@ export default function TermsPage() {
               For questions about these Terms of Service, please contact us at:
             </p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
-              <p className="text-gray-700"><strong>Email:</strong> support@chase.com</p>
+              <p className="text-gray-700"><strong>Email:</strong> support@Crestline.com</p>
               <p className="text-gray-700"><strong>Phone:</strong> 1-800-935-9935</p>
             </div>
           </section>

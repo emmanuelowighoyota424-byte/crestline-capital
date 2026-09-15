@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       userId,
       userPhone,
       userEmail,
-      recipientName: recipientName || 'Chase Bank',
+      recipientName: recipientName || 'Crestline Capital Bank',
       amount,
       accountName,
       transferId,

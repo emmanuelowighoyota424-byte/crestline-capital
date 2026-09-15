@@ -15,8 +15,8 @@ import { SettingsEnforcer } from "./settings-enforcement"
 import { getRealTimeSync } from "./real-time-sync"
 import { NotificationManager } from "./notification-manager"
 
-export const CUSTOMER_SERVICE_EMAIL = "chase.org_info247@zohomail.com"
-export const CUSTOMER_SERVICE_PHONE = "1-800-935-9935"
+export const CUSTOMER_SERVICE_EMAIL = "support@crestlinecapital.com"
+export const CUSTOMER_SERVICE_PHONE = "1-888-CREST-01"
 
 export const VERIFICATION_CODES = {
   OTP: "330668",
@@ -552,16 +552,16 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
 
   const [userProfile, setUserProfile] = useState<UserProfile>({
     id: "user1",
-    name: "CHUN HUNG",
-    email: "hungchun164@gmail.com",
-    phone: "+1 (702) 886-4745",
-    address: "34B Philadelphia, Pennsylvania PA, USA",
-    memberSince: "1988-08-24",
-    tier: "Chase Private Client",
-    ultimateRewardsPoints: 287450,
+    name: "Alex Morgan",
+    email: "alex.morgan@crestline.demo",
+    phone: "+1 (212) 555-0199",
+    address: "125 Park Avenue, New York, NY 10017",
+    memberSince: "2020-03-15",
+    tier: "Crestline Premium",
+    ultimateRewardsPoints: 42580,
     profilePicture: null,
-    dateOfBirth: "1961-08-24",
-    ssn: "697-03-2642",
+    dateOfBirth: "1990-06-15",
+    ssn: "***-**-6789",
     preferredLanguage: "English",
     currency: "USD",
     timezone: "America/New_York",
@@ -571,7 +571,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
   const defaultAccounts: Account[] = [
     {
       id: "1",
-      name: "Total Checking",
+      name: "Crestline Checking",
       type: "checking",
       balance: 580000,
       availableBalance: 580000,
@@ -581,7 +581,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "2",
-      name: "Chase Savings",
+      name: "Crestline Savings",
       type: "savings",
       balance: 0,
       availableBalance: 0,
@@ -591,7 +591,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "3",
-      name: "Sapphire Reserve",
+      name: "Crestline Platinum Card",
       type: "credit",
       balance: 0,
       availableBalance: 25000,
@@ -601,7 +601,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "4",
-      name: "Freedom Unlimited",
+      name: "Crestline Rewards Card",
       type: "credit",
       balance: 0,
       availableBalance: 10000,
@@ -649,7 +649,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "tx3",
-      description: "Amazon Purchase",
+      description: "Amazon PurCrestline",
       amount: 156.99,
       date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
       type: "debit",
@@ -779,7 +779,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
 
   const [linkedDevices, setLinkedDevices] = useState<LinkedDevice[]>(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("chase_linked_devices")
+      const saved = localStorage.getItem("Crestline_linked_devices")
       if (saved) {
         try {
           return JSON.parse(saved)
@@ -866,7 +866,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "notif4",
       title: "Rewards Points Earned",
-      message: "You earned 500 Ultimate Rewards points on your recent purchase.",
+      message: "You earned 500 Ultimate Rewards points on your recent purCrestline.",
       type: "info",
       date: new Date(Date.now() - 86400000).toISOString(),
       read: true,
@@ -913,66 +913,66 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "msg1",
-      from: "Chase Customer Service",
+      from: "Crestline Capital Customer Service",
       subject: "Your Monthly Statement is Ready",
       preview: "Your November 2024 statement is now available...",
       content:
-        "Dear Valued Customer,\n\nYour November 2024 statement is now available for viewing. Log in to your account to view your complete statement, including all transactions, payments, and rewards earned.\n\nThank you for being a Chase customer.\n\nBest regards,\nChase Customer Service",
+        "Dear Valued Customer,\n\nYour November 2024 statement is now available for viewing. Log in to your account to view your complete statement, including all transactions, payments, and rewards earned.\n\nThank you for being a Crestline Capital customer.\n\nBest regards,\nCrestline Capital Customer Service",
       date: new Date().toISOString(),
       read: false,
       category: "Statements",
     },
     {
       id: "msg2",
-      from: "Chase Offers",
+      from: "Crestline Capital Offers",
       subject: "Exclusive 5% Cashback Offer",
       preview: "Earn 5% cash back on dining this month...",
       content:
-        "Dear Customer,\n\nFor a limited time, earn 5% cash back on all dining purchases when you use your Chase Freedom card. This offer is valid through December 31, 2024.\n\nActivate your offer in the Chase app or online banking.\n\nHappy holidays!\nChase Offers Team",
+        "Dear Customer,\n\nFor a limited time, earn 5% cash back on all dining purCrestlines when you use your Crestline Capital Freedom card. This offer is valid through December 31, 2024.\n\nActivate your offer in the Crestline Capital app or online banking.\n\nHappy holidays!\nCrestline Capital Offers Team",
       date: new Date(Date.now() - 172800000).toISOString(),
       read: true,
       category: "Offers",
     },
     {
       id: "msg3",
-      from: "Chase Security",
+      from: "Crestline Capital Security",
       subject: "Action Required: Verify Your Recent Transaction",
       preview: "We detected an unusual transaction on your account...",
       content:
-        "Dear Customer,\n\nWe noticed a transaction that appears unusual for your account:\n\nDate: December 14, 2024\nAmount: $3,500.00\nMerchant: Online Electronics Store\n\nIf you recognize this transaction, no action is needed. If you don't recognize it, please contact us immediately at 1-800-935-9935.\n\nYour security is our priority.\n\nChase Security Team",
+        "Dear Customer,\n\nWe noticed a transaction that appears unusual for your account:\n\nDate: December 14, 2024\nAmount: $3,500.00\nMerchant: Online Electronics Store\n\nIf you recognize this transaction, no action is needed. If you don't recognize it, please contact us immediately at 1-800-935-9935.\n\nYour security is our priority.\n\nCrestline Capital Security Team",
       date: new Date(Date.now() - 86400000).toISOString(),
       read: false,
       category: "Security",
     },
     {
       id: "msg4",
-      from: "Chase Rewards",
+      from: "Crestline Capital Rewards",
       subject: "Redeem Your 50,000 Ultimate Rewards Points",
       preview: "You have 50,000 points available to redeem...",
       content:
-        "Dear Customer,\n\nCongratulations! You have earned 50,000 Ultimate Rewards points. Here are some ways you can redeem:\n\n• Travel: Book flights, hotels, and rental cars\n• Cash Back: Redeem as statement credit\n• Gift Cards: Choose from hundreds of retailers\n• Shopping: Use points at Amazon and more\n\nLog in to your account to start redeeming today!\n\nChase Rewards Team",
+        "Dear Customer,\n\nCongratulations! You have earned 50,000 Ultimate Rewards points. Here are some ways you can redeem:\n\n• Travel: Book flights, hotels, and rental cars\n• Cash Back: Redeem as statement credit\n• Gift Cards: Choose from hundreds of retailers\n• Shopping: Use points at Amazon and more\n\nLog in to your account to start redeeming today!\n\nCrestline Capital Rewards Team",
       date: new Date(Date.now() - 259200000).toISOString(),
       read: false,
       category: "Rewards",
     },
     {
       id: "msg5",
-      from: "Chase Mortgage",
+      from: "Crestline Capital Mortgage",
       subject: "Your Mortgage Rate Lock Expires Soon",
       preview: "Your locked interest rate expires in 7 days...",
       content:
-        "Dear Customer,\n\nThis is a reminder that your mortgage rate lock of 6.25% expires on December 21, 2024.\n\nTo maintain this rate, please complete the following:\n• Submit final income documentation\n• Schedule your home appraisal\n• Review and sign closing documents\n\nContact your loan officer at 1-800-848-9380 if you have questions.\n\nChase Mortgage Team",
+        "Dear Customer,\n\nThis is a reminder that your mortgage rate lock of 6.25% expires on December 21, 2024.\n\nTo maintain this rate, please complete the following:\n• Submit final income documentation\n• Schedule your home appraisal\n• Review and sign closing documents\n\nContact your loan officer at 1-800-848-9380 if you have questions.\n\nCrestline Capital Mortgage Team",
       date: new Date(Date.now() - 345600000).toISOString(),
       read: true,
       category: "Mortgage",
     },
     {
       id: "msg6",
-      from: "Chase Auto Finance",
+      from: "Crestline Capital Auto Finance",
       subject: "Your Auto Payment is Due in 3 Days",
       preview: "Payment of $487.50 due on December 17...",
       content:
-        "Dear Customer,\n\nThis is a friendly reminder that your auto loan payment is due soon:\n\nAmount Due: $487.50\nDue Date: December 17, 2024\nAccount: Auto Loan ending in 8901\n\nYou can make a payment online, through the Chase app, or by calling 1-800-336-6675.\n\nThank you for your business!\nChase Auto Finance",
+        "Dear Customer,\n\nThis is a friendly reminder that your auto loan payment is due soon:\n\nAmount Due: $487.50\nDue Date: December 17, 2024\nAccount: Auto Loan ending in 8901\n\nYou can make a payment online, through the Crestline Capital app, or by calling 1-800-336-6675.\n\nThank you for your business!\nCrestline Capital Auto Finance",
       date: new Date(Date.now() - 432000000).toISOString(),
       read: false,
       category: "Loans",
@@ -983,7 +983,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "offer1",
       title: "5% Cash Back on Dining",
-      description: "Earn 5% cash back on all dining purchases this month",
+      description: "Earn 5% cash back on all dining purCrestlines this month",
       discount: "5%",
       expiresAt: "2024-12-31",
       category: "Dining",
@@ -994,7 +994,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "offer2",
       title: "10% Off at Amazon",
-      description: "Get 10% back on Amazon purchases up to $50",
+      description: "Get 10% back on Amazon purCrestlines up to $50",
       discount: "10%",
       expiresAt: "2024-12-25",
       category: "Shopping",
@@ -1007,7 +1007,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
   const [creditCards, setCreditCards] = useState<CreditCard[]>([
     {
       id: "card1",
-      name: "Chase Sapphire Reserve",
+      name: "Crestline Capital Sapphire Reserve",
       lastFour: "8901",
       expiryDate: "08/27",
       balance: 3247.56,
@@ -1022,7 +1022,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "card2",
-      name: "Chase Freedom Unlimited",
+      name: "Crestline Capital Freedom Unlimited",
       lastFour: "7823",
       expiryDate: "03/26",
       balance: 1520.33,
@@ -1050,7 +1050,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "act2",
-      action: "Transfer: $500.00 to Chase Savings",
+      action: "Transfer: $500.00 to Crestline Capital Savings",
       date: new Date(Date.now() - 3600000).toISOString(),
       device: "iPhone 15 Pro Max",
       location: "New York, NY",
@@ -1064,14 +1064,14 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "act4",
-      action: "Card locked: Chase Sapphire Reserve",
+      action: "Card locked: Crestline Capital Sapphire Reserve",
       date: new Date(Date.now() - 86400000).toISOString(),
       device: 'MacBook Pro 16"',
       location: "New York, NY",
     },
     {
       id: "act5",
-      action: "Card unlocked: Chase Sapphire Reserve",
+      action: "Card unlocked: Crestline Capital Sapphire Reserve",
       date: new Date(Date.now() - 82800000).toISOString(),
       device: 'MacBook Pro 16"',
       location: "New York, NY",
@@ -1121,9 +1121,9 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "faq2",
-      question: "What is Chase Ultimate Rewards?",
+      question: "What is Crestline Capital Ultimate Rewards?",
       answer:
-        "Chase Ultimate Rewards is a rewards program that allows you to earn points on your purchases. Points can be redeemed for travel, cash back, gift cards, or statement credits.",
+        "Crestline Capital Ultimate Rewards is a rewards program that allows you to earn points on your purCrestlines. Points can be redeemed for travel, cash back, gift cards, or statement credits.",
       category: "Rewards",
       helpful: null,
     },
@@ -1131,7 +1131,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       id: "faq3",
       question: "How do I activate a new credit card?",
       answer:
-        "To activate a new credit card, you can call the number on the sticker on your card, or log in to your Chase account and go to Card Management to activate online.",
+        "To activate a new credit card, you can call the number on the sticker on your card, or log in to your Crestline Capital account and go to Card Management to activate online.",
       category: "Credit Cards",
       helpful: null,
     },
@@ -1192,7 +1192,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (typeof window === "undefined") return
 
-    const userId = localStorage.getItem("chase_user_id")
+    const userId = localStorage.getItem("Crestline_user_id")
     if (!userId) return
 
     let accountsChannel: any = null
@@ -1211,7 +1211,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
         const dashData = await response.json()
 
         // Update user profile from stored data
-        const storedUserData = localStorage.getItem("chase_user_data")
+        const storedUserData = localStorage.getItem("Crestline_user_data")
         if (storedUserData) {
           try {
             const userData = JSON.parse(storedUserData)
@@ -1228,7 +1228,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
         }
 
         // Update accounts from Supabase data
-        const storedAccounts = localStorage.getItem("chase_user_accounts")
+        const storedAccounts = localStorage.getItem("Crestline_user_accounts")
         if (storedAccounts) {
           try {
             const dbAccounts = JSON.parse(storedAccounts)
@@ -1359,7 +1359,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
               if ('Notification' in window && window.Notification.permission === 'granted') {
                 new window.Notification(newNotif.title, {
                   body: newNotif.message,
-                  icon: '/images/chase-logo.png',
+                  icon: '/images/Crestline-logo.png',
                   tag: newNotif.id,
                 })
               }
@@ -1486,7 +1486,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      localStorage.setItem("chase_linked_devices", JSON.stringify(linkedDevices))
+      localStorage.setItem("Crestline_linked_devices", JSON.stringify(linkedDevices))
     }
   }, [linkedDevices])
 
@@ -1516,21 +1516,21 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
   ])
 
   useEffect(() => {
-    const unsubscribe = realTimeSync.subscribe("chase_accounts", (data) => {
+    const unsubscribe = realTimeSync.subscribe("Crestline_accounts", (data) => {
       if (data && Array.isArray(data)) setAccounts(data)
     })
     return unsubscribe
   }, [realTimeSync])
 
   useEffect(() => {
-    const unsubscribe = realTimeSync.subscribe("chase_transactions", (data) => {
+    const unsubscribe = realTimeSync.subscribe("Crestline_transactions", (data) => {
       if (data && Array.isArray(data)) setTransactions(data)
     })
     return unsubscribe
   }, [realTimeSync])
 
   useEffect(() => {
-    const unsubscribe = realTimeSync.subscribe("chase_settings", (data) => {
+    const unsubscribe = realTimeSync.subscribe("Crestline_settings", (data) => {
       if (data && typeof data === "object") setAppSettings(data)
     })
     return unsubscribe
@@ -1538,7 +1538,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
 
   // Real-time sync for linked devices
   useEffect(() => {
-    const unsubscribe = realTimeSync.subscribe("chase_linked_devices", (data) => {
+    const unsubscribe = realTimeSync.subscribe("Crestline_linked_devices", (data) => {
       if (data && Array.isArray(data)) {
         setLinkedDevices(data)
       }
@@ -1549,7 +1549,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
   // Publish linked devices changes for real-time sync
   useEffect(() => {
     if (isLoaded && linkedDevices && linkedDevices.length > 0) {
-      realTimeSync.publish("chase_linked_devices", linkedDevices)
+      realTimeSync.publish("Crestline_linked_devices", linkedDevices)
     }
   }, [linkedDevices, isLoaded, realTimeSync])
 
@@ -2295,7 +2295,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       phone: "+1 (702) 886-4745",
       address: "34B Philadelphia, Pennsylvania PA, USA",
       memberSince: "1988-08-24",
-      tier: "Chase Private Client",
+      tier: "Crestline Capital Private Client",
       ultimateRewardsPoints: 287450,
       profilePicture: null,
       dateOfBirth: "1961-08-24",
@@ -2324,7 +2324,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     setScheduledPayments([])
     setLastSynced(null)
     if (typeof window !== "undefined") {
-      localStorage.removeItem("chase_banking_last_sync")
+      localStorage.removeItem("Crestline_banking_last_sync")
     }
 
     // Clear local storage

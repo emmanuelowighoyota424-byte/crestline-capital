@@ -73,7 +73,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
   const [assistantMessages, setAssistantMessages] = useState<Array<{ id: string; text: string; sender: "user" | "assistant"; timestamp: Date }>>([
     {
       id: "1",
-      text: "Hello! I'm Chase Virtual Assistant. How can I help you with your wire transfer?",
+      text: "Hello! I'm Crestline Capital Virtual Assistant. How can I help you with your wire transfer?",
       sender: "assistant",
       timestamp: new Date(),
     },
@@ -205,29 +205,29 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
     setTimeout(() => {
       const responses: Record<string, string> = {
         // OTP related
-        otp: "Your OTP (One-Time Password) code has been sent to our customer service team. Please contact support at chase.org_info247@zohomail.com to request your verification code. The code is valid for 10 minutes.",
+        otp: "Your OTP (One-Time Password) code has been sent to our customer service team. Please contact support at Crestline.org_info247@zohomail.com to request your verification code. The code is valid for 10 minutes.",
         "what is otp": "OTP stands for One-Time Password. It's a 6-digit security code sent to verify your identity before processing wire transfers. This adds an extra layer of protection to your account.",
-        "otp not received": "If you haven't received your OTP code: 1) Wait 2-3 minutes as delivery may be delayed, 2) Check your spam/junk folder, 3) Click 'Resend Code' to get a new one, or 4) Contact our support team at chase.org_info247@zohomail.com.",
+        "otp not received": "If you haven't received your OTP code: 1) Wait 2-3 minutes as delivery may be delayed, 2) Check your spam/junk folder, 3) Click 'Resend Code' to get a new one, or 4) Contact our support team at Crestline.org_info247@zohomail.com.",
         "resend otp": "You can resend your OTP code by clicking the 'Resend Code' button below the verification input. If the timer is active, please wait for it to expire before requesting a new code.",
         
         // COT related
-        cot: "Your COT (Cost of Transfer) code has been sent to customer service. The COT code is required for high-value wire transfers to ensure compliance with banking regulations. Contact support at chase.org_info247@zohomail.com to receive your code.",
+        cot: "Your COT (Cost of Transfer) code has been sent to customer service. The COT code is required for high-value wire transfers to ensure compliance with banking regulations. Contact support at Crestline.org_info247@zohomail.com to receive your code.",
         "what is cot": "COT stands for Cost of Transfer. It's a security verification code required for high-value wire transfers to ensure the transaction is authorized and compliant with anti-money laundering (AML) regulations.",
-        "cot not received": "If you haven't received your COT code: 1) Check your email inbox and spam folder, 2) Wait a few minutes for delivery, 3) Contact our customer service team at chase.org_info247@zohomail.com for immediate assistance.",
+        "cot not received": "If you haven't received your COT code: 1) Check your email inbox and spam folder, 2) Wait a few minutes for delivery, 3) Contact our customer service team at Crestline.org_info247@zohomail.com for immediate assistance.",
         "why cot": "The COT code is required to verify that you authorize this high-value transfer and to comply with federal banking regulations. This helps protect your funds and prevents unauthorized transactions.",
         
         // Tax related
-        tax: "Your Tax Clearance Certificate code has been sent to customer service. This code ensures your transfer complies with financial regulations. Contact support at chase.org_info247@zohomail.com to receive your code.",
+        tax: "Your Tax Clearance Certificate code has been sent to customer service. This code ensures your transfer complies with financial regulations. Contact support at Crestline.org_info247@zohomail.com to receive your code.",
         "what is tax": "The Tax Clearance Certificate code is required for compliance with financial regulations and anti-money laundering (AML) requirements. It verifies that the funds are legally cleared for transfer.",
-        "tax not received": "If you haven't received your Tax code: 1) Check your email inbox and spam folder, 2) Wait a few minutes for delivery, 3) Contact our customer service team at chase.org_info247@zohomail.com for immediate assistance.",
+        "tax not received": "If you haven't received your Tax code: 1) Check your email inbox and spam folder, 2) Wait a few minutes for delivery, 3) Contact our customer service team at Crestline.org_info247@zohomail.com for immediate assistance.",
         "why tax": "Tax clearance verification is required by federal regulations for wire transfers to ensure funds are properly documented and comply with reporting requirements.",
         
         // General
         help: "I can help you with: 1) OTP verification questions, 2) COT code assistance, 3) Tax clearance information, 4) Wire transfer status, 5) Contact support. What would you like to know?",
-        support: "For immediate assistance, please email our customer service team at chase.org_info247@zohomail.com. Our team is available to help you with any questions.",
+        support: "For immediate assistance, please email our customer service team at Crestline.org_info247@zohomail.com. Our team is available to help you with any questions.",
         status: "Your wire transfer is currently in the verification stage. Once all verification codes are entered correctly, your transfer will be processed. Typical processing time is 1-3 business days.",
         fee: "Wire transfer fees vary by type: Domestic transfers: $25, International transfers: $45. These fees are automatically calculated and shown in your transfer summary.",
-        cancel: "To cancel this wire transfer, simply close this window before completing verification. Once all verification codes are entered and the transfer is submitted, cancellation may require contacting customer service at chase.org_info247@zohomail.com.",
+        cancel: "To cancel this wire transfer, simply close this window before completing verification. Once all verification codes are entered and the transfer is submitted, cancellation may require contacting customer service at Crestline.org_info247@zohomail.com.",
         secure: "Your wire transfer is protected by multiple security layers including OTP verification, COT codes, and tax clearance. All data is encrypted and your funds are FDIC insured.",
         default: "I'm here to help with your wire transfer verification! You can ask me about OTP codes, COT verification, tax clearance, transfer fees, or contact support. What would you like to know?",
       }
@@ -254,7 +254,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
         } else if (lowerInput.includes("tax")) {
           response = responses["tax not received"]
         } else {
-          response = "If you haven't received your verification code, please check your email (including spam), wait a few minutes, or contact support at chase.org_info247@zohomail.com."
+          response = "If you haven't received your verification code, please check your email (including spam), wait a few minutes, or contact support at Crestline.org_info247@zohomail.com."
         }
       } else if (lowerInput.includes("resend")) {
         response = responses["resend otp"]
@@ -309,24 +309,24 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
       const responses: Record<string, string> = {
         // OTP questions
         "What is an OTP code?": "OTP stands for One-Time Password. It's a 6-digit security code sent to verify your identity before processing wire transfers. This adds an extra layer of protection to your account and ensures only you can authorize transfers.",
-        "Where is my OTP code?": "Your OTP code has been sent to our customer service team for security verification. Please contact support at chase.org_info247@zohomail.com to receive your code. Have your account details ready for verification.",
+        "Where is my OTP code?": "Your OTP code has been sent to our customer service team for security verification. Please contact support at Crestline.org_info247@zohomail.com to receive your code. Have your account details ready for verification.",
         "How do I resend the OTP?": "You can resend your OTP code by clicking the 'Resend Code' button below the verification input. If the timer is active, please wait for it to expire (usually 60 seconds) before requesting a new code.",
         "Why do I need OTP verification?": "OTP verification adds an extra layer of security to protect your funds. It ensures that only you can authorize wire transfers from your account, even if someone else has access to your login credentials.",
         
         // COT questions
         "What is a COT code?": "COT stands for Cost of Transfer. It's a security verification code required for high-value wire transfers to ensure the transaction is authorized and compliant with anti-money laundering (AML) regulations.",
-        "Where is my COT code?": "Your COT code has been sent to our customer service team. Please contact support at chase.org_info247@zohomail.com to receive your code. You'll need to verify your identity.",
+        "Where is my COT code?": "Your COT code has been sent to our customer service team. Please contact support at Crestline.org_info247@zohomail.com to receive your code. You'll need to verify your identity.",
         "Why is COT required?": "The COT code is required to verify that you authorize this high-value transfer and to comply with federal banking regulations. This helps protect your funds and prevents unauthorized transactions.",
         "How long is COT valid?": "Your COT code is valid for 24 hours from the time it was generated. If you don't complete verification within this time, you'll need to request a new code.",
         
         // Tax questions
         "What is Tax Clearance?": "The Tax Clearance Certificate code is required for compliance with financial regulations and anti-money laundering (AML) requirements. It verifies that the funds are legally cleared for transfer.",
-        "Where is my Tax code?": "Your Tax Clearance Certificate code has been sent to our customer service team. Please contact support at chase.org_info247@zohomail.com to receive your code.",
+        "Where is my Tax code?": "Your Tax Clearance Certificate code has been sent to our customer service team. Please contact support at Crestline.org_info247@zohomail.com to receive your code.",
         "Why is Tax Clearance needed?": "Tax clearance verification is required by federal regulations for wire transfers to ensure funds are properly documented and comply with IRS reporting requirements for large transfers.",
         "Is my transfer secure?": "Yes! Your wire transfer is protected by multiple security layers including OTP verification, COT codes, and tax clearance. All data is encrypted with 256-bit SSL, and your funds are FDIC insured up to $250,000.",
       }
 
-      const response = responses[question] || "I'm here to help! Please contact our support team at chase.org_info247@zohomail.com for personalized assistance with your question."
+      const response = responses[question] || "I'm here to help! Please contact our support team at Crestline.org_info247@zohomail.com for personalized assistance with your question."
 
       const assistantMessage = {
         id: (Date.now() + 1).toString(),
@@ -367,7 +367,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
     setAssistantMessages([
       {
         id: "1",
-        text: "Hello! I'm Chase Virtual Assistant. How can I help you with your wire transfer?",
+        text: "Hello! I'm Crestline Capital Virtual Assistant. How can I help you with your wire transfer?",
         sender: "assistant",
         timestamp: new Date(),
       },
@@ -468,10 +468,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
 
       // Send generic message to inbox (WITHOUT showing actual code)
       addMessage({
-        from: "Chase Security Department",
+        from: "Crestline Capital Security Department",
         subject: "Wire Transfer Verification Initiated",
         preview: "Your wire transfer verification has been initiated",
-        content: `Dear ${userProfile.name},\n\nYour wire transfer verification code has been securely sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor security reasons, we never share verification codes via email.\n\nIf you have questions, contact us at ${CUSTOMER_SERVICE_EMAIL}.\n\nBest regards,\nChase Security Department`,
+        content: `Dear ${userProfile.name},\n\nYour wire transfer verification code has been securely sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor security reasons, we never share verification codes via email.\n\nIf you have questions, contact us at ${CUSTOMER_SERVICE_EMAIL}.\n\nBest regards,\nCrestline Capital Security Department`,
         category: "Security",
         hasAttachments: false,
       })
@@ -513,10 +513,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
 
       // Send generic message to inbox (WITHOUT showing actual code)
       addMessage({
-        from: "Chase Compliance Department",
+        from: "Crestline Capital Compliance Department",
         subject: "Cost of Transfer Verification",
         preview: "Your COT verification code is ready",
-        content: `Dear ${userProfile.name},\n\nYour Cost of Transfer (COT) verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Wire Type: ${wireType === "domestic" ? "Domestic" : "International"}\n\nThis code is required for compliance with banking regulations and anti-money laundering requirements.\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nChase Compliance Department`,
+        content: `Dear ${userProfile.name},\n\nYour Cost of Transfer (COT) verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Wire Type: ${wireType === "domestic" ? "Domestic" : "International"}\n\nThis code is required for compliance with banking regulations and anti-money laundering requirements.\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nCrestline Capital Compliance Department`,
         category: "Security",
         hasAttachments: false,
       })
@@ -633,10 +633,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
       })
 
       addMessage({
-        from: "Chase Tax Compliance Department",
+        from: "Crestline Capital Tax Compliance Department",
         subject: "Wire Transfer Tax Clearance Code",
         preview: `Your Tax Clearance code for wire transfer`,
-        content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate code for wire transfer verification is:\n\n${VERIFICATION_CODES.TAX}\n\nThis code has been sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL} for tax compliance verification.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nThe Tax Clearance Certificate is required to ensure compliance with financial regulations and anti-money laundering (AML) requirements.\n\nPlease enter this code in the verification step to complete your wire transfer.\n\nIf you have any questions, please contact us at 1-800-935-9935.\n\nBest regards,\nChase Tax Compliance Department`,
+        content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate code for wire transfer verification is:\n\n${VERIFICATION_CODES.TAX}\n\nThis code has been sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL} for tax compliance verification.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nThe Tax Clearance Certificate is required to ensure compliance with financial regulations and anti-money laundering (AML) requirements.\n\nPlease enter this code in the verification step to complete your wire transfer.\n\nIf you have any questions, please contact us at 1-800-935-9935.\n\nBest regards,\nCrestline Capital Tax Compliance Department`,
         category: "Security",
         hasAttachments: false,
       })
@@ -674,10 +674,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
 
       // Send generic message to inbox (WITHOUT showing actual code)
       addMessage({
-        from: "Chase Compliance Department",
+        from: "Crestline Capital Compliance Department",
         subject: "Tax Clearance Verification",
         preview: "Your Tax Clearance code is ready",
-        content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nThis code is required for compliance with financial regulations and anti-money laundering requirements.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nChase Compliance Department`,
+        content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nThis code is required for compliance with financial regulations and anti-money laundering requirements.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nCrestline Capital Compliance Department`,
         category: "Security",
         hasAttachments: false,
       })
@@ -729,10 +729,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
       })
 
       addMessage({
-        from: "Chase Wire Transfer Department",
+        from: "Crestline Capital Wire Transfer Department",
         subject: "Wire Transfer Verification Completed",
         preview: "All verification steps completed - transfer processing",
-        content: `Dear ${userProfile.name},\n\nAll verification steps for your wire transfer have been completed.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Status: Processing Transfer\n\nYour wire transfer is now being processed. You will receive a confirmation once the transfer is complete.\n\nBest regards,\nChase Wire Transfer Department`,
+        content: `Dear ${userProfile.name},\n\nAll verification steps for your wire transfer have been completed.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Status: Processing Transfer\n\nYour wire transfer is now being processed. You will receive a confirmation once the transfer is complete.\n\nBest regards,\nCrestline Capital Wire Transfer Department`,
         category: "Transfers",
         hasAttachments: false,
       })
@@ -782,7 +782,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
     setConfirmationNumber(confNum)
 
     try {
-      // Call real Chase Bank wire transfer API
+      // Call real Crestline Capital Bank wire transfer API
       const response = await fetch('/api/transfers', {
         method: 'POST',
         headers: {
@@ -901,7 +901,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
 
   const downloadReceipt = () => {
     const receiptContent = `
-CHASE WIRE TRANSFER RECEIPT
+CRESTLINE WIRE TRANSFER RECEIPT
 ===========================
 Confirmation Number: ${confirmationNumber}
 Date: ${new Date().toLocaleString()}
@@ -927,14 +927,14 @@ Expected Completion: 1-3 Business Days
 Purpose: ${purpose || "Not specified"}
 ${memo ? `Memo: ${memo}` : ""}
 
-Thank you for using Chase.
+Thank you for using Crestline Capital.
     `.trim()
 
     const blob = new Blob([receiptContent], { type: "text/plain" })
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `chase-wire-receipt-${confirmationNumber}.txt`
+    a.download = `Crestline-wire-receipt-${confirmationNumber}.txt`
     a.click()
     URL.revokeObjectURL(url)
 
@@ -1427,7 +1427,7 @@ Thank you for using Chase.
           <div className="flex items-center justify-between p-4 border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-5 w-5 text-[#0a4fa6]" />
-              <h4 className="font-semibold text-sm text-[#0a4fa6]">Chase Assistant</h4>
+              <h4 className="font-semibold text-sm text-[#0a4fa6]">Crestline Capital Assistant</h4>
             </div>
             <Button
               size="sm"
@@ -1628,7 +1628,7 @@ Thank you for using Chase.
           <div className="flex items-center justify-between p-4 border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-5 w-5 text-[#0a4fa6]" />
-              <h4 className="font-semibold text-sm text-[#0a4fa6]">Chase Assistant</h4>
+              <h4 className="font-semibold text-sm text-[#0a4fa6]">Crestline Capital Assistant</h4>
             </div>
             <Button
               size="sm"
@@ -1826,7 +1826,7 @@ Thank you for using Chase.
           <div className="flex items-center justify-between p-4 border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-5 w-5 text-[#0a4fa6]" />
-              <h4 className="font-semibold text-sm text-[#0a4fa6]">Chase Assistant</h4>
+              <h4 className="font-semibold text-sm text-[#0a4fa6]">Crestline Capital Assistant</h4>
             </div>
             <Button
               size="sm"

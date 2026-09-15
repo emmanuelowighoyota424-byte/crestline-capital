@@ -139,7 +139,7 @@ async function sendTransferSMS(options: {
   try {
     const { phone, recipientName, amount, accountName, transferId, broadcastToAllDevices, userId } = options
 
-    const message = `Chase Alert: $${amount.toFixed(2)} has been added to your ${accountName} by admin. Reference: ${transferId.slice(0, 8)}`
+    const message = `Crestline Capital Alert: $${amount.toFixed(2)} has been added to your ${accountName} by admin. Reference: ${transferId.slice(0, 8)}`
 
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
     const response = await fetch(`${baseUrl}/api/notifications/sms`, {
@@ -282,7 +282,7 @@ async function sendTransferEmail(options: {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         to: email,
-        subject: `Chase Alert: $${amount.toFixed(2)} deposited to ${accountName}`,
+        subject: `Crestline Capital Alert: $${amount.toFixed(2)} deposited to ${accountName}`,
         type: 'admin_transfer',
         data: {
           transferId,

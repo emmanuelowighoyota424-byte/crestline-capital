@@ -16,12 +16,12 @@ interface Message {
   timestamp: Date
 }
 
-export function ChaseVirtualAssistant() {
+export function CrestlineVirtualAssistant() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hello! I'm Chase Virtual Assistant. How can I help you today?",
+      text: "Hello! I'm Crestline Capital Virtual Assistant. How can I help you today?",
       sender: "assistant",
       timestamp: new Date(),
     },
@@ -129,7 +129,7 @@ export function ChaseVirtualAssistant() {
         <button
           onClick={() => setOpen(true)}
           className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-[#0a4fa6] text-white shadow-2xl hover:bg-[#083d85] transition-all duration-300 flex items-center justify-center group"
-          aria-label="Open Chase Virtual Assistant"
+          aria-label="Open Crestline Capital Virtual Assistant"
         >
           <div className="absolute inset-0 rounded-full bg-[#0a4fa6] animate-pulse opacity-20"></div>
           <MessageCircle className="h-6 w-6 relative z-10 group-hover:scale-110 transition-transform" />
@@ -142,10 +142,10 @@ export function ChaseVirtualAssistant() {
           <DrawerHeader className="bg-gradient-to-r from-[#0a4fa6] to-[#117aca] text-white rounded-t-2xl py-4 px-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 relative">
-                <Image src="/images/chase-logo.png" alt="Chase" fill className="object-contain" />
+                <Image src="/images/Crestline-logo.png" alt="Crestline Capital" fill className="object-contain" />
               </div>
               <div>
-                <DrawerTitle className="text-white">Chase Assistant</DrawerTitle>
+                <DrawerTitle className="text-white">Crestline Capital Assistant</DrawerTitle>
                 <p className="text-xs text-white/80">Always here to help</p>
               </div>
             </div>
@@ -256,7 +256,7 @@ export function ChaseVirtualAssistant() {
                   </Button>
                 </div>
                 <p className="text-xs text-gray-400 text-center">
-                  Chase Virtual Assistant • Powered by AI
+                  Crestline Capital Virtual Assistant • Powered by AI
                 </p>
               </div>
             </div>

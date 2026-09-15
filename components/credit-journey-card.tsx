@@ -16,7 +16,7 @@ export function CreditJourneyCard({ onViewScore }: CreditJourneyCardProps) {
 
   useEffect(() => {
     // Load credit score from localStorage if available
-    const savedScore = localStorage.getItem("chase_credit_score")
+    const savedScore = localStorage.getItem("crestline_credit_score")
     if (savedScore) {
       const data = JSON.parse(savedScore)
       setCreditScore(data.score)

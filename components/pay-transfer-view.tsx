@@ -50,7 +50,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
       clearTimeout(optionClickTimers[optionId])
     }
 
-    // Simulate loading for smooth UX (like Chase app)
+    // Simulate loading for smooth UX (like Crestline Capital app)
     const timer = setTimeout(() => {
       callback()
       setLoadingOption(null)
@@ -106,7 +106,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search payments & transfers"
-            className="pl-11 bg-card border-0 chase-card-shadow h-12 rounded-xl"
+            className="pl-11 bg-card border-0 Crestline-card-shadow h-12 rounded-xl"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -132,7 +132,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
       <div className="grid grid-cols-2 gap-3">
         {/* Send Money with Zelle */}
         <Card
-          className="chase-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
+          className="Crestline-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
           onClick={() => handleOptionClick("send-money", onSendMoney)}
         >
           <CardContent className="p-4">
@@ -150,7 +150,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
 
         {/* Transfer Between Accounts */}
         <Card
-          className="chase-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
+          className="Crestline-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
           onClick={() => handleOptionClick("transfer", onTransfer)}
         >
           <CardContent className="p-4">
@@ -168,7 +168,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
 
         {/* Pay Bills */}
         <Card
-          className="chase-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
+          className="Crestline-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
           onClick={() => handleOptionClick("pay-bills", onPayBills)}
         >
           <CardContent className="p-4">
@@ -186,7 +186,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
 
         {/* Wires & Global Transfers */}
         <Card
-          className="chase-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
+          className="Crestline-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
           onClick={() => handleOptionClick("wire", onWire)}
         >
           <CardContent className="p-4">
@@ -205,7 +205,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
 
       {/* Scheduled Payments */}
       {activeScheduledPayments.length > 0 && (
-        <Card className="chase-card-shadow border-0">
+        <Card className="Crestline-card-shadow border-0">
           <CardContent className="p-4">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
@@ -266,7 +266,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
       )}
 
       {/* Recent Activity */}
-      <Card className="chase-card-shadow border-0">
+      <Card className="Crestline-card-shadow border-0">
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-[#0a4fa6]">Recent Activity</h3>

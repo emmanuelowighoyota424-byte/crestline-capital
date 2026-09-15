@@ -1,37 +1,35 @@
 // Demo credentials for development and testing
-// Username: CHUN HUNG
-// Password: Chun200@ (hashed using bcrypt)
 // NEVER use these in production - for development/demo only
+// SANDBOX MODE: This is a demo environment
 
 export const DEMO_CREDENTIALS = {
-  firstName: "CHUN",
-  lastName: "HUNG",
-  email: "chun.hung@demo.example.com",
-  username: "CHUN HUNG",
-  // This is a bcrypt hash of "Chun200@"
-  // To generate: bcrypt.hash("Chun200@", 10)
-  passwordHash: "$2b$10$YourHashedPasswordHere", // Replace with actual bcrypt hash
+  firstName: "Alex",
+  lastName: "Morgan",
+  email: "alex.morgan@crestline.demo",
+  username: "Alex Morgan",
+  // This is a bcrypt hash - replace with actual hash in production
+  passwordHash: "$2b$10$YourHashedPasswordHere",
   // Plain text ONLY for reference - NEVER store this
-  passwordPlain: "Chun200@",
+  passwordPlain: "Crestline2024!",
 }
 
 export const DEMO_ACCOUNTS = [
   {
     accountType: "Checking",
-    accountNumber: "****5001",
-    balance: 5250.75,
+    accountNumber: "****4501",
+    balance: 28450.75,
     currency: "USD",
   },
   {
     accountType: "Savings",
-    accountNumber: "****5002",
-    balance: 12500.00,
+    accountNumber: "****4502",
+    balance: 52500.00,
     currency: "USD",
   },
   {
-    accountType: "Money Market",
-    accountNumber: "****5003",
-    balance: 25000.50,
+    accountType: "Business",
+    accountNumber: "****4503",
+    balance: 125000.50,
     currency: "USD",
   },
 ]
@@ -51,8 +49,8 @@ export const DEMO_TRANSACTIONS = [
   },
   {
     type: "deposit",
-    amount: 1000.00,
-    description: "Direct Deposit",
+    amount: 5000.00,
+    description: "Direct Deposit - Payroll",
     timestamp: new Date(Date.now() - 259200000),
   },
 ]

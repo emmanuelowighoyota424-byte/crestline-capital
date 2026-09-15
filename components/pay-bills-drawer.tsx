@@ -24,7 +24,7 @@ const defaultPayees = [
   { id: "3", name: "Gas Company", category: "Utilities", lastAmount: 0, accountNumber: "****9012" },
   { id: "4", name: "Internet Provider", category: "Utilities", lastAmount: 0, accountNumber: "****3456" },
   { id: "5", name: "Phone Bill", category: "Utilities", lastAmount: 0, accountNumber: "****7890" },
-  { id: "6", name: "Credit Card - Chase", category: "Credit Cards", lastAmount: 0, accountNumber: "****4567" },
+  { id: "6", name: "Credit Card - Crestline Capital", category: "Credit Cards", lastAmount: 0, accountNumber: "****4567" },
   { id: "7", name: "Credit Card - Amex", category: "Credit Cards", lastAmount: 0, accountNumber: "****8901" },
   { id: "8", name: "Mortgage - Wells Fargo", category: "Loans", lastAmount: 0, accountNumber: "****2345" },
   { id: "9", name: "Auto Loan - Capital One", category: "Loans", lastAmount: 0, accountNumber: "****6789" },
@@ -139,7 +139,7 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
     setIsLoading(true)
     setStep("confirm")
 
-    // Call real Chase Bank bill pay API
+    // Call real Crestline Capital Bank bill pay API
     fetch('/api/bill-pay', {
       method: 'POST',
       headers: {
