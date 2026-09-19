@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import Link from 'next/link'
 import {
   Inbox,
   LifeBuoy,
@@ -14,6 +15,8 @@ import {
   Clock,
   UserCheck,
   Plus,
+  Sparkles,
+  ExternalLink,
 } from 'lucide-react'
 import {
   AdminTicket,
@@ -101,8 +104,35 @@ export default function EngagementModules({
               <span>Internal Staff Memos & Executive Inbox (?id=30)</span>
             </h2>
             <p className="text-xs text-[#94a3b8]">
-              Air-gapped internal communications and compliance directives.
+              Air-gapped internal communications, compliance directives, and Google Workspace integration.
             </p>
+          </div>
+
+          {/* Google Workspace Gmail Hub Link */}
+          <div className="bg-gradient-to-r from-red-500/10 via-[#161e2e] to-blue-500/10 border border-[#334155] rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-red-500/20 border border-red-500/30 flex items-center justify-center text-red-400 shrink-0">
+                <Mail className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h4 className="font-bold text-sm text-white">Institutional Gmail Workspace</h4>
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#38bdf8]/20 text-[#38bdf8] border border-[#38bdf8]/30">
+                    Active Integration
+                  </span>
+                </div>
+                <p className="text-xs text-[#94a3b8]">
+                  Access your connected Google Workspace account to review incoming customer emails, send wire receipts, and dispatch official communications.
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/gmail"
+              className="px-4 py-2 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] font-bold text-xs rounded-xl transition-all shadow-[0_0_15px_rgba(56,189,248,0.25)] flex items-center gap-2 cursor-pointer shrink-0"
+            >
+              <span>Launch Gmail Hub</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
           <div className="space-y-3">

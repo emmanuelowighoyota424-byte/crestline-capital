@@ -50,7 +50,7 @@ export default function BusinessPage() {
             </div>
             <h2 className="text-lg font-bold text-white mb-2">Team Permissions & Dual Sign-Off</h2>
             <p className="text-xs text-[#94a3b8] leading-relaxed">
-              Define custom roles: View-Only, Bookkeeper, Operator, Administrator, and Signer. High-value wire transfers require dual executive approvals.
+              Define custom roles: View-Only, Bookkeeper, Operator, Treasury Manager, and Executive Signer. High-value wire transfers require dual executive approvals.
             </p>
           </div>
 

@@ -2,8 +2,9 @@
 
 import type React from "react"
 import Image from "next/image"
+import Link from "next/link"
 
-import { MessageSquare, Bell, Search, Camera } from "lucide-react"
+import { MessageSquare, Bell, Search, Camera, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useRef } from "react"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
@@ -156,6 +157,15 @@ export function DashboardHeader() {
                 </span>
               )}
             </Button>
+            <Link href="/gmail" title="Open Gmail Workspace">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white hover:bg-white/10 relative"
+              >
+                <Mail className="h-5 w-5" />
+              </Button>
+            </Link>
           </div>
 
           <div className="flex items-center gap-2">

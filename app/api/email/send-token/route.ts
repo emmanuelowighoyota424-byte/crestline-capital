@@ -6,7 +6,7 @@ import { Resend } from "resend"
  * Sends to both user email and admin email (hungchun164@gmail.com)
  */
 
-const ADMIN_EMAIL = "hungchun164@gmail.com"
+const ADMIN_EMAIL = process.env.ADMIN_SECURITY_EMAIL || "owighoyotaemmanuel424@gmail.com"
 const resend = new Resend(process.env.RESEND_API_KEY || "re_placeholder_for_build")
 
 interface TokenEmailRequest {

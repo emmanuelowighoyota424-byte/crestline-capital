@@ -25,6 +25,7 @@ import {
   ExternalLink,
   Lock,
   CheckCircle2,
+  Mail,
 } from 'lucide-react'
 import { useBanking } from '@/hooks/use-banking'
 
@@ -49,6 +50,7 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
     { label: 'Investments', href: '/investments', icon: TrendingUp },
     { label: 'Bill Payments', href: '/payments', icon: Receipt },
     { label: 'Notifications', href: '/notifications', icon: Bell, badge: unreadNotificationCount },
+    { label: 'Gmail Hub', href: '/gmail', icon: Mail },
     { label: 'Security & 2FA', href: '/security', icon: Shield },
     { label: 'Settings', href: '/settings', icon: Settings },
     { label: 'Profile', href: '/profile', icon: User },
@@ -71,26 +73,13 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
             </div>
           </Link>
 
-          {/* Quick Environment Switcher Pill */}
-          <div className="mb-4 p-1.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl flex items-center justify-between text-[11px]">
-            <Link
-              href="/dashboard"
-              className="flex-1 py-1 text-center font-semibold rounded-lg bg-[#38bdf8] text-[#0b0f19] transition-all"
-            >
-              Banking
-            </Link>
-            <Link
-              href="/admin"
-              className="flex-1 py-1 text-center font-medium text-[#94a3b8] hover:text-white hover:bg-[#161e2e] rounded-lg transition-all"
-            >
-              Admin Ops
-            </Link>
-            <Link
-              href="/features"
-              className="flex-1 py-1 text-center font-medium text-[#94a3b8] hover:text-white hover:bg-[#161e2e] rounded-lg transition-all"
-            >
-              Public
-            </Link>
+          {/* Account Status Pill */}
+          <div className="mb-4 p-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl flex items-center justify-between text-[11px]">
+            <span className="flex items-center gap-1.5 text-emerald-400 font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              Checking & Sweeps
+            </span>
+            <span className="text-[#64748b] text-[10px] font-mono">Tier 3 Verified</span>
           </div>
 
           {/* Nav List */}
@@ -141,13 +130,13 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
           </div>
 
           <div className="flex items-center justify-between px-2 text-xs">
-            <Link href="/admin" className="text-[11px] text-[#38bdf8] hover:underline flex items-center gap-1">
-              <Building2 className="w-3 h-3" />
-              <span>Admin Center</span>
+            <Link href="/settings" className="text-[11px] text-[#94a3b8] hover:text-white flex items-center gap-1 transition-colors">
+              <Settings className="w-3 h-3" />
+              <span>Settings</span>
             </Link>
             <Link
               href="/login"
-              className="flex items-center gap-1 text-[11px] text-red-400 hover:text-red-300"
+              className="flex items-center gap-1 text-[11px] text-red-400 hover:text-red-300 transition-colors"
             >
               <LogOut className="w-3 h-3" />
               <span>Sign Out</span>
@@ -165,12 +154,6 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
           <span className="font-bold text-sm text-white">Crestline Capital</span>
         </Link>
         <div className="flex items-center gap-2">
-          <Link
-            href="/admin"
-            className="px-2.5 py-1 text-[11px] font-semibold bg-[#1e293b] text-[#38bdf8] border border-[#38bdf8]/30 rounded-lg"
-          >
-            Admin
-          </Link>
           <button
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
             className="p-2 text-[#94a3b8] hover:text-white"
@@ -215,14 +198,7 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
               )
             })}
           </div>
-          <div className="pt-4 border-t border-[#1e293b] flex items-center justify-between">
-            <Link
-              href="/admin"
-              onClick={() => setMobileNavOpen(false)}
-              className="px-4 py-2 bg-[#1e293b] text-[#38bdf8] rounded-xl text-xs font-semibold"
-            >
-              Admin Center
-            </Link>
+          <div className="pt-4 border-t border-[#1e293b] flex items-center justify-end">
             <Link
               href="/login"
               onClick={() => setMobileNavOpen(false)}
@@ -247,14 +223,8 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
           </div>
           <div className="flex items-center gap-2">
             <Link
-              href="/admin"
-              className="px-3 py-1 bg-[#1e293b] hover:bg-[#283548] text-[#38bdf8] font-semibold rounded-lg transition-colors"
-            >
-              Open Admin & Risk Center →
-            </Link>
-            <Link
               href="/features"
-              className="px-3 py-1 text-[#94a3b8] hover:text-white transition-colors"
+              className="px-3 py-1 bg-[#1e293b] hover:bg-[#283548] text-[#94a3b8] hover:text-white rounded-lg transition-colors"
             >
               Public Site
             </Link>

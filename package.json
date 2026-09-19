@@ -54,6 +54,7 @@
     "convex": "^1.45.0",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
+    "firebase": "^12.19.0",
     "hi-base32": "^0.5.1",
     "input-otp": "latest",
     "lucide-react": "^0.454.0",

@@ -38,10 +38,9 @@ import {
   FileText,
 } from 'lucide-react'
 import DashboardPage from '@/app/dashboard/page'
-import AdminPage from '@/app/admin/page'
 
 type ActiveTab = 'treasury' | 'wires' | 'card' | 'ledger'
-type ViewMode = 'landing' | 'banking' | 'admin'
+type ViewMode = 'landing' | 'banking'
 
 export default function LandingPage() {
   const [viewMode, setViewMode] = useState<ViewMode>('landing')
@@ -119,27 +118,6 @@ export default function LandingPage() {
     )
   }
 
-  if (viewMode === 'admin') {
-    return (
-      <div className="min-h-screen bg-[#070a11] text-[#f8fafc] flex flex-col">
-        <div className="bg-[#161e2e] border-b border-[#1e293b] px-4 py-2 flex items-center justify-between sticky top-0 z-50">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-[#38bdf8] bg-[#38bdf8]/10 px-2.5 py-0.5 rounded-full border border-[#38bdf8]/20">
-              Institutional Admin Console Preview
-            </span>
-          </div>
-          <button
-            onClick={() => setViewMode('landing')}
-            className="text-xs px-3 py-1.5 bg-[#38bdf8] text-[#0b0f19] font-bold rounded-lg hover:bg-[#0ea5e9] transition-all flex items-center gap-1"
-          >
-            ← Return to Landing Page
-          </button>
-        </div>
-        <AdminPage />
-      </div>
-    )
-  }
-
   return (
     <div className="min-h-screen bg-[#070a11] text-[#f8fafc] flex flex-col selection:bg-[#38bdf8] selection:text-[#0b0f19]">
       {/* Top Universal Regulatory & Navigation Header */}
@@ -157,9 +135,9 @@ export default function LandingPage() {
           <div className="flex items-center gap-4 text-[10px] font-mono">
             <span>HIGH-YIELD TREASURY SWEEPS: 4.85% APY</span>
             <span className="text-[#334155]">•</span>
-            <Link href="/admin" className="text-[#38bdf8] hover:underline flex items-center gap-1">
-              <Lock className="w-3 h-3" />
-              <span>Admin Gatekeeper</span>
+            <Link href="/security" className="text-[#94a3b8] hover:text-[#38bdf8] transition-colors flex items-center gap-1">
+              <Shield className="w-3 h-3 text-emerald-400" />
+              <span>Security Center</span>
             </Link>
           </div>
         </div>
@@ -214,14 +192,6 @@ export default function LandingPage() {
               >
                 <LayoutDashboard className="w-3.5 h-3.5 text-emerald-400" />
                 <span className="hidden md:inline">Customer Demo</span>
-              </button>
-              <button
-                onClick={() => setViewMode('admin')}
-                title="Preview Institutional Admin Console"
-                className="px-2.5 py-1 rounded-lg text-[#94a3b8] hover:text-white font-medium hover:bg-[#1e293b] flex items-center gap-1 transition-all"
-              >
-                <Building2 className="w-3.5 h-3.5 text-[#38bdf8]" />
-                <span className="hidden md:inline">Admin Risk</span>
               </button>
             </div>
 
@@ -298,15 +268,6 @@ export default function LandingPage() {
               >
                 Launch Customer Demo
               </button>
-              <button
-                onClick={() => {
-                  setViewMode('admin')
-                  setMobileMenuOpen(false)
-                }}
-                className="w-full py-2.5 bg-[#161e2e] text-[#38bdf8] font-semibold rounded-xl text-center"
-              >
-                Launch Admin Risk Console
-              </button>
               <Link
                 href="/login"
                 className="w-full py-2.5 bg-[#1e293b] text-white font-semibold rounded-xl text-center block"
@@ -368,14 +329,6 @@ export default function LandingPage() {
             >
               <LayoutDashboard className="w-4 h-4 text-emerald-400" />
               <span>Explore Live Banking Demo</span>
-            </button>
-
-            <button
-              onClick={() => setViewMode('admin')}
-              className="px-6 py-4 bg-[#161e2e]/60 hover:bg-[#161e2e] text-[#94a3b8] hover:text-white border border-[#1e293b]/70 font-mono text-xs rounded-xl transition-all flex items-center gap-2"
-            >
-              <Lock className="w-3.5 h-3.5 text-[#38bdf8]" />
-              <span>Admin Gatekeeper</span>
             </button>
           </div>
 
@@ -1057,11 +1010,11 @@ export default function LandingPage() {
 
                   <tr>
                     <td className="py-4 px-6 text-white font-semibold">
-                      Master Key & Air-Gap Admin Defense
+                      Multi-Signature Air-Gapped Vault Security
                     </td>
                     <td className="py-4 px-6 text-emerald-400 bg-[#38bdf8]/5 flex items-center gap-1.5 font-bold">
                       <Check className="w-4 h-4 text-emerald-400" />
-                      <span>192-bit Master Gatekeeper</span>
+                      <span>192-bit Hardware Security Module Protection</span>
                     </td>
                     <td className="py-4 px-6 text-[#64748b]">Legacy Passwords & VPNs</td>
                     <td className="py-4 px-6 text-[#64748b]">Standard Cloud SSO</td>
@@ -1250,7 +1203,7 @@ export default function LandingPage() {
                 <li><Link href="/security" className="hover:text-white">Security Architecture</Link></li>
                 <li><Link href="/faq" className="hover:text-white">Knowledge Base</Link></li>
                 <li><Link href="/pricing" className="hover:text-white">Fee Transparency</Link></li>
-                <li><Link href="/admin/login" className="hover:text-white">Admin Gatekeeper</Link></li>
+                <li><Link href="/contact" className="hover:text-white">Support & Inquiries</Link></li>
                 <li><Link href="/about" className="hover:text-white">About Crestline</Link></li>
               </ul>
             </div>

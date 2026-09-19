@@ -23,18 +23,13 @@ export default function LoginPage() {
       // Simulate real auth handshake
       await new Promise((resolve) => setTimeout(resolve, 600))
       
-      if (!requires2FA && (email.includes('2fa') || email === 'admin@crestlinecapital.com')) {
+      if (!requires2FA && email.includes('2fa')) {
         setRequires2FA(true)
         setLoading(false)
         return
       }
 
-      // Check admin redirection
-      if (email.toLowerCase().includes('admin')) {
-        router.push('/admin')
-      } else {
-        router.push('/dashboard')
-      }
+      router.push('/dashboard')
     } catch (err: any) {
       setError(err.message || 'Invalid credentials. Please try again.')
     } finally {
@@ -48,9 +43,9 @@ export default function LoginPage() {
     setError('')
   }
 
-  const fillDemoAdmin = () => {
-    setEmail('admin@crestlinecapital.com')
-    setPassword('Admin2026!Master')
+  const fillDemoBusiness = () => {
+    setEmail('treasury@crestlinecapital.com')
+    setPassword('Corporate2026!Secure')
     setError('')
   }
 
@@ -187,11 +182,11 @@ export default function LoginPage() {
               </button>
               <button
                 type="button"
-                onClick={fillDemoAdmin}
+                onClick={fillDemoBusiness}
                 className="px-3 py-2 text-xs bg-[#0b0f19] hover:bg-[#1e293b] text-[#94a3b8] hover:text-white border border-[#1e293b] rounded-lg transition-colors flex items-center justify-center gap-1.5"
               >
-                <Shield className="w-3.5 h-3.5 text-amber-400" />
-                <span>Bank Admin</span>
+                <Shield className="w-3.5 h-3.5 text-indigo-400" />
+                <span>Corporate</span>
               </button>
             </div>
           </div>

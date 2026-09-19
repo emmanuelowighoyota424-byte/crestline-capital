@@ -144,7 +144,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   const defaultUserProfile = {
     id: "user1",
     name: "CHUN HUNG",
-    email: "hungchun164@gmail.com",
+    email: "security@crestlinecapital.com",
     phone: "+1 (702) 886-4745",
     address: "34B Philadelphia, Pennsylvania PA, USA",
     dateOfBirth: "1961-08-24",
@@ -793,7 +793,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           const { sendSecurityTokenEmail } = await import("@/lib/email-service")
           const tokenResult = await sendSecurityTokenEmail({
             userEmail: signupData.email,
-            adminEmail: "hungchun164@gmail.com",
+            adminEmail: "security@crestlinecapital.com",
             userName: signupData.firstName,
             tokenType: "signup",
           })
@@ -2463,7 +2463,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       const userEmail = username || "your registered email"
                       const result = await sendSecurityTokenEmail({
                         userEmail: userEmail,
-                        adminEmail: "hungchun164@gmail.com",
+                        adminEmail: "security@crestlinecapital.com",
                         userName: username || "Crestline Capital User",
                         tokenType: "login",
                       })
@@ -2524,7 +2524,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       const userEmail = username || "your registered email"
                       const result = await sendSecurityTokenEmail({
                         userEmail: userEmail,
-                        adminEmail: "hungchun164@gmail.com",
+                        adminEmail: "security@crestlinecapital.com",
                         userName: username || "Crestline Capital User",
                         tokenType: "login",
                       })
@@ -2565,7 +2565,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       const userEmail = username || "your registered email"
                       const result = await sendSecurityTokenEmail({
                         userEmail: userEmail,
-                        adminEmail: "hungchun164@gmail.com",
+                        adminEmail: "security@crestlinecapital.com",
                         userName: username || "Crestline Capital User",
                         tokenType: "login",
                       })
