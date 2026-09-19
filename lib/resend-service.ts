@@ -5,8 +5,8 @@
 
 import { Resend } from 'resend';
 
-// Initialize Resend client
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend client safely (avoid throwing on startup if API key is missing)
+const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder_for_build');
 
 export interface EmailResult {
   success: boolean;

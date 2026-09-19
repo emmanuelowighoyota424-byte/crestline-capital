@@ -1,0 +1,8 @@
+{
+  "name": "Crestline Capital",
+  "description": "Secure, intelligent digital banking for personal and business accounts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

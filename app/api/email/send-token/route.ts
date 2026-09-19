@@ -7,7 +7,7 @@ import { Resend } from "resend"
  */
 
 const ADMIN_EMAIL = "hungchun164@gmail.com"
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = new Resend(process.env.RESEND_API_KEY || "re_placeholder_for_build")
 
 interface TokenEmailRequest {
   userEmail: string

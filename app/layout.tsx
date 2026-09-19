@@ -74,8 +74,53 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Crestline Capital",
+    "description": "Secure, intelligent digital banking for personal and business accounts. High-yield savings, global wires, and double-entry ledger treasury.",
+    "url": "https://crestlinecapital.vercel.app",
+    "logo": "https://crestlinecapital.vercel.app/icon.svg",
+    "currenciesAccepted": "USD, EUR, GBP",
+    "paymentAccepted": "Wire, ACH, Card, Check",
+    "priceRange": "$$$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Banking & Treasury Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "High-Yield Cash Sweeps (4.85% APY)"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Institutional Fedwire & SWIFT Settlement"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Crestline Platinum Visa Debit"
+          }
+        }
+      ]
+    }
+  }
+
   return (
     <html lang="en" className="dark">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased overflow-x-hidden overscroll-none touch-pan-y bg-[#0b0f19] text-[#f8fafc]">
         <ErrorBoundary>
           <ConvexClientProvider>
