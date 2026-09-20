@@ -5,20 +5,20 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { createServiceClient } from '@/lib/supabase/server'
+import { getAdminSessionWithPermission } from '@/lib/admin/request-session'
 
 export async function GET(request: NextRequest) {
+  // Verify admin access from the session before touching the database.
+  const session = getAdminSessionWithPermission(request, 'users.read')
+  if (!session) {
+    return NextResponse.json(
+      { error: 'Unauthorized - Admin access required' },
+      { status: 401 }
+    )
+  }
+
   try {
     const supabase = createServiceClient()
-    const adminId = request.headers.get('x-user-id')
-    const role = request.headers.get('x-user-role')
-
-    // Verify admin access
-    if (role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Unauthorized - Admin access required' },
-        { status: 403 }
-      )
-    }
 
     // Get all users with their account information
     const { data: users, error } = await supabase
@@ -56,19 +56,18 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  // Verify admin access from the session before touching the database.
+  const session = getAdminSessionWithPermission(request, 'users.read')
+  if (!session) {
+    return NextResponse.json(
+      { error: 'Unauthorized - Admin access required' },
+      { status: 401 }
+    )
+  }
+
   try {
     const supabase = createServiceClient()
-    const adminId = request.headers.get('x-user-id')
-    const role = request.headers.get('x-user-role')
     const { action } = await request.json()
-
-    // Verify admin access
-    if (role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Unauthorized - Admin access required' },
-        { status: 403 }
-      )
-    }
 
     if (action === 'get-new-users') {
       // Get users created in last 24 hours

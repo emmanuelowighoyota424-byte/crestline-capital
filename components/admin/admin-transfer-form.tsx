@@ -46,11 +46,8 @@ export default function AdminTransferForm({ users, onSuccess }: AdminTransferFor
       setLoading(true)
       const response = await fetch('/api/admin/transfers', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-user-id': 'admin',
-          'x-user-role': 'admin',
-        },
+        // The admin session cookie authorizes this request.
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           action: 'initiate',
           toUserId: selectedUser,
@@ -93,11 +90,8 @@ export default function AdminTransferForm({ users, onSuccess }: AdminTransferFor
       setLoading(true)
       const response = await fetch('/api/admin/transfers', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-user-id': 'admin',
-          'x-user-role': 'admin',
-        },
+        // The admin session cookie authorizes this request.
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           action: 'confirm',
           transferId,

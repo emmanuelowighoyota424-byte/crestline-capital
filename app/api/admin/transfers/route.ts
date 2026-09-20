@@ -6,13 +6,24 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServiceClient } from '@/lib/supabase/server'
 import { generateAndStoreOTP, verifyOTP } from '@/lib/auth/otp-service'
+import { getAdminSessionWithPermission } from '@/lib/admin/request-session'
 import crypto from 'crypto'
 
 export async function POST(request: NextRequest) {
+  // Crediting a customer account is a deposit operation - require that permission.
+  const session = getAdminSessionWithPermission(request, 'deposits.approve')
+  if (!session) {
+    return NextResponse.json(
+      { error: 'Unauthorized - Admin access required' },
+      { status: 401 }
+    )
+  }
+
   try {
     const supabase = createServiceClient()
-    const adminId = request.headers.get('x-user-id')
-    const role = request.headers.get('x-user-role')
+    // Actor identity taken from the verified session, recorded on the transfer
+    // record and in the audit log.
+    const adminId = session.adminId
     const {
       action,
       toUserId,
@@ -22,14 +33,6 @@ export async function POST(request: NextRequest) {
       transferId,
       otp,
     } = await request.json()
-
-    // Verify admin access
-    if (role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Unauthorized - Admin access required' },
-        { status: 403 }
-      )
-    }
 
     if (action === 'initiate') {
       // Step 1: Initiate transfer and generate OTP
@@ -315,17 +318,17 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  // Verify admin access from the session before touching the database.
+  const session = getAdminSessionWithPermission(request, 'transfers.read')
+  if (!session) {
+    return NextResponse.json(
+      { error: 'Unauthorized - Admin access required' },
+      { status: 401 }
+    )
+  }
+
   try {
     const supabase = createServiceClient()
-    const role = request.headers.get('x-user-role')
-
-    // Verify admin access
-    if (role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Unauthorized - Admin access required' },
-        { status: 403 }
-      )
-    }
 
     // Get transfer history
     const { data: transfers, error } = await supabase

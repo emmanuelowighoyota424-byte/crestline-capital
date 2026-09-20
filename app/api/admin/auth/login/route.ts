@@ -71,15 +71,22 @@ export async function POST(request: NextRequest) {
       session: authResult.session,
     })
 
-    // Set secure HTTP-only cookie
+    // Set a secure HTTP-only cookie, kept alive for exactly as long as the
+    // server-side session.
+    const sessionExpiresAt = new Date(authResult.session.expiresAt).getTime()
+    const maxAge = Math.max(60, Math.floor((sessionExpiresAt - Date.now()) / 1000))
+
     response.cookies.set({
       name: 'crestline_admin_session',
       value: authResult.session.sessionId,
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      path: '/admin',
-      maxAge: 8 * 3600,
+      // Must cover /api/admin/** as well: with path '/admin' the browser never
+      // sent the cookie to the admin API routes, so every server-side session
+      // check failed and those routes fell back to spoofable identity headers.
+      path: '/',
+      maxAge,
     })
 
     return response
