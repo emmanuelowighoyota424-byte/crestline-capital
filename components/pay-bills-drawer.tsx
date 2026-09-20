@@ -43,6 +43,14 @@ interface ScheduledPayment {
   status: "scheduled" | "paid" | "failed"
 }
 
+interface PayeeOption {
+  id: string
+  name: string
+  category: string
+  accountNumber: string
+  lastAmount: number
+}
+
 export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDrawerProps) {
   const [payees, setPayees] = useState(defaultPayees)
   const [selectedPayee, setSelectedPayee] = useState("")
@@ -87,20 +95,20 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
 
   const scheduledPayments = contextScheduledPayments || []
 
-  const allPayees = [
+  const allPayees: PayeeOption[] = [
     ...payees,
     ...savedPayees.map((p) => ({
       id: p.id,
       name: p.name,
       category: p.category || "Custom",
-      lastAmount: p.lastAmount || 0,
+      lastAmount: p.amount || 0,
       accountNumber: p.accountNumber || "****0000",
     })),
   ]
 
   useEffect(() => {
     const today = new Date().toISOString().split("T")[0]
-    const duePayments = scheduledPayments.filter((p) => p.status === "scheduled" && p.date <= today)
+    const duePayments = scheduledPayments.filter((p) => p.status === "scheduled" && p.scheduledDate <= today)
 
     if (duePayments.length > 0) {
       addNotification({
@@ -177,11 +185,12 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
         if (frequency !== "once") {
           addScheduledPayment({
             payeeId: selectedPayee,
-            payeeName: payee.name,
+            payee: payee.name,
             amount: Number(amount),
             scheduledDate: getNextDate(date, frequency),
             frequency,
-            fromAccountId: selectedAccount,
+            accountId: selectedAccount,
+            category: payee.category,
           })
         }
 
@@ -256,7 +265,8 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
       name: newPayeeName,
       accountNumber: "****" + newPayeeAccount.slice(-4),
       category: newPayeeCategory,
-      lastAmount: 0,
+      autopay: false,
+      amount: 0,
     })
 
     toast({
@@ -445,13 +455,13 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
                 <div key={payment.id} className="p-4 bg-card rounded-lg border">
                   <div className="flex items-start justify-between">
                     <div>
-                      <p className="font-medium">{payment.payeeName}</p>
+                      <p className="font-medium">{payment.payee}</p>
                       <p className="text-sm text-muted-foreground">
                         ${(payment.amount ?? 0).toFixed(2)} • {payment.frequency}
                       </p>
                       <div className="flex items-center gap-1 mt-1 text-xs text-muted-foreground">
                         <Clock className="h-3 w-3" />
-                        Next: {new Date(payment.date).toLocaleDateString()}
+                        Next: {new Date(payment.scheduledDate).toLocaleDateString()}
                       </div>
                     </div>
                     <Button

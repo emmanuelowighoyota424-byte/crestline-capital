@@ -360,6 +360,7 @@ type BankingContextType = {
   savingsGoals: SavingsGoal[]
   addSavingsGoal: (goal: Omit<SavingsGoal, "id">) => void
   updateSavingsGoal: (goalId: string, amount: number) => void
+  updateSavingsGoalDetails: (goalId: string, updates: Partial<Omit<SavingsGoal, "id">>) => void
   deleteSavingsGoal: (goalId: string) => void
 
   // Linked Devices
@@ -2021,6 +2022,13 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     )
   }, [])
 
+  const updateSavingsGoalDetails = useCallback(
+    (goalId: string, updates: Partial<Omit<SavingsGoal, "id">>) => {
+      setSavingsGoals((prev) => prev.map((goal) => (goal.id === goalId ? { ...goal, ...updates } : goal)))
+    },
+    [],
+  )
+
   const deleteSavingsGoal = useCallback((goalId: string) => {
     setSavingsGoals((prev) => prev.filter((goal) => goal.id !== goalId))
   }, [])
@@ -2370,6 +2378,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
         savingsGoals,
         addSavingsGoal,
         updateSavingsGoal,
+        updateSavingsGoalDetails,
         deleteSavingsGoal,
         linkedDevices,
         removeDevice,

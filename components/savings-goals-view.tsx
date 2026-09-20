@@ -14,7 +14,7 @@ import { useBanking } from "@/lib/banking-context"
 import { useToast } from "@/hooks/use-toast"
 
 export function SavingsGoalsView() {
-  const { savingsGoals, addSavingsGoal, updateSavingsGoal, deleteSavingsGoal } = useBanking()
+  const { savingsGoals, addSavingsGoal, updateSavingsGoalDetails, deleteSavingsGoal } = useBanking()
   const { toast } = useToast()
 
   const [openAddGoal, setOpenAddGoal] = useState(false)
@@ -50,8 +50,8 @@ export function SavingsGoalsView() {
     }
 
     if (editingId) {
-      updateSavingsGoal(editingId, {
-        goalName,
+      updateSavingsGoalDetails(editingId, {
+        name: goalName,
         targetAmount: parseFloat(goalAmount),
         currentAmount: parseFloat(currentAmount),
         category: goalCategory,
@@ -63,12 +63,11 @@ export function SavingsGoalsView() {
       })
     } else {
       addSavingsGoal({
-        goalName,
+        name: goalName,
         targetAmount: parseFloat(goalAmount),
         currentAmount: parseFloat(currentAmount),
         category: goalCategory,
         deadline: goalDeadline,
-        createdDate: new Date().toISOString(),
       })
       toast({
         title: "Goal Created",
@@ -103,12 +102,12 @@ export function SavingsGoalsView() {
     })
   }
 
-  const totalTarget = savingsGoals.reduce((acc, g) => acc + (g.targetAmount || g.target || 0), 0)
+  const totalTarget = savingsGoals.reduce((acc, g) => acc + (g.targetAmount || 0), 0)
   const totalSaved = savingsGoals.reduce((acc, g) => acc + (g.currentAmount || 0), 0)
   const overallProgress = totalTarget > 0 ? (totalSaved / totalTarget) * 100 : 0
 
   const goalsOnTrack = savingsGoals.filter(g => {
-    const target = g.targetAmount || g.target || 0
+    const target = g.targetAmount || 0
     const current = g.currentAmount || 0
     return current >= (target * 0.8)
   }).length
