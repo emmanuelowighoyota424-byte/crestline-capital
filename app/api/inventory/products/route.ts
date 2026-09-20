@@ -1,12 +1,10 @@
-import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key'
-);
+import { getSupabaseClient, supabaseNotConfigured } from '@/lib/supabase/lazy';
 
 export async function GET() {
+  const supabase = getSupabaseClient();
+  if (!supabase) return supabaseNotConfigured();
+
   try {
     const { data, error } = await supabase
       .from('product')
@@ -21,6 +19,9 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const supabase = getSupabaseClient();
+  if (!supabase) return supabaseNotConfigured();
+
   try {
     const body = await request.json();
     const { data, error } = await supabase
@@ -36,6 +37,9 @@ export async function POST(request: Request) {
 }
 
 export async function PUT(request: Request) {
+  const supabase = getSupabaseClient();
+  if (!supabase) return supabaseNotConfigured();
+
   try {
     const body = await request.json();
     const { id, ...updates } = body;
