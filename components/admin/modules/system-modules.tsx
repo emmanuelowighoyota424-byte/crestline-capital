@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Palette,
   Sun,
@@ -27,7 +27,7 @@ import {
   Shield,
   Clock,
 } from 'lucide-react'
-import { auditLogger } from '@/lib/audit/audit-logger'
+import { auditLogger, type AuditLogEntry } from '@/lib/audit/audit-logger'
 
 interface SystemModulesProps {
   activeModuleId: string
@@ -66,6 +66,27 @@ export default function SystemModules({
   )
   const [mfaEnforced, setMfaEnforced] = useState(siteSettings.mfaEnforced ?? true)
   const [maintenanceMode, setMaintenanceMode] = useState(siteSettings.maintenanceMode ?? false)
+
+  // Settings State - Public Portal Content
+  const [heroHeadline, setHeroHeadline] = useState(siteSettings.heroHeadline || '')
+  const [heroSubheadline, setHeroSubheadline] = useState(siteSettings.heroSubheadline || '')
+
+  // Security & Ledger Audit Trail State
+  const [auditQuery, setAuditQuery] = useState('')
+  const [auditEntries, setAuditEntries] = useState<AuditLogEntry[]>([])
+
+  useEffect(() => {
+    setAuditEntries(auditLogger.getLogs(100))
+  }, [])
+
+  const normalizedAuditQuery = auditQuery.trim().toLowerCase()
+  const filteredAudits = normalizedAuditQuery
+    ? auditEntries.filter((a) =>
+        [a.action, a.actorId, a.actorRole, a.targetResource, a.targetId].some((field) =>
+          String(field ?? '').toLowerCase().includes(normalizedAuditQuery),
+        ),
+      )
+    : auditEntries
 
   // Settings State - SMTP Configuration
   const [smtpProvider, setSmtpProvider] = useState(siteSettings.smtpProvider || 'sendgrid')
@@ -476,7 +497,7 @@ export default function SystemModules({
                     <th className="py-3 px-4">Actor</th>
                     <th className="py-3 px-4">Resource</th>
                     <th className="py-3 px-4">Status</th>
-                    <th className="py-3 px-4 text-right">Hash</th>
+                    <th className="py-3 px-4 text-right">Entry ID</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#1e293b]/60">
@@ -500,7 +521,7 @@ export default function SystemModules({
                         </span>
                       </td>
                       <td className="py-3 px-4 font-mono text-[10px] text-[#64748b] text-right">
-                        {a.hash.substring(0, 10)}...
+                        {a.id.substring(0, 10)}...
                       </td>
                     </tr>
                   ))}
