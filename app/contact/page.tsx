@@ -17,7 +17,11 @@ export default function ContactPage() {
               </div>
               <span className="font-bold text-lg">Crestline Capital</span>
             </Link>
-            <Link href="/" className="text-sm text-[#94a3b8] hover:text-white transition-colors">← Home</Link>
+            <div className="flex items-center gap-3">
+              <Link href="/" className="text-sm text-[#94a3b8] hover:text-white transition-colors">Home</Link>
+              <Link href="/login" className="text-sm text-[#94a3b8] hover:text-white transition-colors">Sign in</Link>
+              <Link href="/register" className="rounded-lg bg-[#38bdf8] px-4 py-2 text-sm font-semibold text-[#0b0f19] transition-all hover:bg-[#0ea5e9] hover:shadow-[0_0_20px_rgba(56,189,248,0.3)]">Open account</Link>
+            </div>
           </div>
         </div>
       </nav>

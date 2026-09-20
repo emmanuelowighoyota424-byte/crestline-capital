@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useId } from 'react'
+import React, { useState, useEffect, useId } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import {
   Shield,
   LayoutDashboard,
@@ -43,8 +44,44 @@ type ActiveTab = 'treasury' | 'wires' | 'card' | 'ledger'
 type ViewMode = 'landing' | 'banking'
 
 export default function LandingPage() {
+  const router = useRouter()
   const [viewMode, setViewMode] = useState<ViewMode>('landing')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  // '/' is a public marketing page that also hosts the signed-in portal. The
+  // server session cookie decides which one an arrival sees, so no client-side
+  // flag can open the banking view.
+  useEffect(() => {
+    let cancelled = false
+
+    fetch('/api/customer/auth?action=session', { cache: 'no-store' })
+      .then((response) => response.json())
+      .then((data) => {
+        if (cancelled) return
+        const authenticated = Boolean(data?.authenticated)
+        setIsAuthenticated(authenticated)
+        if (authenticated) setViewMode('banking')
+      })
+      .catch(() => {
+        // Signed out is the safe default when the probe fails.
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  // Every banking entry point goes through the real sign-in flow; the requested
+  // destination is preserved so signing in lands back here.
+  const handleEnterBanking = () => {
+    setMobileMenuOpen(false)
+    if (isAuthenticated) {
+      setViewMode('banking')
+      return
+    }
+    router.push('/login?returnTo=/')
+  }
 
   // Yield Calculator State
   const [depositAmount, setDepositAmount] = useState<number>(100000)
@@ -186,7 +223,7 @@ export default function LandingPage() {
             {/* Quick Live Preview Switcher Pill */}
             <div className="flex items-center bg-[#161e2e] border border-[#1e293b] p-1 rounded-xl text-xs">
               <button
-                onClick={() => setViewMode('banking')}
+                onClick={handleEnterBanking}
                 title="Preview Customer Banking Suite"
                 className="px-2.5 py-1 rounded-lg text-[#94a3b8] hover:text-white font-medium hover:bg-[#1e293b] flex items-center gap-1 transition-all"
               >
@@ -260,10 +297,7 @@ export default function LandingPage() {
             </a>
             <div className="pt-3 border-t border-[#1e293b] flex flex-col gap-2">
               <button
-                onClick={() => {
-                  setViewMode('banking')
-                  setMobileMenuOpen(false)
-                }}
+                onClick={handleEnterBanking}
                 className="w-full py-2.5 bg-[#161e2e] text-emerald-400 font-semibold rounded-xl text-center"
               >
                 Launch Customer Demo
@@ -324,7 +358,7 @@ export default function LandingPage() {
             </Link>
 
             <button
-              onClick={() => setViewMode('banking')}
+              onClick={handleEnterBanking}
               className="px-7 py-4 bg-[#161e2e] hover:bg-[#1e293b] text-white border border-[#1e293b] font-semibold text-sm rounded-xl transition-all flex items-center gap-2"
             >
               <LayoutDashboard className="w-4 h-4 text-emerald-400" />
@@ -1147,7 +1181,7 @@ export default function LandingPage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
             <button
-              onClick={() => setViewMode('banking')}
+              onClick={handleEnterBanking}
               className="px-8 py-4 bg-[#161e2e] hover:bg-[#1e293b] text-white border border-[#1e293b] font-semibold text-sm rounded-xl transition-all"
             >
               Launch Customer Banking Portal

@@ -241,7 +241,7 @@ export default function FAQPage() {
   }, [searchQuery, selectedCategory])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="crestline-legal min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-40">
         <div className="max-w-5xl mx-auto px-6 py-6">

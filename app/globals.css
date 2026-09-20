@@ -485,10 +485,11 @@ button, a, input, select, textarea, [role="button"] {
 
   /* Landing page specific */
   .landing-nav-glass {
-    background: rgba(11, 15, 25, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+    background: rgba(11, 15, 25, 0.82);
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+    box-shadow: 0 12px 32px -24px rgba(2, 6, 23, 0.9);
   }
 
   .feature-card {
@@ -496,6 +497,7 @@ button, a, input, select, textarea, [role="button"] {
     background: rgba(22, 30, 46, 0.6);
     border-color: rgba(30, 41, 59, 0.6);
     backdrop-filter: blur(12px);
+    box-shadow: 0 18px 44px -30px rgba(2, 6, 23, 0.95);
   }
 
   .feature-card:hover {
@@ -561,6 +563,135 @@ button, a, input, select, textarea, [role="button"] {
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(56, 189, 248, 0.1);
     border-radius: 0.75rem;
+  }
+
+  /* ── Modern banking surface layer ─────────────────────────────────────── */
+
+  /* Faint technical grid used behind hero and auth areas. */
+  .auth-grid {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 40%, transparent 100%);
+  }
+
+  /* Elevated surface for cards, drawer sections and list rows. */
+  .banking-surface {
+    background: linear-gradient(160deg, rgba(22, 30, 46, 0.92), rgba(15, 23, 42, 0.92));
+    border: 1px solid rgba(30, 41, 59, 0.85);
+    border-radius: var(--radius);
+    box-shadow: 0 18px 40px -24px rgba(2, 6, 23, 0.9);
+  }
+
+  .banking-surface-hover:hover {
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 22px 48px -22px rgba(2, 6, 23, 0.95), 0 0 0 1px rgba(56, 189, 248, 0.12);
+  }
+
+  /* Account balances and amounts: aligned figures, column to column. */
+  .amount-figure {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  /* Consistent keyboard focus ring across interactive surfaces. */
+  .focus-ring:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #0b0f19, 0 0 0 4px rgba(56, 189, 248, 0.6);
+  }
+
+  /* ── Scoped banking theme for the legacy light-themed pages ───────────── */
+  /*
+   * security / faq / privacy / terms were authored on a light palette. Instead of
+   * rewriting their content, they opt into the banking theme by adding
+   * `crestline-legal` to the root element.
+   *
+   * The descendant selectors below out-specify the single-class utilities they
+   * are overriding, so no !important is needed.
+   */
+  div.crestline-legal {
+    background-color: #0b0f19;
+    background-image: none;
+    color: #f8fafc;
+  }
+
+  .crestline-legal .bg-white {
+    background-color: rgba(22, 30, 46, 0.72);
+  }
+
+  .crestline-legal .bg-gray-50,
+  .crestline-legal .bg-slate-50,
+  .crestline-legal .bg-slate-100 {
+    background-color: rgba(15, 23, 42, 0.6);
+  }
+
+  .crestline-legal .bg-blue-50 {
+    background-color: rgba(56, 189, 248, 0.08);
+  }
+
+  .crestline-legal .bg-yellow-50 {
+    background-color: rgba(245, 158, 11, 0.1);
+  }
+
+  .crestline-legal .bg-red-50 {
+    background-color: rgba(244, 63, 94, 0.1);
+  }
+
+  .crestline-legal .text-gray-900,
+  .crestline-legal .text-gray-800,
+  .crestline-legal .text-slate-900 {
+    color: #f8fafc;
+  }
+
+  .crestline-legal .text-gray-700,
+  .crestline-legal .text-gray-600,
+  .crestline-legal .text-slate-700 {
+    color: #cbd5e1;
+  }
+
+  .crestline-legal .text-gray-500,
+  .crestline-legal .text-gray-400 {
+    color: #94a3b8;
+  }
+
+  .crestline-legal .border-gray-200,
+  .crestline-legal .border-slate-200,
+  .crestline-legal .border-b,
+  .crestline-legal .border-t,
+  .crestline-legal .border-y {
+    border-color: rgba(30, 41, 59, 0.9);
+  }
+
+  .crestline-legal .border-blue-200 {
+    border-color: rgba(56, 189, 248, 0.28);
+  }
+
+  .crestline-legal .border-yellow-200 {
+    border-color: rgba(245, 158, 11, 0.3);
+  }
+
+  .crestline-legal .border-red-200 {
+    border-color: rgba(244, 63, 94, 0.3);
+  }
+
+  .crestline-legal .shadow-sm,
+  .crestline-legal .shadow,
+  .crestline-legal .shadow-md,
+  .crestline-legal .shadow-lg {
+    box-shadow: 0 18px 40px -28px rgba(2, 6, 23, 0.9);
+  }
+
+  /* Legacy Chase blue accents become the Crestline accent. */
+  .crestline-legal [class*="#117aca"] {
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.5);
+  }
+
+  .crestline-legal [class*="bg-[#117aca]"] {
+    background-color: #38bdf8;
+    color: #0b0f19;
   }
 }
 
