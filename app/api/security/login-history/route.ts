@@ -4,15 +4,13 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@supabase/supabase-js'
 import { sendEmail } from '@/lib/resend'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
-  process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key'
-)
+import { getSupabaseClient, supabaseNotConfigured } from '@/lib/supabase/lazy'
 
 export async function GET(request: NextRequest) {
+  const supabase = getSupabaseClient('service')
+  if (!supabase) return supabaseNotConfigured()
+
   try {
     const { searchParams } = new URL(request.url)
     const userId = searchParams.get('user_id')
@@ -76,6 +74,9 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  const supabase = getSupabaseClient('service')
+  if (!supabase) return supabaseNotConfigured()
+
   try {
     const body = await request.json()
     const {
@@ -144,6 +145,10 @@ async function triggerSuspiciousLoginAlert(
   ip: string,
   flags: string[]
 ) {
+  // Best-effort alerting: skip quietly when the deployment has no database.
+  const supabase = getSupabaseClient('service')
+  if (!supabase) return
+
   try {
     const severity = flags.length > 2 ? 'high' : 'medium'
     

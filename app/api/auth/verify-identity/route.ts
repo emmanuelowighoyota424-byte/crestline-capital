@@ -1,11 +1,6 @@
-import { createClient } from "@supabase/supabase-js"
 import { NextRequest, NextResponse } from "next/server"
 import { sendEmail } from "@/lib/resend"
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key'
-
-const supabase = createClient(supabaseUrl, supabaseKey)
+import { getSupabaseClient, supabaseNotConfigured } from "@/lib/supabase/lazy"
 
 interface IdentityVerificationRequest {
   ssn: string
@@ -19,6 +14,9 @@ interface IdentityVerificationRequest {
  * Matches Crestline Capital Bank security requirements
  */
 export async function POST(request: NextRequest) {
+  const supabase = getSupabaseClient('service')
+  if (!supabase) return supabaseNotConfigured()
+
   try {
     const body: IdentityVerificationRequest = await request.json()
     const { ssn, accountNumber, isAuthorizedUser, recoveryType } = body

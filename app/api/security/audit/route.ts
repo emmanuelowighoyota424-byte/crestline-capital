@@ -1,12 +1,10 @@
-import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key'
-);
+import { getSupabaseClient, supabaseNotConfigured } from '@/lib/supabase/lazy';
 
 export async function GET(request: Request) {
+  const supabase = getSupabaseClient();
+  if (!supabase) return supabaseNotConfigured();
+
   try {
     const { searchParams } = new URL(request.url);
     const userId = searchParams.get('user_id');
@@ -29,6 +27,9 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const supabase = getSupabaseClient();
+  if (!supabase) return supabaseNotConfigured();
+
   try {
     const body = await request.json();
     const { data, error } = await supabase

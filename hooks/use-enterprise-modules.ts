@@ -1,12 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+import { createClient, isSupabaseConfigured } from '@/lib/supabase/client';
 
 export function useHRModule() {
   const [employees, setEmployees] = useState([]);
@@ -49,7 +44,11 @@ export function useHRModule() {
   useEffect(() => {
     fetchHRData();
 
-    const subscription = supabase
+    // Creating the client at module scope throws without Supabase credentials,
+    // which would fail the production build. Skip realtime when unconfigured.
+    if (!isSupabaseConfigured()) return;
+
+    const subscription = createClient()
       .channel('hr_updates')
       .on('postgres_changes', { event: '*', schema: 'human_resource' }, () => {
         fetchHRData();
@@ -99,7 +98,9 @@ export function useInventoryModule() {
   useEffect(() => {
     fetchInventoryData();
 
-    const subscription = supabase
+    if (!isSupabaseConfigured()) return;
+
+    const subscription = createClient()
       .channel('inventory_updates')
       .on('postgres_changes', { event: '*', schema: 'inventory' }, () => {
         fetchInventoryData();
@@ -148,7 +149,9 @@ export function useSecurityModule() {
   useEffect(() => {
     fetchSecurityData();
 
-    const subscription = supabase
+    if (!isSupabaseConfigured()) return;
+
+    const subscription = createClient()
       .channel('security_updates')
       .on('postgres_changes', { event: '*', schema: 'security' }, () => {
         fetchSecurityData();
