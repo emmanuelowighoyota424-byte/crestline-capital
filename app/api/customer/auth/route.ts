@@ -12,6 +12,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import {
   CUSTOMER_SESSION_COOKIE,
+  CUSTOMER_SESSION_HEADER,
   clearedCustomerSessionCookieOptions,
   customerSessionCookieOptions,
   getCustomerSessionFromRequest,
@@ -68,6 +69,22 @@ function noStore(body: unknown, init?: ResponseInit): NextResponse {
   return response
 }
 
+/**
+ * Whether the request reached us over HTTPS.
+ *
+ * The app is proxied in the hosted preview, so the forwarded protocol is the only
+ * reliable signal. It decides the cookie's SameSite/Secure attributes.
+ */
+function isSecureRequest(request: NextRequest): boolean {
+  const forwarded = request.headers.get('x-forwarded-proto')?.split(',')[0].trim()
+  if (forwarded) return forwarded === 'https'
+  try {
+    return new URL(request.url).protocol === 'https:'
+  } catch {
+    return false
+  }
+}
+
 /** GET /api/customer/auth?action=session — who, if anyone, is signed in. */
 export async function GET(request: NextRequest) {
   const session = getCustomerSessionFromRequest(request)
@@ -95,7 +112,11 @@ export async function POST(request: NextRequest) {
 
   if (action === 'logout') {
     const response = noStore({ authenticated: false })
-    response.cookies.set(CUSTOMER_SESSION_COOKIE, '', clearedCustomerSessionCookieOptions())
+    response.cookies.set(
+      CUSTOMER_SESSION_COOKIE,
+      '',
+      clearedCustomerSessionCookieOptions(isSecureRequest(request)),
+    )
     return response
   }
 
@@ -131,6 +152,7 @@ export async function POST(request: NextRequest) {
 
     attempts.delete(key)
 
+    const sessionToken = issueCustomerSessionToken(customer)
     const response = noStore({
       authenticated: true,
       customer: {
@@ -139,11 +161,14 @@ export async function POST(request: NextRequest) {
         email: customer.email,
         sandbox: customer.sandbox,
       },
+      // Returned so the client can fall back to the session header when a browser
+      // withholds the cookie (cross-site iframe). The httpOnly cookie is still set.
+      sessionToken,
     })
     response.cookies.set(
       CUSTOMER_SESSION_COOKIE,
-      issueCustomerSessionToken(customer),
-      customerSessionCookieOptions(remember),
+      sessionToken,
+      customerSessionCookieOptions(remember, isSecureRequest(request)),
     )
     return response
   }
@@ -161,11 +186,15 @@ export async function POST(request: NextRequest) {
     }
 
     // Sign the new customer straight in, matching the onboarding flow.
-    const response = noStore({ authenticated: true, customer: result.customer }, { status: 201 })
+    const sessionToken = issueCustomerSessionToken({ ...result.customer, passwordHash: '' })
+    const response = noStore(
+      { authenticated: true, customer: result.customer, sessionToken },
+      { status: 201 },
+    )
     response.cookies.set(
       CUSTOMER_SESSION_COOKIE,
-      issueCustomerSessionToken({ ...result.customer, passwordHash: '' }),
-      customerSessionCookieOptions(),
+      sessionToken,
+      customerSessionCookieOptions(true, isSecureRequest(request)),
     )
     return response
   }

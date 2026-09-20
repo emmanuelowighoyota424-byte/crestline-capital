@@ -21,6 +21,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useBanking } from "@/hooks/use-banking"
+import { fetchCustomerSession, registerAccount } from "@/lib/customer/client"
 
 const PASSWORD_RULES = [
   { label: "At least 8 characters", test: (value: string) => value.length >= 8 },
@@ -60,14 +61,9 @@ export default function RegisterPage() {
   // Already signed in? Skip the form.
   useEffect(() => {
     let cancelled = false
-    fetch("/api/customer/auth?action=session", { cache: "no-store" })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!cancelled && data?.authenticated) router.replace("/")
-      })
-      .catch(() => {
-        // Keep showing the form when the probe fails.
-      })
+    void fetchCustomerSession().then((customer) => {
+      if (!cancelled && customer) router.replace("/")
+    })
     return () => {
       cancelled = true
     }
@@ -107,43 +103,25 @@ export default function RegisterPage() {
 
     setIsSubmitting(true)
     try {
-      const response = await fetch("/api/customer/auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "register",
-          name: fullName.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          password,
-        }),
+      const result = await registerAccount({
+        name: fullName.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        password,
       })
-      const data = await response.json().catch(() => ({}))
 
-      if (!response.ok || !data?.authenticated) {
-        setError(data?.error || "We could not open your account. Please try again.")
+      if (!result.ok) {
+        setError(result.error)
         return
       }
 
-      try {
-        localStorage.setItem("crestline_logged_in", "true")
-        localStorage.setItem("crestline_user_id", String(data.customer?.id ?? ""))
-        localStorage.setItem("crestline_user_name", String(data.customer?.name ?? ""))
-        localStorage.setItem("crestline_user_email", String(data.customer?.email ?? ""))
-        localStorage.setItem("crestline_last_login", new Date().toISOString())
-      } catch {
-        // Storage unavailable — the session cookie still applies.
-      }
-
       updateUserProfile({
-        name: data.customer?.name,
-        email: data.customer?.email,
-        phone: data.customer?.phone,
+        name: result.customer.name,
+        email: result.customer.email,
+        phone: phone.trim() || undefined,
       })
 
       router.replace("/")
-    } catch {
-      setError("Network error. Check your connection and try again.")
     } finally {
       setIsSubmitting(false)
     }

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useId } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { fetchCustomerSession } from '@/lib/customer/client'
 import {
   Shield,
   LayoutDashboard,
@@ -55,17 +56,13 @@ export default function LandingPage() {
   useEffect(() => {
     let cancelled = false
 
-    fetch('/api/customer/auth?action=session', { cache: 'no-store' })
-      .then((response) => response.json())
-      .then((data) => {
-        if (cancelled) return
-        const authenticated = Boolean(data?.authenticated)
-        setIsAuthenticated(authenticated)
-        if (authenticated) setViewMode('banking')
-      })
-      .catch(() => {
-        // Signed out is the safe default when the probe fails.
-      })
+    // Uses the session helper so the token fallback applies when the browser
+    // withholds the cookie (cross-site iframe previews).
+    void fetchCustomerSession().then((customer) => {
+      if (cancelled) return
+      setIsAuthenticated(Boolean(customer))
+      if (customer) setViewMode('banking')
+    })
 
     return () => {
       cancelled = true

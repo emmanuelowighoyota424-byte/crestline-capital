@@ -28,6 +28,14 @@ import type { NextRequest } from 'next/server'
 import { hashPassword, validatePasswordStrength, verifyPassword } from '@/lib/auth/password-utils'
 
 export const CUSTOMER_SESSION_COOKIE = 'crestline_customer_session'
+/**
+ * Header fallback for the session token.
+ *
+ * The hosted preview runs inside a cross-site iframe, where browsers drop or
+ * withhold the SameSite cookie, so the same signed token is also accepted from
+ * this header. The cookie stays the primary, httpOnly path.
+ */
+export const CUSTOMER_SESSION_HEADER = 'x-customer-session'
 export const CUSTOMER_ROLE = 'customer' as const
 export const CUSTOMER_SESSION_TTL_SECONDS = 12 * 60 * 60
 
@@ -35,7 +43,47 @@ const DEFAULT_DEMO_EMAIL = 'owighoyotaemmanuel424@gmail.com'
 const DEFAULT_DEMO_USERNAME = 'Emmanuel'
 // PBKDF2 (`salt.hash`) of the seeded sandbox password, produced by hashPassword().
 const DEFAULT_DEMO_PASSWORD_HASH =
-  '552acd77e86888d8b34c10027ebfe32e.1a36a03d46016de0b01ad186da68291c950f7121e0ea75a1fc781ea5b89539c6'
+  '51adb8da54bb5171f603b965ab53cc6c.9f51c175c5f100793863fead5400c9ca7a9a1e748fcb49e6f90bfbe0831dc2c2'
+
+/**
+ * Demo identities the product itself advertises elsewhere in the app
+ * (lib/demo-credentials.ts, the legacy login screens). Seeding them means any
+ * credential a visitor finds in the UI actually signs in. All sandbox data.
+ */
+const DEMO_IDENTITIES = [
+  {
+    id: 'cust_demo_alex',
+    name: 'Alex Morgan',
+    email: 'alex.morgan@crestline.demo',
+    username: 'Alex Morgan',
+    passwordHash:
+      '74d2c8774caf4abb4180f785e0342442.edd83d819e27367563b0958e2a7ec04721c932c183b5e6dc39a8b0d88d5f6636',
+  },
+  {
+    id: 'cust_demo_client',
+    name: 'Crestline Client',
+    email: 'client@crestlinecapital.com',
+    username: 'client',
+    passwordHash:
+      'a1d07838dd68586471b3bfa8f7fed826.ae8892404c7f2d3418fff0200567be9794da1a02cb462724acaf6ac197ba71f4',
+  },
+  {
+    id: 'cust_demo_treasury',
+    name: 'Crestline Treasury',
+    email: 'treasury@crestlinecapital.com',
+    username: 'treasury',
+    passwordHash:
+      '4c301cb7da1a1383cd087e358ae66686.471abf2c9af82c7cd57a9d9d5cb48c69c651a2aee3c2b49210f56c16c0b5291e',
+  },
+  {
+    id: 'cust_demo_example',
+    name: 'Demo User',
+    email: 'demo@example.com',
+    username: 'demo',
+    passwordHash:
+      'b425c9e8386989e49a57854a86c14dd0.2a1766f08e913f7f05e991e63e024de904c3950c38eac7bc213f1b99ea433337',
+  },
+]
 const DEFAULT_SESSION_SECRET =
   '9c1f0d6b4a8e27c53f0b91d48a6c2e7305b8f1d29c4a6e83507f2b19d6c4a0e7813b5'
 
@@ -103,11 +151,11 @@ function safeEqual(a: string, b: string): boolean {
 const customers = new Map<string, Customer>()
 let seeded = false
 
-function seedSandboxCustomer(): void {
+function seedSandboxCustomers(): void {
   if (seeded) return
   seeded = true
 
-  const customer: Customer = {
+  const primary: Customer = {
     id: 'cust_emmanuel',
     name: 'Emmanuel',
     email: demoEmail(),
@@ -116,8 +164,11 @@ function seedSandboxCustomer(): void {
     passwordHash: demoPasswordHash(),
     sandbox: true,
   }
+  customers.set(primary.email, primary)
 
-  customers.set(customer.email, customer)
+  for (const demo of DEMO_IDENTITIES) {
+    customers.set(demo.email, { ...demo, createdAt: Date.now(), sandbox: true })
+  }
 }
 
 function findByIdentifier(identifier: string): Customer | undefined {
@@ -140,7 +191,7 @@ export async function verifyCustomer(
   identifier: unknown,
   password: unknown,
 ): Promise<Customer | null> {
-  seedSandboxCustomer()
+  seedSandboxCustomers()
 
   const customer = findByIdentifier(String(identifier ?? '').trim().toLowerCase())
   const passwordMatches = await verifyPassword(
@@ -164,7 +215,7 @@ export type RegistrationResult =
 
 /** Create a customer account. Returns a field-level error when input is invalid. */
 export async function registerCustomer(input: RegistrationInput): Promise<RegistrationResult> {
-  seedSandboxCustomer()
+  seedSandboxCustomers()
 
   const name = String(input.name ?? '').trim()
   const email = String(input.email ?? '').trim().toLowerCase()
@@ -259,33 +310,43 @@ export function readCustomerSessionToken(token: unknown): CustomerSession | null
 /**
  * Cookie attributes for a freshly issued customer session.
  *
+ * `secure` is true whenever the request arrived over HTTPS. Over a secure origin a
+ * SameSite=Lax cookie is withheld from cross-site iframe requests, which is how the
+ * hosted preview loads the app, so there we use None+Secure. Plain-HTTP local dev
+ * keeps Lax, which browsers accept without Secure.
+ *
  * With `remember` false the cookie has no maxAge and is dropped when the browser
  * closes; the signed token still expires on its own after the session TTL.
  */
-export function customerSessionCookieOptions(remember = true) {
+export function customerSessionCookieOptions(remember = true, secure = true) {
   return {
     httpOnly: true,
-    sameSite: 'lax' as const,
-    secure: process.env.NODE_ENV === 'production',
+    sameSite: (secure ? 'none' : 'lax') as 'none' | 'lax',
+    secure,
     path: '/',
     ...(remember ? { maxAge: CUSTOMER_SESSION_TTL_SECONDS } : {}),
   }
 }
 
-/** Cookie attributes that clear a customer session. */
-export function clearedCustomerSessionCookieOptions() {
+/** Cookie attributes that clear a customer session (must match how it was set). */
+export function clearedCustomerSessionCookieOptions(secure = true) {
   return {
     httpOnly: true,
-    sameSite: 'lax' as const,
-    secure: process.env.NODE_ENV === 'production',
+    sameSite: (secure ? 'none' : 'lax') as 'none' | 'lax',
+    secure,
     path: '/',
     maxAge: 0,
   }
 }
 
-/** Read + verify the customer session from a route handler's request cookies. */
+/**
+ * Read + verify the customer session from a request: the httpOnly cookie first,
+ * then the header fallback used when the cookie is dropped.
+ */
 export function getCustomerSessionFromRequest(request: NextRequest): CustomerSession | null {
-  return readCustomerSessionToken(request.cookies.get(CUSTOMER_SESSION_COOKIE)?.value)
+  const fromCookie = readCustomerSessionToken(request.cookies.get(CUSTOMER_SESSION_COOKIE)?.value)
+  if (fromCookie) return fromCookie
+  return readCustomerSessionToken(request.headers.get(CUSTOMER_SESSION_HEADER))
 }
 
 /** Read + verify the customer session from server components, layouts and actions. */

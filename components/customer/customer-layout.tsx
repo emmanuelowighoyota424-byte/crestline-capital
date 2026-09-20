@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { signOut } from '@/lib/customer/client'
 import {
   Shield,
   LayoutDashboard,
@@ -43,20 +44,9 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
   // local flag is cleared too so the shell cannot briefly render as signed in.
   const handleSignOut = async () => {
     setMobileNavOpen(false)
-    try {
-      await fetch('/api/customer/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'logout' }),
-      })
-    } catch {
-      // Navigating away is still the right outcome if the request fails.
-    }
-    try {
-      localStorage.removeItem('crestline_logged_in')
-    } catch {
-      // storage unavailable
-    }
+    // signOut ends the server session and forgets the cached identity, using the
+    // token fallback when the browser withholds the cookie.
+    await signOut()
     router.replace('/login')
   }
 
