@@ -52,7 +52,12 @@ class RealtimeOperationEngine {
 
       // Trigger real-time sync if successful
       if (result.success) {
-        await realtimeSyncCoordinator.publishUpdate(operationId, result.data)
+        await realtimeSyncCoordinator.publish({
+          type: 'update',
+          key: operationId,
+          data: result.data,
+          timestamp: Date.now(),
+        })
       }
 
       return result

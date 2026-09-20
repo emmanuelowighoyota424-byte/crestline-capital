@@ -71,7 +71,7 @@ export function useRealTimeBanking(userId: string | null) {
           console.log('[v0] Account update received:', payload)
           setAccounts((prev) => {
             const updated = [...prev]
-            const index = updated.findIndex((a) => a.id === payload.new.id)
+            const index = updated.findIndex((a) => a.id === (payload.new as RealtimeAccount).id)
             if (index >= 0) {
               updated[index] = payload.new as RealtimeAccount
             } else if (payload.eventType === 'INSERT') {
@@ -108,7 +108,7 @@ export function useRealTimeBanking(userId: string | null) {
           console.log('[v0] Transaction update received:', payload)
           setTransactions((prev) => {
             const updated = [...prev]
-            const index = updated.findIndex((t) => t.id === payload.new.id)
+            const index = updated.findIndex((t) => t.id === (payload.new as RealtimeTransaction).id)
             if (index >= 0) {
               updated[index] = payload.new as RealtimeTransaction
             } else if (payload.eventType === 'INSERT') {
@@ -145,7 +145,7 @@ export function useRealTimeBanking(userId: string | null) {
           console.log('[v0] Bill update received:', payload)
           setBills((prev) => {
             const updated = [...prev]
-            const index = updated.findIndex((b) => b.id === payload.new.id)
+            const index = updated.findIndex((b) => b.id === (payload.new as RealtimeBill).id)
             if (index >= 0) {
               updated[index] = payload.new as RealtimeBill
             } else if (payload.eventType === 'INSERT') {
@@ -182,7 +182,7 @@ export function useRealTimeBanking(userId: string | null) {
           console.log('[v0] Notification received:', payload)
           setNotifications((prev) => {
             const updated = [...prev]
-            const index = updated.findIndex((n) => n.id === payload.new.id)
+            const index = updated.findIndex((n) => n.id === (payload.new as RealtimeNotification).id)
             if (index >= 0) {
               updated[index] = payload.new as RealtimeNotification
             } else if (payload.eventType === 'INSERT') {
