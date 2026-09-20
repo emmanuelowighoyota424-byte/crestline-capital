@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import {
   Shield,
   LayoutDashboard,
@@ -35,8 +35,30 @@ interface CustomerLayoutProps {
 
 export function CustomerLayout({ children }: CustomerLayoutProps) {
   const pathname = usePathname()
+  const router = useRouter()
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const { unreadNotificationCount, formatCurrency, getTotalBalance, userProfile } = useBanking()
+
+  // Ending the server session is what actually signs the customer out; the cached
+  // local flag is cleared too so the shell cannot briefly render as signed in.
+  const handleSignOut = async () => {
+    setMobileNavOpen(false)
+    try {
+      await fetch('/api/customer/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'logout' }),
+      })
+    } catch {
+      // Navigating away is still the right outcome if the request fails.
+    }
+    try {
+      localStorage.removeItem('crestline_logged_in')
+    } catch {
+      // storage unavailable
+    }
+    router.replace('/login')
+  }
 
   const navItems = [
     { label: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
@@ -134,13 +156,14 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
               <Settings className="w-3 h-3" />
               <span>Settings</span>
             </Link>
-            <Link
-              href="/login"
+            <button
+              type="button"
+              onClick={handleSignOut}
               className="flex items-center gap-1 text-[11px] text-red-400 hover:text-red-300 transition-colors"
             >
               <LogOut className="w-3 h-3" />
               <span>Sign Out</span>
-            </Link>
+            </button>
           </div>
         </div>
       </aside>
@@ -199,14 +222,14 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
             })}
           </div>
           <div className="pt-4 border-t border-[#1e293b] flex items-center justify-end">
-            <Link
-              href="/login"
-              onClick={() => setMobileNavOpen(false)}
+            <button
+              type="button"
+              onClick={handleSignOut}
               className="flex items-center gap-2 px-4 py-2 text-red-400 bg-red-500/10 rounded-xl text-xs font-medium"
             >
               <LogOut className="w-4 h-4" />
               <span>Sign Out</span>
-            </Link>
+            </button>
           </div>
         </div>
       )}

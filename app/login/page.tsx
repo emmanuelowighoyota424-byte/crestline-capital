@@ -1,206 +1,275 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { Shield, Lock, Mail, ArrowRight, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react'
+import { useCallback, useEffect, useState } from "react"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import {
+  AlertCircle,
+  ArrowRight,
+  Eye,
+  EyeOff,
+  KeyRound,
+  Loader2,
+  Lock,
+  Mail,
+  ShieldCheck,
+} from "lucide-react"
+import { AuthShell } from "@/components/auth-shell"
+import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { useBanking } from "@/hooks/use-banking"
+
+/** Sandbox demo access, mirroring the credentials seeded in lib/customer/session.ts. */
+const SANDBOX_ACCESS = { identifier: "Emmanuel", password: "Owighoyota12345" }
+
+/** Only same-origin paths are honoured, so `?returnTo=` cannot redirect off-site. */
+function safeReturnTo(): string {
+  if (typeof window === "undefined") return "/"
+  const requested = new URLSearchParams(window.location.search).get("returnTo")
+  if (requested && requested.startsWith("/") && !requested.startsWith("//")) return requested
+  return "/"
+}
+
+function FieldIcon({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748b]">
+      {children}
+    </span>
+  )
+}
 
 export default function LoginPage() {
   const router = useRouter()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
-  const [requires2FA, setRequires2FA] = useState(false)
-  const [twoFactorCode, setTwoFactorCode] = useState('')
+  const { updateUserProfile } = useBanking()
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setError('')
-    setLoading(true)
+  const [identifier, setIdentifier] = useState("")
+  const [password, setPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [remember, setRemember] = useState(true)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState("")
 
+  // Someone with a live session should never see the sign-in form.
+  useEffect(() => {
+    let cancelled = false
+    fetch("/api/customer/auth?action=session", { cache: "no-store" })
+      .then((response) => response.json())
+      .then((data) => {
+        if (!cancelled && data?.authenticated) router.replace(safeReturnTo())
+      })
+      .catch(() => {
+        // A failed probe just means we keep showing the form.
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [router])
+
+  const useSandboxCredentials = useCallback(() => {
+    setIdentifier(SANDBOX_ACCESS.identifier)
+    setPassword(SANDBOX_ACCESS.password)
+    setError("")
+  }, [])
+
+  async function handleSubmit(event: React.FormEvent) {
+    event.preventDefault()
+    if (isSubmitting) return
+
+    setError("")
+
+    if (!identifier.trim() || !password) {
+      setError("Enter your email and password to continue.")
+      return
+    }
+
+    setIsSubmitting(true)
     try {
-      // Simulate real auth handshake
-      await new Promise((resolve) => setTimeout(resolve, 600))
-      
-      if (!requires2FA && email.includes('2fa')) {
-        setRequires2FA(true)
-        setLoading(false)
+      const response = await fetch("/api/customer/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "login", identifier: identifier.trim(), password, remember }),
+      })
+      const data = await response.json().catch(() => ({}))
+
+      if (!response.ok || !data?.authenticated) {
+        setError(data?.error || "We could not sign you in. Please try again.")
         return
       }
 
-      router.push('/dashboard')
-    } catch (err: any) {
-      setError(err.message || 'Invalid credentials. Please try again.')
+      // The server session is the source of truth; these keys keep the signed-in
+      // shell (dashboard header, greeting) in step with it.
+      try {
+        localStorage.setItem("crestline_logged_in", "true")
+        localStorage.setItem("crestline_user_id", String(data.customer?.id ?? ""))
+        localStorage.setItem("crestline_user_name", String(data.customer?.name ?? ""))
+        localStorage.setItem("crestline_user_email", String(data.customer?.email ?? ""))
+        localStorage.setItem("crestline_last_login", new Date().toISOString())
+      } catch {
+        // Private browsing / storage disabled — the session cookie still applies.
+      }
+
+      updateUserProfile({
+        name: data.customer?.name,
+        email: data.customer?.email,
+      })
+
+      router.replace(safeReturnTo())
+    } catch {
+      setError("Network error. Check your connection and try again.")
     } finally {
-      setLoading(false)
+      setIsSubmitting(false)
     }
   }
 
-  const fillDemoUser = () => {
-    setEmail('client@crestlinecapital.com')
-    setPassword('Crestline2026!Secure')
-    setError('')
-  }
-
-  const fillDemoBusiness = () => {
-    setEmail('treasury@crestlinecapital.com')
-    setPassword('Corporate2026!Secure')
-    setError('')
-  }
-
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-[#f8fafc] flex flex-col justify-between selection:bg-[#38bdf8] selection:text-[#0b0f19]">
-      {/* Header */}
-      <header className="px-6 py-6 border-b border-[#1e293b] flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.3)]">
-            <Shield className="w-5 h-5 text-[#0b0f19]" />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-white">Crestline Capital</span>
-        </Link>
-        <div className="flex items-center gap-4 text-sm">
-          <span className="text-[#94a3b8]">New to Crestline?</span>
-          <Link
-            href="/register"
-            className="text-[#38bdf8] font-medium hover:underline hover:text-[#0ea5e9] transition-colors"
+    <AuthShell
+      eyebrow="Online banking"
+      title="Sign in to your account"
+      subtitle="Welcome back. Enter your details to reach your dashboard."
+      footer={
+        <>
+          New to Crestline Capital?{" "}
+          <Link href="/register" className="font-semibold text-[#38bdf8] hover:text-[#0ea5e9]">
+            Open an account
+          </Link>
+        </>
+      }
+    >
+      <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+        {error && (
+          <div
+            role="alert"
+            aria-live="polite"
+            className="flex items-start gap-3 rounded-lg border border-[#f43f5e]/30 bg-[#f43f5e]/10 px-4 py-3"
           >
-            Open an Account
+            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#f43f5e]" />
+            <p className="text-sm text-[#fecdd3]">{error}</p>
+          </div>
+        )}
+
+        <div className="space-y-2">
+          <Label htmlFor="identifier" className="text-[#cbd5e1]">
+            Email or sign-in name
+          </Label>
+          <div className="relative">
+            <FieldIcon>
+              <Mail className="h-4 w-4" />
+            </FieldIcon>
+            <Input
+              id="identifier"
+              name="identifier"
+              type="text"
+              autoComplete="username"
+              autoCapitalize="none"
+              spellCheck={false}
+              placeholder="you@example.com"
+              value={identifier}
+              onChange={(event) => setIdentifier(event.target.value)}
+              className="h-11 border-[#1e293b] bg-[#0b0f19]/60 pl-10 text-[#f8fafc] placeholder:text-[#64748b] focus-visible:border-[#38bdf8] focus-visible:ring-[#38bdf8]/25"
+            />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="password" className="text-[#cbd5e1]">
+            Password
+          </Label>
+          <div className="relative">
+            <FieldIcon>
+              <Lock className="h-4 w-4" />
+            </FieldIcon>
+            <Input
+              id="password"
+              name="password"
+              type={showPassword ? "text" : "password"}
+              autoComplete="current-password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              className="h-11 border-[#1e293b] bg-[#0b0f19]/60 pl-10 pr-11 text-[#f8fafc] placeholder:text-[#64748b] focus-visible:border-[#38bdf8] focus-visible:ring-[#38bdf8]/25"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((visible) => !visible)}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              aria-pressed={showPassword}
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-[#64748b] transition-colors hover:text-[#38bdf8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#38bdf8]/40"
+            >
+              {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            </button>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between">
+          <label htmlFor="remember" className="flex cursor-pointer items-center gap-2.5">
+            <Checkbox
+              id="remember"
+              checked={remember}
+              onCheckedChange={(checked) => setRemember(checked === true)}
+              className="border-[#334155] data-[state=checked]:border-[#38bdf8] data-[state=checked]:bg-[#38bdf8]"
+            />
+            <span className="text-sm text-[#94a3b8]">Keep me signed in</span>
+          </label>
+          <Link href="/contact" className="text-sm font-medium text-[#38bdf8] hover:text-[#0ea5e9]">
+            Forgot password?
           </Link>
         </div>
-      </header>
 
-      {/* Main Login Card */}
-      <main className="flex-1 flex items-center justify-center p-4">
-        <div className="w-full max-w-md bg-[#161e2e] border border-[#1e293b] rounded-2xl p-8 shadow-2xl">
-          <div className="mb-6 text-center">
-            <h1 className="text-2xl font-bold text-white mb-2">Welcome Back</h1>
-            <p className="text-sm text-[#94a3b8]">
-              {requires2FA
-                ? 'Enter your 6-digit Multi-Factor Authentication code'
-                : 'Sign in to access your secure accounts & portfolio'}
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="h-11 w-full bg-[#38bdf8] text-sm font-semibold text-[#0b0f19] transition-all hover:bg-[#0ea5e9] hover:shadow-[0_0_24px_rgba(56,189,248,0.35)] disabled:opacity-60"
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Signing in…
+            </>
+          ) : (
+            <>
+              Sign in securely
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </>
+          )}
+        </Button>
+
+        <p className="flex items-center justify-center gap-2 text-xs text-[#64748b]">
+          <ShieldCheck className="h-3.5 w-3.5 text-[#10b981]" />
+          Protected by encrypted sessions and sign-in rate limiting
+        </p>
+      </form>
+
+      {/* Sandbox access — clearly labelled demo data, not a real customer. */}
+      <div className="mt-7 rounded-xl border border-[#1e293b] bg-[#0b0f19]/60 p-4">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#f59e0b]">
+              <KeyRound className="h-3.5 w-3.5" />
+              Sandbox access
+            </p>
+            <p className="mt-2 font-mono text-xs text-[#94a3b8]">
+              {SANDBOX_ACCESS.identifier}
+              <br />
+              {SANDBOX_ACCESS.password}
             </p>
           </div>
-
-          {error && (
-            <div className="mb-6 p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 shrink-0" />
-              <span>{error}</span>
-            </div>
-          )}
-
-          <form onSubmit={handleLogin} className="space-y-4">
-            {!requires2FA ? (
-              <>
-                <div>
-                  <label className="block text-xs font-medium text-[#94a3b8] uppercase tracking-wider mb-2">
-                    Email Address
-                  </label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="name@crestlinecapital.com"
-                      className="w-full pl-10 pr-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-sm text-white placeholder-[#64748b] focus:outline-none focus:border-[#38bdf8] transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <label className="text-xs font-medium text-[#94a3b8] uppercase tracking-wider">
-                      Password
-                    </label>
-                    <Link
-                      href="/forgot-password"
-                      className="text-xs text-[#38bdf8] hover:underline"
-                    >
-                      Forgot Password?
-                    </Link>
-                  </div>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
-                    <input
-                      type="password"
-                      required
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder="••••••••••••"
-                      className="w-full pl-10 pr-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-sm text-white placeholder-[#64748b] focus:outline-none focus:border-[#38bdf8] transition-colors"
-                    />
-                  </div>
-                </div>
-              </>
-            ) : (
-              <div>
-                <label className="block text-xs font-medium text-[#94a3b8] uppercase tracking-wider mb-2">
-                  Two-Factor Authentication Code
-                </label>
-                <input
-                  type="text"
-                  maxLength={6}
-                  required
-                  autoFocus
-                  value={twoFactorCode}
-                  onChange={(e) => setTwoFactorCode(e.target.value.replace(/\D/g, ''))}
-                  placeholder="123456"
-                  className="w-full text-center text-2xl tracking-widest py-3 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-mono focus:outline-none focus:border-[#38bdf8] transition-colors"
-                />
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full mt-2 py-3 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(56,189,248,0.25)] disabled:opacity-50"
-            >
-              {loading ? (
-                <div className="w-5 h-5 border-2 border-[#0b0f19] border-t-transparent rounded-full animate-spin" />
-              ) : (
-                <>
-                  <span>{requires2FA ? 'Verify & Sign In' : 'Sign In'}</span>
-                  <ArrowRight className="w-4 h-4" />
-                </>
-              )}
-            </button>
-          </form>
-
-          {/* Quick Demo Fill Buttons */}
-          <div className="mt-6 pt-6 border-t border-[#1e293b] space-y-2">
-            <p className="text-xs text-center text-[#64748b] mb-3">Quick Sandbox Access:</p>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={fillDemoUser}
-                className="px-3 py-2 text-xs bg-[#0b0f19] hover:bg-[#1e293b] text-[#94a3b8] hover:text-white border border-[#1e293b] rounded-lg transition-colors flex items-center justify-center gap-1.5"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-[#38bdf8]" />
-                <span>Customer</span>
-              </button>
-              <button
-                type="button"
-                onClick={fillDemoBusiness}
-                className="px-3 py-2 text-xs bg-[#0b0f19] hover:bg-[#1e293b] text-[#94a3b8] hover:text-white border border-[#1e293b] rounded-lg transition-colors flex items-center justify-center gap-1.5"
-              >
-                <Shield className="w-3.5 h-3.5 text-indigo-400" />
-                <span>Corporate</span>
-              </button>
-            </div>
-          </div>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={useSandboxCredentials}
+            className="shrink-0 border-[#1e293b] bg-transparent text-xs text-[#cbd5e1] hover:border-[#38bdf8]/40 hover:bg-[#161e2e] hover:text-white"
+          >
+            Use demo login
+          </Button>
         </div>
-      </main>
-
-      {/* Footer info */}
-      <footer className="py-6 text-center text-xs text-[#64748b] border-t border-[#1e293b]">
-        <div className="flex items-center justify-center gap-2 mb-1">
-          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-          <span>256-Bit Financial Encryption Active</span>
-        </div>
-        <p>© 2026 Crestline Capital. All rights reserved. Member FDIC equivalent sandbox.</p>
-      </footer>
-    </div>
+        <p className="mt-3 text-[11px] leading-relaxed text-[#64748b]">
+          Demo customer account for this sandbox environment. It holds simulated balances
+          only — no real funds, cards or deposits are connected.
+        </p>
+      </div>
+    </AuthShell>
   )
 }
