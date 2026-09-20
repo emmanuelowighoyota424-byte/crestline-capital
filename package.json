@@ -6,6 +6,8 @@
     "dev": "next dev -p 3000 -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
+    "convex:dev": "convex dev",
+    "convex:deploy": "convex deploy",
     "lint": "echo 'No lint errors'",
     "test": "node -e \"console.log('Crestline Capital Test Suite: Double-Entry Ledger, Fraud Engine, and RBAC Gatekeeper verified')\""
   },
