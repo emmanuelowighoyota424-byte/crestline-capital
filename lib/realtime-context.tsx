@@ -4,7 +4,7 @@ import React from "react"
 
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from 'react'
 import { createClient } from '@/lib/supabase/client'
-import type { RealtimeChannel } from '@supabase/supabase-js'
+type RealtimeChannel = any // Supabase RealtimeChannel type
 
 type RealtimeRow = Record<string, any>
 
@@ -56,7 +56,7 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
           table: 'accounts',
           filter: `user_id=eq.${userId}`,
         },
-        (payload) => {
+        (payload: any) => {
           setData((prev) => ({
             ...prev,
             accounts: {
@@ -79,7 +79,7 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
           table: 'transactions',
           filter: `user_id=eq.${userId}`,
         },
-        (payload) => {
+        (payload: any) => {
           setData((prev) => ({
             ...prev,
             transactions: {
@@ -102,7 +102,7 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
           table: 'transfers',
           filter: `from_account_id=eq.${userId},to_account_id=eq.${userId}`,
         },
-        (payload) => {
+        (payload: any) => {
           setData((prev) => ({
             ...prev,
             transfers: {
