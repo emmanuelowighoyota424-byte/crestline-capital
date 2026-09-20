@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
     // In production, sync with real Crestline Capital API for current balances
     // Using setTimeout to simulate real API call
     const enrichedAccounts = await Promise.all(
-      accounts.map(async (account) => {
+      (accounts ?? []).map(async (account: Record<string, unknown>) => {
         // Simulate fetching real balance from Crestline Capital API
         return {
           ...account,
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       accounts: enrichedAccounts,
-      totalBalance: enrichedAccounts.reduce((sum, acc) => sum + (acc.balance || 0), 0),
+      totalBalance: enrichedAccounts.reduce((sum: number, acc: Record<string, unknown>) => sum + ((acc.balance as number) || 0), 0),
       count: enrichedAccounts.length,
       lastSync: new Date().toISOString()
     })

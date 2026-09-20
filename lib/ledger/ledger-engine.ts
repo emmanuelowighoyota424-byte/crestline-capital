@@ -271,6 +271,45 @@ class LedgerStore {
   }
 
   /**
+   * Alias for postJournal used by admin-store.
+   * Maps accountCode-based entries to accountId-based entries.
+   */
+  public commitTransaction(params: {
+    idempotencyKey: string
+    reference: string
+    description: string
+    entries: Array<{
+      accountCode: string
+      type: EntryType
+      amountCents: number
+      memo?: string
+    }>
+    metadata?: Record<string, any>
+  }): { id: string } {
+    // Map account codes to account IDs
+    const mappedEntries = params.entries.map((e) => {
+      const account = this.getAccountByCode(e.accountCode)
+      return {
+        accountId: account?.id || e.accountCode,
+        type: e.type,
+        amountCents: e.amountCents,
+        memo: e.memo,
+      }
+    })
+
+    const result = this.postJournal({
+      ...params,
+      entries: mappedEntries,
+    })
+
+    if (!result.success) {
+      throw new Error(`Ledger commit failed: ${result.error}`)
+    }
+
+    return { id: result.journal!.id }
+  }
+
+  /**
    * Health audit: Verifies all journals have balanced debits and credits
    */
   public auditLedgerIntegrity(): {

@@ -3,7 +3,7 @@ export interface SettingsEnforcement {
   checkAutoLock: () => boolean
   check2FA: () => boolean
   checkDataPermission: (permission: string) => boolean
-  shouldSendNotification: (type: string) => boolean
+  shouldSendNotification: (type: "push" | "email" | "sms") => boolean
   shouldShowAlert: (type: string, amount?: number) => boolean
   applyRoundUp: (amount: number) => { original: number; roundUp: number; total: number }
   translateText: (text: string, language: string) => string
@@ -96,10 +96,10 @@ export class SettingsEnforcer implements SettingsEnforcement {
     }
   }
 
-  shouldShowAlert(type: "transaction" | "balance" | "login", amount?: number): boolean {
+  shouldShowAlert(type: string, amount?: number): boolean {
     const settings = this.getSettings()
 
-    switch (type) {
+    switch (type as string) {
       case "transaction":
         return settings?.transactionAlerts === true
       case "balance":

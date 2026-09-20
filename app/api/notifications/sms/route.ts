@@ -39,7 +39,6 @@ export async function POST(request: NextRequest) {
             const smsResult = await sendSMS(cleanPhone, message)
             smsResults.push({
               device: 'sms',
-              phone: cleanPhone,
               ...smsResult,
             })
           }

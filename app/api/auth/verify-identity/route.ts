@@ -95,7 +95,7 @@ export async function POST(request: NextRequest) {
     const expiresAt = new Date(Date.now() + 15 * 60000).toISOString() // 15 minutes
 
     // Store recovery session
-    await supabase.from("recovery_sessions").insert({
+    await supabase.from("recovery_sessions").insert([{
       user_id: matchedUser.id,
       recovery_type: recoveryType,
       recovery_token: recoveryToken,
@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
       verified_ssn: !!ssn,
       verified_account: !!accountNumber,
       created_at: new Date().toISOString(),
-    })
+    }])
 
     // Send verification email
     const verificationEmail = await sendEmail({

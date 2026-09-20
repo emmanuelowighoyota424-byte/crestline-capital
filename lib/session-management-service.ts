@@ -414,9 +414,9 @@ export class SessionManagementService {
       }
     }
 
-    const activeSessions = sessions.filter(s => new Date(s.last_active) > new Date(oneHourAgo))
-    const trustedDevices = sessions.filter(s => s.trusted)
-    const uniqueLocations = [...new Set(sessions.map(s => s.location))]
+    const activeSessions = sessions.filter((s: any) => new Date(s.last_active) > new Date(oneHourAgo))
+    const trustedDevices = sessions.filter((s: any) => s.trusted)
+    const uniqueLocations = [...new Set(sessions.map((s: any) => s.location))]
 
     return {
       totalSessions: sessions.length,

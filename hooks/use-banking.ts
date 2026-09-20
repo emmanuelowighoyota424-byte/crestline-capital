@@ -20,10 +20,38 @@ export function useBanking() {
     return context.accounts.reduce((sum: number, acc: any) => sum + (acc.balance || 0), 0)
   }
 
+  // Alias stubs for pages that reference properties not on the base context
+  const depositCheck = (params: { amount: number; accountName: string; checkNumber?: string }) => {
+    // Record a credit transaction for the deposit
+    if (context.addTransaction) {
+      context.addTransaction({
+        description: `Check Deposit #${params.checkNumber || 'N/A'}`,
+        amount: params.amount,
+        type: 'credit',
+        category: 'Deposits',
+        status: 'pending',
+      })
+    }
+  }
+
+  const markNotificationAsRead = context.markNotificationRead
+  const clearNotifications = context.clearAllNotifications
+
+  const transfer = (from: string, to: string, amount: number, memo?: string) => {
+    if (context.transferFunds) {
+      return context.transferFunds(from, to, amount, memo || `Transfer to ${to}`)
+    }
+    return null as any
+  }
+
   return {
     ...context,
     formatCurrency,
     getTotalBalance,
+    depositCheck,
+    markNotificationAsRead,
+    clearNotifications,
+    transfer,
   }
 }
 
@@ -59,7 +87,7 @@ export function useBankingNotifications() {
 export function useBankingBills() {
   const context = useBanking()
   return { 
-    bills: context.billPayees || [], 
+    bills: context.payees || [], 
     billsDueThisMonth: 0, 
     totalDueThisMonth: 0, 
     loading: false, 

@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
 
     // Calculate spending by category
     const spendingByCategory: Record<string, number> = {}
-    transactions?.forEach(tx => {
+    transactions?.forEach((tx: any) => {
       if (tx.type === 'debit' || tx.type === 'withdrawal') {
         const category = tx.category || 'uncategorized'
         spendingByCategory[category] = (spendingByCategory[category] || 0) + tx.amount

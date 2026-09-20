@@ -100,7 +100,7 @@ export async function syncToCloud(email: string, data: any): Promise<boolean> {
         // Insert new record - wrap in try/catch to handle race condition
         const { error: insertError } = await supabase
           .from("banking_data")
-          .insert({ user_email: email, data: dataToSync })
+          .insert([{ user_email: email, data: dataToSync }])
 
         // If insert fails with duplicate key (race condition), try update instead
         if (insertError) {

@@ -67,7 +67,7 @@ export function useRealTimeBanking(userId: string | null) {
           table: 'accounts',
           filter: `user_id=eq.${userId}`,
         },
-        (payload) => {
+        (payload: any) => {
           console.log('[v0] Account update received:', payload)
           setAccounts((prev) => {
             const updated = [...prev]
@@ -104,7 +104,7 @@ export function useRealTimeBanking(userId: string | null) {
           table: 'transactions',
           filter: `user_id=eq.${userId}`,
         },
-        (payload) => {
+        (payload: any) => {
           console.log('[v0] Transaction update received:', payload)
           setTransactions((prev) => {
             const updated = [...prev]
@@ -141,7 +141,7 @@ export function useRealTimeBanking(userId: string | null) {
           table: 'bills',
           filter: `user_id=eq.${userId}`,
         },
-        (payload) => {
+        (payload: any) => {
           console.log('[v0] Bill update received:', payload)
           setBills((prev) => {
             const updated = [...prev]
@@ -178,7 +178,7 @@ export function useRealTimeBanking(userId: string | null) {
           table: 'notifications',
           filter: `user_id=eq.${userId}`,
         },
-        (payload) => {
+        (payload: any) => {
           console.log('[v0] Notification received:', payload)
           setNotifications((prev) => {
             const updated = [...prev]

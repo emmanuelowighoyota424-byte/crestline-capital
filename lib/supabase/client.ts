@@ -112,6 +112,7 @@ class QueryBuilder {
 
   select(cols?: string) { if (cols && cols !== '*') this.selectCols = cols; return this }
   eq(col: string, val: any) { this.filters.push({ type: 'eq', col, val }); return this }
+  is(col: string, val: any) { return this.eq(col, val); }
   neq(col: string, val: any) { this.filters.push({ type: 'neq', col, val }); return this }
   gt(col: string, val: any) { this.filters.push({ type: 'gt', col, val }); return this }
   gte(col: string, val: any) { this.filters.push({ type: 'gte', col, val }); return this }

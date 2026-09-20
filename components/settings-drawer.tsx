@@ -162,7 +162,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
           </p>
           <Slider
             value={[appSettings.balanceThreshold || 100]}
-            onValueChange={(value) => handleSettingChange("balanceThreshold", value[0])}
+            onValueChange={(value: number[]) => handleSettingChange("balanceThreshold", value[0])}
             max={1000}
             min={50}
             step={50}
