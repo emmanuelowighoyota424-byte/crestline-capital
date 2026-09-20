@@ -6,7 +6,7 @@ import { useBanking } from '@/hooks/use-banking'
 import { PiggyBank, Plus, Target, TrendingUp, ArrowRight, ShieldCheck } from 'lucide-react'
 
 export default function SavingsPage() {
-  const { savingsGoals, accounts, formatCurrency, addSavingsGoal, contributeToGoal } = useBanking()
+  const { savingsGoals, accounts, formatCurrency, addSavingsGoal, updateSavingsGoal } = useBanking()
   const [showAddGoal, setShowAddGoal] = useState(false)
   const [goalName, setGoalName] = useState('')
   const [targetAmount, setTargetAmount] = useState('')
@@ -22,12 +22,8 @@ export default function SavingsPage() {
       name: goalName,
       targetAmount: parseFloat(targetAmount),
       currentAmount: 0,
-      targetDate: '2026-12-31',
+      deadline: '2026-12-31',
       category: 'General',
-      autoSave: true,
-      autoSaveAmount: 150,
-      autoSaveFrequency: 'monthly',
-      color: '#38bdf8',
       icon: 'Target',
     })
     setGoalName('')
@@ -38,7 +34,7 @@ export default function SavingsPage() {
   const handleContribute = (e: React.FormEvent) => {
     e.preventDefault()
     if (!selectedGoalId || !depositAmount) return
-    contributeToGoal(selectedGoalId, parseFloat(depositAmount))
+    updateSavingsGoal(selectedGoalId, parseFloat(depositAmount))
     setSelectedGoalId(null)
     setDepositAmount('')
   }
@@ -116,7 +112,7 @@ export default function SavingsPage() {
                 </div>
 
                 <div className="pt-4 border-t border-[#1e293b] flex items-center justify-between">
-                  <span className="text-[11px] text-[#94a3b8]">Target: {goal.targetDate}</span>
+                  <span className="text-[11px] text-[#94a3b8]">Target: {goal.deadline}</span>
                   <button
                     onClick={() => setSelectedGoalId(goal.id)}
                     className="px-3 py-1.5 bg-[#38bdf8]/10 hover:bg-[#38bdf8]/20 text-[#38bdf8] text-xs font-semibold rounded-lg transition-colors"
