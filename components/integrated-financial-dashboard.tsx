@@ -1,10 +1,12 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { useRealtime } from '@/lib/realtime-context'
+import { useBanking } from '@/lib/banking-context'
+import { createClient } from '@/lib/supabase/client'
 import { useAccountManagement } from '@/hooks/use-account-management'
 import { useTransactionHistory } from '@/hooks/use-transaction-history'
 import Image from 'next/image'
@@ -22,16 +24,18 @@ import {
 } from 'lucide-react'
 
 export function IntegratedFinancialDashboard() {
+  const supabase = useMemo(() => createClient(), [])
+  const { userProfile } = useBanking()
+  const userId = userProfile.id
   const { data: realtimeData, isConnected, isLoading, subscribeToUpdates, unsubscribeFromUpdates } = useRealtime()
-  const { accounts, loading: accountsLoading, fetchAccounts, makeTransfer } = useAccountManagement()
-  const { transactions, loading: transactionsLoading, fetchTransactions } = useTransactionHistory()
+  const { accounts, isLoading: accountsLoading, refetch: fetchAccounts } = useAccountManagement(supabase, userId)
+  const { transactions, isLoading: transactionsLoading, refetch: fetchTransactions } = useTransactionHistory(supabase, userId)
   const [hideBalances, setHideBalances] = useState(false)
   const [autoRefreshEnabled, setAutoRefreshEnabled] = useState(true)
   const [selectedAccount, setSelectedAccount] = useState<string | null>(null)
 
   // Initialize data
   useEffect(() => {
-    const userId = localStorage.getItem('user_id')
     if (userId) {
       subscribeToUpdates(userId)
       fetchAccounts()
@@ -41,7 +45,7 @@ export function IntegratedFinancialDashboard() {
     return () => {
       unsubscribeFromUpdates()
     }
-  }, [subscribeToUpdates, unsubscribeFromUpdates, fetchAccounts, fetchTransactions])
+  }, [userId, subscribeToUpdates, unsubscribeFromUpdates, fetchAccounts, fetchTransactions])
 
   // Auto-refresh
   useEffect(() => {
@@ -207,22 +211,19 @@ export function IntegratedFinancialDashboard() {
                       </div>
                       <div>
                         <p className="font-semibold text-gray-900">{account.name || 'Checking'}</p>
-                        <p className="text-xs text-gray-500">•••• {account.last4 || '1234'}</p>
+                        <p className="text-xs text-gray-500">•••• {account.accountNumber?.slice(-4) || '0000'}</p>
                       </div>
                     </div>
-                    {account.is_primary && (
-                      <Badge className="bg-blue-100 text-blue-800 border-0">Primary</Badge>
-                    )}
                   </div>
                   <div className="flex justify-between items-end">
                     <p className="text-2xl font-bold text-gray-900">
                       {hideBalances ? '••••' : `$${(account.balance || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}`}
                     </p>
                     <Badge
-                      className={getStatusColor(account.status || 'active')}
+                      className={getStatusColor(account.syncStatus)}
                       variant="outline"
                     >
-                      {account.status || 'Active'}
+                      {account.syncStatus}
                     </Badge>
                   </div>
                 </Card>
@@ -249,19 +250,19 @@ export function IntegratedFinancialDashboard() {
                       <div className="flex-1">
                         <p className="font-medium text-gray-900">{transaction.description}</p>
                         <p className="text-xs text-gray-500">
-                          {new Date(transaction.created_at).toLocaleDateString()}
+                          {new Date(transaction.createdAt).toLocaleDateString()}
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
                       <p
                         className={`font-bold ${
-                          transaction.type === 'withdrawal'
+                          transaction.type === 'debit'
                             ? 'text-red-600'
                             : 'text-green-600'
                         }`}
                       >
-                        {transaction.type === 'withdrawal' ? '-' : '+'}${transaction.amount.toFixed(2)}
+                        {transaction.type === 'debit' ? '-' : '+'}${transaction.amount.toFixed(2)}
                       </p>
                       <Badge
                         className={getStatusColor(transaction.status)}
