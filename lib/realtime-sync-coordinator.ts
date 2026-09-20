@@ -1,6 +1,6 @@
 // Real-Time Sync Coordinator - Keeps all options synchronized
 
-interface SyncMessage {
+export interface SyncMessage {
   type: 'update' | 'refresh' | 'delete' | 'create'
   key: string
   data?: any

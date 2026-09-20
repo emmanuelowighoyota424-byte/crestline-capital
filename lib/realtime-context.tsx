@@ -6,6 +6,8 @@ import { createContext, useContext, useState, useEffect, useCallback, useRef } f
 import { createClient } from '@/lib/supabase/client'
 import type { RealtimeChannel } from '@supabase/supabase-js'
 
+type RealtimeRow = Record<string, any>
+
 interface RealtimeData {
   accounts: Record<string, any>
   transactions: Record<string, any>
@@ -59,7 +61,7 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
             ...prev,
             accounts: {
               ...prev.accounts,
-              [payload.new?.id || payload.old?.id]: payload.new || payload.old,
+              [(payload.new as RealtimeRow | null)?.id || (payload.old as RealtimeRow | null)?.id]: payload.new || payload.old,
             },
           }))
         }
@@ -82,7 +84,7 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
             ...prev,
             transactions: {
               ...prev.transactions,
-              [payload.new?.id || payload.old?.id]: payload.new || payload.old,
+              [(payload.new as RealtimeRow | null)?.id || (payload.old as RealtimeRow | null)?.id]: payload.new || payload.old,
             },
           }))
         }
@@ -105,7 +107,7 @@ export function RealtimeProvider({ children }: { children: React.ReactNode }) {
             ...prev,
             transfers: {
               ...prev.transfers,
-              [payload.new?.id || payload.old?.id]: payload.new || payload.old,
+              [(payload.new as RealtimeRow | null)?.id || (payload.old as RealtimeRow | null)?.id]: payload.new || payload.old,
             },
           }))
         }
