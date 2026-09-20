@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react';
 
 export function useFinanceRealtime() {
 	const { subscribe } = useRealtime();
-	const [accounts, setAccounts] = useState([]);
-	const [transactions, setTransactions] = useState([]);
-	const [transfers, setTransfers] = useState([]);
+	const [accounts, setAccounts] = useState<Record<string, any>[]>([]);
+	const [transactions, setTransactions] = useState<Record<string, any>[]>([]);
+	const [transfers, setTransfers] = useState<Record<string, any>[]>([]);
 
 	useEffect(() => {
 		const unsubscribeAccounts = subscribe(
@@ -48,9 +48,9 @@ export function useFinanceRealtime() {
 
 export function useHRRealtime() {
 	const { subscribe } = useRealtime();
-	const [employees, setEmployees] = useState([]);
-	const [attendance, setAttendance] = useState([]);
-	const [payroll, setPayroll] = useState([]);
+	const [employees, setEmployees] = useState<Record<string, any>[]>([]);
+	const [attendance, setAttendance] = useState<Record<string, any>[]>([]);
+	const [payroll, setPayroll] = useState<Record<string, any>[]>([]);
 
 	useEffect(() => {
 		const unsubscribeEmployees = subscribe(
@@ -91,9 +91,9 @@ export function useHRRealtime() {
 
 export function useInventoryRealtime() {
 	const { subscribe } = useRealtime();
-	const [products, setProducts] = useState([]);
-	const [stock, setStock] = useState([]);
-	const [orders, setOrders] = useState([]);
+	const [products, setProducts] = useState<Record<string, any>[]>([]);
+	const [stock, setStock] = useState<Record<string, any>[]>([]);
+	const [orders, setOrders] = useState<Record<string, any>[]>([]);
 
 	useEffect(() => {
 		const unsubscribeProducts = subscribe(
@@ -134,9 +134,9 @@ export function useInventoryRealtime() {
 
 export function useSecurityRealtime() {
 	const { subscribe } = useRealtime();
-	const [auditLogs, setAuditLogs] = useState([]);
-	const [activeSessions, setActiveSessions] = useState([]);
-	const [users, setUsers] = useState([]);
+	const [auditLogs, setAuditLogs] = useState<Record<string, any>[]>([]);
+	const [activeSessions, setActiveSessions] = useState<Record<string, any>[]>([]);
+	const [users, setUsers] = useState<Record<string, any>[]>([]);
 
 	useEffect(() => {
 		const unsubscribeAuditLogs = subscribe(
