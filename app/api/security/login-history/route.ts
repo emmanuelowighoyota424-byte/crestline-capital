@@ -214,7 +214,7 @@ async function triggerSuspiciousLoginAlert(
         to: email,
         subject: `${severity === 'high' ? '🚨 ' : '⚠️ '}Suspicious Login Activity Detected`,
         html: alertHTML,
-        replyTo: 'security@yourdomain.com',
+        reply_to: 'security@yourdomain.com',
       })
 
       if (response.error) {

@@ -473,7 +473,6 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
         preview: "Your wire transfer verification has been initiated",
         content: `Dear ${userProfile.name},\n\nYour wire transfer verification code has been securely sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor security reasons, we never share verification codes via email.\n\nIf you have questions, contact us at ${CUSTOMER_SERVICE_EMAIL}.\n\nBest regards,\nCrestline Capital Security Department`,
         category: "Security",
-        hasAttachments: false,
       })
 
       toast({
@@ -518,7 +517,6 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
         preview: "Your COT verification code is ready",
         content: `Dear ${userProfile.name},\n\nYour Cost of Transfer (COT) verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Wire Type: ${wireType === "domestic" ? "Domestic" : "International"}\n\nThis code is required for compliance with banking regulations and anti-money laundering requirements.\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nCrestline Capital Compliance Department`,
         category: "Security",
-        hasAttachments: false,
       })
 
       toast({
@@ -638,7 +636,6 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
         preview: `Your Tax Clearance code for wire transfer`,
         content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate code for wire transfer verification is:\n\n${VERIFICATION_CODES.TAX}\n\nThis code has been sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL} for tax compliance verification.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nThe Tax Clearance Certificate is required to ensure compliance with financial regulations and anti-money laundering (AML) requirements.\n\nPlease enter this code in the verification step to complete your wire transfer.\n\nIf you have any questions, please contact us at 1-800-935-9935.\n\nBest regards,\nCrestline Capital Tax Compliance Department`,
         category: "Security",
-        hasAttachments: false,
       })
 
       setCurrentStep("tax")
@@ -679,7 +676,6 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
         preview: "Your Tax Clearance code is ready",
         content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nThis code is required for compliance with financial regulations and anti-money laundering requirements.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nCrestline Capital Compliance Department`,
         category: "Security",
-        hasAttachments: false,
       })
 
       toast({
@@ -734,7 +730,6 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
         preview: "All verification steps completed - transfer processing",
         content: `Dear ${userProfile.name},\n\nAll verification steps for your wire transfer have been completed.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Status: Processing Transfer\n\nYour wire transfer is now being processed. You will receive a confirmation once the transfer is complete.\n\nBest regards,\nCrestline Capital Wire Transfer Department`,
         category: "Transfers",
-        hasAttachments: false,
       })
 
       initiateWireTransfer()

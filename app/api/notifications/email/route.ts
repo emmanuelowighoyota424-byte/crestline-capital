@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
         to: email,
         subject,
         html: emailPayload,
-        replyTo: 'support@yourdomain.com', // Update with your support email
+        reply_to: 'support@yourdomain.com', // Update with your support email
       })
 
       if (response.error) {
