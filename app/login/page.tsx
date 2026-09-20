@@ -20,9 +20,25 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useBanking } from "@/hooks/use-banking"
+import { fetchCustomerSession, signIn } from "@/lib/customer/client"
 
-/** Sandbox demo access, mirroring the credentials seeded in lib/customer/session.ts. */
-const SANDBOX_ACCESS = { identifier: "Emmanuel", password: "Owighoyota12345" }
+/**
+ * Sandbox sign-ins, mirroring the accounts seeded in lib/customer/session.ts.
+ * Every credential the product advertises is listed here so nobody has to guess.
+ */
+const SANDBOX_ACCOUNTS = [
+  { label: "Primary customer", identifier: "Emmanuel", password: "Owighoyota12345" },
+  {
+    label: "Demo client",
+    identifier: "client@crestlinecapital.com",
+    password: "Crestline2026!Secure",
+  },
+  {
+    label: "Demo savings",
+    identifier: "alex.morgan@crestline.demo",
+    password: "Crestline2024!",
+  },
+]
 
 /** Only same-origin paths are honoured, so `?returnTo=` cannot redirect off-site. */
 function safeReturnTo(): string {
@@ -54,22 +70,17 @@ export default function LoginPage() {
   // Someone with a live session should never see the sign-in form.
   useEffect(() => {
     let cancelled = false
-    fetch("/api/customer/auth?action=session", { cache: "no-store" })
-      .then((response) => response.json())
-      .then((data) => {
-        if (!cancelled && data?.authenticated) router.replace(safeReturnTo())
-      })
-      .catch(() => {
-        // A failed probe just means we keep showing the form.
-      })
+    void fetchCustomerSession().then((customer) => {
+      if (!cancelled && customer) router.replace(safeReturnTo())
+    })
     return () => {
       cancelled = true
     }
   }, [router])
 
-  const useSandboxCredentials = useCallback(() => {
-    setIdentifier(SANDBOX_ACCESS.identifier)
-    setPassword(SANDBOX_ACCESS.password)
+  const useSandboxCredentials = useCallback((account: (typeof SANDBOX_ACCOUNTS)[number]) => {
+    setIdentifier(account.identifier)
+    setPassword(account.password)
     setError("")
   }, [])
 
@@ -86,38 +97,17 @@ export default function LoginPage() {
 
     setIsSubmitting(true)
     try {
-      const response = await fetch("/api/customer/auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "login", identifier: identifier.trim(), password, remember }),
-      })
-      const data = await response.json().catch(() => ({}))
+      // signIn keeps the cookie path and records the token used when a browser
+      // withholds the cookie, then caches the identity for the signed-in shell.
+      const result = await signIn(identifier.trim(), password, remember)
 
-      if (!response.ok || !data?.authenticated) {
-        setError(data?.error || "We could not sign you in. Please try again.")
+      if (!result.ok) {
+        setError(result.error)
         return
       }
 
-      // The server session is the source of truth; these keys keep the signed-in
-      // shell (dashboard header, greeting) in step with it.
-      try {
-        localStorage.setItem("crestline_logged_in", "true")
-        localStorage.setItem("crestline_user_id", String(data.customer?.id ?? ""))
-        localStorage.setItem("crestline_user_name", String(data.customer?.name ?? ""))
-        localStorage.setItem("crestline_user_email", String(data.customer?.email ?? ""))
-        localStorage.setItem("crestline_last_login", new Date().toISOString())
-      } catch {
-        // Private browsing / storage disabled — the session cookie still applies.
-      }
-
-      updateUserProfile({
-        name: data.customer?.name,
-        email: data.customer?.email,
-      })
-
+      updateUserProfile({ name: result.customer.name, email: result.customer.email })
       router.replace(safeReturnTo())
-    } catch {
-      setError("Network error. Check your connection and try again.")
     } finally {
       setIsSubmitting(false)
     }
@@ -241,33 +231,43 @@ export default function LoginPage() {
         </p>
       </form>
 
-      {/* Sandbox access — clearly labelled demo data, not a real customer. */}
+      {/* Sandbox access — clearly labelled demo data, not real customers. */}
       <div className="mt-7 rounded-xl border border-[#1e293b] bg-[#0b0f19]/60 p-4">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#f59e0b]">
-              <KeyRound className="h-3.5 w-3.5" />
-              Sandbox access
-            </p>
-            <p className="mt-2 font-mono text-xs text-[#94a3b8]">
-              {SANDBOX_ACCESS.identifier}
-              <br />
-              {SANDBOX_ACCESS.password}
-            </p>
-          </div>
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            onClick={useSandboxCredentials}
-            className="shrink-0 border-[#1e293b] bg-transparent text-xs text-[#cbd5e1] hover:border-[#38bdf8]/40 hover:bg-[#161e2e] hover:text-white"
-          >
-            Use demo login
-          </Button>
-        </div>
+        <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#f59e0b]">
+          <KeyRound className="h-3.5 w-3.5" />
+          Sandbox access
+        </p>
+
+        <ul className="mt-3 space-y-2">
+          {SANDBOX_ACCOUNTS.map((account) => (
+            <li
+              key={account.identifier}
+              className="flex items-center justify-between gap-3 rounded-lg border border-[#1e293b]/70 bg-[#0b0f19]/40 px-3 py-2"
+            >
+              <div className="min-w-0">
+                <p className="text-[11px] uppercase tracking-wide text-[#64748b]">
+                  {account.label}
+                </p>
+                <p className="truncate font-mono text-xs text-[#94a3b8]">
+                  {account.identifier} · {account.password}
+                </p>
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => useSandboxCredentials(account)}
+                className="shrink-0 border-[#1e293b] bg-transparent text-xs text-[#cbd5e1] hover:border-[#38bdf8]/40 hover:bg-[#161e2e] hover:text-white"
+              >
+                Use
+              </Button>
+            </li>
+          ))}
+        </ul>
+
         <p className="mt-3 text-[11px] leading-relaxed text-[#64748b]">
-          Demo customer account for this sandbox environment. It holds simulated balances
-          only — no real funds, cards or deposits are connected.
+          Demo accounts for this sandbox environment. They hold simulated balances only —
+          no real funds, cards or deposits are connected.
         </p>
       </div>
     </AuthShell>
