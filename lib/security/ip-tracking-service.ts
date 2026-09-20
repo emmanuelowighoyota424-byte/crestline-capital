@@ -3,7 +3,8 @@
  * Tracks user IP addresses, locations, and detects suspicious access patterns
  */
 
-import { createClient, type SupabaseClient } from '@supabase/supabase-js'
+import { createDbClient } from '@/lib/supabase/client'
+type SupabaseClient = ReturnType<typeof createDbClient> & { [key: string]: any }
 
 export interface IPLocationData {
   ip: string
@@ -38,7 +39,7 @@ export class IPTrackingService {
   private supabase: SupabaseClient
 
   constructor(supabaseUrl: string, supabaseKey: string) {
-    this.supabase = createClient(supabaseUrl, supabaseKey)
+    this.supabase = createDbClient()
   }
 
   /**

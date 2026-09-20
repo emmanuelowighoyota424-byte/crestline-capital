@@ -25,8 +25,9 @@ export default function AccountsPage() {
       name: newAccName,
       type: newAccType,
       balance: 1000,
+      availableBalance: 1000,
+      accountNumber: Math.floor(10000000 + Math.random() * 90000000).toString(),
       routingNumber: '021000089',
-      category: newAccType,
     })
     setNewAccName('')
     setShowAddModal(false)

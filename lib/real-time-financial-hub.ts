@@ -6,7 +6,7 @@
 'use client'
 
 import { useEffect, useState, useCallback, useRef } from 'react'
-import type { RealtimeChannel } from '@supabase/supabase-js'
+type RealtimeChannel = any // Supabase RealtimeChannel type
 
 export interface Transaction {
   id: string
