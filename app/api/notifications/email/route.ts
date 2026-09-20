@@ -3,9 +3,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder_for_build')
+import { sendEmail } from '@/lib/resend'
 
 export async function POST(request: NextRequest) {
   try {
@@ -34,36 +32,34 @@ export async function POST(request: NextRequest) {
     // Build email HTML payload
     const emailPayload = buildEmailPayload(subject, template, data)
 
-    // Send via Resend API
-    let messageId = ''
-    try {
-      const response = await resend.emails.send({
-        from: 'noreply@resend.dev', // Replace with your verified domain
-        to: email,
-        subject,
-        html: emailPayload,
-        reply_to: 'support@yourdomain.com', // Update with your support email
-      })
+    // Send via Resend
+    const result = await sendEmail({ to: email, subject, html: emailPayload })
 
-      if (response.error) {
-        console.error('[v0] Resend API error:', response.error)
-        throw new Error(response.error.message)
-      }
-
-      messageId = response.data?.id || `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
-      console.log('[v0] Email sent successfully via Resend:', { messageId, to: email })
-    } catch (resendError) {
-      console.error('[v0] Resend delivery failed, falling back to local queue:', resendError)
-      // Fallback: queue email locally if Resend fails
-      messageId = `msg_fallback_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+    if (!result.success) {
+      // Report the real outcome. Returning a generated 'fallback' message id here
+      // would claim a delivery that never happened.
+      console.error('[v0] Resend delivery failed:', result.error)
+      return NextResponse.json(
+        {
+          success: false,
+          error: result.error || 'Failed to send email',
+          email,
+          timestamp: new Date().toISOString(),
+        },
+        { status: result.skipped ? 503 : 502 },
+      )
     }
 
-    // Return immediate response (real-time acknowledgment)
+    console.log('[v0] Email sent successfully via Resend:', {
+      messageId: result.messageId,
+      to: email,
+    })
+
     return NextResponse.json({
       success: true,
       message: 'Email sent successfully',
       email,
-      messageId,
+      messageId: result.messageId,
       timestamp: new Date().toISOString(),
     })
   } catch (error) {

@@ -4,9 +4,7 @@
  */
 
 import { createClient } from '@/lib/supabase/server'
-import { Resend } from 'resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder_for_build')
+import { sendEmail } from '@/lib/resend'
 
 export interface SessionInfo {
   id: string
@@ -279,12 +277,10 @@ export class SessionManagementService {
         </div>
       `
 
-      await resend.emails.send({
-        from: 'security@resend.dev',
+      await sendEmail({
         to: email,
         subject: 'New Device Detected on Your Account',
         html,
-        reply_to: 'security@yourdomain.com',
       })
 
       console.log('[v0] New device alert sent to', email)
@@ -330,12 +326,10 @@ export class SessionManagementService {
         </div>
       `
 
-      await resend.emails.send({
-        from: 'security@resend.dev',
+      await sendEmail({
         to: email,
         subject: 'Session Ended on Your Account',
         html,
-        reply_to: 'security@yourdomain.com',
       })
 
       console.log('[v0] Session terminated alert sent to', email)
@@ -380,12 +374,10 @@ export class SessionManagementService {
         </div>
       `
 
-      await resend.emails.send({
-        from: 'security@resend.dev',
+      await sendEmail({
         to: email,
         subject: '🔒 All Sessions Terminated',
         html,
-        reply_to: 'security@yourdomain.com',
       })
 
       console.log('[v0] Logout all alert sent to', email)

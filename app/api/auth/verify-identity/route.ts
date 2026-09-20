@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js"
 import { NextRequest, NextResponse } from "next/server"
+import { sendEmail } from "@/lib/resend"
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key'
@@ -107,55 +108,39 @@ export async function POST(request: NextRequest) {
     })
 
     // Send verification email
-    try {
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: "security@Crestline.example.com",
-          to: matchedUser.email,
-          subject: "Crestline Capital Account Recovery - Identity Verified",
-          html: `
-            <h2>Identity Verification Confirmed</h2>
-            <p>Your identity has been verified. You can now proceed with your account recovery.</p>
-            <p><strong>Recovery Type:</strong> ${recoveryType === "username" ? "Username Recovery" : "Password Reset"}</p>
-            <p>This verification is valid for 15 minutes.</p>
-            <p>If you did not request this, please contact Crestline Capital security immediately.</p>
-          `,
-        }),
-      })
-    } catch (emailError) {
-      console.error("[v0] Email notification failed:", emailError)
-      // Don't fail the request if email fails
+    const verificationEmail = await sendEmail({
+      to: matchedUser.email,
+      subject: "Crestline Capital Account Recovery - Identity Verified",
+      html: `
+        <h2>Identity Verification Confirmed</h2>
+        <p>Your identity has been verified. You can now proceed with your account recovery.</p>
+        <p><strong>Recovery Type:</strong> ${recoveryType === "username" ? "Username Recovery" : "Password Reset"}</p>
+        <p>This verification is valid for 15 minutes.</p>
+        <p>If you did not request this, please contact Crestline Capital security immediately.</p>
+      `,
+    })
+
+    if (!verificationEmail.success) {
+      // Don't fail the request if email fails, but never report it as delivered.
+      console.error("[v0] Email notification failed:", verificationEmail.error)
     }
 
     // Also send email to admin
-    try {
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: "security@Crestline.example.com",
-          to: "hungchun164@gmail.com",
-          subject: "Account Recovery Request - Identity Verified",
-          html: `
-            <h2>Account Recovery Request</h2>
-            <p><strong>User:</strong> ${matchedUser.username}</p>
-            <p><strong>Email:</strong> ${matchedUser.email}</p>
-            <p><strong>Recovery Type:</strong> ${recoveryType}</p>
-            <p><strong>Verification Method:</strong> ${ssn ? "SSN/TIN" : "Account Number"}</p>
-            <p><strong>Verified At:</strong> ${new Date().toISOString()}</p>
-          `,
-        }),
-      })
-    } catch (adminEmailError) {
-      console.error("[v0] Admin email notification failed:", adminEmailError)
+    const adminNotification = await sendEmail({
+      to: "hungchun164@gmail.com",
+      subject: "Account Recovery Request - Identity Verified",
+      html: `
+        <h2>Account Recovery Request</h2>
+        <p><strong>User:</strong> ${matchedUser.username}</p>
+        <p><strong>Email:</strong> ${matchedUser.email}</p>
+        <p><strong>Recovery Type:</strong> ${recoveryType}</p>
+        <p><strong>Verification Method:</strong> ${ssn ? "SSN/TIN" : "Account Number"}</p>
+        <p><strong>Verified At:</strong> ${new Date().toISOString()}</p>
+      `,
+    })
+
+    if (!adminNotification.success) {
+      console.error("[v0] Admin email notification failed:", adminNotification.error)
     }
 
     return NextResponse.json(
