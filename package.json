@@ -19,6 +19,7 @@
     "@hookform/resolvers": "^3.10.0",
     "@neondatabase/auth": "0.3.0-beta",
     "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/api-logs": "^0.222.0",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
     "@radix-ui/react-aspect-ratio": "1.1.1",

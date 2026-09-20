@@ -49,16 +49,11 @@ export interface AdminSession {
   userAgent?: string
 }
 
-// Default 48-char hexadecimal master key (192-bit entropy)
-export const DEFAULT_MASTER_KEY = '4a8f9b2c3d4e5f60718293a4b5c6d7e8f90123456789abcd'
+// Credentials live in lib/admin/admin-secrets.ts (server-only, never bundled to client).
+import { ADMIN_MASTER_KEY, ADMIN_DEFAULT_CREDENTIALS } from '@/lib/admin/admin-secrets'
 
-// Designated Primary Administrator Credentials
-export const DEFAULT_ADMIN_CREDENTIALS = {
-  email: 'owighoyotaemmanuel424@gmail.com',
-  password: 'Owighoyota12345',
-  name: 'Emmanuel Owighoyota',
-  role: 'SUPER_ADMIN' as AdminRole,
-}
+// NOTE: DEFAULT_MASTER_KEY and DEFAULT_ADMIN_CREDENTIALS have been removed.
+// Use ADMIN_MASTER_KEY and ADMIN_DEFAULT_CREDENTIALS from admin-secrets.ts (server-only).
 
 // Granular RBAC Role-to-Permissions Mapping
 export const ROLE_PERMISSIONS: Record<AdminRole, AdminPermission[]> = {
@@ -156,7 +151,7 @@ export class AdminAuthEngine {
     userAgent: string = 'System Admin'
   ): { success: boolean; session?: AdminSession; error?: string; remainingAttempts?: number } {
     const cleanKey = key.trim().toLowerCase()
-    const configuredKey = (process.env.ADMIN_MASTER_KEY || DEFAULT_MASTER_KEY).trim().toLowerCase()
+    const configuredKey = (process.env.ADMIN_MASTER_KEY || ADMIN_MASTER_KEY).trim().toLowerCase()
 
     // Rate limiting check
     const attempt = loginAttempts.get(ip) || { count: 0, lockedUntil: null }
@@ -220,8 +215,8 @@ export class AdminAuthEngine {
     const cleanEmail = (email || '').trim().toLowerCase()
     const cleanPassword = password || ''
 
-    const configuredEmail = (process.env.ADMIN_EMAIL || DEFAULT_ADMIN_CREDENTIALS.email).trim().toLowerCase()
-    const configuredPassword = process.env.ADMIN_PASSWORD || DEFAULT_ADMIN_CREDENTIALS.password
+    const configuredEmail = (process.env.ADMIN_EMAIL || ADMIN_DEFAULT_CREDENTIALS.email).trim().toLowerCase()
+    const configuredPassword = process.env.ADMIN_PASSWORD || ADMIN_DEFAULT_CREDENTIALS.password
 
     // Rate limiting check
     const rateLimitKey = `email_${cleanEmail || ip}`
@@ -264,8 +259,8 @@ export class AdminAuthEngine {
     const session: AdminSession = {
       sessionId,
       adminId: 'adm_owighoyota',
-      email: DEFAULT_ADMIN_CREDENTIALS.email,
-      name: DEFAULT_ADMIN_CREDENTIALS.name,
+      email: ADMIN_DEFAULT_CREDENTIALS.email,
+      name: ADMIN_DEFAULT_CREDENTIALS.name,
       role: 'SUPER_ADMIN',
       permissions: ROLE_PERMISSIONS.SUPER_ADMIN,
       createdAt: new Date().toISOString(),

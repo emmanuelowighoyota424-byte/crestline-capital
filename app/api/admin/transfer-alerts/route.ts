@@ -1,11 +1,23 @@
 /**
- * Admin Transfer Alerts API - Send multi-channel alerts for fund transfers
+ * Admin Transfer Alerts API - Send multi-channel alerts for fund transfers.
+ *
+ * Requires an authenticated admin session with withdrawals.review permission.
  */
 
 import { NextRequest, NextResponse } from 'next/server'
+import { getAdminSessionWithPermission } from '@/lib/admin/request-session'
+import { auditLogger } from '@/lib/audit/audit-logger'
 import { sendAdminTransferAlert } from '@/lib/admin-transfer-alert-service'
 
 export async function POST(request: NextRequest) {
+  const session = getAdminSessionWithPermission(request, 'withdrawals.review')
+  if (!session) {
+    return NextResponse.json(
+      { error: 'Unauthorized - withdrawals.review permission required' },
+      { status: 401 }
+    )
+  }
+
   try {
     const {
       userId,
@@ -54,6 +66,23 @@ export async function POST(request: NextRequest) {
       successCount,
       failureCount,
       channels: results.map((r) => r.channel),
+    })
+
+    // Audit the alert action
+    auditLogger.log({
+      actorId: session.email || session.sessionId,
+      actorRole: session.role,
+      action: 'TRANSFER_ALERT_SENT',
+      targetResource: 'transfer',
+      targetId: transferId,
+      status: 'SUCCESS',
+      details: {
+        amount,
+        accountName,
+        successCount,
+        failureCount,
+        channels: results.map((r) => r.channel),
+      },
     })
 
     return NextResponse.json({

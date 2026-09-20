@@ -19,7 +19,6 @@ import {
   Terminal,
   Sparkles,
 } from 'lucide-react'
-import { DEFAULT_MASTER_KEY, DEFAULT_ADMIN_CREDENTIALS } from '@/lib/admin/admin-auth'
 
 export default function AdminLoginPage() {
   const router = useRouter()
@@ -89,13 +88,14 @@ export default function AdminLoginPage() {
   }
 
   const handleFillCredentials = () => {
-    setEmail(DEFAULT_ADMIN_CREDENTIALS.email)
-    setPassword(DEFAULT_ADMIN_CREDENTIALS.password)
+    // Demo hint: check the admin-auth.ts file for default credentials
+    // or use the master key authentication mode instead
+    setAuthMode('master_key')
     setError(null)
   }
 
   const handleFillMasterKey = () => {
-    setMasterKey(DEFAULT_MASTER_KEY)
+    // Enter your 48-character hex master key
     setError(null)
   }
 
