@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { Resend } from "resend"
+import { sendEmail } from "@/lib/resend"
 
 /**
  * API Endpoint to send security tokens via email using Resend
@@ -7,7 +7,6 @@ import { Resend } from "resend"
  */
 
 const ADMIN_EMAIL = process.env.ADMIN_SECURITY_EMAIL || "owighoyotaemmanuel424@gmail.com"
-const resend = new Resend(process.env.RESEND_API_KEY || "re_placeholder_for_build")
 
 interface TokenEmailRequest {
   userEmail: string
@@ -112,16 +111,14 @@ export async function POST(request: NextRequest) {
     let userEmailMessageId = ""
 
     try {
-      const userEmailResponse = await resend.emails.send({
-        from: "security@resend.dev",
+      const userEmailResponse = await sendEmail({
         to: userEmail,
         subject: template.subject,
         html: template.html,
-        reply_to: "support@yourdomain.com",
       })
 
-      if (!userEmailResponse.error && userEmailResponse.data?.id) {
-        userEmailMessageId = userEmailResponse.data.id
+      if (userEmailResponse.success && userEmailResponse.messageId) {
+        userEmailMessageId = userEmailResponse.messageId
         emailsSent.push({
           to: userEmail,
           status: "sent",
@@ -138,22 +135,20 @@ export async function POST(request: NextRequest) {
 
     // Send via Resend to admin email
     try {
-      const adminEmailResponse = await resend.emails.send({
-        from: "security@resend.dev",
+      const adminEmailResponse = await sendEmail({
         to: adminEmail,
         subject: `[ADMIN] ${template.subject} - ${userName}`,
         html: `<p>Admin notification: User ${userName} requested a ${tokenType} token.</p>${template.html}`,
-        reply_to: "support@yourdomain.com",
       })
 
-      if (!adminEmailResponse.error && adminEmailResponse.data?.id) {
+      if (adminEmailResponse.success && adminEmailResponse.messageId) {
         emailsSent.push({
           to: adminEmail,
           status: "sent",
-          messageId: adminEmailResponse.data.id,
+          messageId: adminEmailResponse.messageId,
           timestamp: new Date().toISOString(),
         })
-        console.log("[v0] Admin email sent via Resend:", adminEmailResponse.data.id)
+        console.log("[v0] Admin email sent via Resend:", adminEmailResponse.messageId)
       } else {
         console.error("[v0] Failed to send admin email:", adminEmailResponse.error)
       }

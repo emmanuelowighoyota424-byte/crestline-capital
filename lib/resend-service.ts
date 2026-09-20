@@ -3,10 +3,7 @@
  * Handles all transactional email delivery using Resend API
  */
 
-import { Resend } from 'resend';
-
-// Initialize Resend client safely (avoid throwing on startup if API key is missing)
-const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder_for_build');
+import { sendEmail } from '@/lib/resend';
 
 export interface EmailResult {
   success: boolean;
@@ -24,12 +21,7 @@ export async function sendOTPEmail(
   userName: string = 'User'
 ): Promise<EmailResult> {
   try {
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error('RESEND_API_KEY is not configured');
-    }
-
-    const result = await resend.emails.send({
-      from: 'noreply@resend.dev',
+    const result = await sendEmail({
       to: email,
       subject: 'Your One-Time Password (OTP)',
       html: `
@@ -50,14 +42,14 @@ export async function sendOTPEmail(
       `,
     });
 
-    if (result.error) {
-      throw new Error(result.error.message);
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to send email');
     }
 
     return {
       success: true,
-      messageId: result.data?.id,
-      timestamp: new Date(),
+      messageId: result.messageId,
+      timestamp: result.timestamp,
     };
   } catch (error) {
     console.error('[Resend] Failed to send OTP:', error);
@@ -83,12 +75,7 @@ export async function sendLoginAlertEmail(
   }
 ): Promise<EmailResult> {
   try {
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error('RESEND_API_KEY is not configured');
-    }
-
-    const result = await resend.emails.send({
-      from: 'noreply@resend.dev',
+    const result = await sendEmail({
       to: email,
       subject: 'New Login Alert - Security Notification',
       html: `
@@ -115,14 +102,14 @@ export async function sendLoginAlertEmail(
       `,
     });
 
-    if (result.error) {
-      throw new Error(result.error.message);
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to send email');
     }
 
     return {
       success: true,
-      messageId: result.data?.id,
-      timestamp: new Date(),
+      messageId: result.messageId,
+      timestamp: result.timestamp,
     };
   } catch (error) {
     console.error('[Resend] Failed to send login alert:', error);
@@ -144,10 +131,6 @@ export async function sendSecurityAlertEmail(
   details?: string
 ): Promise<EmailResult> {
   try {
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error('RESEND_API_KEY is not configured');
-    }
-
     const alertMessages = {
       multiple_failed_attempts: 'Multiple failed login attempts detected on your account.',
       impossible_travel: 'Login detected from multiple locations too quickly.',
@@ -155,8 +138,7 @@ export async function sendSecurityAlertEmail(
       account_locked: 'Your account has been temporarily locked for security.',
     };
 
-    const result = await resend.emails.send({
-      from: 'noreply@resend.dev',
+    const result = await sendEmail({
       to: email,
       subject: 'Security Alert - Unusual Activity Detected',
       html: `
@@ -186,14 +168,14 @@ export async function sendSecurityAlertEmail(
       `,
     });
 
-    if (result.error) {
-      throw new Error(result.error.message);
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to send email');
     }
 
     return {
       success: true,
-      messageId: result.data?.id,
-      timestamp: new Date(),
+      messageId: result.messageId,
+      timestamp: result.timestamp,
     };
   } catch (error) {
     console.error('[Resend] Failed to send security alert:', error);
@@ -214,12 +196,7 @@ export async function send2FACodeEmail(
   userName: string = 'User'
 ): Promise<EmailResult> {
   try {
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error('RESEND_API_KEY is not configured');
-    }
-
-    const result = await resend.emails.send({
-      from: 'noreply@resend.dev',
+    const result = await sendEmail({
       to: email,
       subject: 'Two-Factor Authentication Code',
       html: `
@@ -240,14 +217,14 @@ export async function send2FACodeEmail(
       `,
     });
 
-    if (result.error) {
-      throw new Error(result.error.message);
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to send email');
     }
 
     return {
       success: true,
-      messageId: result.data?.id,
-      timestamp: new Date(),
+      messageId: result.messageId,
+      timestamp: result.timestamp,
     };
   } catch (error) {
     console.error('[Resend] Failed to send 2FA code:', error);
@@ -267,12 +244,7 @@ export async function sendWelcomeEmail(
   userName: string
 ): Promise<EmailResult> {
   try {
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error('RESEND_API_KEY is not configured');
-    }
-
-    const result = await resend.emails.send({
-      from: 'noreply@resend.dev',
+    const result = await sendEmail({
       to: email,
       subject: 'Welcome to Our Platform!',
       html: `
@@ -301,14 +273,14 @@ export async function sendWelcomeEmail(
       `,
     });
 
-    if (result.error) {
-      throw new Error(result.error.message);
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to send email');
     }
 
     return {
       success: true,
-      messageId: result.data?.id,
-      timestamp: new Date(),
+      messageId: result.messageId,
+      timestamp: result.timestamp,
     };
   } catch (error) {
     console.error('[Resend] Failed to send welcome email:', error);
@@ -329,12 +301,7 @@ export async function sendPasswordResetEmail(
   resetLink: string
 ): Promise<EmailResult> {
   try {
-    if (!process.env.RESEND_API_KEY) {
-      throw new Error('RESEND_API_KEY is not configured');
-    }
-
-    const result = await resend.emails.send({
-      from: 'noreply@resend.dev',
+    const result = await sendEmail({
       to: email,
       subject: 'Password Reset Request',
       html: `
@@ -357,14 +324,14 @@ export async function sendPasswordResetEmail(
       `,
     });
 
-    if (result.error) {
-      throw new Error(result.error.message);
+    if (!result.success) {
+      throw new Error(result.error || 'Failed to send email');
     }
 
     return {
       success: true,
-      messageId: result.data?.id,
-      timestamp: new Date(),
+      messageId: result.messageId,
+      timestamp: result.timestamp,
     };
   } catch (error) {
     console.error('[Resend] Failed to send password reset email:', error);

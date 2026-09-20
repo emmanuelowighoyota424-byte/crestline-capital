@@ -4,9 +4,7 @@
  */
 
 import { createClient } from '@/lib/supabase/server'
-import { Resend } from 'resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder_for_build')
+import { sendEmail } from '@/lib/resend'
 
 export interface AnomalyScore {
   score: number // 0-100
@@ -319,12 +317,10 @@ export class AnomalyDetectionService {
         </div>
       `
 
-      await resend.emails.send({
-        from: 'security@resend.dev',
+      await sendEmail({
         to: email,
         subject: `${riskLevel === 'critical' ? '🚨 ' : '⚠️ '}Suspicious Login Detected (Score: ${score}/100)`,
         html,
-        reply_to: 'security@yourdomain.com',
       })
 
       console.log('[v0] Anomaly alert sent:', { userId, riskLevel, score })

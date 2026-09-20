@@ -5,14 +5,12 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
-import { Resend } from 'resend'
+import { sendEmail } from '@/lib/resend'
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
   process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-service-key'
 )
-
-const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder_for_build')
 
 export async function GET(request: NextRequest) {
   try {
@@ -209,18 +207,16 @@ async function triggerSuspiciousLoginAlert(
 
     // Send via Resend (real-time delivery)
     try {
-      const response = await resend.emails.send({
-        from: 'security@resend.dev',
+      const response = await sendEmail({
         to: email,
         subject: `${severity === 'high' ? '🚨 ' : '⚠️ '}Suspicious Login Activity Detected`,
         html: alertHTML,
-        reply_to: 'security@yourdomain.com',
       })
 
-      if (response.error) {
+      if (!response.success) {
         console.error('[v0] Resend alert failed:', response.error)
       } else {
-        console.log('[v0] Security alert sent via Resend:', response.data?.id)
+        console.log('[v0] Security alert sent via Resend:', response.messageId)
       }
     } catch (resendError) {
       console.error('[v0] Resend delivery error:', resendError)
