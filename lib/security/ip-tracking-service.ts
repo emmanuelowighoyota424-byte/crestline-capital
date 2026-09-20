@@ -3,7 +3,7 @@
  * Tracks user IP addresses, locations, and detects suspicious access patterns
  */
 
-import { createClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 export interface IPLocationData {
   ip: string
@@ -32,7 +32,10 @@ export interface LoginRecord {
 }
 
 export class IPTrackingService {
-  private supabase: ReturnType<typeof createClient>
+  // The database schema is not code-generated in this repo, so the client is intentionally
+  // untyped (matching lib/supabase/server.ts). `ReturnType<typeof createClient>` resolved the
+  // schema to `never`, which rejected every insert and row read.
+  private supabase: SupabaseClient
 
   constructor(supabaseUrl: string, supabaseKey: string) {
     this.supabase = createClient(supabaseUrl, supabaseKey)
