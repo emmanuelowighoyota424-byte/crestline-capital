@@ -1,14 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { AdminAuthEngine } from '@/lib/admin/admin-auth'
+import { getAdminSessionWithPermission } from '@/lib/admin/request-session'
 import { adminStore } from '@/lib/admin/admin-store'
 import { auditLogger } from '@/lib/audit/audit-logger'
 
 export async function GET(req: NextRequest) {
   try {
-    const sessionId = req.cookies.get('crestline_admin_session')?.value || req.headers.get('x-admin-session')
-    const agent = AdminAuthEngine.verifySession(sessionId || '')
-    if (!agent) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    const session = getAdminSessionWithPermission(req, 'settings.manage')
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized - settings.manage permission required' }, { status: 401 })
     }
 
     // Mask sensitive credentials
@@ -25,11 +24,11 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
-    const sessionId = req.cookies.get('crestline_admin_session')?.value || req.headers.get('x-admin-session')
-    const agent = AdminAuthEngine.verifySession(sessionId || '')
-    if (!agent) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    const session = getAdminSessionWithPermission(req, 'settings.manage')
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized - settings.manage permission required' }, { status: 401 })
     }
+    const agent = session
 
     const updates = await req.json()
     
@@ -49,8 +48,10 @@ export async function POST(req: NextRequest) {
 
     auditLogger.record({
       actorId: agent.email,
+      actorRole: agent.role,
       action: 'ADMIN_UPDATE_SYSTEM_SETTINGS',
       targetResource: 'CONFIG_MASTER_SETTINGS',
+      targetId: 'master',
       metadata: {
         smtpHost: adminStore.siteSettings.smtpHost,
         smtpProvider: adminStore.siteSettings.smtpProvider,

@@ -17,6 +17,7 @@ export interface AuditLogEntry {
   userAgent?: string
   status: 'SUCCESS' | 'FAILURE' | 'BLOCKED'
   details?: Record<string, any>
+  metadata?: Record<string, any>
 }
 
 class AuditStore {

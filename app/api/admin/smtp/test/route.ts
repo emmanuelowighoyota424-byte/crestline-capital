@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { AdminAuthEngine } from '@/lib/admin/admin-auth'
+import { getAdminSessionWithPermission } from '@/lib/admin/request-session'
 import { auditLogger } from '@/lib/audit/audit-logger'
 
 export async function POST(req: NextRequest) {
   try {
-    const sessionId = req.cookies.get('crestline_admin_session')?.value || req.headers.get('x-admin-session')
-    const agent = AdminAuthEngine.verifySession(sessionId || '')
-    if (!agent) {
-      return NextResponse.json({ error: 'Unauthorized administrative session' }, { status: 401 })
+    const session = getAdminSessionWithPermission(req, 'settings.manage')
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized - settings.manage permission required' }, { status: 401 })
     }
+    const agent = session
 
     const body = await req.json()
     const {
@@ -39,8 +39,10 @@ export async function POST(req: NextRequest) {
     // Audit log this administrative diagnostic action
     auditLogger.record({
       actorId: agent.email,
+      actorRole: agent.role,
       action: 'ADMIN_SMTP_DIAGNOSTIC_TEST',
       targetResource: `SMTP:${smtpHost}:${smtpPort}`,
+      targetId: traceId,
       metadata: {
         provider: smtpProvider,
         recipient: recipientEmail,
