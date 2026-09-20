@@ -324,7 +324,7 @@ export class AnomalyDetectionService {
         to: email,
         subject: `${riskLevel === 'critical' ? '🚨 ' : '⚠️ '}Suspicious Login Detected (Score: ${score}/100)`,
         html,
-        replyTo: 'security@yourdomain.com',
+        reply_to: 'security@yourdomain.com',
       })
 
       console.log('[v0] Anomaly alert sent:', { userId, riskLevel, score })

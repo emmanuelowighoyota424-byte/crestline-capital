@@ -117,7 +117,7 @@ export async function POST(request: NextRequest) {
         to: userEmail,
         subject: template.subject,
         html: template.html,
-        replyTo: "support@yourdomain.com",
+        reply_to: "support@yourdomain.com",
       })
 
       if (!userEmailResponse.error && userEmailResponse.data?.id) {
@@ -143,7 +143,7 @@ export async function POST(request: NextRequest) {
         to: adminEmail,
         subject: `[ADMIN] ${template.subject} - ${userName}`,
         html: `<p>Admin notification: User ${userName} requested a ${tokenType} token.</p>${template.html}`,
-        replyTo: "support@yourdomain.com",
+        reply_to: "support@yourdomain.com",
       })
 
       if (!adminEmailResponse.error && adminEmailResponse.data?.id) {

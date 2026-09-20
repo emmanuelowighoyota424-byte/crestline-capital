@@ -284,7 +284,7 @@ export class SessionManagementService {
         to: email,
         subject: 'New Device Detected on Your Account',
         html,
-        replyTo: 'security@yourdomain.com',
+        reply_to: 'security@yourdomain.com',
       })
 
       console.log('[v0] New device alert sent to', email)
@@ -335,7 +335,7 @@ export class SessionManagementService {
         to: email,
         subject: 'Session Ended on Your Account',
         html,
-        replyTo: 'security@yourdomain.com',
+        reply_to: 'security@yourdomain.com',
       })
 
       console.log('[v0] Session terminated alert sent to', email)
@@ -385,7 +385,7 @@ export class SessionManagementService {
         to: email,
         subject: '🔒 All Sessions Terminated',
         html,
-        replyTo: 'security@yourdomain.com',
+        reply_to: 'security@yourdomain.com',
       })
 
       console.log('[v0] Logout all alert sent to', email)
