@@ -175,7 +175,7 @@ export async function POST(request: NextRequest) {
         )
       }
 
-      const { data: contact } = await supabase
+      const { data: contact, error: contactError } = await supabase
         .from('zelle_contacts')
         .insert([
           {
@@ -187,6 +187,13 @@ export async function POST(request: NextRequest) {
           }
         ])
         .select()
+
+      if (contactError || !contact?.length) {
+        return NextResponse.json(
+          { error: contactError?.message || 'Failed to add contact' },
+          { status: 500 }
+        )
+      }
 
       return NextResponse.json({
         message: 'Contact added to Zelle',
