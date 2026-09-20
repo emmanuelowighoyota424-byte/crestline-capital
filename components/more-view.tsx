@@ -466,7 +466,6 @@ export function MoreView({ onLogout }: MoreViewProps) {
         const existingDevice = linkedDevices?.find((d) => d.browser === browser && d.os === os)
         if (!existingDevice && addDevice) {
           addDevice({
-            id: newDeviceId, // Assign a unique ID
             name: deviceName,
             type: deviceType,
             lastActive: new Date().toISOString(),
@@ -721,7 +720,6 @@ export function MoreView({ onLogout }: MoreViewProps) {
       return
     }
     addExternalRecipient({
-      id: `external_${Date.now()}`, // Added unique ID
       name: linkAccountForm.nickname || linkAccountForm.bankName,
       bankName: linkAccountForm.bankName,
       routingNumber: linkAccountForm.routingNumber,
@@ -2551,7 +2549,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
     setPasswordLoading(true)
     setTimeout(() => {
       setPasswordLoading(false)
-      updateUserProfile({ passwordLastChanged: new Date().toISOString() }) // Update last changed date
+      updateUserProfile({ passwordLastChanged: new Date().toISOString() } as any) // Update last changed date
       addActivity({ action: "Password changed", device: detectDeviceInfo().deviceName, location: "Current Location" })
       toast({ title: "Password Updated", description: "Your password has been changed successfully." })
       setPasswordForm({ current: "", new: "", confirm: "" })
@@ -2581,7 +2579,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
     setPinLoading(true)
     setTimeout(() => {
       setPinLoading(false)
-      updateUserProfile({ pinLastChanged: new Date().toISOString() }) // Update last changed date
+      updateUserProfile({ pinLastChanged: new Date().toISOString() } as any) // Update last changed date
       addActivity({ action: "Card PIN changed", device: detectDeviceInfo().deviceName, location: "Current Location" })
       toast({ title: "PIN Updated", description: "Your card PIN has been changed successfully." })
       setPinForm({ current: "", new: "", confirm: "" })
@@ -3171,7 +3169,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                             ? "border-[#0a4fa6] bg-[#0a4fa6]/5"
                             : "hover:bg-muted/50"
                         }`}
-                        onClick={() => setTwoFactorSetup({ ...twoFactorSetup, method: option.method })}
+                        onClick={() => setTwoFactorSetup({ ...twoFactorSetup, method: option.method as "email" | "sms" | "authenticator" })}
                       >
                         <div
                           className={`h-10 w-10 rounded-full flex items-center justify-center ${

@@ -67,14 +67,14 @@ export class AnomalyDetectionService {
         .limit(10)
 
       if (locationHistory && locationHistory.length > 0) {
-        const previousCountries = locationHistory.map(l => l.location_data?.country)
+        const previousCountries = locationHistory.map((l: any) => l.location_data?.country)
         if (!previousCountries.includes(loginData.location.country)) {
           flags.push('new_country')
           score += 15
           details.push(`Login from new country: ${loginData.location.country}`)
         }
 
-        const previousCities = locationHistory.map(l => l.location_data?.city)
+        const previousCities = locationHistory.map((l: any) => l.location_data?.city)
         if (!previousCities.includes(loginData.location.city)) {
           flags.push('new_city')
           score += 10
@@ -92,8 +92,8 @@ export class AnomalyDetectionService {
         .limit(20)
 
       if (timeHistory && timeHistory.length > 0) {
-        const usualHours = timeHistory.map(l => new Date(l.timestamp).getHours())
-        const avgHour = Math.round(usualHours.reduce((a, b) => a + b, 0) / usualHours.length)
+        const usualHours = timeHistory.map((l: any) => new Date(l.timestamp).getHours())
+        const avgHour = Math.round(usualHours.reduce((a: any, b: any) => a + b, 0) / usualHours.length)
         
         if (Math.abs(loginHour - avgHour) > 6) {
           flags.push('unusual_time')
@@ -131,7 +131,7 @@ export class AnomalyDetectionService {
         .limit(10)
 
       if (deviceHistory && deviceHistory.length > 0) {
-        const previousAgents = deviceHistory.map(d => d.user_agent)
+        const previousAgents = deviceHistory.map((d: any) => d.user_agent)
         if (!previousAgents.includes(loginData.userAgent)) {
           flags.push('new_device')
           score += 12

@@ -2,6 +2,11 @@
 const nextConfig = {
   // Support both Cloud Run container deployment (standalone) and Vercel native deployment
   ...(process.env.VERCEL ? {} : { output: 'standalone' }),
+  reactStrictMode: true,
+  experimental: {
+    disableOptimizedLoading: true,
+    cpus: 4,
+  },
   // TypeScript errors must fail production builds rather than being silently ignored.
   // Keep type-checking in the deployment gate so broken server/client contracts cannot ship.
   images: {

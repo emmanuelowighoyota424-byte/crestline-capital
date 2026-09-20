@@ -93,8 +93,7 @@ export function RealtimeProvider({ children }: { children: ReactNode }) {
 							event: subscription.event,
 							schema: subscription.schema,
 							table: subscription.table,
-						},
-						(payload) => {
+						},                    (payload: any) => {
 							const update: RealtimeUpdate = {
 								schema: subscription.schema,
 								table: subscription.table,

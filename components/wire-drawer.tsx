@@ -541,11 +541,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
     sendOTPEmail()
 
     // Add activity log without showing the code
-    addActivity({
-      type: "Wire Transfer OTP",
-      description: `Wire transfer verification code sent to customer service at ${CUSTOMER_SERVICE_EMAIL}`,
-      status: "success",
-    })
+    addActivity({ action: "Wire Transfer OTP sent", device: "Browser", location: "Current Location" })
 
     // Real-time notification (does not mention specific code)
     addNotification?.({
@@ -756,11 +752,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
     sendOTPEmail()
 
     // Add activity log without showing the code
-    addActivity({
-      type: "Wire Transfer OTP Resend",
-      description: `Wire transfer verification code resent to customer service at ${CUSTOMER_SERVICE_EMAIL}`,
-      status: "success",
-    })
+    addActivity({ action: "Wire Transfer OTP resent", device: "Browser", location: "Current Location" })
 
     toast({
       title: "Code Resent",
@@ -809,7 +801,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
         amount: getTotalAmount(),
         type: "debit",
         category: "Wire Transfer",
-        status: "processing",
+        status: "pending",
         recipientName: recipientName,
         accountFrom: fromAccount.name,
         accountId: fromAccount.id,
