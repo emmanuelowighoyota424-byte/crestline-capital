@@ -40,6 +40,7 @@ export const wireTransferOperations = {
             recipientBank: data.recipientBank,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 10000, retries: 3, cache: false, priority: 'high' },
@@ -61,6 +62,7 @@ export const wireTransferOperations = {
             step: 'otp_verified',
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'high' },
@@ -82,6 +84,7 @@ export const wireTransferOperations = {
             step: 'cot_verified',
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'high' },
@@ -103,6 +106,7 @@ export const wireTransferOperations = {
             step: 'tax_verified',
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'high' },
@@ -124,6 +128,7 @@ export const wireTransferOperations = {
             confirmationNumber: `CONF-${Date.now()}`,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 15000, retries: 3, cache: false, priority: 'high' },
@@ -151,6 +156,7 @@ export const settingsOperations = {
             updated: true,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'normal' },
@@ -172,6 +178,7 @@ export const settingsOperations = {
             updates,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'normal' },
@@ -191,6 +198,7 @@ export const settingsOperations = {
             reset: true,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'normal' },
@@ -234,6 +242,7 @@ export const assistantOperations = {
             message: response,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 1, priority: 'normal' },
@@ -260,6 +269,7 @@ export const accountOperations = {
             currency: 'USD',
             lastUpdated: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'normal' },
@@ -280,6 +290,7 @@ export const accountOperations = {
             total: 0,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'normal' },
@@ -305,6 +316,7 @@ export const notificationOperations = {
             read: true,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'normal' },
@@ -324,6 +336,7 @@ export const notificationOperations = {
             deleted: true,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'normal' },
@@ -349,6 +362,7 @@ export const deviceOperations = {
             unlinked: true,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'high' },
@@ -369,6 +383,7 @@ export const deviceOperations = {
             renamed: true,
             timestamp: new Date(),
           },
+          timestamp: new Date(),
         }
       },
       { timeout: 5000, retries: 2, priority: 'normal' },
