@@ -74,8 +74,8 @@ export default function FinancialModules({
   // Payment Methods State
   const [wireRouting, setWireRouting] = useState('026009593')
   const [wireSwift, setWireSwift] = useState('CRSTUS33XXX')
-  const [btcAddress, setBtcAddress] = useState('bc1q9chase98institutionalledger9821')
-  const [ethAddress, setEthAddress] = useState('0x38bdf8ChaseCapitalTreasuryVault01')
+  const [btcAddress, setBtcAddress] = useState('bc1q9crestline98institutionalledger9821')
+  const [ethAddress, setEthAddress] = useState('0x38bdf8CrestlineCapitalTreasuryVault01')
   const [paymentSaveMessage, setPaymentSaveMessage] = useState<string | null>(null)
 
   // Card Setup State
@@ -255,7 +255,7 @@ export default function FinancialModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <ArrowLeftRight className="w-5 h-5 text-[#0a4fa6]" />
+              <ArrowLeftRight className="w-5 h-5 text-[#D71E28]" />
               <span>Transfers & Ledger Journals (?id=15)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -288,7 +288,7 @@ export default function FinancialModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <Landmark className="w-5 h-5 text-[#0a4fa6]" />
+              <Landmark className="w-5 h-5 text-[#D71E28]" />
               <span>Payment Methods & Settlement Gateways (?id=16)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -348,7 +348,7 @@ export default function FinancialModules({
                   setPaymentSaveMessage('Payment settlement parameters updated and propagated to customer portals.')
                   setTimeout(() => setPaymentSaveMessage(null), 3000)
                 }}
-                className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-bold rounded-xl text-xs hover:bg-[#083d80]"
+                className="px-4 py-2 bg-[#D71E28] text-gray-900 font-bold rounded-xl text-xs hover:bg-[#A31620]"
               >
                 Save Gateway Configurations
               </button>
@@ -362,7 +362,7 @@ export default function FinancialModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <CreditCard className="w-5 h-5 text-[#0a4fa6]" />
+              <CreditCard className="w-5 h-5 text-[#D71E28]" />
               <span>Card Issuing & Controls (?id=17)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -385,7 +385,7 @@ export default function FinancialModules({
                     {card.status}
                   </span>
                 </div>
-                <div className="font-mono text-lg text-[#0a4fa6] tracking-widest">{card.maskedPan}</div>
+                <div className="font-mono text-lg text-[#D71E28] tracking-widest">{card.maskedPan}</div>
                 <div className="text-xs text-gray-500 space-y-1">
                   <div>Monthly Limit: <span className="text-gray-900 font-mono">${card.spendingLimitMonthly.toLocaleString()}</span></div>
                   <div>Spent This Month: <span className="text-gray-900 font-mono">${card.spentThisMonth.toLocaleString()}</span></div>
@@ -402,7 +402,7 @@ export default function FinancialModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <Sliders className="w-5 h-5 text-[#0a4fa6]" />
+              <Sliders className="w-5 h-5 text-[#D71E28]" />
               <span>Card Program & Issuer Setup (?id=18)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -442,7 +442,7 @@ export default function FinancialModules({
             </div>
             <button
               onClick={() => alert('Card Program configurations committed.')}
-              className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-bold rounded-xl"
+              className="px-4 py-2 bg-[#D71E28] text-gray-900 font-bold rounded-xl"
             >
               Update Program Controls
             </button>
@@ -455,7 +455,7 @@ export default function FinancialModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-[#0a4fa6]" />
+              <DollarSign className="w-5 h-5 text-[#D71E28]" />
               <span>Multi-Currency Exchange Rates (?id=19)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -480,7 +480,7 @@ export default function FinancialModules({
                     <td className="py-3 px-4 font-bold text-gray-900">
                       {curr.symbol} {curr.name}
                     </td>
-                    <td className="py-3 px-4 font-mono text-[#0a4fa6]">{curr.code}</td>
+                    <td className="py-3 px-4 font-mono text-[#D71E28]">{curr.code}</td>
                     <td className="py-3 px-4 font-mono font-bold text-gray-900">{curr.rateAgainstUSD}</td>
                     <td className="py-3 px-4">
                       <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-600 border border-emerald-500/20">
@@ -501,7 +501,7 @@ export default function FinancialModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <Landmark className="w-5 h-5 text-[#0a4fa6]" />
+              <Landmark className="w-5 h-5 text-[#D71E28]" />
               <span>Credit Allocation & Loan Underwriting (?id=20)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -515,7 +515,7 @@ export default function FinancialModules({
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-base text-gray-900">{loan.applicantName}</span>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#0a4fa6]/10 text-[#0a4fa6]">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#D71E28]/10 text-[#D71E28]">
                       FICO {loan.creditScore}
                     </span>
                   </div>
@@ -575,7 +575,7 @@ export default function FinancialModules({
                 {grants.map((g) => (
                   <tr key={g.id} className="hover:bg-gray-200/30">
                     <td className="py-3 px-4 font-bold text-gray-900">{g.title}</td>
-                    <td className="py-3 px-4 font-mono text-[#0a4fa6]">{g.recipientEmail}</td>
+                    <td className="py-3 px-4 font-mono text-[#D71E28]">{g.recipientEmail}</td>
                     <td className="py-3 px-4 font-mono font-bold text-green-600">
                       ${g.amount.toLocaleString()} {g.currency}
                     </td>
@@ -599,7 +599,7 @@ export default function FinancialModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <FileText className="w-5 h-5 text-[#0a4fa6]" />
+              <FileText className="w-5 h-5 text-[#D71E28]" />
               <span>IRS Compliance & Tax Holdback Manager (?id=22)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -639,7 +639,7 @@ export default function FinancialModules({
                   setIrsSaveMsg('IRS tax compliance parameters synchronized with banking ledger.')
                   setTimeout(() => setIrsSaveMsg(null), 3000)
                 }}
-                className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-bold rounded-xl"
+                className="px-4 py-2 bg-[#D71E28] text-gray-900 font-bold rounded-xl"
               >
                 Save Compliance Parameters
               </button>
@@ -665,7 +665,7 @@ export default function FinancialModules({
             {[
               { tier: 'STANDARD', min: '$0', boost: '0.00%', fee: '$0/mo', color: 'text-gray-500' },
               { tier: 'GOLD', min: '$25,000', boost: '+0.25%', fee: '$49/mo', color: 'text-amber-600' },
-              { tier: 'PLATINUM', min: '$100,000', boost: '+0.60%', fee: '$149/mo', color: 'text-[#0a4fa6]' },
+              { tier: 'PLATINUM', min: '$100,000', boost: '+0.60%', fee: '$149/mo', color: 'text-[#D71E28]' },
               { tier: 'SOVEREIGN', min: '$1,000,000', boost: '+1.40%', fee: 'Bespoke', color: 'text-purple-600' },
             ].map((m) => (
               <div key={m.tier} className="bg-gray-100 border border-gray-200 rounded-2xl p-5 space-y-2">

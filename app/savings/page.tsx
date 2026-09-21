@@ -51,7 +51,7 @@ export default function SavingsPage() {
           </div>
           <button
             onClick={() => setShowAddGoal(true)}
-            className="px-4 py-2.5 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold text-xs rounded-xl shadow-[0_0_15px_rgba(56,189,248,0.25)] transition-all flex items-center gap-2 self-start"
+            className="px-4 py-2.5 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold text-xs rounded-xl shadow-[0_0_15px_rgba(215,30,40,0.25)] transition-all flex items-center gap-2 self-start"
           >
             <Plus className="w-4 h-4" />
             <span>Create New Goal</span>
@@ -93,14 +93,14 @@ export default function SavingsPage() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-semibold text-[#0a4fa6] uppercase tracking-wider">{goal.category}</span>
+                    <span className="text-xs font-semibold text-[#D71E28] uppercase tracking-wider">{goal.category}</span>
                     <span className="text-xs font-mono text-gray-500">{progress}%</span>
                   </div>
                   <h3 className="text-base font-bold text-gray-900 mb-2">{goal.name}</h3>
 
                   <div className="w-full bg-white h-2.5 rounded-full overflow-hidden mb-4 border border-gray-200">
                     <div
-                      className="bg-gradient-to-r from-[#38bdf8] to-[#818cf8] h-full rounded-full transition-all duration-500"
+                      className="bg-gradient-to-r from-[#D71E28] to-[#818cf8] h-full rounded-full transition-all duration-500"
                       style={{ width: `${progress}%` }}
                     />
                   </div>
@@ -115,7 +115,7 @@ export default function SavingsPage() {
                   <span className="text-[11px] text-gray-500">Target: {goal.deadline}</span>
                   <button
                     onClick={() => setSelectedGoalId(goal.id)}
-                    className="px-3 py-1.5 bg-[#0a4fa6]/10 hover:bg-[#0a4fa6]/20 text-[#0a4fa6] text-xs font-semibold rounded-lg transition-colors"
+                    className="px-3 py-1.5 bg-[#D71E28]/10 hover:bg-[#D71E28]/20 text-[#D71E28] text-xs font-semibold rounded-lg transition-colors"
                   >
                     + Add Funds
                   </button>
@@ -139,7 +139,7 @@ export default function SavingsPage() {
                     value={goalName}
                     onChange={(e) => setGoalName(e.target.value)}
                     placeholder="e.g. Real Estate Down Payment"
-                    className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                    className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                   />
                 </div>
                 <div>
@@ -151,7 +151,7 @@ export default function SavingsPage() {
                     value={targetAmount}
                     onChange={(e) => setTargetAmount(e.target.value)}
                     placeholder="25000"
-                    className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#0a4fa6]"
+                    className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#D71E28]"
                   />
                 </div>
                 <div className="flex items-center justify-end gap-2 pt-4 border-t border-gray-200">
@@ -164,7 +164,7 @@ export default function SavingsPage() {
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-semibold text-xs rounded-xl"
+                    className="px-4 py-2 bg-[#D71E28] text-gray-900 font-semibold text-xs rounded-xl"
                   >
                     Save Goal
                   </button>
@@ -191,7 +191,7 @@ export default function SavingsPage() {
                     value={depositAmount}
                     onChange={(e) => setDepositAmount(e.target.value)}
                     placeholder="100.00"
-                    className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#0a4fa6]"
+                    className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#D71E28]"
                   />
                 </div>
                 <div className="flex items-center justify-end gap-2 pt-4 border-t border-gray-200">
@@ -204,7 +204,7 @@ export default function SavingsPage() {
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-semibold text-xs rounded-xl"
+                    className="px-4 py-2 bg-[#D71E28] text-gray-900 font-semibold text-xs rounded-xl"
                   >
                     Transfer to Goal
                   </button>

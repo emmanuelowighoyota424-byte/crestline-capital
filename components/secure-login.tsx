@@ -358,8 +358,8 @@ export function SecureLogin({ onLogin }: SecureLoginProps) {
         <Card className="w-full max-w-md p-8 shadow-2xl">
           <div className="text-center mb-8">
             <Image 
-              src="/images/Chase-logo.png" 
-              alt="Chase" 
+              src="/images/Crestline-logo.png" 
+              alt="Crestline Capital" 
               width={64} 
               height={64} 
               className="mx-auto mb-4 rounded-lg"
@@ -414,8 +414,8 @@ export function SecureLogin({ onLogin }: SecureLoginProps) {
       <Card className="w-full max-w-md p-8 shadow-2xl">
         <div className="text-center mb-8">
           <Image 
-            src="/images/Chase-logo.png" 
-            alt="Chase" 
+            src="/images/Crestline-logo.png" 
+            alt="Crestline Capital" 
             width={64} 
             height={64} 
             className="mx-auto mb-4 rounded-lg"

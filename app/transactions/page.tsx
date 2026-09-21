@@ -35,7 +35,7 @@ export default function TransactionsPage() {
     const encodedUri = encodeURI(csvContent)
     const link = document.createElement('a')
     link.setAttribute('href', encodedUri)
-    link.setAttribute('download', `chase_transactions_${Date.now()}.csv`)
+    link.setAttribute('download', `crestline_transactions_${Date.now()}.csv`)
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -55,7 +55,7 @@ export default function TransactionsPage() {
             onClick={handleExportCSV}
             className="px-4 py-2.5 bg-white hover:bg-gray-200 text-gray-900 border border-gray-200 font-medium text-xs rounded-xl transition-all flex items-center gap-2 self-start"
           >
-            <Download className="w-4 h-4 text-[#0a4fa6]" />
+            <Download className="w-4 h-4 text-[#D71E28]" />
             <span>Export CSV</span>
           </button>
         </div>
@@ -69,7 +69,7 @@ export default function TransactionsPage() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search by merchant, counterparty, or memo..."
-              className="w-full pl-10 pr-4 py-2.5 bg-gray-100 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-[#64748b] focus:outline-none focus:border-[#0a4fa6]"
+              className="w-full pl-10 pr-4 py-2.5 bg-gray-100 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-[#64748b] focus:outline-none focus:border-[#D71E28]"
             />
           </div>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0">
@@ -79,7 +79,7 @@ export default function TransactionsPage() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3 py-2 text-xs rounded-xl font-medium whitespace-nowrap transition-colors ${
                   selectedCategory === cat
-                    ? 'bg-[#0a4fa6] text-gray-900 font-semibold'
+                    ? 'bg-[#D71E28] text-gray-900 font-semibold'
                     : 'bg-gray-100 text-gray-500 hover:text-gray-900 border border-gray-200'
                 }`}
               >

@@ -1,0 +1,617 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  CUSTOMER
+  SUPPORT
+  COMPLIANCE
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum AccountType {
+  SAVINGS
+  CHECKING
+  BUSINESS
+  FIXED_DEPOSIT
+}
+
+enum AccountStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  CLOSED
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  TRANSFER
+  PAYMENT
+  FEE
+  REFUND
+  REVERSAL
+}
+
+enum TransactionStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+  REVERSED
+}
+
+enum KycStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  passwordHash   String
+  firstName      String
+  lastName       String
+  phone          String?
+  role           UserRole  @default(CUSTOMER)
+  kycStatus      KycStatus @default(PENDING)
+  isActive       Boolean   @default(true)
+  twoFactorEnabled Boolean @default(false)
+  twoFactorSecret String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  lastLoginAt    DateTime?
+  deletedAt      DateTime?
+
+  accounts       Account[]
+  sessions       Session[]
+  transactions   Transaction[]
+  auditLogs      AuditLog[]
+  beneficiaries  Beneficiary[]
+
+  @@index([role])
+  @@index([kycStatus])
+  @@index([isActive])
+}
+
+model Session {
+  id         String   @id @default(cuid())
+  userId     String
+  tokenHash  String   @unique
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model Account {
+  id               String        @id @default(cuid())
+  userId           String
+  accountNumber    String        @unique
+  type             AccountType
+  status           AccountStatus @default(PENDING)
+  currency         String        @default("USD")
+  balance          Decimal       @default(0) @db.Decimal(18, 2)
+  availableBalance Decimal       @default(0) @db.Decimal(18, 2)
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  closedAt         DateTime?
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+  outgoing     Transaction[] @relation("FromAccount")
+  incoming     Transaction[] @relation("ToAccount")
+
+  @@index([userId])
+  @@index([status])
+}
+
+model Beneficiary {
+  id            String   @id @default(cuid())
+  userId        String
+  name          String
+  bankName      String
+  bankCode      String?
+  accountNumber String
+  currency      String   @default("USD")
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([isActive])
+}
+
+model Transaction {
+  id                String            @id @default(cuid())
+  userId            String
+  accountId         String
+  fromAccountId     String?
+  toAccountId       String?
+  type              TransactionType
+  status            TransactionStatus @default(PENDING)
+  amount            Decimal           @db.Decimal(18, 2)
+  fee               Decimal           @default(0) @db.Decimal(18, 2)
+  currency          String            @default("USD")
+  reference         String            @unique
+  description       String?
+  recipientName     String?
+  recipientAccount  String?
+  recipientBank     String?
+  providerReference String?
+  idempotencyKey    String?           @unique
+  metadata          Json?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  completedAt       DateTime?
+
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  account     Account @relation(fields: [accountId], references: [id], onDelete: Restrict)
+  fromAccount Account? @relation("FromAccount", fields: [fromAccountId], references: [id])
+  toAccount   Account? @relation("ToAccount", fields: [toAccountId], references: [id])
+
+  @@index([userId, createdAt])
+  @@index([accountId, createdAt])
+  @@index([status])
+  @@index([type])
+  @@index([providerReference])
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String?
+  action     String
+  entityType String
+  entityId   String?
+  description String
+  metadata   Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId, createdAt])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+model SystemSetting {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ─── Supabase-legacy tables (snake_case to match API convention) ─────
+
+// ─── Supabase-legacy tables (snake_case to match API convention) ─────
+
+model UserProfile {
+  id                 String    @id @default(cuid())
+  email              String    @unique
+  name               String
+  password_hash      String
+  phone              String?
+  role               String    @default("user")
+  created_at         DateTime  @default(now())
+  last_login         DateTime?
+  two_factor_enabled Boolean   @default(false)
+  two_factor_secret  String?
+  status             String    @default("active")
+  kyc_status         String?
+  avatar_url         String?
+  address            Json?
+  preferences        Json?
+  updated_at         DateTime  @updatedAt
+
+  @@map("users")
+}
+
+model AccountRecord {
+  id                  String   @id @default(cuid())
+  user_id             String
+  name                String
+  account_type        String
+  account_number      String   @unique
+  full_account_number String
+  routing_number      String?
+  balance             Decimal  @default(0)
+  available_balance   Decimal  @default(0)
+  interest_rate       Decimal?
+  status              String   @default("active")
+  currency            String   @default("USD")
+  created_at          DateTime @default(now())
+  updated_at          DateTime @updatedAt
+
+  @@index([user_id])
+  @@map("accounts")
+}
+
+model TransactionRecord {
+  id                String   @id @default(cuid())
+  account_id        String
+  user_id           String
+  description       String?
+  amount            Decimal
+  type              String
+  category          String?
+  status            String   @default("completed")
+  recipient_name    String?
+  recipient_bank    String?
+  recipient_account String?
+  from_account_id   String?
+  to_account_id     String?
+  reference         String?
+  metadata          Json?
+  created_at        DateTime @default(now())
+
+  @@index([user_id, created_at(sort: Desc)])
+  @@index([account_id])
+  @@map("transactions")
+}
+
+model NotificationRecord {
+  id         String   @id @default(cuid())
+  user_id    String
+  title      String
+  message    String
+  type       String?
+  is_read    Boolean  @default(false)
+  category   String?
+  data       Json?
+  created_at DateTime @default(now())
+
+  @@index([user_id, created_at(sort: Desc)])
+  @@map("notifications")
+}
+
+model BillPayment {
+  id              String   @id @default(cuid())
+  user_id         String
+  from_account_id String?
+  amount          Decimal
+  payee           String
+  due_date        DateTime
+  scheduled_date  DateTime?
+  frequency       String?
+  status          String   @default("pending")
+  category        String?
+  account_number  String?
+  created_at      DateTime @default(now())
+
+  @@index([user_id])
+  @@map("bill_payments")
+}
+
+model CreditScore {
+  id         String   @id @default(cuid())
+  user_id    String
+  score      Int
+  status     String?
+  trend      String?
+  factors    Json?
+  updated_at DateTime @updatedAt
+  created_at DateTime @default(now())
+
+  @@index([user_id])
+  @@map("credit_scores")
+}
+
+model CreditCard {
+  id               String   @id @default(cuid())
+  user_id          String
+  card_number      String
+  card_name        String?
+  card_type        String?
+  credit_limit     Decimal?
+  current_balance  Decimal?
+  available_credit Decimal?
+  status           String   @default("active")
+  expiry_date      String?
+  created_at       DateTime @default(now())
+
+  @@index([user_id])
+  @@map("credit_cards")
+}
+
+model CreditJourney {
+  id         String   @id @default(cuid())
+  user_id    String
+  step       Int
+  title      String
+  status     String   @default("pending")
+  data       Json?
+  created_at DateTime @default(now())
+
+  @@index([user_id])
+  @@map("credit_journey")
+}
+
+model CreditUtilization {
+  id                     String   @id @default(cuid())
+  user_id                String
+  total_credit_limit     Decimal?
+  total_current_balance  Decimal?
+  utilization_percentage Decimal?
+  updated_at             DateTime @updatedAt
+  created_at             DateTime @default(now())
+
+  @@index([user_id])
+  @@map("credit_utilization")
+}
+
+model LoginHistory {
+  id                  String   @id @default(cuid())
+  user_id             String
+  ip                  String?
+  device_name         String?
+  device_type         String?
+  browser             String?
+  os                  String?
+  location_data       Json?
+  login_success       Boolean  @default(true)
+  two_factor_verified Boolean?
+  suspicious_flags    Json?
+  timestamp           DateTime @default(now())
+
+  @@index([user_id, timestamp(sort: Desc)])
+  @@map("login_history")
+}
+
+model DeviceRegistration {
+  id          String   @id @default(cuid())
+  user_id     String
+  device_id   String
+  device_name String?
+  device_type String?
+  browser     String?
+  os          String?
+  last_active DateTime?
+  is_trusted  Boolean  @default(false)
+  push_token  String?
+  created_at  DateTime @default(now())
+
+  @@index([user_id])
+  @@map("device_registrations")
+}
+
+model SessionRecord {
+  id         String   @id @default(cuid())
+  user_id    String
+  token_hash String?
+  ip         String?
+  user_agent String?
+  device_name String?
+  expires_at DateTime
+  created_at DateTime @default(now())
+
+  @@index([user_id])
+  @@map("sessions")
+}
+
+model SecurityEvent {
+  id         String   @id @default(cuid())
+  user_id    String?
+  event_type String
+  severity   String?
+  description String?
+  metadata   Json?
+  created_at DateTime @default(now())
+
+  @@index([created_at(sort: Desc)])
+  @@map("security_events")
+}
+
+model SecuritySetting {
+  id            String   @id @default(cuid())
+  user_id       String
+  setting_key   String
+  setting_value Json?
+  updated_at    DateTime @updatedAt
+
+  @@index([user_id])
+  @@map("security_settings")
+}
+
+model RecoverySession {
+  id         String   @id @default(cuid())
+  user_id    String
+  token      String
+  method     String?
+  expires_at DateTime
+  used       Boolean  @default(false)
+  created_at DateTime @default(now())
+
+  @@index([user_id])
+  @@map("recovery_sessions")
+}
+
+model NotificationPreference {
+  id         String   @id @default(cuid())
+  user_id    String
+  type       String
+  enabled    Boolean  @default(true)
+  channels   Json?
+  updated_at DateTime @updatedAt
+
+  @@index([user_id])
+  @@map("notification_preferences")
+}
+
+model NotificationLog {
+  id            String   @id @default(cuid())
+  user_id       String?
+  channel       String
+  recipient     String?
+  subject       String?
+  body          String?
+  status        String?
+  error_message String?
+  metadata      Json?
+  created_at    DateTime @default(now())
+
+  @@index([created_at(sort: Desc)])
+  @@map("notification_logs")
+}
+
+model AdminTransfer {
+  id           String   @id
+  admin_id     String
+  user_id      String
+  account_id   String
+  amount       Decimal
+  description  String?
+  status       String   @default("pending_otp")
+  otp_code     String?
+  created_at   DateTime @default(now())
+  completed_at DateTime?
+
+  @@index([user_id])
+  @@map("admin_transfers")
+}
+
+model WireTransfer {
+  id                String   @id @default(cuid())
+  user_id           String
+  from_account_id   String
+  amount            Decimal
+  recipient_name    String?
+  recipient_bank    String?
+  recipient_routing String?
+  recipient_account String?
+  status            String   @default("pending")
+  reference         String?
+  created_at        DateTime @default(now())
+
+  @@index([user_id])
+  @@map("wire_transfers")
+}
+
+model ZelleContact {
+  id          String   @id @default(cuid())
+  user_id     String
+  name        String
+  email       String?
+  phone       String?
+  is_favorite Boolean  @default(false)
+  created_at  DateTime @default(now())
+
+  @@index([user_id])
+  @@map("zelle_contacts")
+}
+
+model ZelleTransfer {
+  id              String   @id @default(cuid())
+  user_id         String
+  contact_id      String?
+  recipient_email String?
+  recipient_name  String?
+  amount          Decimal
+  description     String?
+  status          String   @default("pending")
+  created_at      DateTime @default(now())
+
+  @@index([user_id])
+  @@map("zelle_transfers")
+}
+
+model TransactionAlert {
+  id             String   @id @default(cuid())
+  user_id        String
+  transaction_id String?
+  alert_type     String
+  amount         Decimal?
+  message        String?
+  is_read        Boolean  @default(false)
+  created_at     DateTime @default(now())
+
+  @@index([user_id])
+  @@map("transaction_alerts")
+}
+
+model UserSetting {
+  id            String   @id @default(cuid())
+  user_id       String
+  setting_key   String
+  setting_value Json?
+  updated_at    DateTime @updatedAt
+
+  @@index([user_id])
+  @@map("user_settings")
+}
+
+model Employee {
+  id            String   @id @default(cuid())
+  name          String
+  email         String?
+  department_id String?
+  position      String?
+  status        String   @default("active")
+  hire_date     DateTime?
+  salary        Decimal?
+  created_at    DateTime @default(now())
+
+  @@map("employee")
+}
+
+model Department {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  created_at  DateTime @default(now())
+
+  @@map("department")
+}
+
+model Attendance {
+  id          String   @id @default(cuid())
+  employee_id String
+  date        DateTime
+  check_in    DateTime?
+  check_out   DateTime?
+  status      String?
+  notes       String?
+  created_at  DateTime @default(now())
+
+  @@index([employee_id])
+  @@map("attendance")
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  category_id String?
+  price       Decimal?
+  stock       Int?
+  status      String   @default("active")
+  created_at  DateTime @default(now())
+
+  @@map("product")
+}
+
+model ProductCategory {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  created_at  DateTime @default(now())
+
+  @@map("category")
+}

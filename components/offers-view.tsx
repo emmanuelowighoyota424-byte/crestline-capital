@@ -157,7 +157,7 @@ export function OffersView() {
           <div className="flex items-center gap-3">
             <Star className="h-8 w-8" />
             <div>
-              <h3 className="font-bold text-lg">Chase Ultimate Rewards</h3>
+              <h3 className="font-bold text-lg">Crestline Ultimate Rewards</h3>
               <p className="text-sm opacity-90">
                 You have {userProfile.ultimateRewardsPoints.toLocaleString()} points worth $
                 {(userProfile.ultimateRewardsPoints * 0.01).toFixed(2)}

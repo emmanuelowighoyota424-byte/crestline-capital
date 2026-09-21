@@ -66,7 +66,7 @@ export default function DepositsPage() {
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Deposit Funds</h1>
           <p className="text-sm text-gray-500 mt-1">
-            Fund your Chase accounts via Mobile Check Deposit, External Bank Transfer (ACH), or Fedwire.
+            Fund your Crestline Capital accounts via Mobile Check Deposit, External Bank Transfer (ACH), or Fedwire.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export default function DepositsPage() {
                 }}
                 className={`flex-1 py-3 px-4 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
                   method === m.id
-                    ? 'bg-[#0a4fa6] text-gray-900 shadow-[0_0_15px_rgba(56,189,248,0.25)]'
+                    ? 'bg-[#D71E28] text-gray-900 shadow-[0_0_15px_rgba(215,30,40,0.25)]'
                     : 'text-gray-500 hover:text-gray-900 hover:bg-white'
                 }`}
               >
@@ -108,7 +108,7 @@ export default function DepositsPage() {
                   <select
                     value={targetAccountId}
                     onChange={(e) => setTargetAccountId(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                   >
                     {accounts.map((acc) => (
                       <option key={acc.id} value={acc.id}>
@@ -129,7 +129,7 @@ export default function DepositsPage() {
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
                       placeholder="0.00"
-                      className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#0a4fa6]"
+                      className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#D71E28]"
                     />
                   </div>
                   <div>
@@ -140,7 +140,7 @@ export default function DepositsPage() {
                       value={checkNumber}
                       onChange={(e) => setCheckNumber(e.target.value)}
                       placeholder="e.g. 1042"
-                      className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#0a4fa6]"
+                      className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#D71E28]"
                     />
                   </div>
                 </div>
@@ -150,7 +150,7 @@ export default function DepositsPage() {
                   <div
                     onClick={() => setFrontImage('front_check_sample.jpg')}
                     className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
-                      frontImage ? 'border-emerald-500 bg-emerald-500/5' : 'border-gray-200 hover:border-[#0a4fa6]'
+                      frontImage ? 'border-emerald-500 bg-emerald-500/5' : 'border-gray-200 hover:border-[#D71E28]'
                     }`}
                   >
                     <Camera className={`w-8 h-8 mx-auto mb-2 ${frontImage ? 'text-green-600' : 'text-gray-400'}`} />
@@ -163,7 +163,7 @@ export default function DepositsPage() {
                   <div
                     onClick={() => setBackImage('back_check_sample.jpg')}
                     className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-colors ${
-                      backImage ? 'border-emerald-500 bg-emerald-500/5' : 'border-gray-200 hover:border-[#0a4fa6]'
+                      backImage ? 'border-emerald-500 bg-emerald-500/5' : 'border-gray-200 hover:border-[#D71E28]'
                     }`}
                   >
                     <Camera className={`w-8 h-8 mx-auto mb-2 ${backImage ? 'text-green-600' : 'text-gray-400'}`} />
@@ -183,7 +183,7 @@ export default function DepositsPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold rounded-xl text-sm transition-all shadow-[0_0_15px_rgba(56,189,248,0.25)] disabled:opacity-50"
+                    className="w-full py-3 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold rounded-xl text-sm transition-all shadow-[0_0_15px_rgba(215,30,40,0.25)] disabled:opacity-50"
                   >
                     {loading ? 'Analyzing Check OCR & Transmitting...' : 'Submit Check for Deposit'}
                   </button>
@@ -221,16 +221,16 @@ export default function DepositsPage() {
           <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xl space-y-4">
             <h2 className="text-lg font-bold text-gray-900">Link External Checking Account</h2>
             <p className="text-xs text-gray-500">
-              Connect an external bank via Plaid or micro-deposits to pull funds automatically into Chase.
+              Connect an external bank via Plaid or micro-deposits to pull funds automatically into Crestline Capital.
             </p>
             <div className="p-4 bg-white rounded-xl border border-gray-200 flex items-center justify-between">
               <div>
-                <span className="text-sm font-semibold text-gray-900 block">Chase Personal Checking</span>
+                <span className="text-sm font-semibold text-gray-900 block">Crestline Personal Checking</span>
                 <span className="text-xs text-gray-400 font-mono">•••• 8912 — Verified</span>
               </div>
               <button
-                onClick={() => alert('Initiated $500 transfer from Chase Checking (ACH Settlement in 2 days)')}
-                className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-semibold text-xs rounded-lg hover:bg-[#083d80]"
+                onClick={() => alert('Initiated $500 transfer from Crestline Checking (ACH Settlement in 2 days)')}
+                className="px-4 py-2 bg-[#D71E28] text-gray-900 font-semibold text-xs rounded-lg hover:bg-[#A31620]"
               >
                 Pull Funds
               </button>
@@ -254,7 +254,7 @@ export default function DepositsPage() {
             <div className="bg-white rounded-xl p-4 border border-gray-200 space-y-3 text-xs font-mono">
               <div className="flex justify-between items-center">
                 <span className="text-gray-400">Bank Name:</span>
-                <span className="text-gray-900">Chase, N.A.</span>
+                <span className="text-gray-900">Crestline Capital, N.A.</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-400">Fedwire ABA Routing:</span>

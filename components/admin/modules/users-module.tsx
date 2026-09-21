@@ -109,7 +109,7 @@ export default function UsersModule({
     const encodedUri = encodeURI(csvContent)
     const link = document.createElement('a')
     link.setAttribute('href', encodedUri)
-    link.setAttribute('download', `chase_users_${Date.now()}.csv`)
+    link.setAttribute('download', `crestline_users_${Date.now()}.csv`)
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -137,7 +137,7 @@ export default function UsersModule({
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#0a4fa6]" />
+                <Users className="w-5 h-5 text-[#D71E28]" />
                 <span>Client Master Roster (?id=2)</span>
               </h2>
               <p className="text-xs text-gray-500 mt-0.5">
@@ -155,7 +155,7 @@ export default function UsersModule({
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="px-3.5 py-2 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 shadow-md"
+                className="px-3.5 py-2 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 shadow-md"
               >
                 <UserPlus className="w-4 h-4" />
                 <span>Add Customer</span>
@@ -172,7 +172,7 @@ export default function UsersModule({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by name, email, or account number..."
-                className="w-full pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-[#64748b] text-xs focus:outline-none focus:border-[#0a4fa6]"
+                className="w-full pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-[#64748b] text-xs focus:outline-none focus:border-[#D71E28]"
               />
             </div>
 
@@ -184,7 +184,7 @@ export default function UsersModule({
                     key={st}
                     onClick={() => setStatusFilter(st)}
                     className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all ${
-                      statusFilter === st ? 'bg-[#0a4fa6] text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'
+                      statusFilter === st ? 'bg-[#D71E28] text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'
                     }`}
                   >
                     {st}
@@ -199,7 +199,7 @@ export default function UsersModule({
                     key={k}
                     onClick={() => setKycFilter(k)}
                     className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all ${
-                      kycFilter === k ? 'bg-[#0a4fa6] text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'
+                      kycFilter === k ? 'bg-[#D71E28] text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'
                     }`}
                   >
                     {k}
@@ -230,7 +230,7 @@ export default function UsersModule({
                       <td className="py-3.5 px-4">
                         <div>
                           <span className="font-bold text-gray-900 block">{user.name}</span>
-                          <span className="text-[11px] font-mono text-[#0a4fa6]">{user.email}</span>
+                          <span className="text-[11px] font-mono text-[#D71E28]">{user.email}</span>
                         </div>
                       </td>
                       <td className="py-3.5 px-4 font-mono text-gray-500">
@@ -302,7 +302,7 @@ export default function UsersModule({
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#0a4fa6]" />
+                <Users className="w-5 h-5 text-[#D71E28]" />
                 <span>Leads & Prospect Pipeline (?id=11)</span>
               </h2>
               <p className="text-xs text-gray-500">
@@ -316,7 +316,7 @@ export default function UsersModule({
               <div key={lead.id} className="bg-gray-100 border border-gray-200 rounded-2xl p-5 shadow-lg">
                 <div className="flex items-center justify-between mb-3">
                   <span className="font-bold text-base text-gray-900">{lead.name}</span>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#0a4fa6]/10 text-[#0a4fa6] border border-[#0a4fa6]/20">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#D71E28]/10 text-[#D71E28] border border-[#D71E28]/20">
                     {lead.stage}
                   </span>
                 </div>
@@ -328,7 +328,7 @@ export default function UsersModule({
                     Phone: <span className="font-mono text-gray-900">{lead.phone}</span>
                   </div>
                   <div>
-                    Source: <span className="text-[#0a4fa6]">{lead.source}</span>
+                    Source: <span className="text-[#D71E28]">{lead.source}</span>
                   </div>
                   <div>
                     Assigned Agent: <span className="text-gray-900 font-semibold">{lead.assignedAgent}</span>
@@ -398,7 +398,7 @@ export default function UsersModule({
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#0a4fa6]" />
+                <Users className="w-5 h-5 text-[#D71E28]" />
                 <span>Referral & Affiliate Manager (?id=13)</span>
               </h2>
               <p className="text-xs text-gray-500">
@@ -424,7 +424,7 @@ export default function UsersModule({
                   <tr key={ref.id} className="hover:bg-gray-200/30">
                     <td className="py-3 px-4 font-mono text-gray-900">{ref.referrerEmail}</td>
                     <td className="py-3 px-4 font-mono text-gray-500">{ref.refereeEmail}</td>
-                    <td className="py-3 px-4 font-mono text-[#0a4fa6] font-bold">{ref.code}</td>
+                    <td className="py-3 px-4 font-mono text-[#D71E28] font-bold">{ref.code}</td>
                     <td className="py-3 px-4 font-mono text-green-600 font-bold">${ref.rewardAmount}</td>
                     <td className="py-3 px-4">
                       <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-600 border border-emerald-500/20">
@@ -456,13 +456,13 @@ export default function UsersModule({
           </div>
 
           <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6">
-            <div className="border-2 border-dashed border-gray-200 hover:border-[#0a4fa6] rounded-2xl p-8 text-center transition-colors">
-              <Upload className="w-10 h-10 text-[#0a4fa6] mx-auto mb-3" />
+            <div className="border-2 border-dashed border-gray-200 hover:border-[#D71E28] rounded-2xl p-8 text-center transition-colors">
+              <Upload className="w-10 h-10 text-[#D71E28] mx-auto mb-3" />
               <h3 className="font-bold text-gray-900 mb-1">Select or drop institutional CSV</h3>
               <p className="text-xs text-gray-500 mb-4">
                 Required columns: email, name, phone, initial_balance, tier
               </p>
-              <label className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-bold text-xs rounded-xl cursor-pointer hover:bg-[#083d80] transition-colors inline-block">
+              <label className="px-4 py-2 bg-[#D71E28] text-gray-900 font-bold text-xs rounded-xl cursor-pointer hover:bg-[#A31620] transition-colors inline-block">
                 Choose CSV File
                 <input type="file" accept=".csv" onChange={handleSimulateCSVUpload} className="hidden" />
               </label>
@@ -480,7 +480,7 @@ export default function UsersModule({
                 <h4 className="text-xs font-semibold text-gray-500 uppercase mb-2">Ingestion Preview</h4>
                 <div className="bg-white p-4 rounded-xl font-mono text-[11px] text-gray-600 space-y-1">
                   {csvPreview.map((line, i) => (
-                    <div key={i} className={i === 0 ? 'text-[#0a4fa6] font-bold' : ''}>
+                    <div key={i} className={i === 0 ? 'text-[#D71E28] font-bold' : ''}>
                       {line}
                     </div>
                   ))}
@@ -497,7 +497,7 @@ export default function UsersModule({
           <div className="bg-gray-100 border border-gray-200 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-6">
             <div className="flex items-center justify-between border-b border-gray-200 pb-4">
               <div>
-                <span className="text-[10px] text-[#0a4fa6] uppercase tracking-wider font-bold">Client Profile Dossier</span>
+                <span className="text-[10px] text-[#D71E28] uppercase tracking-wider font-bold">Client Profile Dossier</span>
                 <h3 className="text-lg font-bold text-gray-900">{selectedUser.name}</h3>
               </div>
               <button
@@ -533,7 +533,7 @@ export default function UsersModule({
               </div>
               <div className="bg-white p-3 rounded-xl border border-gray-200">
                 <span className="text-gray-400 block mb-1">KYC Tier</span>
-                <span className="font-bold text-[#0a4fa6]">{selectedUser.kycStatus}</span>
+                <span className="font-bold text-[#D71E28]">{selectedUser.kycStatus}</span>
               </div>
             </div>
 
@@ -642,7 +642,7 @@ export default function UsersModule({
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-bold rounded-xl"
+                  className="px-4 py-2 bg-[#D71E28] text-gray-900 font-bold rounded-xl"
                 >
                   Create Client Record
                 </button>

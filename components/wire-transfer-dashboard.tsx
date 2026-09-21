@@ -113,7 +113,7 @@ export function WireTransferDashboard({
   return (
     <div className="space-y-6">
       {/* Header */}
-      <Card className="p-6 bg-gradient-to-br from-[#0a4fa6] via-[#0a4fa6] to-[#083d80] text-gray-900 shadow-lg">
+      <Card className="p-6 bg-gradient-to-br from-[#D71E28] via-[#D71E28] to-[#A31620] text-gray-900 shadow-lg">
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
             <h2 className="text-2xl font-bold mb-1">Wire Transfer</h2>
@@ -155,14 +155,14 @@ export function WireTransferDashboard({
       </Card>
 
       {/* Progress Bar */}
-      <Card className="p-5 bg-gradient-to-r from-gray-50 to-white dark:from-gray-950/50 dark:to-slate-900 border-l-4 border-[#0a4fa6]">
+      <Card className="p-5 bg-gradient-to-r from-gray-50 to-white dark:from-gray-950/50 dark:to-slate-900 border-l-4 border-[#D71E28]">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h3 className="font-semibold text-base text-[#0a4fa6]">Overall Progress</h3>
+            <h3 className="font-semibold text-base text-[#D71E28]">Overall Progress</h3>
             <p className="text-xs text-muted-foreground mt-1">{currentStatus}</p>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-[#0a4fa6]">{Math.round(progress)}%</span>
+            <span className="text-2xl font-bold text-[#D71E28]">{Math.round(progress)}%</span>
             <Button
               size="sm"
               variant="outline"
@@ -181,10 +181,10 @@ export function WireTransferDashboard({
       </Card>
 
       {/* Steps Timeline */}
-      <Card className="p-6 border-l-4 border-[#0a4fa6]">
+      <Card className="p-6 border-l-4 border-[#D71E28]">
         <div className="flex items-center justify-between mb-5">
-          <h3 className="font-bold text-lg text-[#0a4fa6]">Verification Steps</h3>
-          <span className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-[#0a4fa6] font-semibold">
+          <h3 className="font-bold text-lg text-[#D71E28]">Verification Steps</h3>
+          <span className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-[#D71E28] font-semibold">
             {steps.filter(s => s.status === 'completed').length} of {steps.length} complete
           </span>
         </div>
@@ -198,7 +198,7 @@ export function WireTransferDashboard({
                     step.status === 'completed'
                       ? 'bg-green-500 text-gray-900'
                       : step.status === 'active'
-                        ? 'bg-[#0a4fa6] text-gray-900 animate-pulse'
+                        ? 'bg-[#D71E28] text-gray-900 animate-pulse'
                         : step.status === 'failed'
                           ? 'bg-red-500 text-gray-900'
                           : 'bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-300'
@@ -233,7 +233,7 @@ export function WireTransferDashboard({
                   </div>
                 )}
                 {step.status === 'active' && (
-                  <p className="text-xs text-[#0a4fa6] font-medium mt-1 flex items-center gap-1">
+                  <p className="text-xs text-[#D71E28] font-medium mt-1 flex items-center gap-1">
                     <Loader2 className="h-3 w-3 animate-spin" />
                     Waiting for verification...
                   </p>
@@ -246,7 +246,7 @@ export function WireTransferDashboard({
 
       {/* Action buttons */}
       {(isProcessing || steps.some((s) => s.status === 'failed')) && (
-        <Card className="p-4 flex gap-3 border-l-4 border-[#0a4fa6] bg-gradient-to-r from-blue-50 to-white dark:from-blue-950/20 dark:to-slate-900">
+        <Card className="p-4 flex gap-3 border-l-4 border-[#D71E28] bg-gradient-to-r from-blue-50 to-white dark:from-blue-950/20 dark:to-slate-900">
           {onCancel && (
             <Button
               variant="outline"
@@ -259,7 +259,7 @@ export function WireTransferDashboard({
           {onRetry && steps.some((s) => s.status === 'failed') && (
             <Button
               onClick={onRetry}
-              className="flex-1 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold transition"
+              className="flex-1 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold transition"
             >
               Retry Verification
             </Button>

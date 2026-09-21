@@ -72,10 +72,10 @@ export default function AdminLoginPage() {
 
       // Store session attributes in client session storage
       if (typeof window !== 'undefined') {
-        sessionStorage.setItem('chase_admin_session_id', data.session.sessionId)
-        sessionStorage.setItem('chase_admin_role', data.session.role)
-        sessionStorage.setItem('chase_admin_email', data.session.email)
-        sessionStorage.setItem('chase_admin_name', data.session.name)
+        sessionStorage.setItem('crestline_admin_session_id', data.session.sessionId)
+        sessionStorage.setItem('crestline_admin_role', data.session.role)
+        sessionStorage.setItem('crestline_admin_email', data.session.email)
+        sessionStorage.setItem('crestline_admin_name', data.session.name)
       }
 
       setTimeout(() => {
@@ -100,16 +100,16 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col justify-between p-4 sm:p-8 font-sans selection:bg-[#0a4fa6] selection:text-gray-900">
+    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col justify-between p-4 sm:p-8 font-sans selection:bg-[#D71E28] selection:text-gray-900">
       {/* Top Header */}
       <header className="flex items-center justify-between max-w-5xl mx-auto w-full py-4">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center shadow-[0_0_20px_rgba(56,189,248,0.3)]">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center shadow-[0_0_20px_rgba(215,30,40,0.3)]">
             <Shield className="w-5 h-5 text-gray-900" />
           </div>
           <div>
-            <span className="font-bold text-base text-gray-900 tracking-tight block">Chase</span>
-            <span className="text-[10px] text-[#0a4fa6] font-mono tracking-wider uppercase">
+            <span className="font-bold text-base text-gray-900 tracking-tight block">Crestline Capital</span>
+            <span className="text-[10px] text-[#D71E28] font-mono tracking-wider uppercase">
               Administrative Gatekeeper
             </span>
           </div>
@@ -124,13 +124,13 @@ export default function AdminLoginPage() {
       <main className="max-w-xl mx-auto w-full my-auto py-8">
         <div className="bg-[#111827]/90 border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-xl relative overflow-hidden">
           {/* Subtle Ambient Glow */}
-          <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#0a4fa6]/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#D71E28]/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-[#818cf8]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10">
             {/* Header Status Badge */}
             <div className="flex items-center justify-between mb-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0a4fa6]/10 border border-[#0a4fa6]/20 text-[#0a4fa6] text-xs font-mono">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D71E28]/10 border border-[#D71E28]/20 text-[#D71E28] text-xs font-mono">
                 <Shield className="w-3.5 h-3.5" />
                 <span>SUPER ADMIN ACCESS PORTAL</span>
               </div>
@@ -159,7 +159,7 @@ export default function AdminLoginPage() {
                     : 'text-gray-500 hover:text-gray-900'
                 }`}
               >
-                <Mail className="w-3.5 h-3.5 text-[#0a4fa6]" />
+                <Mail className="w-3.5 h-3.5 text-[#D71E28]" />
                 <span>Email & Password</span>
               </button>
               <button
@@ -237,7 +237,7 @@ export default function AdminLoginPage() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="owighoyotaemmanuel424@gmail.com"
-                        className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 font-mono text-xs sm:text-sm focus:outline-none focus:border-[#0a4fa6] focus:ring-1 focus:ring-[#38bdf8] transition-all"
+                        className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 font-mono text-xs sm:text-sm focus:outline-none focus:border-[#D71E28] focus:ring-1 focus:ring-[#D71E28] transition-all"
                       />
                     </div>
                   </div>
@@ -255,7 +255,7 @@ export default function AdminLoginPage() {
                         type="button"
                         id="btn-quick-fill-creds"
                         onClick={handleFillCredentials}
-                        className="text-[11px] text-[#0a4fa6] hover:underline flex items-center gap-1 font-mono"
+                        className="text-[11px] text-[#D71E28] hover:underline flex items-center gap-1 font-mono"
                       >
                         <Sparkles className="w-3 h-3" />
                         <span>Fill Credentials</span>
@@ -272,7 +272,7 @@ export default function AdminLoginPage() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="••••••••••••"
-                        className="w-full pl-10 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 font-mono text-xs sm:text-sm focus:outline-none focus:border-[#0a4fa6] focus:ring-1 focus:ring-[#38bdf8] transition-all tracking-wider"
+                        className="w-full pl-10 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 font-mono text-xs sm:text-sm focus:outline-none focus:border-[#D71E28] focus:ring-1 focus:ring-[#D71E28] transition-all tracking-wider"
                       />
                       <button
                         type="button"
@@ -309,7 +309,7 @@ export default function AdminLoginPage() {
                         type="checkbox"
                         checked={rememberMe}
                         onChange={(e) => setRememberMe(e.target.checked)}
-                        className="w-4 h-4 rounded bg-gray-50 border-gray-200 text-[#0a4fa6] focus:ring-0"
+                        className="w-4 h-4 rounded bg-gray-50 border-gray-200 text-[#D71E28] focus:ring-0"
                       />
                       <span>Keep administrative session active for 12 hours</span>
                     </label>
@@ -343,7 +343,7 @@ export default function AdminLoginPage() {
                           setMasterKey(e.target.value.replace(/[^0-9a-fA-F]/g, '').toLowerCase())
                         }
                         placeholder="e.g. 4a8f9b2c3d4e5f60718293a4b5c6d7e8f90123456789abcd"
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 font-mono text-xs sm:text-sm tracking-widest focus:outline-none focus:border-[#0a4fa6] focus:ring-1 focus:ring-[#38bdf8] transition-all"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl text-gray-900 font-mono text-xs sm:text-sm tracking-widest focus:outline-none focus:border-[#D71E28] focus:ring-1 focus:ring-[#D71E28] transition-all"
                       />
                       <div className="absolute right-3 top-3 flex items-center gap-1 text-[11px] font-mono text-gray-400">
                         {masterKey.length === 48 ? (
@@ -360,7 +360,7 @@ export default function AdminLoginPage() {
                         type="button"
                         id="btn-fill-masterkey"
                         onClick={handleFillMasterKey}
-                        className="text-[#0a4fa6] hover:underline font-mono"
+                        className="text-[#D71E28] hover:underline font-mono"
                       >
                         Load Master Key
                       </button>
@@ -380,7 +380,7 @@ export default function AdminLoginPage() {
                       ? !email || !password
                       : masterKey.length < 10)
                   }
-                  className="w-full py-3.5 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-bold text-sm rounded-2xl shadow-[0_0_25px_rgba(56,189,248,0.3)] hover:shadow-[0_0_35px_rgba(56,189,248,0.45)] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full py-3.5 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-bold text-sm rounded-2xl shadow-[0_0_25px_rgba(215,30,40,0.3)] hover:shadow-[0_0_35px_rgba(215,30,40,0.45)] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {loading ? (
                     <>
@@ -400,7 +400,7 @@ export default function AdminLoginPage() {
             {/* Security & Access Info Footer */}
             <div className="mt-8 pt-6 border-t border-gray-200/60 flex items-center justify-between text-xs text-gray-400">
               <div className="flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-[#0a4fa6]" />
+                <Cpu className="w-4 h-4 text-[#D71E28]" />
                 <span>TLS 1.3 / AES-256 Audit Logged</span>
               </div>
               <Link href="/dashboard" className="text-gray-500 hover:text-gray-900 transition-colors">
@@ -413,7 +413,7 @@ export default function AdminLoginPage() {
 
       {/* Footer */}
       <footer className="max-w-5xl mx-auto w-full py-4 text-center text-xs text-gray-400">
-        Chase Institutional Administration Portal • Authorized Access Only
+        Crestline Capital Institutional Administration Portal • Authorized Access Only
       </footer>
     </div>
   )

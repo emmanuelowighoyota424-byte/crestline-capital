@@ -35,7 +35,7 @@ export default function InvestmentsPage() {
               Sandbox Demonstration Mode
             </span>
             <span>
-              Chase does not execute live security trades or hold broker-dealer licenses directly in this demo environment. Simulated portfolios reflect mock clearing executions for development & demonstration testing only.
+              Crestline Capital does not execute live security trades or hold broker-dealer licenses directly in this demo environment. Simulated portfolios reflect mock clearing executions for development & demonstration testing only.
             </span>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function InvestmentsPage() {
 
           <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl">
             <span className="text-xs font-medium text-gray-500 uppercase">Risk Profile</span>
-            <div className="text-2xl font-bold text-[#0a4fa6] mt-1">
+            <div className="text-2xl font-bold text-[#D71E28] mt-1">
               Moderate Growth
             </div>
             <span className="text-xs text-gray-500 mt-1 block">Quarterly automated rebalancing</span>
@@ -88,7 +88,7 @@ export default function InvestmentsPage() {
                   <tr key={h.symbol} className="hover:bg-white/30 transition-colors">
                     <td className="py-3.5 font-medium text-gray-900">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono font-bold text-[#0a4fa6] bg-[#0a4fa6]/10 px-2 py-0.5 rounded">
+                        <span className="font-mono font-bold text-[#D71E28] bg-[#D71E28]/10 px-2 py-0.5 rounded">
                           {h.symbol}
                         </span>
                         <span className="text-gray-500 truncate max-w-xs">{h.name}</span>

@@ -110,7 +110,7 @@ export function IntegratedFinancialDashboard() {
       <div className="max-w-6xl mx-auto mb-8">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
-            <Image src="/images/chase-logo.png" alt="Banking" width={40} height={40} className="rounded-lg" />
+            <Image src="/images/Crestline-logo.png" alt="Banking" width={40} height={40} className="rounded-lg" />
             <h1 className="text-3xl font-bold text-gray-900">Financial Dashboard</h1>
           </div>
           <div className="flex items-center gap-2">

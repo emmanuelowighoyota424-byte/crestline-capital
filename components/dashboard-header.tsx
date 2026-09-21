@@ -128,7 +128,7 @@ export function DashboardHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 Chase-gradient transform-gpu backface-hidden pt-[env(safe-area-inset-top)]">
+      <header className="sticky top-0 z-50 crest-gradient transform-gpu backface-hidden pt-[env(safe-area-inset-top)]">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
             <Button
@@ -161,7 +161,7 @@ export function DashboardHeader() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Image src="/images/Chase-logo.png" alt="Chase" width={36} height={36} className="rounded" loading="eager" />
+            <Image src="/images/Crestline-logo.png" alt="Crestline Capital" width={36} height={36} className="rounded" loading="eager" />
             <span className="text-gray-900 text-xl font-bold tracking-wide">CRESTLINE</span>
           </div>
 
@@ -173,7 +173,7 @@ export function DashboardHeader() {
           >
             <Avatar className="h-10 w-10">
               <AvatarImage src={userProfile.profilePicture || "/placeholder.svg"} alt={userProfile.name || ""} />
-              <AvatarFallback className="bg-white text-[#0a4fa6] font-semibold">
+              <AvatarFallback className="bg-white text-[#D71E28] font-semibold">
                 {(userProfile.name || "")
                   .split(" ")
                   .map((n) => n[0])
@@ -201,7 +201,7 @@ export function DashboardHeader() {
         <SheetContent side="left" className="w-full sm:max-w-md">
           <SheetHeader>
             <SheetTitle className="flex items-center gap-2">
-              <MessageSquare className="h-5 w-5 text-[#0a4fa6]" />
+              <MessageSquare className="h-5 w-5 text-[#D71E28]" />
               Messages
               {unreadMessages > 0 && <Badge variant="destructive">{unreadMessages} new</Badge>}
             </SheetTitle>
@@ -212,7 +212,7 @@ export function DashboardHeader() {
                 <div
                   key={msg.id}
                   className={`p-4 rounded-xl cursor-pointer transition-all ${
-                    msg.read ? "bg-muted/50" : "bg-[#0a4fa6]/5 border-l-4 border-[#0a4fa6]"
+                    msg.read ? "bg-muted/50" : "bg-[#D71E28]/5 border-l-4 border-[#D71E28]"
                   }`}
                   onClick={() => markMessageRead(msg.id)}
                 >
@@ -253,7 +253,7 @@ export function DashboardHeader() {
           <SheetHeader>
             <SheetTitle className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Bell className="h-5 w-5 text-[#0a4fa6]" />
+                <Bell className="h-5 w-5 text-[#D71E28]" />
                 Notifications
                 {unreadNotificationCount > 0 && <Badge variant="destructive">{unreadNotificationCount} new</Badge>}
               </div>
@@ -261,7 +261,7 @@ export function DashboardHeader() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-xs text-[#0a4fa6]"
+                  className="text-xs text-[#D71E28]"
                   onClick={() => {
                     markAllNotificationsRead()
                     toast({ title: "All notifications marked as read" })
@@ -277,7 +277,7 @@ export function DashboardHeader() {
               <div
                 key={notif.id}
                 className={`p-4 rounded-xl cursor-pointer transition-all ${
-                  notif.read ? "bg-muted/50" : "bg-[#0a4fa6]/5 border-l-4 border-[#0a4fa6]"
+                  notif.read ? "bg-muted/50" : "bg-[#D71E28]/5 border-l-4 border-[#D71E28]"
                 }`}
                 onClick={() => markNotificationRead(notif.id)}
               >
@@ -309,9 +309,9 @@ export function DashboardHeader() {
           <div className="mt-6 space-y-6">
             <div className="flex flex-col items-center">
               <div className="relative">
-                <Avatar className="h-24 w-24 border-4 border-[#0a4fa6]">
+                <Avatar className="h-24 w-24 border-4 border-[#D71E28]">
                   <AvatarImage src={userProfile.profilePicture || "/placeholder.svg"} alt={userProfile.name || ""} />
-                  <AvatarFallback className="bg-[#0a4fa6] text-gray-900 text-2xl font-bold">
+                  <AvatarFallback className="bg-[#D71E28] text-gray-900 text-2xl font-bold">
                     {(userProfile.name || "")
                       .split(" ")
                       .map((n) => n[0])
@@ -320,7 +320,7 @@ export function DashboardHeader() {
                 </Avatar>
                 <Button
                   size="icon"
-                  className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-[#0a4fa6] hover:bg-[#003087]"
+                  className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-[#D71E28] hover:bg-[#003087]"
                   onClick={() => fileInputRef.current?.click()}
                 >
                   <Camera className="h-4 w-4" />
@@ -335,7 +335,7 @@ export function DashboardHeader() {
               </div>
               <h3 className="font-bold text-xl mt-4">{userProfile.name}</h3>
               <p className="text-sm text-muted-foreground">{userProfile.email}</p>
-              <Badge className="mt-2 bg-[#0a4fa6]">{userProfile.tier}</Badge>
+              <Badge className="mt-2 bg-[#D71E28]">{userProfile.tier}</Badge>
             </div>
 
             {/* Account Info */}
@@ -360,16 +360,16 @@ export function DashboardHeader() {
             </div>
 
             {/* Rewards Card */}
-            <div className="Chase-gradient rounded-xl p-4 text-gray-900">
+            <div className="crest-gradient rounded-xl p-4 text-gray-900">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm opacity-90">Chase Ultimate Rewards</span>
+                <span className="text-sm opacity-90">Crestline Ultimate Rewards</span>
                 <Badge variant="secondary" className="bg-white/20 text-gray-900">
                   Private Client
                 </Badge>
               </div>
               <p className="text-3xl font-bold">{userProfile.ultimateRewardsPoints?.toLocaleString() || "287,450"}</p>
               <p className="text-sm opacity-80">points available</p>
-              <Button variant="secondary" size="sm" className="mt-3 w-full bg-white text-[#0a4fa6] hover:bg-white/90">
+              <Button variant="secondary" size="sm" className="mt-3 w-full bg-white text-[#D71E28] hover:bg-white/90">
                 Redeem Points
               </Button>
             </div>

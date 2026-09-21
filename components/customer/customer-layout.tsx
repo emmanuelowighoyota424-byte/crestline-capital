@@ -69,18 +69,18 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 flex flex-col md:flex-row selection:bg-[#0a4fa6] selection:text-gray-900">
+    <div className="min-h-screen bg-white text-gray-900 flex flex-col md:flex-row selection:bg-[#D71E28] selection:text-gray-900">
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-64 bg-gray-100/90 border-r border-gray-200 p-4 shrink-0 justify-between">
         <div>
           {/* Logo */}
           <Link href="/dashboard" className="flex items-center gap-3 px-2 py-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-[#0a4fa6] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-[#D71E28] flex items-center justify-center">
               <Shield className="w-5 h-5 text-gray-900" />
             </div>
             <div>
-              <span className="font-bold text-base tracking-tight text-gray-900 block">Chase</span>
-              <span className="text-[10px] text-[#0a4fa6] font-semibold tracking-wider uppercase">Digital Banking</span>
+              <span className="font-bold text-base tracking-tight text-gray-900 block">Crestline Capital</span>
+              <span className="text-[10px] text-[#D71E28] font-semibold tracking-wider uppercase">Digital Banking</span>
             </div>
           </Link>
 
@@ -104,7 +104,7 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
                   href={item.href}
                   className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive
-                      ? 'bg-[#0a4fa6] text-gray-900 font-semibold shadow-[0_0_15px_rgba(56,189,248,0.2)]'
+                      ? 'bg-[#D71E28] text-gray-900 font-semibold shadow-[0_0_15px_rgba(215,30,40,0.2)]'
                       : 'text-gray-500 hover:text-gray-900 hover:bg-gray-200'
                   }`}
                 >
@@ -115,7 +115,7 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
                   {item.badge && item.badge > 0 ? (
                     <span
                       className={`px-1.5 py-0.5 text-[10px] rounded-full font-bold ${
-                        isActive ? 'bg-white text-[#0a4fa6]' : 'bg-[#0a4fa6] text-gray-900'
+                        isActive ? 'bg-white text-[#D71E28]' : 'bg-[#D71E28] text-gray-900'
                       }`}
                     >
                       {item.badge}
@@ -160,10 +160,10 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
       {/* Mobile Header */}
       <div className="md:hidden flex items-center justify-between px-4 py-3 bg-gray-100 border-b border-gray-200 sticky top-0 z-40">
         <Link href="/dashboard" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center">
             <Shield className="w-4 h-4 text-gray-900" />
           </div>
-          <span className="font-bold text-sm text-gray-900">Chase</span>
+          <span className="font-bold text-sm text-gray-900">Crestline Capital</span>
         </Link>
         <div className="flex items-center gap-2">
           <button
@@ -194,7 +194,7 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
                   href={item.href}
                   onClick={() => setMobileNavOpen(false)}
                   className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium ${
-                    isActive ? 'bg-[#0a4fa6] text-gray-900' : 'text-gray-500 hover:text-gray-900 bg-gray-100'
+                    isActive ? 'bg-[#D71E28] text-gray-900' : 'text-gray-500 hover:text-gray-900 bg-gray-100'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -202,7 +202,7 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
                     <span>{item.label}</span>
                   </div>
                   {item.badge && item.badge > 0 ? (
-                    <span className="px-2 py-0.5 text-xs rounded-full bg-[#0a4fa6] text-gray-900 font-bold">
+                    <span className="px-2 py-0.5 text-xs rounded-full bg-[#D71E28] text-gray-900 font-bold">
                       {item.badge}
                     </span>
                   ) : null}

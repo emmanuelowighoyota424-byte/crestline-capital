@@ -1,0 +1,191 @@
+'use client'
+
+import { useState } from 'react'
+import { CustomerLayout } from '@/components/customer/customer-layout'
+import { useBanking } from '@/hooks/use-banking'
+import { User, ShieldCheck, Mail, Phone, MapPin, Laptop, Smartphone, Check } from 'lucide-react'
+
+export default function ProfilePage() {
+  const { userProfile, linkedDevices } = useBanking()
+  const [editing, setEditing] = useState(false)
+  const [phone, setPhone] = useState(userProfile?.phone || '+1 (555) 234-5678')
+  const [address, setAddress] = useState(userProfile?.address || '742 Evergreen Terrace, Suite 400, New York, NY 10001')
+  const [saved, setSaved] = useState(false)
+
+  const handleSave = (e: React.FormEvent) => {
+    e.preventDefault()
+    setEditing(false)
+    setSaved(true)
+    setTimeout(() => setSaved(false), 2000)
+  }
+
+  return (
+    <CustomerLayout>
+      <div className="max-w-3xl mx-auto space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-white">Profile & KYC Verification</h1>
+            <p className="text-sm text-[#94a3b8] mt-1">
+              Legal identity details, compliance status, and authorized active hardware.
+            </p>
+          </div>
+          <button
+            onClick={() => setEditing(!editing)}
+            className="px-4 py-2 bg-[#161e2e] hover:bg-[#1e293b] text-white border border-[#1e293b] text-xs font-semibold rounded-xl self-start"
+          >
+            {editing ? 'Cancel' : 'Edit Contact Details'}
+          </button>
+        </div>
+
+        {saved && (
+          <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs rounded-xl flex items-center gap-2">
+            <Check className="w-4 h-4" />
+            <span>Profile and contact information updated successfully.</span>
+          </div>
+        )}
+
+        {/* KYC Verification Tier Banner */}
+        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-7 h-7" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h2 className="text-base font-bold text-white">Tier 2 Customer Due Diligence (CDD)</h2>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                  VERIFIED
+                </span>
+              </div>
+              <p className="text-xs text-[#94a3b8] mt-0.5">
+                Government photo ID, SSN/TIN, and biometric selfie verified. Full daily transfer limits active ($100,000/day).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Personal Details Form */}
+        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl space-y-4">
+          <h3 className="text-sm font-bold text-white uppercase tracking-wider border-b border-[#1e293b] pb-3">
+            Legal Customer Identity
+          </h3>
+
+          <form onSubmit={handleSave} className="space-y-4 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-[#94a3b8] uppercase font-medium mb-1">Legal Full Name</label>
+                <input
+                  type="text"
+                  disabled
+                  value={userProfile?.name || 'Alex Morgan'}
+                  className="w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-medium opacity-75 cursor-not-allowed"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[#94a3b8] uppercase font-medium mb-1">Taxpayer ID / SSN</label>
+                <input
+                  type="text"
+                  disabled
+                  value="•••-••-4819 (Verified)"
+                  className="w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-mono opacity-75 cursor-not-allowed"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[#94a3b8] uppercase font-medium mb-1">Email Address</label>
+                <input
+                  type="email"
+                  disabled
+                  value={userProfile?.email || 'alex.morgan@crestlinecapital.com'}
+                  className="w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-medium opacity-75 cursor-not-allowed"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[#94a3b8] uppercase font-medium mb-1">Phone Number (SMS MFA)</label>
+                <input
+                  type="text"
+                  disabled={!editing}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className={`w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-medium ${
+                    editing ? 'focus:border-[#38bdf8]' : 'opacity-75'
+                  }`}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-[#94a3b8] uppercase font-medium mb-1">Residential Address</label>
+              <input
+                type="text"
+                disabled={!editing}
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                className={`w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-medium ${
+                  editing ? 'focus:border-[#38bdf8]' : 'opacity-75'
+                }`}
+              />
+            </div>
+
+            {editing && (
+              <div className="pt-2 flex justify-end">
+                <button
+                  type="submit"
+                  className="px-5 py-2 bg-[#38bdf8] text-[#0b0f19] font-bold text-xs rounded-xl hover:bg-[#0ea5e9]"
+                >
+                  Save Changes
+                </button>
+              </div>
+            )}
+          </form>
+        </div>
+
+        {/* Linked Devices & Sessions */}
+        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl space-y-4">
+          <h3 className="text-sm font-bold text-white uppercase tracking-wider border-b border-[#1e293b] pb-3">
+            Authorized Hardware & Sessions
+          </h3>
+
+          <div className="space-y-3">
+            {linkedDevices.map((dev) => (
+              <div
+                key={dev.id}
+                className="p-3.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[#161e2e] text-[#38bdf8] flex items-center justify-center">
+                    {dev.type === 'mobile' ? <Smartphone className="w-4 h-4" /> : <Laptop className="w-4 h-4" />}
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold text-white">{dev.name}</span>
+                      {dev.current && (
+                        <span className="px-1.5 py-0.5 rounded text-[9px] bg-emerald-500/10 text-emerald-400 font-bold">
+                          CURRENT SESSION
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-[10px] text-[#64748b]">
+                      {dev.location} • Last active: {dev.lastActive}
+                    </span>
+                  </div>
+                </div>
+
+                {!dev.current && (
+                  <button
+                    onClick={() => alert(`Revoked authorization for ${dev.name}. Session token invalidated.`)}
+                    className="text-[11px] text-red-400 hover:text-red-300"
+                  >
+                    Revoke
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </CustomerLayout>
+  )
+}

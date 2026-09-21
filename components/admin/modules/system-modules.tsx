@@ -53,11 +53,11 @@ export default function SystemModules({
 }: SystemModulesProps) {
   // Appearance state
   const [density, setDensity] = useState(siteSettings.theme?.density || 'comfortable')
-  const [accentColor, setAccentColor] = useState(siteSettings.theme?.accentColor || '#38bdf8')
+  const [accentColor, setAccentColor] = useState(siteSettings.theme?.accentColor || '#D71E28')
   const [mode, setMode] = useState(siteSettings.theme?.mode || 'dark')
 
   // Settings State - General
-  const [siteName, setSiteName] = useState(siteSettings.siteName || 'Chase')
+  const [siteName, setSiteName] = useState(siteSettings.siteName || 'Crestline Capital')
   const [sessionTimeoutMinutes, setSessionTimeoutMinutes] = useState(
     (siteSettings.sessionTimeoutMinutes || 480).toString()
   )
@@ -97,9 +97,9 @@ export default function SystemModules({
   const [smtpUser, setSmtpUser] = useState(siteSettings.smtpUser || 'apikey')
   const [smtpPassword, setSmtpPassword] = useState(siteSettings.smtpPassword || '')
   const [showSmtpPassword, setShowSmtpPassword] = useState(false)
-  const [smtpFrom, setSmtpFrom] = useState(siteSettings.smtpFrom || 'notifications@chasecapital.com')
-  const [smtpFromName, setSmtpFromName] = useState(siteSettings.smtpFromName || 'Chase Security & Treasury')
-  const [smtpReplyTo, setSmtpReplyTo] = useState(siteSettings.smtpReplyTo || 'compliance@chasecapital.com')
+  const [smtpFrom, setSmtpFrom] = useState(siteSettings.smtpFrom || 'notifications@crestlinecapital.com')
+  const [smtpFromName, setSmtpFromName] = useState(siteSettings.smtpFromName || 'Crestline Capital Security & Treasury')
+  const [smtpReplyTo, setSmtpReplyTo] = useState(siteSettings.smtpReplyTo || 'compliance@crestlinecapital.com')
   const [smtpTimeoutSeconds, setSmtpTimeoutSeconds] = useState((siteSettings.smtpTimeoutSeconds || 15).toString())
 
   // Automated Email Dispatch Matrix
@@ -223,7 +223,7 @@ export default function SystemModules({
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
-    link.download = `chase_audit_log_${Date.now()}.json`
+    link.download = `crestline_audit_log_${Date.now()}.json`
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -236,7 +236,7 @@ export default function SystemModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <Palette className="w-5 h-5 text-[#0a4fa6]" />
+              <Palette className="w-5 h-5 text-[#D71E28]" />
               <span>Visual Appearance & Density Controls (?id=37)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -255,7 +255,7 @@ export default function SystemModules({
                     onClick={() => setDensity(d)}
                     className={`p-3 rounded-xl border text-center capitalize transition-all ${
                       density === d
-                        ? 'bg-[#0a4fa6]/10 border-[#0a4fa6] text-[#0a4fa6] font-bold'
+                        ? 'bg-[#D71E28]/10 border-[#D71E28] text-[#D71E28] font-bold'
                         : 'bg-white border-gray-200 text-gray-500 hover:text-gray-900'
                     }`}
                   >
@@ -268,7 +268,7 @@ export default function SystemModules({
             <div className="pt-2">
               <button
                 onClick={() => alert('Appearance presets applied.')}
-                className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-bold rounded-xl"
+                className="px-4 py-2 bg-[#D71E28] text-gray-900 font-bold rounded-xl"
               >
                 Apply Density Setting
               </button>
@@ -299,7 +299,7 @@ export default function SystemModules({
                   onClick={() => setMode('dark')}
                   className={`p-3 rounded-xl border flex items-center justify-center gap-2 ${
                     mode === 'dark'
-                      ? 'bg-white border-[#0a4fa6] text-[#0a4fa6] font-bold'
+                      ? 'bg-white border-[#D71E28] text-[#D71E28] font-bold'
                       : 'bg-white border-gray-200 text-gray-500'
                   }`}
                 >
@@ -311,7 +311,7 @@ export default function SystemModules({
                   onClick={() => setMode('light')}
                   className={`p-3 rounded-xl border flex items-center justify-center gap-2 ${
                     mode === 'light'
-                      ? 'bg-white border-[#0a4fa6] text-[#0a4fa6] font-bold'
+                      ? 'bg-white border-[#D71E28] text-[#D71E28] font-bold'
                       : 'bg-white border-gray-200 text-gray-500'
                   }`}
                 >
@@ -325,7 +325,7 @@ export default function SystemModules({
               <label className="text-gray-500 block mb-2 font-semibold">Accent Color</label>
               <div className="flex items-center gap-3">
                 {[
-                  { name: 'Sky Blue', hex: '#38bdf8' },
+                  { name: 'Sky Blue', hex: '#D71E28' },
                   { name: 'Emerald', hex: '#10b981' },
                   { name: 'Indigo', hex: '#6366f1' },
                   { name: 'Amber Gold', hex: '#f59e0b' },
@@ -352,7 +352,7 @@ export default function SystemModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <FolderOpen className="w-5 h-5 text-[#0a4fa6]" />
+              <FolderOpen className="w-5 h-5 text-[#D71E28]" />
               <span>Asset Library & Brand Kit (?id=39)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -362,7 +362,7 @@ export default function SystemModules({
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { name: 'Chase Shield Emblem (SVG)', type: 'Vector Brandmark', size: '14 KB' },
+              { name: 'Crestline Shield Emblem (SVG)', type: 'Vector Brandmark', size: '14 KB' },
               { name: 'Official Institutional Seal', type: 'High-Res Stamp', size: '142 KB' },
               { name: 'Audit Certificate Template', type: 'PDF Spec', size: '280 KB' },
             ].map((a, i) => (
@@ -371,7 +371,7 @@ export default function SystemModules({
                 <span className="text-xs text-gray-500 block">{a.type} • {a.size}</span>
                 <button
                   onClick={() => alert(`Downloading asset: ${a.name}`)}
-                  className="text-xs text-[#0a4fa6] hover:underline font-mono"
+                  className="text-xs text-[#D71E28] hover:underline font-mono"
                 >
                   Download Asset
                 </button>
@@ -416,7 +416,7 @@ export default function SystemModules({
             <div className="flex justify-end pt-2">
               <button
                 onClick={() => alert('Content modifications published to client-facing portal.')}
-                className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-bold rounded-xl"
+                className="px-4 py-2 bg-[#D71E28] text-gray-900 font-bold rounded-xl"
               >
                 Publish Copy Changes
               </button>
@@ -430,7 +430,7 @@ export default function SystemModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <HelpCircle className="w-5 h-5 text-[#0a4fa6]" />
+              <HelpCircle className="w-5 h-5 text-[#D71E28]" />
               <span>Knowledge Base & FAQ Management (?id=41)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -440,7 +440,7 @@ export default function SystemModules({
 
           <div className="space-y-3">
             {[
-              { q: 'How does Chase execute double-entry ledger settlement?', a: 'Every financial movement posts atomic balancing debit and credit entries to vault cash, customer liabilities, and interest equity.' },
+              { q: 'How does Crestline Capital execute double-entry ledger settlement?', a: 'Every financial movement posts atomic balancing debit and credit entries to vault cash, customer liabilities, and interest equity.' },
               { q: 'What is the daily cutoff time for same-day Fedwire transactions?', a: 'Domestic Fedwire entries clear same day when initiated before 16:30 Eastern Standard Time.' },
             ].map((f, i) => (
               <div key={i} className="bg-gray-100 border border-gray-200 rounded-2xl p-5 space-y-1">
@@ -506,7 +506,7 @@ export default function SystemModules({
                       <td className="py-3 px-4 font-mono text-gray-500">
                         {new Date(a.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
                       </td>
-                      <td className="py-3 px-4 font-mono font-bold text-[#0a4fa6]">{a.action}</td>
+                      <td className="py-3 px-4 font-mono font-bold text-[#D71E28]">{a.action}</td>
                       <td className="py-3 px-4 font-mono text-gray-900">{a.actorId}</td>
                       <td className="py-3 px-4 text-gray-600">{a.targetResource}</td>
                       <td className="py-3 px-4">
@@ -538,7 +538,7 @@ export default function SystemModules({
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
               <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-                <SettingsIcon className="w-5 h-5 text-[#0a4fa6]" />
+                <SettingsIcon className="w-5 h-5 text-[#D71E28]" />
                 <span>Master System Settings & Environment Configuration (?id=43)</span>
               </h2>
               <p className="text-xs text-gray-500 mt-1">
@@ -558,7 +558,7 @@ export default function SystemModules({
             <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 space-y-4">
               <div className="flex items-center justify-between border-b border-gray-200 pb-3">
                 <div className="flex items-center gap-2">
-                  <Server className="w-4 h-4 text-[#0a4fa6]" />
+                  <Server className="w-4 h-4 text-[#D71E28]" />
                   <h3 className="font-bold text-gray-900 text-sm">General Platform Parameters</h3>
                 </div>
                 <span className="text-[11px] text-gray-400 font-mono">Production Environment</span>
@@ -570,7 +570,7 @@ export default function SystemModules({
                     type="text"
                     value={siteName}
                     onChange={(e) => setSiteName(e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -588,7 +588,7 @@ export default function SystemModules({
                     type="number"
                     value={sessionTimeoutMinutes}
                     onChange={(e) => setSessionTimeoutMinutes(e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -597,7 +597,7 @@ export default function SystemModules({
                     type="number"
                     value={maxLoginAttempts}
                     onChange={(e) => setMaxLoginAttempts(e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -608,10 +608,10 @@ export default function SystemModules({
               <div className="border-b border-gray-200 pb-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4 text-[#0a4fa6]" />
+                    <Mail className="w-4 h-4 text-[#D71E28]" />
                     <h3 className="font-bold text-gray-900 text-sm">SMTP Email Service Provider & Transport Settings</h3>
                   </div>
-                  <span className="text-[#0a4fa6] text-[11px] font-mono">Configurable Provider Engine</span>
+                  <span className="text-[#D71E28] text-[11px] font-mono">Configurable Provider Engine</span>
                 </div>
                 <p className="text-[11px] text-gray-500 mt-1">
                   Connect any transactional email service provider or private mail exchange server to deliver automated notifications.
@@ -631,15 +631,15 @@ export default function SystemModules({
                         onClick={() => handleProviderSelect(provider.id)}
                         className={`p-3 rounded-xl border text-left transition-all ${
                           isSelected
-                            ? 'bg-[#0a4fa6]/10 border-[#0a4fa6] shadow-[0_0_15px_rgba(56,189,248,0.15)]'
+                            ? 'bg-[#D71E28]/10 border-[#D71E28] shadow-[0_0_15px_rgba(215,30,40,0.15)]'
                             : 'bg-white border-gray-200 hover:border-gray-300 text-gray-500 hover:text-gray-900'
                         }`}
                       >
                         <div className="flex items-center justify-between mb-1">
-                          <span className={`font-semibold ${isSelected ? 'text-[#0a4fa6]' : 'text-gray-900'}`}>
+                          <span className={`font-semibold ${isSelected ? 'text-[#D71E28]' : 'text-gray-900'}`}>
                             {provider.name}
                           </span>
-                          {isSelected && <CheckCircle2 className="w-3.5 h-3.5 text-[#0a4fa6]" />}
+                          {isSelected && <CheckCircle2 className="w-3.5 h-3.5 text-[#D71E28]" />}
                         </div>
                         <span className="text-[10px] text-gray-400 block line-clamp-1">{provider.desc}</span>
                       </button>
@@ -657,7 +657,7 @@ export default function SystemModules({
                     value={smtpHost}
                     onChange={(e) => setSmtpHost(e.target.value)}
                     placeholder="e.g. smtp.sendgrid.net"
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -667,7 +667,7 @@ export default function SystemModules({
                     value={smtpPort}
                     onChange={(e) => setSmtpPort(e.target.value)}
                     placeholder="587 / 465 / 25"
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -675,7 +675,7 @@ export default function SystemModules({
                   <select
                     value={smtpEncryption}
                     onChange={(e) => setSmtpEncryption(e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium focus:border-[#D71E28] focus:outline-none transition-colors"
                   >
                     <option value="TLS">TLS (STARTTLS - Port 587)</option>
                     <option value="SSL">SSL / TLS (Direct - Port 465)</option>
@@ -697,7 +697,7 @@ export default function SystemModules({
                       type="checkbox"
                       checked={smtpAuthEnabled}
                       onChange={(e) => setSmtpAuthEnabled(e.target.checked)}
-                      className="w-3.5 h-3.5 rounded text-[#0a4fa6]"
+                      className="w-3.5 h-3.5 rounded text-[#D71E28]"
                     />
                     <span className="text-gray-500 text-[11px]">Require SMTP Auth</span>
                   </label>
@@ -712,7 +712,7 @@ export default function SystemModules({
                         value={smtpUser}
                         onChange={(e) => setSmtpUser(e.target.value)}
                         placeholder="e.g. apikey or postmaster@domain.com"
-                        className="w-full px-3 py-2 bg-[#111827] border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                        className="w-full px-3 py-2 bg-[#111827] border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#D71E28] focus:outline-none transition-colors"
                       />
                     </div>
                     <div>
@@ -723,7 +723,7 @@ export default function SystemModules({
                           value={smtpPassword}
                           onChange={(e) => setSmtpPassword(e.target.value)}
                           placeholder="••••••••••••••••••••••••"
-                          className="w-full px-3 py-2 bg-[#111827] border border-gray-200 rounded-xl text-gray-900 font-mono pr-10 focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                          className="w-full px-3 py-2 bg-[#111827] border border-gray-200 rounded-xl text-gray-900 font-mono pr-10 focus:border-[#D71E28] focus:outline-none transition-colors"
                         />
                         <button
                           type="button"
@@ -746,8 +746,8 @@ export default function SystemModules({
                     type="email"
                     value={smtpFrom}
                     onChange={(e) => setSmtpFrom(e.target.value)}
-                    placeholder="notifications@chasecapital.com"
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    placeholder="notifications@crestlinecapital.com"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -756,8 +756,8 @@ export default function SystemModules({
                     type="text"
                     value={smtpFromName}
                     onChange={(e) => setSmtpFromName(e.target.value)}
-                    placeholder="Chase Security & Treasury"
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    placeholder="Crestline Capital Security & Treasury"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -766,8 +766,8 @@ export default function SystemModules({
                     type="email"
                     value={smtpReplyTo}
                     onChange={(e) => setSmtpReplyTo(e.target.value)}
-                    placeholder="compliance@chasecapital.com"
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    placeholder="compliance@crestlinecapital.com"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -776,7 +776,7 @@ export default function SystemModules({
                     type="number"
                     value={smtpTimeoutSeconds}
                     onChange={(e) => setSmtpTimeoutSeconds(e.target.value)}
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -801,7 +801,7 @@ export default function SystemModules({
                 {/* Security Category */}
                 <div className="space-y-3">
                   <h4 className="text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center gap-1.5 pb-1 border-b border-gray-200/70">
-                    <Shield className="w-3.5 h-3.5 text-[#0a4fa6]" />
+                    <Shield className="w-3.5 h-3.5 text-[#D71E28]" />
                     <span>Automated Security Emails</span>
                   </h4>
 
@@ -812,7 +812,7 @@ export default function SystemModules({
                       onChange={(e) =>
                         setEmailTriggers({ ...emailTriggers, securityLoginAlerts: e.target.checked })
                       }
-                      className="w-4 h-4 mt-0.5 rounded text-[#0a4fa6]"
+                      className="w-4 h-4 mt-0.5 rounded text-[#D71E28]"
                     />
                     <div>
                       <span className="font-bold text-gray-900 block">Unrecognized Device & IP Sign-In Alerts</span>
@@ -829,7 +829,7 @@ export default function SystemModules({
                       onChange={(e) =>
                         setEmailTriggers({ ...emailTriggers, securityOtpVerification: e.target.checked })
                       }
-                      className="w-4 h-4 mt-0.5 rounded text-[#0a4fa6]"
+                      className="w-4 h-4 mt-0.5 rounded text-[#D71E28]"
                     />
                     <div>
                       <span className="font-bold text-gray-900 block">Multi-Factor Authentication (MFA) & OTP Delivery</span>
@@ -846,7 +846,7 @@ export default function SystemModules({
                       onChange={(e) =>
                         setEmailTriggers({ ...emailTriggers, passwordResetTokens: e.target.checked })
                       }
-                      className="w-4 h-4 mt-0.5 rounded text-[#0a4fa6]"
+                      className="w-4 h-4 mt-0.5 rounded text-[#D71E28]"
                     />
                     <div>
                       <span className="font-bold text-gray-900 block">Password Reset & Security Token Tokens</span>
@@ -863,7 +863,7 @@ export default function SystemModules({
                       onChange={(e) =>
                         setEmailTriggers({ ...emailTriggers, adminAuditEscalations: e.target.checked })
                       }
-                      className="w-4 h-4 mt-0.5 rounded text-[#0a4fa6]"
+                      className="w-4 h-4 mt-0.5 rounded text-[#D71E28]"
                     />
                     <div>
                       <span className="font-bold text-gray-900 block">Super Admin Audit & Threat Escalations</span>
@@ -956,7 +956,7 @@ export default function SystemModules({
             <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 space-y-4">
               <div className="flex items-center justify-between border-b border-gray-200 pb-3">
                 <div className="flex items-center gap-2">
-                  <Send className="w-4 h-4 text-[#0a4fa6]" />
+                  <Send className="w-4 h-4 text-[#D71E28]" />
                   <h3 className="font-bold text-gray-900 text-sm">SMTP Socket & Deliverability Diagnostic Test</h3>
                 </div>
                 <span className="text-gray-400 font-mono text-[11px]">RFC 5321 Handshake Verification</span>
@@ -973,14 +973,14 @@ export default function SystemModules({
                     value={testRecipientEmail}
                     onChange={(e) => setTestRecipientEmail(e.target.value)}
                     placeholder="Recipient email address for test"
-                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#0a4fa6] focus:outline-none transition-colors"
+                    className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono focus:border-[#D71E28] focus:outline-none transition-colors"
                   />
                 </div>
                 <button
                   type="button"
                   onClick={handleTestSmtp}
                   disabled={isTestingSmtp}
-                  className="px-4 py-2 bg-gray-200 hover:bg-[#283548] text-[#0a4fa6] font-bold rounded-xl border border-[#0a4fa6]/30 transition-all flex items-center justify-center gap-2 shrink-0 disabled:opacity-50"
+                  className="px-4 py-2 bg-gray-200 hover:bg-[#283548] text-[#D71E28] font-bold rounded-xl border border-[#D71E28]/30 transition-all flex items-center justify-center gap-2 shrink-0 disabled:opacity-50"
                 >
                   {isTestingSmtp ? (
                     <>
@@ -1052,7 +1052,7 @@ export default function SystemModules({
                     type="checkbox"
                     checked={mfaEnforced}
                     onChange={(e) => setMfaEnforced(e.target.checked)}
-                    className="w-4 h-4 rounded text-[#0a4fa6]"
+                    className="w-4 h-4 rounded text-[#D71E28]"
                   />
                   <div>
                     <span className="font-bold text-gray-900 block">Enforce Universal Multi-Factor Authentication (MFA)</span>
@@ -1085,7 +1085,7 @@ export default function SystemModules({
             <div className="flex justify-end pt-2">
               <button
                 type="submit"
-                className="px-6 py-3 bg-[#0a4fa6] text-gray-900 font-bold text-xs rounded-xl hover:bg-[#083d80] shadow-[0_0_20px_rgba(56,189,248,0.25)] transition-all flex items-center gap-2"
+                className="px-6 py-3 bg-[#D71E28] text-gray-900 font-bold text-xs rounded-xl hover:bg-[#A31620] shadow-[0_0_20px_rgba(215,30,40,0.25)] transition-all flex items-center gap-2"
               >
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Commit System Settings & SMTP Transport</span>

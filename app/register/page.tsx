@@ -42,7 +42,7 @@ function FieldIcon({ children }: { children: React.ReactNode }) {
 }
 
 const inputClass =
-  "h-11 border-gray-200 bg-gray-50/60 pl-10 text-gray-900 placeholder:text-gray-400 focus-visible:border-[#0a4fa6] focus-visible:ring-[#38bdf8]/25"
+  "h-11 border-gray-200 bg-gray-50/60 pl-10 text-gray-900 placeholder:text-gray-400 focus-visible:border-[#D71E28] focus-visible:ring-[#D71E28]/25"
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -130,12 +130,12 @@ export default function RegisterPage() {
   return (
     <AuthShell
       eyebrow="Open an account"
-      title="Create your Chase account"
+      title="Create your Crestline Capital account"
       subtitle="It takes about a minute. Your account opens with a secure checking balance ready to fund."
       footer={
         <>
           Already bank with us?{" "}
-          <Link href="/login" className="font-semibold text-[#0a4fa6] hover:text-[#0ea5e9]">
+          <Link href="/login" className="font-semibold text-[#D71E28] hover:text-[#E8464F]">
             Sign in
           </Link>
         </>
@@ -240,7 +240,7 @@ export default function RegisterPage() {
               onClick={() => setShowPassword((visible) => !visible)}
               aria-label={showPassword ? "Hide password" : "Show password"}
               aria-pressed={showPassword}
-              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-[#0a4fa6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#38bdf8]/40"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-[#D71E28] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D71E28]/40"
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
@@ -313,15 +313,15 @@ export default function RegisterPage() {
             id="terms"
             checked={acceptedTerms}
             onCheckedChange={(checked) => setAcceptedTerms(checked === true)}
-            className="mt-0.5 border-gray-300 data-[state=checked]:border-[#0a4fa6] data-[state=checked]:bg-[#0a4fa6]"
+            className="mt-0.5 border-gray-300 data-[state=checked]:border-[#D71E28] data-[state=checked]:bg-[#D71E28]"
           />
           <Label htmlFor="terms" className="text-sm font-normal leading-relaxed text-gray-500">
             I agree to the{" "}
-            <Link href="/terms" className="text-[#0a4fa6] hover:text-[#0ea5e9]">
+            <Link href="/terms" className="text-[#D71E28] hover:text-[#E8464F]">
               terms of service
             </Link>{" "}
             and{" "}
-            <Link href="/privacy" className="text-[#0a4fa6] hover:text-[#0ea5e9]">
+            <Link href="/privacy" className="text-[#D71E28] hover:text-[#E8464F]">
               privacy policy
             </Link>
             .
@@ -331,7 +331,7 @@ export default function RegisterPage() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="h-11 w-full bg-[#0a4fa6] text-sm font-semibold text-gray-900 transition-all hover:bg-[#083d80] hover:shadow-[0_0_24px_rgba(56,189,248,0.35)] disabled:opacity-60"
+          className="h-11 w-full bg-[#D71E28] text-sm font-semibold text-gray-900 transition-all hover:bg-[#A31620] hover:shadow-[0_0_24px_rgba(215,30,40,0.35)] disabled:opacity-60"
         >
           {isSubmitting ? (
             <>

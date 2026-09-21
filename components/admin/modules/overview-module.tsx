@@ -58,7 +58,7 @@ export default function OverviewModule({
           <span className="text-[11px] font-bold text-gray-400 tracking-wider uppercase block mb-1">
             TOTAL DEPOSIT
           </span>
-          <div className="text-2xl sm:text-3xl font-bold font-mono text-[#0a4fa6]">
+          <div className="text-2xl sm:text-3xl font-bold font-mono text-[#D71E28]">
             USD {totalDeposits}
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function OverviewModule({
           <span className="text-[11px] font-bold text-gray-400 tracking-wider uppercase block mb-1">
             TOTAL TRANSFERS
           </span>
-          <div className="text-2xl sm:text-3xl font-bold font-mono text-[#0a4fa6]">
+          <div className="text-2xl sm:text-3xl font-bold font-mono text-[#D71E28]">
             USD {totalTransfers}
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function OverviewModule({
               {users.length}
             </span>
           </div>
-          <div className="w-10 h-10 rounded-xl bg-[#0a4fa6]/10 text-[#0a4fa6] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-[#D71E28]/10 text-[#D71E28] flex items-center justify-center">
             <Users className="w-5 h-5" />
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function OverviewModule({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#0a4fa6] animate-pulse"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#D71E28] animate-pulse"></span>
               <h2 className="text-lg font-bold text-gray-900 tracking-tight uppercase">
                 LIVE ROSTER SNAPSHOT (`/ADMIN`)
               </h2>
@@ -155,7 +155,7 @@ export default function OverviewModule({
           </div>
           <button
             onClick={() => onNavigateModule('2')}
-            className="px-4 py-2 bg-gray-200 hover:bg-[#283548] text-[#0a4fa6] text-xs font-semibold rounded-xl transition-all flex items-center gap-2 self-start"
+            className="px-4 py-2 bg-gray-200 hover:bg-[#283548] text-[#D71E28] text-xs font-semibold rounded-xl transition-all flex items-center gap-2 self-start"
           >
             <span>Open Master Users Roster (?id=2)</span>
             <ArrowRight className="w-3.5 h-3.5" />

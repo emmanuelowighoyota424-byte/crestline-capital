@@ -94,7 +94,7 @@ export function AccountDetailsDrawer({ open, onOpenChange, accountId, onReceiptO
 
         <div className="flex-1 overflow-auto px-4 pb-6">
           {/* Balance Card - Updated all € to $ */}
-          <Card className="p-6 my-4 bg-gradient-to-r from-[#0a4fa6] to-[#117aca] text-gray-900">
+          <Card className="p-6 my-4 bg-gradient-to-r from-[#D71E28] to-[#E8464F] text-gray-900">
             <div className="space-y-4">
               <div>
                 <p className="text-sm text-gray-900/80 mb-1">Available Balance</p>

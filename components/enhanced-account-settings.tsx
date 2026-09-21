@@ -163,7 +163,7 @@ export function EnhancedAccountSettings({ onBack, userId }: EnhancedAccountSetti
           </Button>
         )}
         <div className="flex-1">
-          <h2 className="text-2xl font-bold text-[#0a4fa6]">Settings</h2>
+          <h2 className="text-2xl font-bold text-[#D71E28]">Settings</h2>
           <p className="text-xs text-muted-foreground">{currentCategory?.description}</p>
         </div>
       </div>
@@ -181,7 +181,7 @@ export function EnhancedAccountSettings({ onBack, userId }: EnhancedAccountSetti
               onClick={() => setActiveCategory(category.key)}
               className={`w-full flex items-center gap-3 p-4 rounded-xl transition-all border-2 ${
                 isActive
-                  ? 'bg-[#0a4fa6]/10 border-[#0a4fa6]'
+                  ? 'bg-[#D71E28]/10 border-[#D71E28]'
                   : 'bg-white border-gray-200 hover:border-gray-300'
               }`}
             >
@@ -193,12 +193,12 @@ export function EnhancedAccountSettings({ onBack, userId }: EnhancedAccountSetti
                 {Icon && <Icon className={`h-5 w-5 ${isActive ? category.color : 'text-gray-600'}`} />}
               </div>
               <div className="flex-1 text-left">
-                <p className={`font-semibold ${isActive ? 'text-[#0a4fa6]' : 'text-foreground'}`}>
+                <p className={`font-semibold ${isActive ? 'text-[#D71E28]' : 'text-foreground'}`}>
                   {category.label}
                 </p>
                 <p className="text-xs text-muted-foreground">{catSettings.length} options</p>
               </div>
-              <ChevronRight className={`h-5 w-5 transition ${isActive ? 'text-[#0a4fa6]' : 'text-muted-foreground'}`} />
+              <ChevronRight className={`h-5 w-5 transition ${isActive ? 'text-[#D71E28]' : 'text-muted-foreground'}`} />
             </button>
           )
         })}

@@ -149,7 +149,7 @@ export function AccountSettingsPanel({ onBack, userId }: AccountSettingsPanelPro
               onClick={() => setActiveCategory(categoryKey)}
               className={`w-full flex items-center gap-3 p-3 rounded-lg transition-all ${
                 isActive
-                  ? 'bg-[#0a4fa6] text-gray-900 shadow-md'
+                  ? 'bg-[#D71E28] text-gray-900 shadow-md'
                   : 'hover:bg-gray-100 dark:hover:bg-gray-800'
               }`}
             >
@@ -204,7 +204,7 @@ export function AccountSettingsPanel({ onBack, userId }: AccountSettingsPanelPro
                         onCheckedChange={(checked) =>
                           handleSettingChange(setting.id, checked)
                         }
-                        className="data-[state=checked]:bg-[#0a4fa6]"
+                        className="data-[state=checked]:bg-[#D71E28]"
                       />
                     )}
 
@@ -257,7 +257,7 @@ export function AccountSettingsPanel({ onBack, userId }: AccountSettingsPanelPro
         </Button>
 
         <Button
-          className="w-full bg-[#0a4fa6] hover:bg-[#083d80]"
+          className="w-full bg-[#D71E28] hover:bg-[#A31620]"
           onClick={() => {
             const categoryLabel = CATEGORY_CONFIG[activeCategory].label
             alert(`${categoryLabel} settings have been saved and will sync in real-time.`)

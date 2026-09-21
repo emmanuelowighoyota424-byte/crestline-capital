@@ -132,7 +132,7 @@ export default function TradingModules({
                   </div>
                   <div>
                     <span className="text-gray-400 block">Deposit Address</span>
-                    <span className="font-mono text-[10px] text-[#0a4fa6] break-all">{c.depositAddress}</span>
+                    <span className="font-mono text-[10px] text-[#D71E28] break-all">{c.depositAddress}</span>
                   </div>
                 </div>
               </div>
@@ -207,7 +207,7 @@ export default function TradingModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <Server className="w-5 h-5 text-[#0a4fa6]" />
+              <Server className="w-5 h-5 text-[#D71E28]" />
               <span>External Liquidity & Data Providers (?id=27)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -255,7 +255,7 @@ export default function TradingModules({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { manager: 'Chase Macro Quant Alpha', aum: '$48.5M', winRate: '78.4%', leverage: '1:5', followers: 412 },
+              { manager: 'Crestline Macro Quant Alpha', aum: '$48.5M', winRate: '78.4%', leverage: '1:5', followers: 412 },
               { manager: 'Sovereign Treasury Arbitrage', aum: '$120.2M', winRate: '94.1%', leverage: '1:2', followers: 890 },
             ].map((m) => (
               <div key={m.manager} className="bg-gray-100 border border-gray-200 rounded-2xl p-5 space-y-3">
@@ -271,7 +271,7 @@ export default function TradingModules({
                   </div>
                   <div>
                     <span className="text-gray-400 block text-[10px]">FOLLOWERS</span>
-                    <span className="font-mono text-[#0a4fa6] font-bold">{m.followers}</span>
+                    <span className="font-mono text-[#D71E28] font-bold">{m.followers}</span>
                   </div>
                 </div>
               </div>
@@ -285,7 +285,7 @@ export default function TradingModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <GraduationCap className="w-5 h-5 text-[#0a4fa6]" />
+              <GraduationCap className="w-5 h-5 text-[#D71E28]" />
               <span>Client Educational Portal & Academy (?id=29)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -304,7 +304,7 @@ export default function TradingModules({
                 <div className="text-xs text-gray-500 space-y-1">
                   <div>Modules: <span className="text-gray-900">{c.modules}</span></div>
                   <div>Runtime: <span className="text-gray-900">{c.duration}</span></div>
-                  <div>Enrolled Clients: <span className="text-[#0a4fa6] font-mono">{c.enrolled}</span></div>
+                  <div>Enrolled Clients: <span className="text-[#D71E28] font-mono">{c.enrolled}</span></div>
                 </div>
               </div>
             ))}

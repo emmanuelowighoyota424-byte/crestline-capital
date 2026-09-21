@@ -9,13 +9,13 @@ export default function SavingsInvestmentsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></svg></div>
-              <span className="font-bold text-lg">Chase</span>
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></svg></div>
+              <span className="font-bold text-lg">Crestline Capital</span>
             </Link>
             <div className="flex items-center gap-3">
               <Link href="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Home</Link>
               <Link href="/login" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Sign in</Link>
-              <Link href="/register" className="rounded-lg bg-[#0a4fa6] px-4 py-2 text-sm font-semibold text-gray-900 transition-all hover:bg-[#083d80] hover:shadow-[0_0_20px_rgba(56,189,248,0.3)]">Open account</Link>
+              <Link href="/register" className="rounded-lg bg-[#D71E28] px-4 py-2 text-sm font-semibold text-gray-900 transition-all hover:bg-[#A31620] hover:shadow-[0_0_20px_rgba(215,30,40,0.3)]">Open account</Link>
             </div>
           </div>
         </div>
@@ -24,7 +24,7 @@ export default function SavingsInvestmentsPage() {
       <section className="pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">Savings & <span className="chase-text-gradient">Investments</span></h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6">Savings & <span className="crest-text-gradient">Investments</span></h1>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">Grow your wealth with high-yield savings and smart investment options.</p>
           </div>
 
@@ -76,8 +76,8 @@ export default function SavingsInvestmentsPage() {
 
       <footer className="border-t border-gray-200 py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
-          <div className="flex items-center gap-2 mb-4 md:mb-0"><div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></svg></div><span className="font-semibold">Chase</span></div>
-          <p className="text-xs text-gray-500">© 2026 Chase. All rights reserved.</p>
+          <div className="flex items-center gap-2 mb-4 md:mb-0"><div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></svg></div><span className="font-semibold">Crestline Capital</span></div>
+          <p className="text-xs text-gray-500">© 2026 Crestline Capital. All rights reserved.</p>
         </div>
       </footer>
     </div>

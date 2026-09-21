@@ -1,5 +1,5 @@
 /**
- * Chase - Admin Centralized Data Store & State Engine
+ * Crestline Capital - Admin Centralized Data Store & State Engine
  *
  * Provides typed data, ledger-backed mutations, and complete synchronization
  * across all 37 Admin Console modules as defined in the specification.
@@ -534,7 +534,7 @@ class AdminStoreClass {
       symbol: 'BTC',
       name: 'Bitcoin',
       network: 'Bitcoin Native',
-      depositAddress: 'bc1q9chase98institutionalledger9821',
+      depositAddress: 'bc1q9crestline98institutionalledger9821',
       hotWalletBalance: 42.85,
       coldWalletReserve: 480.0,
       status: 'ACTIVE',
@@ -543,7 +543,7 @@ class AdminStoreClass {
       symbol: 'ETH',
       name: 'Ethereum',
       network: 'ERC-20 Mainnet',
-      depositAddress: '0x38bdf8ChaseCapitalTreasuryVault01',
+      depositAddress: '0x38bdf8CrestlineCapitalTreasuryVault01',
       hotWalletBalance: 610.4,
       coldWalletReserve: 5400.0,
       status: 'ACTIVE',
@@ -552,7 +552,7 @@ class AdminStoreClass {
       symbol: 'USDT',
       name: 'Tether USD',
       network: 'TRC-20 & ERC-20',
-      depositAddress: 'TXchaseTreasuryReserveInstitutional99',
+      depositAddress: 'TXcrestlineTreasuryReserveInstitutional99',
       hotWalletBalance: 1250000,
       coldWalletReserve: 15000000,
       status: 'ACTIVE',
@@ -598,7 +598,7 @@ class AdminStoreClass {
         {
           sender: 'europee20@yahoo.com',
           isStaff: false,
-          message: 'Hello, what is the expected settlement window for inbound GBP CHAPS/SWIFT wires into my Chase USD checking pool?',
+          message: 'Hello, what is the expected settlement window for inbound GBP CHAPS/SWIFT wires into my Crestline Capital USD checking pool?',
           timestamp: '16:40',
         },
         {
@@ -648,7 +648,7 @@ class AdminStoreClass {
     {
       id: 'ag_1',
       name: 'Marcus Vance',
-      email: 'm.vance@chasecapital.internal',
+      email: 'm.vance@crestlinecapital.internal',
       role: 'BANK_ADMIN',
       status: 'ACTIVE',
       lastActive: 'Just now',
@@ -656,7 +656,7 @@ class AdminStoreClass {
     {
       id: 'ag_2',
       name: 'Sarah Chen',
-      email: 's.chen@chasecapital.internal',
+      email: 's.chen@crestlinecapital.internal',
       role: 'COMPLIANCE_OFFICER',
       status: 'ACTIVE',
       lastActive: '12 mins ago',
@@ -664,7 +664,7 @@ class AdminStoreClass {
     {
       id: 'ag_3',
       name: 'Robert Davis',
-      email: 'r.davis@chasecapital.internal',
+      email: 'r.davis@crestlinecapital.internal',
       role: 'LOAN_OFFICER',
       status: 'ACTIVE',
       lastActive: '1 hour ago',
@@ -672,7 +672,7 @@ class AdminStoreClass {
     {
       id: 'ag_4',
       name: 'Elena Rostova',
-      email: 'e.rostova@chasecapital.internal',
+      email: 'e.rostova@crestlinecapital.internal',
       role: 'AUDITOR',
       status: 'ACTIVE',
       lastActive: 'Yesterday',
@@ -684,7 +684,7 @@ class AdminStoreClass {
       author: 'David Sterling',
       company: 'Apex Global Ventures',
       role: 'Managing Partner',
-      content: 'Chase has transformed our institutional cash management. The double-entry transparency and 4.85% APY treasury sweeps are best-in-class.',
+      content: 'Crestline Capital has transformed our institutional cash management. The double-entry transparency and 4.85% APY treasury sweeps are best-in-class.',
       rating: 5,
       published: true,
       date: '2026-08-18',
@@ -712,7 +712,7 @@ class AdminStoreClass {
 
   // Master System Configuration State
   public siteSettings = {
-    siteName: 'Chase',
+    siteName: 'Crestline Capital',
     environment: 'Production Admin Console (v2.4)',
     systemDate: 'Sunday, August 30, 2026',
     maintenanceMode: false,
@@ -727,9 +727,9 @@ class AdminStoreClass {
     smtpAuthEnabled: true,
     smtpUser: 'apikey',
     smtpPassword: '••••••••••••••••••••••••••••••••',
-    smtpFrom: 'notifications@chasecapital.com',
-    smtpFromName: 'Chase Security & Treasury',
-    smtpReplyTo: 'compliance@chasecapital.com',
+    smtpFrom: 'notifications@crestlinecapital.com',
+    smtpFromName: 'Crestline Capital Security & Treasury',
+    smtpReplyTo: 'compliance@crestlinecapital.com',
     smtpTimeoutSeconds: 15,
     // Automated Email Dispatch Matrix
     emailTriggers: {
@@ -742,10 +742,10 @@ class AdminStoreClass {
       kycStatusNotifications: true,
       cardAuthorizations: true,
     },
-    corsOrigins: 'https://chasecapital.com',
+    corsOrigins: 'https://crestlinecapital.com',
     theme: {
       mode: 'dark' as 'dark' | 'light',
-      accentColor: '#38bdf8',
+      accentColor: '#D71E28',
       density: 'comfortable' as 'compact' | 'comfortable' | 'spacious',
       borderRadius: 'rounded-xl',
     },

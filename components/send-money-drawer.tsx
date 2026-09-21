@@ -159,7 +159,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
     setIsLoading(true)
     setStep("confirm")
 
-    // Call real Chase Bank Zelle API
+    // Call real Crestline Capital Zelle API
     fetch('/api/transfers', {
       method: 'POST',
       headers: {
@@ -261,7 +261,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
       }}
     >
       <DrawerContent className="h-[85vh]">
-        <DrawerHeader className="bg-[#0a4fa6] text-gray-900 rounded-t-lg">
+        <DrawerHeader className="bg-[#D71E28] text-gray-900 rounded-t-lg">
           <DrawerTitle className="text-gray-900">Send with Zelle®</DrawerTitle>
           <div className="flex items-center gap-2 mt-2">
             {["select", "amount", "confirm", "success"].map((s, i) => (
@@ -297,7 +297,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
                 className="w-full justify-start gap-2 h-12 bg-transparent"
                 onClick={() => setShowAddContact(true)}
               >
-                <Plus className="h-4 w-4 text-[#0a4fa6]" />
+                <Plus className="h-4 w-4 text-[#D71E28]" />
                 Add New Contact
               </Button>
 
@@ -313,7 +313,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
                       className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted cursor-pointer transition-colors border"
                       onClick={() => handleSelectContact(contact)}
                     >
-                      <div className="h-10 w-10 rounded-full bg-[#0a4fa6] flex items-center justify-center text-sm font-medium text-gray-900">
+                      <div className="h-10 w-10 rounded-full bg-[#D71E28] flex items-center justify-center text-sm font-medium text-gray-900">
                         {contact.avatar}
                       </div>
                       <div className="flex-1">
@@ -331,7 +331,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
 
               {searchQuery && searchQuery.includes("@") && (
                 <Button
-                  className="w-full bg-[#0a4fa6]"
+                  className="w-full bg-[#D71E28]"
                   onClick={() => {
                     setRecipient(searchQuery)
                     setSelectedContact({
@@ -390,7 +390,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
                 />
               </div>
 
-              <Button className="w-full bg-[#0a4fa6]" onClick={handleAddNewContact}>
+              <Button className="w-full bg-[#D71E28]" onClick={handleAddNewContact}>
                 <Plus className="h-4 w-4 mr-2" />
                 Add & Send Money
               </Button>
@@ -400,7 +400,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
           {step === "amount" && (
             <div className="space-y-4">
               <div className="flex items-center gap-3 p-4 bg-muted rounded-lg">
-                <div className="h-12 w-12 rounded-full bg-[#0a4fa6] flex items-center justify-center text-lg font-medium text-gray-900">
+                <div className="h-12 w-12 rounded-full bg-[#D71E28] flex items-center justify-center text-lg font-medium text-gray-900">
                   {selectedContact?.avatar || <User className="h-6 w-6" />}
                 </div>
                 <div>
@@ -481,7 +481,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
           {step === "confirm" && (
             <div className="space-y-4 py-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-[#0a4fa6] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#D71E28] rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="w-8 h-8 border-3 border-white border-t-transparent rounded-full animate-spin" />
                 </div>
                 <h3 className="text-xl font-semibold">Sending Money...</h3>
@@ -513,7 +513,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
             <Button
               onClick={handleSend}
               disabled={isLoading || !amount || Number(amount) <= 0 || Number(amount) > 2500}
-              className="h-12 bg-[#0a4fa6]"
+              className="h-12 bg-[#D71E28]"
             >
               {isLoading ? "Sending..." : `Send $${amount || "0.00"}`}
             </Button>

@@ -18,7 +18,7 @@ export default function WithdrawalsPage() {
   const [sourceAccountId, setSourceAccountId] = useState(accounts[0]?.id || '')
   const [destinationType, setDestinationType] = useState<'EXTERNAL_BANK' | 'WIRE' | 'ATM'>('EXTERNAL_BANK')
   const [amount, setAmount] = useState('')
-  const [externalAccount, setExternalAccount] = useState('Chase Checking (•••• 8912)')
+  const [externalAccount, setExternalAccount] = useState('Crestline Checking (•••• 8912)')
   const [wireRouting, setWireRouting] = useState('')
   const [wireAccount, setWireAccount] = useState('')
   const [step, setStep] = useState<'FORM' | 'CONFIRM' | 'SUCCESS'>('FORM')
@@ -55,11 +55,11 @@ export default function WithdrawalsPage() {
           {step === 'FORM' && (
             <form onSubmit={handleWithdraw} className="space-y-4">
               <div>
-                <label className="block text-xs font-medium text-gray-500 uppercase mb-2">From Chase Account</label>
+                <label className="block text-xs font-medium text-gray-500 uppercase mb-2">From Crestline Capital Account</label>
                 <select
                   value={sourceAccountId}
                   onChange={(e) => setSourceAccountId(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                 >
                   {accounts.map((acc) => (
                     <option key={acc.id} value={acc.id}>
@@ -83,7 +83,7 @@ export default function WithdrawalsPage() {
                       onClick={() => setDestinationType(d.id as any)}
                       className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-all ${
                         destinationType === d.id
-                          ? 'bg-[#0a4fa6] text-gray-900 border-[#0a4fa6]'
+                          ? 'bg-[#D71E28] text-gray-900 border-[#D71E28]'
                           : 'bg-white text-gray-500 border-gray-200 hover:text-gray-900'
                       }`}
                     >
@@ -99,9 +99,9 @@ export default function WithdrawalsPage() {
                   <select
                     value={externalAccount}
                     onChange={(e) => setExternalAccount(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                   >
-                    <option value="Chase Checking (•••• 8912)">Chase Personal Checking (•••• 8912)</option>
+                    <option value="Crestline Checking (•••• 8912)">Crestline Personal Checking (•••• 8912)</option>
                     <option value="Bank of America (•••• 3301)">Bank of America Savings (•••• 3301)</option>
                   </select>
                 </div>
@@ -117,7 +117,7 @@ export default function WithdrawalsPage() {
                       value={wireRouting}
                       onChange={(e) => setWireRouting(e.target.value)}
                       placeholder="9-digit ABA Routing"
-                      className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#0a4fa6]"
+                      className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#D71E28]"
                     />
                   </div>
                   <div>
@@ -128,7 +128,7 @@ export default function WithdrawalsPage() {
                       value={wireAccount}
                       onChange={(e) => setWireAccount(e.target.value)}
                       placeholder="Account Number"
-                      className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#0a4fa6]"
+                      className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#D71E28]"
                     />
                   </div>
                 </div>
@@ -151,14 +151,14 @@ export default function WithdrawalsPage() {
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   placeholder="0.00"
-                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-xl focus:outline-none focus:border-[#0a4fa6]"
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-xl focus:outline-none focus:border-[#D71E28]"
                 />
               </div>
 
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold rounded-xl text-sm transition-all shadow-[0_0_15px_rgba(56,189,248,0.25)] flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold rounded-xl text-sm transition-all shadow-[0_0_15px_rgba(215,30,40,0.25)] flex items-center justify-center gap-2"
                 >
                   <span>Review Withdrawal Request</span>
                   <ArrowRight className="w-4 h-4" />
@@ -187,7 +187,7 @@ export default function WithdrawalsPage() {
                 </div>
                 <div className="border-t border-gray-200 pt-2 flex justify-between font-bold text-sm">
                   <span className="text-gray-900">Total Outflow:</span>
-                  <span className="font-mono text-[#0a4fa6]">${parsedAmount.toFixed(2)}</span>
+                  <span className="font-mono text-[#D71E28]">${parsedAmount.toFixed(2)}</span>
                 </div>
               </div>
 
@@ -203,7 +203,7 @@ export default function WithdrawalsPage() {
                   type="button"
                   onClick={handleConfirmWithdrawal}
                   disabled={loading}
-                  className="px-6 py-2.5 bg-[#0a4fa6] text-gray-900 font-semibold rounded-xl text-xs hover:bg-[#083d80]"
+                  className="px-6 py-2.5 bg-[#D71E28] text-gray-900 font-semibold rounded-xl text-xs hover:bg-[#A31620]"
                 >
                   {loading ? 'Transmitting to Fedwire / ACH...' : 'Authorize Withdrawal'}
                 </button>

@@ -75,8 +75,8 @@ interface LinkedDevicesManagerProps {
 }
 
 // Real-time sync keys
-const DEVICES_SYNC_KEY = "chase_devices_sync"
-const DEVICE_ACTIVITY_KEY = "chase_device_activity"
+const DEVICES_SYNC_KEY = "crestline_devices_sync"
+const DEVICE_ACTIVITY_KEY = "crestline_device_activity"
 
 type DeviceActivity = {
   id: string
@@ -178,7 +178,7 @@ export function LinkedDevicesManager({ onBack }: LinkedDevicesManagerProps) {
   const realTimeSync = useRef(getRealTimeSync())
 
   const safeLinkedDevices = linkedDevices || []
-  const currentDeviceId = typeof window !== "undefined" ? localStorage.getItem("chase_device_id") : null
+  const currentDeviceId = typeof window !== "undefined" ? localStorage.getItem("crestline_device_id") : null
 
   // Load device activities from localStorage
   useEffect(() => {

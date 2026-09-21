@@ -35,7 +35,7 @@ export function CreditScoreDrawer({ open, onOpenChange }: CreditScoreDrawerProps
 
   useEffect(() => {
     // Load credit score data from localStorage
-    const savedData = localStorage.getItem("chase_credit_score")
+    const savedData = localStorage.getItem("crestline_credit_score")
     if (savedData) {
       const data = JSON.parse(savedData)
       setCreditScore(data.score)
@@ -57,7 +57,7 @@ export function CreditScoreDrawer({ open, onOpenChange }: CreditScoreDrawerProps
 
   const saveCreditData = (score: number, prevScore: number, history: { date: string; score: number }[]) => {
     localStorage.setItem(
-      "chase_credit_score",
+      "crestline_credit_score",
       JSON.stringify({
         score,
         previousScore: prevScore,
@@ -181,7 +181,7 @@ export function CreditScoreDrawer({ open, onOpenChange }: CreditScoreDrawerProps
         </DrawerHeader>
         <div className="px-4 pb-6 space-y-4 overflow-auto flex-1">
           {/* Main Score Card */}
-          <Card className="p-6 text-center bg-gradient-to-br from-[#0a4fa6] to-[#117aca] text-gray-900">
+          <Card className="p-6 text-center bg-gradient-to-br from-[#D71E28] to-[#E8464F] text-gray-900">
             <p className="text-sm text-gray-900/80 mb-2">VantageScore® 3.0</p>
             <div className="relative inline-block">
               <p className="text-6xl font-bold mb-2">{creditScore}</p>
@@ -203,7 +203,7 @@ export function CreditScoreDrawer({ open, onOpenChange }: CreditScoreDrawerProps
           </Card>
 
           {/* Refresh Button */}
-          <Button onClick={handleRefresh} disabled={isRefreshing} className="w-full bg-[#0a4fa6] hover:bg-[#083d82]">
+          <Button onClick={handleRefresh} disabled={isRefreshing} className="w-full bg-[#D71E28] hover:bg-[#083d82]">
             {isRefreshing ? (
               <>
                 <RefreshCw className="h-4 w-4 mr-2 animate-spin" />
@@ -255,7 +255,7 @@ export function CreditScoreDrawer({ open, onOpenChange }: CreditScoreDrawerProps
                     <div key={index} className="flex-1 flex flex-col items-center gap-1">
                       <span className="text-xs font-medium">{item.score}</span>
                       <div
-                        className="w-full bg-[#0a4fa6] rounded-t transition-all duration-300"
+                        className="w-full bg-[#D71E28] rounded-t transition-all duration-300"
                         style={{ height: `${height}%` }}
                       />
                       <span className="text-xs text-muted-foreground">

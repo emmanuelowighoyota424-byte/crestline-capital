@@ -18,16 +18,16 @@ export const viewport: Viewport = {
   minimumScale: 1,
   userScalable: false,
   viewportFit: "cover",
-  themeColor: "#0a4fa6",
+  themeColor: "#D71E28",
 }
 
 export const metadata: Metadata = {
   title: {
-    default: "Chase Bank — Digital Banking",
-    template: "%s | Chase Bank",
+    default: "Crestline Capital — Digital Banking",
+    template: "%s | Crestline Capital",
   },
   description:
-    "Bank with confidence. Chase offers personal and business banking solutions with secure digital banking, credit cards, loans, and more.",
+    "Bank with confidence. Crestline Capital offers personal and business banking solutions with secure digital banking, credit cards, loans, and more.",
   keywords: [
     "banking",
     "personal banking",
@@ -38,14 +38,15 @@ export const metadata: Metadata = {
     "savings",
     "checking",
     "digital banking",
+    "Crestline Capital",
   ],
-  authors: [{ name: "JPMorgan Chase & Co." }],
-  creator: "Chase",
+  authors: [{ name: "Crestline Capital" }],
+  creator: "Crestline Capital",
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Chase",
-    title: "Chase Bank — Digital Banking",
+    siteName: "Crestline Capital",
+    title: "Crestline Capital — Digital Banking",
     description:
       "Bank with confidence. Secure digital banking for personal and business accounts.",
   },
@@ -69,11 +70,10 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "BankOrCreditUnion",
-              name: "Chase",
+              name: "Crestline Capital",
               description:
-                "Chase offers personal and business banking solutions with secure digital banking, credit cards, loans, and more.",
-              url: "https://chase.com",
-              logo: "https://chase.com/favicon.ico",
+                "Crestline Capital offers personal and business banking solutions with secure digital banking, credit cards, loans, and more.",
+              url: "https://crestlinecapital.com",
               currenciesAccepted: "USD",
               paymentAccepted: "Wire, ACH, Card, Check",
               priceRange: "$$",
@@ -85,21 +85,21 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Chase Total Checking®",
+                      name: "Crestline Total Checking",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Chase Sapphire Banking",
+                      name: "Crestline Premier Savings",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Chase Sapphire Reserve® Card",
+                      name: "Crestline Platinum Card",
                     },
                   },
                 ],
@@ -108,7 +108,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} font-sans antialiased overflow-x-hidden overscroll-none bg-white text-gray-900`}>
+      <body className={`${inter.className} font-sans antialiased overflow-x-hidden overscroll-none bg-white text-[#2D2D2D]`}>
         <ErrorBoundary>
           <ConvexClientProvider>
             <BankingProvider>

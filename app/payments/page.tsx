@@ -18,7 +18,7 @@ interface BillPayee {
 const DEFAULT_PAYEES: BillPayee[] = [
   { id: 'bp-1', name: 'Con Edison Electric', category: 'Utilities', accountNumber: '•••• 8419', amount: 142.50, nextDueDate: '2026-10-01', autopay: true },
   { id: 'bp-2', name: 'Verizon FiOS Internet', category: 'Telecom', accountNumber: '•••• 3192', amount: 89.99, nextDueDate: '2026-10-05', autopay: true },
-  { id: 'bp-3', name: 'Chase Visa Card', category: 'Credit Card', accountNumber: '•••• 4018', amount: 485.20, nextDueDate: '2026-10-12', autopay: false },
+  { id: 'bp-3', name: 'Crestline Visa Card', category: 'Credit Card', accountNumber: '•••• 4018', amount: 485.20, nextDueDate: '2026-10-12', autopay: false },
 ]
 
 export default function PaymentsPage() {
@@ -55,7 +55,7 @@ export default function PaymentsPage() {
           </div>
           <button
             onClick={() => alert('Search over 10,000 national electronic billers or enter remittance address.')}
-            className="px-4 py-2.5 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold text-xs rounded-xl shadow-[0_0_15px_rgba(56,189,248,0.25)] transition-all flex items-center gap-2 self-start"
+            className="px-4 py-2.5 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold text-xs rounded-xl shadow-[0_0_15px_rgba(215,30,40,0.25)] transition-all flex items-center gap-2 self-start"
           >
             <Plus className="w-4 h-4" />
             <span>Add New Biller</span>
@@ -71,7 +71,7 @@ export default function PaymentsPage() {
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-semibold text-[#0a4fa6] uppercase tracking-wider bg-[#0a4fa6]/10 px-2 py-0.5 rounded">
+                  <span className="text-xs font-semibold text-[#D71E28] uppercase tracking-wider bg-[#D71E28]/10 px-2 py-0.5 rounded">
                     {payee.category}
                   </span>
                   <span className="text-[10px] text-gray-400 font-mono">Acc: {payee.accountNumber}</span>
@@ -103,7 +103,7 @@ export default function PaymentsPage() {
                     setAmount(payee.amount ? payee.amount.toString() : '150.00')
                     setSuccess(false)
                   }}
-                  className="px-4 py-2 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 text-xs font-semibold rounded-xl transition-all"
+                  className="px-4 py-2 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 text-xs font-semibold rounded-xl transition-all"
                 >
                   Pay Now
                 </button>
@@ -130,7 +130,7 @@ export default function PaymentsPage() {
                         required
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
-                        className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#0a4fa6]"
+                        className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#D71E28]"
                       />
                     </div>
 
@@ -141,7 +141,7 @@ export default function PaymentsPage() {
                         required
                         value={payDate}
                         onChange={(e) => setPayDate(e.target.value)}
-                        className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                        className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                       />
                     </div>
 
@@ -156,7 +156,7 @@ export default function PaymentsPage() {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="px-5 py-2.5 bg-[#0a4fa6] text-gray-900 font-semibold text-xs rounded-xl hover:bg-[#083d80]"
+                        className="px-5 py-2.5 bg-[#D71E28] text-gray-900 font-semibold text-xs rounded-xl hover:bg-[#A31620]"
                       >
                         {loading ? 'Transmitting Electronic Check...' : 'Send Bill Payment'}
                       </button>

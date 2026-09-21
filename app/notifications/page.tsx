@@ -30,7 +30,7 @@ export default function NotificationsPage() {
               onClick={() => notifications.forEach((n) => markNotificationAsRead(n.id))}
               className="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-900 border border-gray-200 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-colors"
             >
-              <Check className="w-3.5 h-3.5 text-[#0a4fa6]" />
+              <Check className="w-3.5 h-3.5 text-[#D71E28]" />
               <span>Mark All Read</span>
             </button>
             <button
@@ -55,7 +55,7 @@ export default function NotificationsPage() {
               onClick={() => setFilter(f.id as any)}
               className={`px-3 py-1.5 text-xs rounded-xl font-medium transition-all ${
                 filter === f.id
-                  ? 'bg-[#0a4fa6] text-gray-900 font-semibold'
+                  ? 'bg-[#D71E28] text-gray-900 font-semibold'
                   : 'bg-gray-100 text-gray-500 hover:text-gray-900 border border-gray-200'
               }`}
             >
@@ -73,7 +73,7 @@ export default function NotificationsPage() {
                 onClick={() => markNotificationAsRead(item.id)}
                 className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-start justify-between gap-4 ${
                   !item.read
-                    ? 'bg-gray-100 border-[#0a4fa6]/40 shadow-[0_0_15px_rgba(56,189,248,0.05)]'
+                    ? 'bg-gray-100 border-[#D71E28]/40 shadow-[0_0_15px_rgba(215,30,40,0.05)]'
                     : 'bg-gray-100/50 border-gray-200 opacity-80'
                 }`}
               >
@@ -84,7 +84,7 @@ export default function NotificationsPage() {
                         ? 'bg-red-100 text-red-600'
                         : item.type === 'warning'
                         ? 'bg-amber-100 text-amber-600'
-                        : 'bg-[#0a4fa6]/10 text-[#0a4fa6]'
+                        : 'bg-[#D71E28]/10 text-[#D71E28]'
                     }`}
                   >
                     {item.type === 'alert' ? (
@@ -99,7 +99,7 @@ export default function NotificationsPage() {
                     <div className="flex items-center gap-2 mb-0.5">
                       <h3 className="text-sm font-semibold text-gray-900">{item.title}</h3>
                       {!item.read && (
-                        <span className="w-2 h-2 rounded-full bg-[#0a4fa6] shrink-0" />
+                        <span className="w-2 h-2 rounded-full bg-[#D71E28] shrink-0" />
                       )}
                     </div>
                     <p className="text-xs text-gray-500 leading-relaxed">{item.message}</p>

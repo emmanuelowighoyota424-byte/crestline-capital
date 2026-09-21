@@ -11,10 +11,10 @@ interface ViewTransitionProps {
 }
 
 /**
- * Chase-like view transition wrapper.
+ * Crestline-like view transition wrapper.
  * When viewKey changes:
  *   1. Fade out old content (100ms)
- *   2. Show Chase spinner (280ms)
+ *   2. Show Crestline Capital spinner (280ms)
  *   3. Fade in new content (320ms)
  */
 export function ViewTransition({
@@ -99,7 +99,7 @@ export function ViewTransition({
       {/* Loading spinner */}
       {phase === "loading" && showSpinner && (
         <div className="flex flex-col items-center justify-center min-h-[40dvh] vt-loading-enter">
-          <div className="Chase-spinner" />
+          <div className="crest-spinner" />
           <p className="text-xs text-muted-foreground mt-3 font-medium tracking-wide">Loading...</p>
         </div>
       )}
