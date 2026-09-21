@@ -153,11 +153,11 @@ export function OffersView() {
         <p className="text-sm text-muted-foreground mb-6">Exclusive deals and rewards just for you</p>
 
         {/* Points Summary Card */}
-        <Card className="p-4 mb-6 bg-gradient-to-r from-[#0060A9] to-[#117ACA] text-white">
+        <Card className="p-4 mb-6 bg-gradient-to-r from-[#0060A9] to-[#117ACA] text-gray-900">
           <div className="flex items-center gap-3">
             <Star className="h-8 w-8" />
             <div>
-              <h3 className="font-bold text-lg">Crestline Capital Ultimate Rewards</h3>
+              <h3 className="font-bold text-lg">Crestline Ultimate Rewards</h3>
               <p className="text-sm opacity-90">
                 You have {userProfile.ultimateRewardsPoints.toLocaleString()} points worth $
                 {(userProfile.ultimateRewardsPoints * 0.01).toFixed(2)}

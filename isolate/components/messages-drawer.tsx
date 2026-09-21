@@ -144,14 +144,14 @@ export function MessagesDrawer({ open, onOpenChange }: MessagesDrawerProps) {
             <Card
               key={message.id}
               className={`p-4 cursor-pointer transition-colors hover:bg-muted/50 ${
-                !message.read ? "border-l-4 border-l-[#0a4fa6] bg-[#0a4fa6]/5" : ""
+                !message.read ? "border-l-4 border-l-[#D71E28] bg-[#D71E28]/5" : ""
               }`}
               onClick={() => handleSelectMessage(message.id)}
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-start gap-3 flex-1 min-w-0">
                   <Avatar className="h-10 w-10 flex-shrink-0">
-                    <AvatarFallback className="bg-[#0a4fa6] text-white text-xs">
+                    <AvatarFallback className="bg-[#D71E28] text-gray-900 text-xs">
                       {message.from
                         .split(" ")
                         .map((n) => n[0])
@@ -167,7 +167,7 @@ export function MessagesDrawer({ open, onOpenChange }: MessagesDrawerProps) {
                         {message.from}
                       </p>
                       {!message.read && (
-                        <Badge variant="default" className="bg-[#0a4fa6] text-[10px]">
+                        <Badge variant="default" className="bg-[#D71E28] text-[10px]">
                           New
                         </Badge>
                       )}
@@ -213,7 +213,7 @@ export function MessagesDrawer({ open, onOpenChange }: MessagesDrawerProps) {
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           <div className="flex items-start gap-3">
             <Avatar className="h-12 w-12">
-              <AvatarFallback className="bg-[#0a4fa6] text-white">
+              <AvatarFallback className="bg-[#D71E28] text-gray-900">
                 {selectedMessage.from
                   .split(" ")
                   .map((n) => n[0])
@@ -283,7 +283,7 @@ export function MessagesDrawer({ open, onOpenChange }: MessagesDrawerProps) {
                 rows={4}
               />
               <div className="flex gap-2">
-                <Button className="flex-1 bg-[#0a4fa6]" onClick={handleReply}>
+                <Button className="flex-1 bg-[#D71E28]" onClick={handleReply}>
                   <Send className="h-4 w-4 mr-2" />
                   Send Reply
                 </Button>
@@ -303,7 +303,7 @@ export function MessagesDrawer({ open, onOpenChange }: MessagesDrawerProps) {
       <DrawerContent className="max-h-[90vh] flex flex-col">
         <DrawerHeader className="border-b">
           <DrawerTitle className="flex items-center gap-2">
-            <Mail className="h-5 w-5 text-[#0a4fa6]" />
+            <Mail className="h-5 w-5 text-[#D71E28]" />
             Messages
             {messages && messages.filter((m) => !m.read).length > 0 && (
               <Badge variant="destructive">{messages.filter((m) => !m.read).length} new</Badge>

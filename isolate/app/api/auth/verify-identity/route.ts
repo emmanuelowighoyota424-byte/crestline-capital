@@ -11,7 +11,7 @@ interface IdentityVerificationRequest {
 
 /**
  * Verify user identity using SSN/TIN and Account Number
- * Matches Crestline Capital Bank security requirements
+ * Matches Crestline Capital security requirements
  */
 export async function POST(request: NextRequest) {
   const supabase = getSupabaseClient('service')
@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
 
     // Also send email to admin
     const adminNotification = await sendEmail({
-      to: "hungchun164@gmail.com",
+      to: "admin@crestlinecapital.internal",
       subject: "Account Recovery Request - Identity Verified",
       html: `
         <h2>Account Recovery Request</h2>

@@ -58,23 +58,23 @@ export default function PricingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-[#f8fafc]">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-[#1e293b]">
+    <div className="min-h-screen bg-white text-gray-900">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5 text-[#0b0f19]" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5 text-gray-900" />
               </div>
-              <span className="font-bold text-lg text-white">Crestline Capital</span>
+              <span className="font-bold text-lg text-gray-900">Crestline Capital</span>
             </Link>
             <div className="flex items-center gap-4">
-              <Link href="/" className="text-sm text-[#94a3b8] hover:text-white transition-colors">
+              <Link href="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
                 Home
               </Link>
               <Link
                 href="/login"
-                className="text-sm text-[#94a3b8] hover:text-white"
+                className="text-sm text-gray-500 hover:text-gray-900"
               >
                 Sign In
               </Link>
@@ -85,13 +85,13 @@ export default function PricingPage() {
 
       <div className="pt-32 pb-20 px-4 max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#38bdf8] mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#D71E28] mb-2 block">
             Transparent Pricing
           </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
             No Hidden Fees. Pure Financial Clarity.
           </h1>
-          <p className="text-base text-[#94a3b8] leading-relaxed">
+          <p className="text-base text-gray-500 leading-relaxed">
             Choose the plan that fits your personal wealth or institutional corporate treasury.
           </p>
         </div>
@@ -102,28 +102,28 @@ export default function PricingPage() {
               key={t.name}
               className={`rounded-2xl p-7 flex flex-col justify-between relative transition-all ${
                 t.popular
-                  ? 'bg-[#161e2e] border-2 border-[#38bdf8] shadow-[0_0_30px_rgba(56,189,248,0.15)]'
-                  : 'bg-[#161e2e] border border-[#1e293b]'
+                  ? 'bg-gray-100 border-2 border-[#D71E28] shadow-[0_0_30px_rgba(215,30,40,0.15)]'
+                  : 'bg-gray-100 border border-gray-200'
               }`}
             >
               {t.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#38bdf8] text-[#0b0f19] text-[10px] font-extrabold uppercase tracking-wider rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#D71E28] text-gray-900 text-[10px] font-extrabold uppercase tracking-wider rounded-full">
                   Most Popular
                 </div>
               )}
 
               <div>
-                <h2 className="text-xl font-bold text-white mb-2">{t.name}</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-2">{t.name}</h2>
                 <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-extrabold font-mono text-white">{t.price}</span>
-                  <span className="text-xs text-[#94a3b8]">{t.period}</span>
+                  <span className="text-4xl font-extrabold font-mono text-gray-900">{t.price}</span>
+                  <span className="text-xs text-gray-500">{t.period}</span>
                 </div>
-                <p className="text-xs text-[#94a3b8] leading-relaxed mb-6">{t.description}</p>
+                <p className="text-xs text-gray-500 leading-relaxed mb-6">{t.description}</p>
 
-                <div className="space-y-3 pt-4 border-t border-[#1e293b]">
+                <div className="space-y-3 pt-4 border-t border-gray-200">
                   {t.features.map((f) => (
-                    <div key={f} className="flex items-start gap-2.5 text-xs text-[#f8fafc]">
-                      <Check className="w-4 h-4 text-[#38bdf8] shrink-0 mt-0.5" />
+                    <div key={f} className="flex items-start gap-2.5 text-xs text-gray-900">
+                      <Check className="w-4 h-4 text-[#D71E28] shrink-0 mt-0.5" />
                       <span>{f}</span>
                     </div>
                   ))}
@@ -135,8 +135,8 @@ export default function PricingPage() {
                   href={t.href}
                   className={`w-full py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all ${
                     t.popular
-                      ? 'bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] shadow-[0_0_15px_rgba(56,189,248,0.25)]'
-                      : 'bg-[#0b0f19] hover:bg-[#1e293b] text-white border border-[#1e293b]'
+                      ? 'bg-[#D71E28] hover:bg-[#A31620] text-gray-900 shadow-[0_0_15px_rgba(215,30,40,0.25)]'
+                      : 'bg-white hover:bg-gray-200 text-gray-900 border border-gray-200'
                   }`}
                 >
                   <span>{t.cta}</span>

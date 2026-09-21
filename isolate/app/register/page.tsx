@@ -35,14 +35,14 @@ const STRENGTH_LABELS = ["Too weak", "Weak", "Fair", "Good", "Strong"]
 
 function FieldIcon({ children }: { children: React.ReactNode }) {
   return (
-    <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748b]">
+    <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
       {children}
     </span>
   )
 }
 
 const inputClass =
-  "h-11 border-[#1e293b] bg-[#0b0f19]/60 pl-10 text-[#f8fafc] placeholder:text-[#64748b] focus-visible:border-[#38bdf8] focus-visible:ring-[#38bdf8]/25"
+  "h-11 border-gray-200 bg-gray-50/60 pl-10 text-gray-900 placeholder:text-gray-400 focus-visible:border-[#D71E28] focus-visible:ring-[#D71E28]/25"
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -130,12 +130,12 @@ export default function RegisterPage() {
   return (
     <AuthShell
       eyebrow="Open an account"
-      title="Create your Crestline account"
+      title="Create your Crestline Capital account"
       subtitle="It takes about a minute. Your account opens with a secure checking balance ready to fund."
       footer={
         <>
           Already bank with us?{" "}
-          <Link href="/login" className="font-semibold text-[#38bdf8] hover:text-[#0ea5e9]">
+          <Link href="/login" className="font-semibold text-[#D71E28] hover:text-[#E8464F]">
             Sign in
           </Link>
         </>
@@ -154,7 +154,7 @@ export default function RegisterPage() {
         )}
 
         <div className="space-y-2">
-          <Label htmlFor="fullName" className="text-[#cbd5e1]">
+          <Label htmlFor="fullName" className="text-gray-600">
             Full name
           </Label>
           <div className="relative">
@@ -174,7 +174,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-[#cbd5e1]">
+          <Label htmlFor="email" className="text-gray-600">
             Email address
           </Label>
           <div className="relative">
@@ -197,8 +197,8 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="phone" className="text-[#cbd5e1]">
-            Phone <span className="text-[#64748b]">(optional)</span>
+          <Label htmlFor="phone" className="text-gray-600">
+            Phone <span className="text-gray-400">(optional)</span>
           </Label>
           <div className="relative">
             <FieldIcon>
@@ -218,7 +218,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="new-password" className="text-[#cbd5e1]">
+          <Label htmlFor="new-password" className="text-gray-600">
             Password
           </Label>
           <div className="relative">
@@ -240,7 +240,7 @@ export default function RegisterPage() {
               onClick={() => setShowPassword((visible) => !visible)}
               aria-label={showPassword ? "Hide password" : "Show password"}
               aria-pressed={showPassword}
-              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-[#64748b] transition-colors hover:text-[#38bdf8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#38bdf8]/40"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-[#D71E28] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D71E28]/40"
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
@@ -249,7 +249,7 @@ export default function RegisterPage() {
           {password.length > 0 && (
             <div className="pt-1">
               <div className="flex items-center gap-3">
-                <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#1e293b]">
+                <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-gray-200">
                   <div
                     className={`h-full rounded-full transition-all duration-300 ${
                       passedRules <= 2
@@ -261,7 +261,7 @@ export default function RegisterPage() {
                     style={{ width: `${(passedRules / PASSWORD_RULES.length) * 100}%` }}
                   />
                 </div>
-                <span className="w-20 text-right text-xs text-[#94a3b8]">
+                <span className="w-20 text-right text-xs text-gray-500">
                   {STRENGTH_LABELS[passedRules]}
                 </span>
               </div>
@@ -271,7 +271,7 @@ export default function RegisterPage() {
                   return (
                     <li
                       key={rule.label}
-                      className={`flex items-center gap-2 text-xs ${met ? "text-[#10b981]" : "text-[#64748b]"}`}
+                      className={`flex items-center gap-2 text-xs ${met ? "text-[#10b981]" : "text-gray-400"}`}
                     >
                       <Check className={`h-3.5 w-3.5 ${met ? "opacity-100" : "opacity-40"}`} />
                       {rule.label}
@@ -284,7 +284,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="confirm-password" className="text-[#cbd5e1]">
+          <Label htmlFor="confirm-password" className="text-gray-600">
             Confirm password
           </Label>
           <div className="relative">
@@ -313,15 +313,15 @@ export default function RegisterPage() {
             id="terms"
             checked={acceptedTerms}
             onCheckedChange={(checked) => setAcceptedTerms(checked === true)}
-            className="mt-0.5 border-[#334155] data-[state=checked]:border-[#38bdf8] data-[state=checked]:bg-[#38bdf8]"
+            className="mt-0.5 border-gray-300 data-[state=checked]:border-[#D71E28] data-[state=checked]:bg-[#D71E28]"
           />
-          <Label htmlFor="terms" className="text-sm font-normal leading-relaxed text-[#94a3b8]">
+          <Label htmlFor="terms" className="text-sm font-normal leading-relaxed text-gray-500">
             I agree to the{" "}
-            <Link href="/terms" className="text-[#38bdf8] hover:text-[#0ea5e9]">
+            <Link href="/terms" className="text-[#D71E28] hover:text-[#E8464F]">
               terms of service
             </Link>{" "}
             and{" "}
-            <Link href="/privacy" className="text-[#38bdf8] hover:text-[#0ea5e9]">
+            <Link href="/privacy" className="text-[#D71E28] hover:text-[#E8464F]">
               privacy policy
             </Link>
             .
@@ -331,7 +331,7 @@ export default function RegisterPage() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="h-11 w-full bg-[#38bdf8] text-sm font-semibold text-[#0b0f19] transition-all hover:bg-[#0ea5e9] hover:shadow-[0_0_24px_rgba(56,189,248,0.35)] disabled:opacity-60"
+          className="h-11 w-full bg-[#D71E28] text-sm font-semibold text-gray-900 transition-all hover:bg-[#A31620] hover:shadow-[0_0_24px_rgba(215,30,40,0.35)] disabled:opacity-60"
         >
           {isSubmitting ? (
             <>
@@ -343,7 +343,7 @@ export default function RegisterPage() {
           )}
         </Button>
 
-        <p className="flex items-center justify-center gap-2 text-xs text-[#64748b]">
+        <p className="flex items-center justify-center gap-2 text-xs text-gray-400">
           <ShieldCheck className="h-3.5 w-3.5 text-[#10b981]" />
           Your details are encrypted in transit and your password is never stored in plain text
         </p>

@@ -131,7 +131,7 @@ export function TransactionsDrawer({ open, onOpenChange, onReceiptOpen }: Transa
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `chase-transactions-${new Date().toISOString().split("T")[0]}.csv`
+    a.download = `crestline-transactions-${new Date().toISOString().split("T")[0]}.csv`
     a.click()
     URL.revokeObjectURL(url)
 
@@ -190,17 +190,17 @@ export function TransactionsDrawer({ open, onOpenChange, onReceiptOpen }: Transa
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent className="h-[95vh] flex flex-col">
-        <DrawerHeader className="border-b bg-gradient-to-r from-[#0a4fa6] to-[#117aca] text-white rounded-t-xl">
+        <DrawerHeader className="border-b bg-gradient-to-r from-[#D71E28] to-[#E8464F] text-gray-900 rounded-t-xl">
           <div className="flex items-center gap-3">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => onOpenChange(false)}
-              className="text-white hover:bg-white/20"
+              className="text-gray-900 hover:bg-white/20"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
-            <DrawerTitle className="text-white text-lg">All Transactions</DrawerTitle>
+            <DrawerTitle className="text-gray-900 text-lg">All Transactions</DrawerTitle>
           </div>
         </DrawerHeader>
 
@@ -221,7 +221,7 @@ export function TransactionsDrawer({ open, onOpenChange, onReceiptOpen }: Transa
                 variant="outline"
                 size="icon"
                 onClick={() => setShowFilters(!showFilters)}
-                className={showFilters ? "bg-primary text-white" : ""}
+                className={showFilters ? "bg-primary text-gray-900" : ""}
               >
                 <Filter className="h-4 w-4" />
               </Button>

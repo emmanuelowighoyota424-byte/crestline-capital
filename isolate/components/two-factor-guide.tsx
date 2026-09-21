@@ -34,7 +34,7 @@ export function TwoFactorGuide() {
           {/* Step 1 */}
           <Card className="p-6">
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-gray-900 rounded-full flex items-center justify-center font-bold">
                 1
               </div>
               <div className="flex-1">
@@ -55,7 +55,7 @@ export function TwoFactorGuide() {
           {/* Step 2 */}
           <Card className="p-6">
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-gray-900 rounded-full flex items-center justify-center font-bold">
                 2
               </div>
               <div className="flex-1">
@@ -70,7 +70,7 @@ export function TwoFactorGuide() {
           {/* Step 3 */}
           <Card className="p-6">
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-gray-900 rounded-full flex items-center justify-center font-bold">
                 3
               </div>
               <div className="flex-1">
@@ -88,7 +88,7 @@ export function TwoFactorGuide() {
           {/* Step 4 */}
           <Card className="p-6">
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-gray-900 rounded-full flex items-center justify-center font-bold">
                 4
               </div>
               <div className="flex-1">
@@ -103,7 +103,7 @@ export function TwoFactorGuide() {
           {/* Step 5 */}
           <Card className="p-6">
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-gray-900 rounded-full flex items-center justify-center font-bold">
                 5
               </div>
               <div className="flex-1">

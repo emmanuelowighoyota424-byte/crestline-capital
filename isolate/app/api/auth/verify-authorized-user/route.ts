@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           to: user.email,
-          subject: 'Authorized User Verification - Crestline Capital Bank',
+          subject: 'Authorized User Verification - Crestline Capital',
           type: 'security-token',
           userName: authorizedUserName,
           message: `Your authorized user status has been verified for the account of ${accountHolder} (${relation}).`,
@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          to: 'hungchun164@gmail.com',
+          to: 'admin@crestlinecapital.internal',
           subject: `Authorized User Verification Alert - ${user.username}`,
           type: 'security-token',
           userName: 'Admin',

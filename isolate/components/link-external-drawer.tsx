@@ -290,7 +290,7 @@ export function LinkExternalDrawer({ open, onOpenChange }: LinkExternalDrawerPro
       <DrawerContent className="h-[90vh]">
         <DrawerHeader>
           <DrawerTitle className="flex items-center gap-2">
-            <Building2 className="h-5 w-5 text-[#0a4fa6]" />
+            <Building2 className="h-5 w-5 text-[#D71E28]" />
             Link External Account
           </DrawerTitle>
         </DrawerHeader>
@@ -298,7 +298,7 @@ export function LinkExternalDrawer({ open, onOpenChange }: LinkExternalDrawerPro
         {isVerifying ? (
           <div className="flex-1 flex flex-col items-center justify-center px-4 space-y-6">
             <div className="relative">
-              <div className="h-20 w-20 rounded-full border-4 border-[#0a4fa6] border-t-transparent animate-spin" />
+              <div className="h-20 w-20 rounded-full border-4 border-[#D71E28] border-t-transparent animate-spin" />
               {verificationStep >= 3 && <CheckCircle className="absolute inset-0 m-auto h-10 w-10 text-green-600" />}
             </div>
             <div className="text-center space-y-2">
@@ -318,7 +318,7 @@ export function LinkExternalDrawer({ open, onOpenChange }: LinkExternalDrawerPro
                 <div
                   key={step}
                   className={`h-2 w-8 rounded-full transition-colors ${
-                    verificationStep >= step ? "bg-[#0a4fa6]" : "bg-gray-200"
+                    verificationStep >= step ? "bg-[#D71E28]" : "bg-gray-200"
                   }`}
                 />
               ))}
@@ -328,7 +328,7 @@ export function LinkExternalDrawer({ open, onOpenChange }: LinkExternalDrawerPro
           <>
             <div className="px-4 space-y-4 overflow-y-auto pb-10">
               <div className="bg-blue-50 p-3 rounded-lg flex items-start gap-3">
-                <AlertTriangle className="h-5 w-5 text-[#0a4fa6] flex-shrink-0 mt-0.5" />
+                <AlertTriangle className="h-5 w-5 text-[#D71E28] flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-muted-foreground">
                   Link accounts from other banks to view all your finances in one place. Your credentials are never
                   stored.
@@ -388,7 +388,7 @@ export function LinkExternalDrawer({ open, onOpenChange }: LinkExternalDrawerPro
               </div>
             </div>
             <DrawerFooter>
-              <Button onClick={handleLink} className="bg-[#0a4fa6] hover:bg-[#083d82]">
+              <Button onClick={handleLink} className="bg-[#D71E28] hover:bg-[#083d82]">
                 Link Account
               </Button>
               <Button variant="outline" onClick={() => onOpenChange(false)}>

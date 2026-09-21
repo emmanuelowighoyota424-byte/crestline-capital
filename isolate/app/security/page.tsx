@@ -3,17 +3,17 @@ import Link from 'next/link'
 import { ArrowLeft, Lock, Shield, Eye, AlertTriangle, CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Security Center | Crestline Capital Bank',
+  title: 'Security Center | Crestline Capital',
   description: 'Learn about Crestline Capital security features and how to protect your account.',
 }
 
 export default function SecurityPage() {
   return (
-    <div className="crestline-legal min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="crest-legal min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-6 py-6">
-          <Link href="/" className="flex items-center gap-2 text-[#117aca] hover:underline mb-4 w-fit">
+          <Link href="/" className="flex items-center gap-2 text-[#E8464F] hover:underline mb-4 w-fit">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
@@ -36,9 +36,9 @@ export default function SecurityPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Security Features</h2>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="bg-white rounded-lg shadow-sm p-6 border-l-4 border-[#117aca]">
+            <div className="bg-white rounded-lg shadow-sm p-6 border-l-4 border-[#E8464F]">
               <div className="flex items-start gap-4">
-                <Lock className="w-6 h-6 text-[#117aca] flex-shrink-0 mt-1" />
+                <Lock className="w-6 h-6 text-[#E8464F] flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">SSL Encryption</h3>
                   <p className="text-gray-700">256-bit SSL encryption secures all data transmitted between your device and Crestline Capital servers.</p>
@@ -121,7 +121,7 @@ export default function SecurityPage() {
               <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Use Secure Connections</h3>
-                <p className="text-gray-700">Always access Crestline Capital through https://www.Crestline.com or the official mobile app, never through links in emails.</p>
+                <p className="text-gray-700">Always access Crestline Capital through https://www.CrestlineCapital.com or the official mobile app, never through links in emails.</p>
               </div>
             </div>
           </div>
@@ -172,11 +172,11 @@ export default function SecurityPage() {
             </div>
             <div>
               <p className="text-gray-700"><strong>Security Vulnerability:</strong></p>
-              <p className="text-gray-600 ml-4">Email: security@Crestline.com</p>
+              <p className="text-gray-600 ml-4">Email: security@crestlinecapital.com</p>
             </div>
             <div>
               <p className="text-gray-700"><strong>Customer Service:</strong></p>
-              <p className="text-gray-600 ml-4">Call: 1-800-935-9935 or visit <span className="text-[#117aca]">Crestline.com</span></p>
+              <p className="text-gray-600 ml-4">Call: 1-800-935-9935 or visit <span className="text-[#E8464F]">CrestlineCapital.com</span></p>
             </div>
           </div>
         </section>

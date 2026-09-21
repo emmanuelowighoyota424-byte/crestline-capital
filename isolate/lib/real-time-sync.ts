@@ -1,4 +1,4 @@
-// Real-time synchronization service for Crestline Capital Banking App
+// Real-time synchronization service for Crestline Capitaling App
 // Handles cross-component state updates and real-time data flow
 
 type SyncEventType = 'update' | 'delete' | 'create' | 'sync'

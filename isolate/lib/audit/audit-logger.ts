@@ -60,7 +60,7 @@ class AuditStore {
         targetResource: 'TRANSFER',
         targetId: 'tx_wire_9120',
         status: 'SUCCESS',
-        details: { verifiedBeneficiary: 'Crestline Escrow Corp', clearedBy: 'Analyst #402' },
+        details: { verifiedBeneficiary: 'Crestline Capital Escrow Corp', clearedBy: 'Analyst #402' },
       },
     ]
   }

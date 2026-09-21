@@ -46,16 +46,16 @@ export default function TransactionsPage() {
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-white">Transactions History</h1>
-            <p className="text-sm text-[#94a3b8] mt-1">
+            <h1 className="text-2xl font-bold text-gray-900">Transactions History</h1>
+            <p className="text-sm text-gray-500 mt-1">
               Search and filter all debits, credits, and ledger settlement events.
             </p>
           </div>
           <button
             onClick={handleExportCSV}
-            className="px-4 py-2.5 bg-[#0b0f19] hover:bg-[#1e293b] text-white border border-[#1e293b] font-medium text-xs rounded-xl transition-all flex items-center gap-2 self-start"
+            className="px-4 py-2.5 bg-white hover:bg-gray-200 text-gray-900 border border-gray-200 font-medium text-xs rounded-xl transition-all flex items-center gap-2 self-start"
           >
-            <Download className="w-4 h-4 text-[#38bdf8]" />
+            <Download className="w-4 h-4 text-[#D71E28]" />
             <span>Export CSV</span>
           </button>
         </div>
@@ -63,13 +63,13 @@ export default function TransactionsPage() {
         {/* Search & Filter Bar */}
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search by merchant, counterparty, or memo..."
-              className="w-full pl-10 pr-4 py-2.5 bg-[#161e2e] border border-[#1e293b] rounded-xl text-sm text-white placeholder-[#64748b] focus:outline-none focus:border-[#38bdf8]"
+              className="w-full pl-10 pr-4 py-2.5 bg-gray-100 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-[#64748b] focus:outline-none focus:border-[#D71E28]"
             />
           </div>
           <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0">
@@ -79,8 +79,8 @@ export default function TransactionsPage() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3 py-2 text-xs rounded-xl font-medium whitespace-nowrap transition-colors ${
                   selectedCategory === cat
-                    ? 'bg-[#38bdf8] text-[#0b0f19] font-semibold'
-                    : 'bg-[#161e2e] text-[#94a3b8] hover:text-white border border-[#1e293b]'
+                    ? 'bg-[#D71E28] text-gray-900 font-semibold'
+                    : 'bg-gray-100 text-gray-500 hover:text-gray-900 border border-gray-200'
                 }`}
               >
                 {cat}
@@ -90,11 +90,11 @@ export default function TransactionsPage() {
         </div>
 
         {/* Transactions Table */}
-        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl shadow-xl overflow-hidden">
+        <div className="bg-gray-100 border border-gray-200 rounded-2xl shadow-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-[#1e293b] text-[#64748b] uppercase bg-[#0b0f19]/40">
+                <tr className="border-b border-gray-200 text-gray-400 uppercase bg-white/40">
                   <th className="py-3 px-4 font-semibold">Transaction</th>
                   <th className="py-3 px-4 font-semibold">Category</th>
                   <th className="py-3 px-4 font-semibold">Date</th>
@@ -103,34 +103,34 @@ export default function TransactionsPage() {
                   <th className="py-3 px-4 font-semibold text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1e293b]/50">
+              <tbody className="divide-y divide-gray-200">
                 {filteredTransactions.map((tx) => {
                   const isPositive = tx.amount > 0
                   return (
-                    <tr key={tx.id} className="hover:bg-[#0b0f19]/30 transition-colors">
-                      <td className="py-3.5 px-4 font-medium text-white flex items-center gap-3">
+                    <tr key={tx.id} className="hover:bg-white/30 transition-colors">
+                      <td className="py-3.5 px-4 font-medium text-gray-900 flex items-center gap-3">
                         <div
                           className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                            isPositive ? 'bg-emerald-500/10 text-emerald-400' : 'bg-red-500/10 text-red-400'
+                            isPositive ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
                           }`}
                         >
                           {isPositive ? <ArrowDownLeft className="w-4 h-4" /> : <ArrowUpRight className="w-4 h-4" />}
                         </div>
                         <div>
-                          <span className="block font-semibold text-white">{tx.description}</span>
-                          <span className="text-[10px] text-[#64748b] font-mono">TX-{tx.id.substring(0, 8)}</span>
+                          <span className="block font-semibold text-gray-900">{tx.description}</span>
+                          <span className="text-[10px] text-gray-400 font-mono">TX-{tx.id.substring(0, 8)}</span>
                         </div>
                       </td>
-                      <td className="py-3.5 px-4 text-[#94a3b8]">{tx.category || 'General'}</td>
-                      <td className="py-3.5 px-4 text-[#64748b]">{tx.date}</td>
+                      <td className="py-3.5 px-4 text-gray-500">{tx.category || 'General'}</td>
+                      <td className="py-3.5 px-4 text-gray-400">{tx.date}</td>
                       <td className="py-3.5 px-4">
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-green-100 text-green-600">
                           {tx.status || 'SETTLED'}
                         </span>
                       </td>
                       <td
                         className={`py-3.5 px-4 text-right font-mono font-bold ${
-                          isPositive ? 'text-emerald-400' : 'text-white'
+                          isPositive ? 'text-green-600' : 'text-gray-900'
                         }`}
                       >
                         {isPositive ? '+' : ''}
@@ -138,7 +138,7 @@ export default function TransactionsPage() {
                       </td>
                       <td className="py-3.5 px-4 text-right">
                         {disputedId === tx.id ? (
-                          <span className="text-[10px] text-amber-400 flex items-center justify-end gap-1">
+                          <span className="text-[10px] text-amber-600 flex items-center justify-end gap-1">
                             <CheckCircle2 className="w-3.5 h-3.5" /> Disputed
                           </span>
                         ) : (
@@ -147,7 +147,7 @@ export default function TransactionsPage() {
                               setDisputedId(tx.id)
                               alert(`Transaction dispute case filed for TX-${tx.id}. Compliance team notified.`)
                             }}
-                            className="text-[11px] text-[#64748b] hover:text-amber-400 transition-colors"
+                            className="text-[11px] text-gray-400 hover:text-amber-600 transition-colors"
                           >
                             Dispute
                           </button>

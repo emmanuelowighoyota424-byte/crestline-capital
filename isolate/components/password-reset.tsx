@@ -204,7 +204,7 @@ export function PasswordReset({ onBack }: PasswordResetProps) {
           <p className="text-gray-600 mb-6">Your password has been updated securely. You can now log in with your new password.</p>
           <Button
             onClick={onBack || (() => window.location.reload())}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
           >
             Return to Login
           </Button>
@@ -280,7 +280,7 @@ export function PasswordReset({ onBack }: PasswordResetProps) {
             <Button
               onClick={handlePasswordReset}
               disabled={isLoading || !newPassword || !confirmPassword || passwordErrors.length > 0}
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold"
+              className="w-full bg-green-600 hover:bg-green-700 text-gray-900 font-semibold"
             >
               {isLoading ? 'Resetting...' : 'Reset Password'}
             </Button>
@@ -325,7 +325,7 @@ export function PasswordReset({ onBack }: PasswordResetProps) {
             <Button
               onClick={handleVerificationSubmit}
               disabled={isLoading || verificationCode.length !== 6}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900 font-semibold"
             >
               {isLoading ? 'Verifying...' : 'Verify Code'}
             </Button>
@@ -370,7 +370,7 @@ export function PasswordReset({ onBack }: PasswordResetProps) {
           <Button
             onClick={handleEmailSubmit}
             disabled={isLoading || !email}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900 font-semibold"
           >
             {isLoading ? 'Sending...' : 'Send Reset Code'}
           </Button>

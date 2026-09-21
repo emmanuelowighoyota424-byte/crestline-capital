@@ -44,14 +44,14 @@ export default function SavingsPage() {
       <div className="space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-white">Savings & Financial Goals</h1>
-            <p className="text-sm text-[#94a3b8] mt-1">
+            <h1 className="text-2xl font-bold text-gray-900">Savings & Financial Goals</h1>
+            <p className="text-sm text-gray-500 mt-1">
               Earn 4.85% APY compounding daily with rule-based automated savings buffers.
             </p>
           </div>
           <button
             onClick={() => setShowAddGoal(true)}
-            className="px-4 py-2.5 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] font-semibold text-xs rounded-xl shadow-[0_0_15px_rgba(56,189,248,0.25)] transition-all flex items-center gap-2 self-start"
+            className="px-4 py-2.5 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold text-xs rounded-xl shadow-[0_0_15px_rgba(215,30,40,0.25)] transition-all flex items-center gap-2 self-start"
           >
             <Plus className="w-4 h-4" />
             <span>Create New Goal</span>
@@ -59,24 +59,24 @@ export default function SavingsPage() {
         </div>
 
         {/* APY Highlight Banner */}
-        <div className="bg-gradient-to-r from-emerald-950/40 via-[#161e2e] to-[#161e2e] border border-emerald-500/20 rounded-2xl p-6 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="bg-gradient-to-r from-emerald-50 via-[#f0fdf4] to-emerald-50 border border-emerald-500/20 rounded-2xl p-6 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
               <TrendingUp className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider">High-Yield Interest Active</span>
-              <div className="text-2xl font-bold text-white font-mono">
-                4.85% <span className="text-xs font-sans text-[#94a3b8]">Annual Percentage Yield (APY)</span>
+              <span className="text-xs font-semibold text-green-600 uppercase tracking-wider">High-Yield Interest Active</span>
+              <div className="text-2xl font-bold text-gray-900 font-mono">
+                4.85% <span className="text-xs font-sans text-gray-500">Annual Percentage Yield (APY)</span>
               </div>
-              <p className="text-xs text-[#94a3b8] mt-0.5">
-                Current high-yield savings balance: <span className="text-white font-bold font-mono">{formatCurrency(savingsAccount?.balance || 0)}</span>
+              <p className="text-xs text-gray-500 mt-0.5">
+                Current high-yield savings balance: <span className="text-gray-900 font-bold font-mono">{formatCurrency(savingsAccount?.balance || 0)}</span>
               </p>
             </div>
           </div>
           <div className="text-right">
-            <span className="text-xs text-[#94a3b8] block">Estimated Annual Yield</span>
-            <span className="text-lg font-bold font-mono text-emerald-400">
+            <span className="text-xs text-gray-500 block">Estimated Annual Yield</span>
+            <span className="text-lg font-bold font-mono text-green-600">
               +${(((savingsAccount?.balance || 0) * 0.0485)).toFixed(2)}/yr
             </span>
           </div>
@@ -89,33 +89,33 @@ export default function SavingsPage() {
             return (
               <div
                 key={goal.id}
-                className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl flex flex-col justify-between"
+                className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-semibold text-[#38bdf8] uppercase tracking-wider">{goal.category}</span>
-                    <span className="text-xs font-mono text-[#94a3b8]">{progress}%</span>
+                    <span className="text-xs font-semibold text-[#D71E28] uppercase tracking-wider">{goal.category}</span>
+                    <span className="text-xs font-mono text-gray-500">{progress}%</span>
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2">{goal.name}</h3>
+                  <h3 className="text-base font-bold text-gray-900 mb-2">{goal.name}</h3>
 
-                  <div className="w-full bg-[#0b0f19] h-2.5 rounded-full overflow-hidden mb-4 border border-[#1e293b]">
+                  <div className="w-full bg-white h-2.5 rounded-full overflow-hidden mb-4 border border-gray-200">
                     <div
-                      className="bg-gradient-to-r from-[#38bdf8] to-[#818cf8] h-full rounded-full transition-all duration-500"
+                      className="bg-gradient-to-r from-[#D71E28] to-[#818cf8] h-full rounded-full transition-all duration-500"
                       style={{ width: `${progress}%` }}
                     />
                   </div>
 
                   <div className="flex items-center justify-between text-xs font-mono mb-4">
-                    <span className="text-white font-bold">{formatCurrency(goal.currentAmount)}</span>
-                    <span className="text-[#64748b]">of {formatCurrency(goal.targetAmount)}</span>
+                    <span className="text-gray-900 font-bold">{formatCurrency(goal.currentAmount)}</span>
+                    <span className="text-gray-400">of {formatCurrency(goal.targetAmount)}</span>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#1e293b] flex items-center justify-between">
-                  <span className="text-[11px] text-[#94a3b8]">Target: {goal.deadline}</span>
+                <div className="pt-4 border-t border-gray-200 flex items-center justify-between">
+                  <span className="text-[11px] text-gray-500">Target: {goal.deadline}</span>
                   <button
                     onClick={() => setSelectedGoalId(goal.id)}
-                    className="px-3 py-1.5 bg-[#38bdf8]/10 hover:bg-[#38bdf8]/20 text-[#38bdf8] text-xs font-semibold rounded-lg transition-colors"
+                    className="px-3 py-1.5 bg-[#D71E28]/10 hover:bg-[#D71E28]/20 text-[#D71E28] text-xs font-semibold rounded-lg transition-colors"
                   >
                     + Add Funds
                   </button>
@@ -127,23 +127,23 @@ export default function SavingsPage() {
 
         {/* Add Goal Modal */}
         {showAddGoal && (
-          <div className="fixed inset-0 z-50 bg-[#0b0f19]/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="w-full max-w-md bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-2xl">
-              <h2 className="text-lg font-bold text-white mb-4">Create Savings Goal</h2>
+          <div className="fixed inset-0 z-50 bg-white/80 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="w-full max-w-md bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-2xl">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Create Savings Goal</h2>
               <form onSubmit={handleCreateGoal} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Goal Name</label>
+                  <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Goal Name</label>
                   <input
                     type="text"
                     required
                     value={goalName}
                     onChange={(e) => setGoalName(e.target.value)}
                     placeholder="e.g. Real Estate Down Payment"
-                    className="w-full px-4 py-2 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8]"
+                    className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Target Amount ($ USD)</label>
+                  <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Target Amount ($ USD)</label>
                   <input
                     type="number"
                     step="50"
@@ -151,20 +151,20 @@ export default function SavingsPage() {
                     value={targetAmount}
                     onChange={(e) => setTargetAmount(e.target.value)}
                     placeholder="25000"
-                    className="w-full px-4 py-2 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-mono text-sm focus:outline-none focus:border-[#38bdf8]"
+                    className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#D71E28]"
                   />
                 </div>
-                <div className="flex items-center justify-end gap-2 pt-4 border-t border-[#1e293b]">
+                <div className="flex items-center justify-end gap-2 pt-4 border-t border-gray-200">
                   <button
                     type="button"
                     onClick={() => setShowAddGoal(false)}
-                    className="px-4 py-2 text-xs text-[#94a3b8]"
+                    className="px-4 py-2 text-xs text-gray-500"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-[#38bdf8] text-[#0b0f19] font-semibold text-xs rounded-xl"
+                    className="px-4 py-2 bg-[#D71E28] text-gray-900 font-semibold text-xs rounded-xl"
                   >
                     Save Goal
                   </button>
@@ -176,12 +176,12 @@ export default function SavingsPage() {
 
         {/* Contribute Modal */}
         {selectedGoalId && (
-          <div className="fixed inset-0 z-50 bg-[#0b0f19]/80 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="w-full max-w-sm bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-2xl">
-              <h2 className="text-lg font-bold text-white mb-4">Contribute to Goal</h2>
+          <div className="fixed inset-0 z-50 bg-white/80 backdrop-blur-sm flex items-center justify-center p-4">
+            <div className="w-full max-w-sm bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-2xl">
+              <h2 className="text-lg font-bold text-gray-900 mb-4">Contribute to Goal</h2>
               <form onSubmit={handleContribute} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Transfer Amount ($ USD)</label>
+                  <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Transfer Amount ($ USD)</label>
                   <input
                     type="number"
                     step="10"
@@ -191,20 +191,20 @@ export default function SavingsPage() {
                     value={depositAmount}
                     onChange={(e) => setDepositAmount(e.target.value)}
                     placeholder="100.00"
-                    className="w-full px-4 py-2 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-mono text-sm focus:outline-none focus:border-[#38bdf8]"
+                    className="w-full px-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-sm focus:outline-none focus:border-[#D71E28]"
                   />
                 </div>
-                <div className="flex items-center justify-end gap-2 pt-4 border-t border-[#1e293b]">
+                <div className="flex items-center justify-end gap-2 pt-4 border-t border-gray-200">
                   <button
                     type="button"
                     onClick={() => setSelectedGoalId(null)}
-                    className="px-4 py-2 text-xs text-[#94a3b8]"
+                    className="px-4 py-2 text-xs text-gray-500"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-[#38bdf8] text-[#0b0f19] font-semibold text-xs rounded-xl"
+                    className="px-4 py-2 bg-[#D71E28] text-gray-900 font-semibold text-xs rounded-xl"
                   >
                     Transfer to Goal
                   </button>

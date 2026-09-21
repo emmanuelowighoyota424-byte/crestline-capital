@@ -326,7 +326,7 @@ export function TransfersAndPayments({
             <Button
               onClick={handleInternalTransfer}
               disabled={isProcessing}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
             >
               {isProcessing ? 'Processing...' : 'Transfer Now'}
             </Button>
@@ -407,7 +407,7 @@ export function TransfersAndPayments({
             <Button
               onClick={handleExternalTransfer}
               disabled={isProcessing}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
             >
               {isProcessing ? 'Processing...' : 'Send Money'}
             </Button>
@@ -488,7 +488,7 @@ export function TransfersAndPayments({
             <Button
               onClick={handleSchedulePayment}
               disabled={isProcessing}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
             >
               {isProcessing ? 'Scheduling...' : 'Schedule Payment'}
             </Button>

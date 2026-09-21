@@ -110,7 +110,7 @@ export function IntegratedFinancialDashboard() {
       <div className="max-w-6xl mx-auto mb-8">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
-            <Image src="/images/chase-logo.png" alt="Banking" width={40} height={40} className="rounded-lg" />
+            <Image src="/images/Crestline-logo.png" alt="Banking" width={40} height={40} className="rounded-lg" />
             <h1 className="text-3xl font-bold text-gray-900">Financial Dashboard</h1>
           </div>
           <div className="flex items-center gap-2">
@@ -141,7 +141,7 @@ export function IntegratedFinancialDashboard() {
         )}
 
         {/* Total Balance Card */}
-        <Card className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8 mb-8 shadow-lg">
+        <Card className="bg-gradient-to-r from-blue-600 to-blue-800 text-gray-900 p-8 mb-8 shadow-lg">
           <div className="flex justify-between items-start mb-12">
             <div>
               <p className="text-blue-100 mb-2 text-sm">Total Balance</p>
@@ -153,7 +153,7 @@ export function IntegratedFinancialDashboard() {
                   variant="ghost"
                   size="sm"
                   onClick={() => setHideBalances(!hideBalances)}
-                  className="text-blue-100 hover:text-white hover:bg-blue-700"
+                  className="text-blue-100 hover:text-gray-900 hover:bg-blue-700"
                 >
                   {hideBalances ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
                 </Button>

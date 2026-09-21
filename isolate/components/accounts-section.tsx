@@ -67,11 +67,11 @@ export function AccountsSection({
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between px-1">
-        <h2 className="text-lg font-bold text-[#0a4fa6]">Accounts</h2>
+        <h2 className="text-lg font-bold text-[#D71E28]">Accounts</h2>
         <Button
           variant="ghost"
           size="sm"
-          className="text-[#0a4fa6] gap-1"
+          className="text-[#D71E28] gap-1"
           onClick={() => setShowBalances(!showBalances)}
         >
           {showBalances ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -79,10 +79,10 @@ export function AccountsSection({
         </Button>
       </div>
 
-      <Card className="chase-card-shadow border-0 overflow-hidden">
-        <div className="bg-gradient-to-r from-[#0a4fa6] to-[#117aca] px-4 py-3">
-          <p className="text-white/80 text-sm">Total Balance</p>
-          <p className="text-white text-3xl font-bold">${formatBalance(totalBalance)}</p>
+      <Card className="crest-card-glow border-0 overflow-hidden">
+        <div className="bg-gradient-to-r from-[#D71E28] to-[#E8464F] px-4 py-3">
+          <p className="text-gray-900/80 text-sm">Total Balance</p>
+          <p className="text-gray-900 text-3xl font-bold">${formatBalance(totalBalance)}</p>
           {pendingCount > 0 && (
             <div className="flex items-center gap-1 mt-1">
               <Clock className="h-3 w-3 text-yellow-300" />
@@ -94,9 +94,9 @@ export function AccountsSection({
         </div>
       </Card>
 
-      <Card className="chase-card-shadow border-0 overflow-hidden">
-        <div className="bg-[#0a4fa6] px-4 py-2">
-          <h3 className="text-white font-medium text-sm">Bank Accounts ({accounts.length})</h3>
+      <Card className="crest-card-glow border-0 overflow-hidden">
+        <div className="bg-[#D71E28] px-4 py-2">
+          <h3 className="text-gray-900 font-medium text-sm">Bank Accounts ({accounts.length})</h3>
         </div>
         <CardContent className="p-0 divide-y divide-border">
           {accounts.map((account) => (
@@ -127,14 +127,14 @@ export function AccountsSection({
         </CardContent>
       </Card>
 
-      <Card className="chase-card-shadow border-0">
+      <Card className="crest-card-glow border-0">
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Recent Transactions</h3>
+            <h3 className="font-semibold text-[#D71E28]">Recent Transactions</h3>
             <Button
               variant="ghost"
               size="sm"
-              className="text-[#0a4fa6] text-xs h-auto p-0 hover:underline"
+              className="text-[#D71E28] text-xs h-auto p-0 hover:underline"
               onClick={onSeeAllTransactions}
             >
               See All
@@ -189,7 +189,7 @@ export function AccountsSection({
       {/* Link External Accounts */}
       <Button
         variant="outline"
-        className="w-full justify-between bg-card hover:bg-muted/50 border-0 chase-card-shadow h-14 rounded-xl transition-all duration-150 active:scale-[0.98]"
+        className="w-full justify-between bg-card hover:bg-muted/50 border-0 crest-card-glow h-14 rounded-xl transition-all duration-150 active:scale-[0.98]"
         onClick={onLinkExternal}
       >
         <span className="font-medium">Link external accounts</span>

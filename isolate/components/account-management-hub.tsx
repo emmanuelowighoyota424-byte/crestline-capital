@@ -234,7 +234,7 @@ export function AccountManagementHub({
             }}
             className={`flex-shrink-0 px-4 py-2 rounded-full font-medium text-sm transition-all snap-start ${
               activeCategory === category.id
-                ? 'bg-[#0a4fa6] text-white shadow-md'
+                ? 'bg-[#D71E28] text-gray-900 shadow-md'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
@@ -253,7 +253,7 @@ export function AccountManagementHub({
               className="w-full text-left p-3 rounded-lg hover:bg-white/70 transition-colors active:bg-white/50"
             >
               <div className="flex items-start gap-3">
-                <div className="text-[#0a4fa6] mt-0.5">{option.icon}</div>
+                <div className="text-[#D71E28] mt-0.5">{option.icon}</div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <p className="font-medium text-gray-900 truncate">
@@ -273,18 +273,18 @@ export function AccountManagementHub({
       </div>
 
       {/* Quick Stats */}
-      <Card className="p-4 bg-gradient-to-r from-[#0a4fa6]/10 to-blue-100/20">
+      <Card className="p-4 bg-gradient-to-r from-[#D71E28]/10 to-blue-100/20">
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
-            <p className="text-2xl font-bold text-[#0a4fa6]">6</p>
+            <p className="text-2xl font-bold text-[#D71E28]">6</p>
             <p className="text-xs text-gray-600 mt-1">Active Devices</p>
           </div>
           <div>
-            <p className="text-2xl font-bold text-[#0a4fa6]">3</p>
+            <p className="text-2xl font-bold text-[#D71E28]">3</p>
             <p className="text-xs text-gray-600 mt-1">Linked Accounts</p>
           </div>
           <div>
-            <p className="text-2xl font-bold text-[#0a4fa6]">100%</p>
+            <p className="text-2xl font-bold text-[#D71E28]">100%</p>
             <p className="text-xs text-gray-600 mt-1">Secure</p>
           </div>
         </div>
@@ -294,7 +294,7 @@ export function AccountManagementHub({
       {onLogout && (
         <Button
           onClick={onLogout}
-          className="w-full bg-red-600 hover:bg-red-700 text-white"
+          className="w-full bg-red-600 hover:bg-red-700 text-gray-900"
         >
           <LogOut className="h-4 w-4 mr-2" />
           Sign Out

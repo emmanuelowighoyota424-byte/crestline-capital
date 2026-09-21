@@ -43,9 +43,9 @@ export default function NeonDashboardPage() {
 
   if (isPending) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0a4fa6]/5 to-white">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#D71E28]/5 to-white">
         <div className="animate-pulse flex flex-col items-center gap-4">
-          <div className="h-12 w-12 rounded-full bg-[#0a4fa6] animate-spin" />
+          <div className="h-12 w-12 rounded-full bg-[#D71E28] animate-spin" />
           <p className="text-gray-600 font-medium">Loading session...</p>
         </div>
       </div>
@@ -57,12 +57,12 @@ export default function NeonDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a4fa6]/5 to-white p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#D71E28]/5 to-white p-4">
       <div className="max-w-md mx-auto pt-12">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
             <div className="w-20 h-20 bg-[#00e5bf] rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-10 h-10 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -90,7 +90,7 @@ export default function NeonDashboardPage() {
           <div className="space-y-3">
             <Button
               onClick={handleContinueToApp}
-              className="w-full bg-[#0a4fa6] hover:bg-[#083d85] text-white py-6"
+              className="w-full bg-[#D71E28] hover:bg-[#083d85] text-gray-900 py-6"
             >
               Continue to Crestline Capital
             </Button>
@@ -107,7 +107,7 @@ export default function NeonDashboardPage() {
           <div className="mt-6 text-center">
             <a
               href="/neon-account/settings"
-              className="text-sm text-[#0a4fa6] hover:underline"
+              className="text-sm text-[#D71E28] hover:underline"
             >
               Manage Account Settings
             </a>

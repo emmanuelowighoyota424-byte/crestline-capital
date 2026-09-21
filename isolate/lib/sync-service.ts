@@ -4,8 +4,8 @@ function isSupabaseConfigured(): boolean {
   return !!(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 }
 
-const STORAGE_KEY = "chase_banking_data"
-const SYNC_KEY = "chase_banking_last_sync"
+const STORAGE_KEY = "crestline_banking_data"
+const SYNC_KEY = "crestline_banking_last_sync"
 
 export interface SyncStatus {
   lastSynced: string | null

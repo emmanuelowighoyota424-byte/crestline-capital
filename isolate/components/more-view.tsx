@@ -114,7 +114,7 @@ const defaultUserProfile = {
   ssn: "***-**-4521",
   memberSince: "March 2018",
   profilePicture: "",
-  tier: "Crestline Capital Private Client",
+  tier: "Crestline Private Client",
   ultimateRewardsPoints: 287450,
   preferredLanguage: "English",
   currency: "USD",
@@ -200,7 +200,7 @@ const getActivityIcon = (action: string) => {
     return <Gift className="h-5 w-5 text-pink-600" />
   if (lowerAction.includes("deposit")) return <DollarSign className="h-5 w-5 text-green-600" />
   if (lowerAction.includes("device")) return <Smartphone className="h-5 w-5 text-indigo-600" />
-  return <Clock className="h-5 w-5 text-[#0a4fa6]" />
+  return <Clock className="h-5 w-5 text-[#D71E28]" />
 }
 
 const getActivityBgColor = (action: string) => {
@@ -213,7 +213,7 @@ const getActivityBgColor = (action: string) => {
   if (lowerAction.includes("bill") || lowerAction.includes("payment")) return "bg-green-100 dark:bg-green-900/30"
   if (lowerAction.includes("settings")) return "bg-gray-100 dark:bg-gray-900/30"
   if (lowerAction.includes("password") || lowerAction.includes("security")) return "bg-yellow-100 dark:bg-yellow-900/30"
-  return "bg-[#0a4fa6]/10"
+  return "bg-[#D71E28]/10"
 }
 
 export function MoreView({ onLogout }: MoreViewProps) {
@@ -377,7 +377,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
   const [chatMessages, setChatMessages] = useState<{ from: "user" | "bot"; content: string; time: string }[]>([
     {
       from: "bot",
-      content: "Hello! I'm Crestline Capital Virtual Assistant. How can I help you today?",
+      content: "Hello! I'm Crestline Virtual Assistant. How can I help you today?",
       time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     },
   ])
@@ -741,7 +741,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
     setSearchedLocations([
       {
         id: "1",
-        name: "Crestline Capital Bank - Main Street",
+        name: "Crestline Capital - Main Street",
         type: "Branch",
         address: "123 Main St, New York, NY 10001",
         distance: "0.3 mi",
@@ -757,7 +757,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
       },
       {
         id: "3",
-        name: "Crestline Capital Bank - Financial District",
+        name: "Crestline Capital - Financial District",
         type: "Branch",
         address: "789 Wall St, New York, NY 10003",
         distance: "0.8 mi",
@@ -791,7 +791,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
       botResponse = `You have ${safeUserProfile.ultimateRewardsPoints.toLocaleString()} Ultimate Rewards points. That's worth up to $${(safeUserProfile.ultimateRewardsPoints * 0.0125).toFixed(2)} in travel!` // Changed currency symbol
     } else if (lowerInput.includes("human") || lowerInput.includes("agent") || lowerInput.includes("representative")) {
       botResponse =
-        "I'll connect you with a customer service representative. Please call 1-800-935-9935 or email Crestline.org_info247@zohomail.com for immediate assistance."
+        "I'll connect you with a customer service representative. Please call 1-800-935-9935 or email crestline.org_info247@zohomail.com for immediate assistance."
     }
 
     setTimeout(() => {
@@ -866,7 +866,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
       view: "cards" as ViewType,
     },
     {
-      label: "Crestline Capital Ultimate Rewards",
+      label: "Crestline Ultimate Rewards",
       description: "View and redeem your reward points",
       icon: Award,
       view: "rewards" as ViewType,
@@ -900,7 +900,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
     return (
       <div className="pb-24 touch-pan-y overscroll-contain">
         <div className="flex flex-col items-center justify-center min-h-[40dvh] vt-loading-enter">
-          <div className="Crestline-spinner" />
+          <div className="crest-spinner" />
           <p className="text-xs text-muted-foreground mt-3 font-medium tracking-wide">Loading...</p>
         </div>
       </div>
@@ -911,10 +911,10 @@ export function MoreView({ onLogout }: MoreViewProps) {
   if (currentView === "main") {
     return (
       <div className="pb-24 touch-pan-y overscroll-contain">
-        <Card className="p-4 mb-4 Crestline-card-shadow option-press cursor-pointer" onClick={() => setCurrentView("profile")}>
+        <Card className="p-4 mb-4 crest-card-glow option-press cursor-pointer" onClick={() => setCurrentView("profile")}>
           <div className="flex items-center gap-4">
             <div className="relative">
-              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#0a4fa6] to-[#117aca] flex items-center justify-center overflow-hidden">
+              <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#D71E28] to-[#E8464F] flex items-center justify-center overflow-hidden">
                 {safeUserProfile.profilePicture ? (
                   <img
                     src={safeUserProfile.profilePicture || "/placeholder.svg"}
@@ -922,7 +922,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <span className="text-white text-2xl font-bold">
+                  <span className="text-gray-900 text-2xl font-bold">
                     {(safeUserProfile.name || "U")
                       .split(" ")
                       .map((n) => n[0] || "")
@@ -947,7 +947,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             <div className="flex-1">
               <h2 className="font-bold text-lg">{safeUserProfile.name || "Crestline Capital User"}</h2>
               <p className="text-sm text-muted-foreground">{safeUserProfile.email}</p>
-              <Badge variant="secondary" className="mt-1 bg-[#0a4fa6]/10 text-[#0a4fa6]">
+              <Badge variant="secondary" className="mt-1 bg-[#D71E28]/10 text-[#D71E28]">
                 {safeUserProfile.tier || "Member"}
               </Badge>
             </div>
@@ -959,18 +959,18 @@ export function MoreView({ onLogout }: MoreViewProps) {
           {menuItems.map((item) => (
             <Card
               key={item.label}
-              className="p-4 cursor-pointer hover:bg-accent transition-all duration-150 Crestline-card-shadow option-press"
+              className="p-4 cursor-pointer hover:bg-accent transition-all duration-150 crest-card-glow option-press"
               onClick={() => setCurrentView(item.view)}
             >
               <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-full bg-[#0a4fa6]/10 flex items-center justify-center">
-                  <item.icon className="h-5 w-5 text-[#0a4fa6]" />
+                <div className="h-10 w-10 rounded-full bg-[#D71E28]/10 flex items-center justify-center">
+                  <item.icon className="h-5 w-5 text-[#D71E28]" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <span className="font-medium">{item.label}</span>
                     {item.badge && (
-                      <Badge className="bg-red-500 text-white text-xs h-5 min-w-5 flex items-center justify-center">
+                      <Badge className="bg-red-500 text-gray-900 text-xs h-5 min-w-5 flex items-center justify-center">
                         {item.badge}
                       </Badge>
                     )}
@@ -983,7 +983,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
           ))}
 
           <Card
-            className="p-4 cursor-pointer hover:bg-red-50 dark:hover:bg-red-950/20 transition-all duration-150 Crestline-card-shadow mt-4 option-press"
+            className="p-4 cursor-pointer hover:bg-red-50 dark:hover:bg-red-950/20 transition-all duration-150 crest-card-glow mt-4 option-press"
             onClick={handleLogout}
           >
             <div className="flex items-center gap-4">
@@ -1091,14 +1091,14 @@ export function MoreView({ onLogout }: MoreViewProps) {
 
         {/* Linked External Accounts */}
         <Card className="p-4 space-y-4">
-          <h3 className="font-semibold text-[#0a4fa6]">Linked External Accounts</h3>
+          <h3 className="font-semibold text-[#D71E28]">Linked External Accounts</h3>
           {externalRecipients && externalRecipients.length > 0 ? (
             <div className="space-y-3">
               {externalRecipients.map((recipient) => (
                 <div key={recipient.id} className="flex items-center justify-between p-3 bg-muted/30 rounded-lg">
                   <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-[#0a4fa6]/10 flex items-center justify-center">
-                      <Globe className="h-5 w-5 text-[#0a4fa6]" />
+                    <div className="h-10 w-10 rounded-full bg-[#D71E28]/10 flex items-center justify-center">
+                      <Globe className="h-5 w-5 text-[#D71E28]" />
                     </div>
                     <div>
                       <p className="font-medium">{recipient.name}</p>
@@ -1158,7 +1158,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             />
             <p className="text-xs text-muted-foreground">Username must be at least 4 characters.</p>
           </div>
-          <Button className="w-full bg-[#0a4fa6] hover:bg-[#083d80]" onClick={handleUsernameChange}>
+          <Button className="w-full bg-[#D71E28] hover:bg-[#A31620]" onClick={handleUsernameChange}>
             Update Username
           </Button>
         </Card>
@@ -1225,7 +1225,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
               onChange={(e) => setLinkAccountForm({ ...linkAccountForm, nickname: e.target.value })}
             />
           </div>
-          <Button className="w-full bg-[#0a4fa6] hover:bg-[#083d80]" onClick={handleLinkExternalAccount}>
+          <Button className="w-full bg-[#D71E28] hover:bg-[#A31620]" onClick={handleLinkExternalAccount}>
             Link Account
           </Button>
         </Card>
@@ -1265,8 +1265,8 @@ export function MoreView({ onLogout }: MoreViewProps) {
               }
             >
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-[#0a4fa6]/10 flex items-center justify-center">
-                  <FileText className="h-5 w-5 text-[#0a4fa6]" />
+                <div className="h-10 w-10 rounded-lg bg-[#D71E28]/10 flex items-center justify-center">
+                  <FileText className="h-5 w-5 text-[#D71E28]" />
                 </div>
                 <div>
                   <p className="font-medium">{statement.month}</p>
@@ -1275,7 +1275,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">{statement.size}</span>
-                <Download className="h-4 w-4 text-[#0a4fa6]" />
+                <Download className="h-4 w-4 text-[#D71E28]" />
               </div>
             </div>
           ))}
@@ -1371,7 +1371,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
           {safeCreditCards.map((card) => (
             <Card key={card.id} className="p-4 space-y-4">
               {/* Card Visual */}
-              <div className="h-44 rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#16213e] p-4 text-white relative overflow-hidden">
+              <div className="h-44 rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#16213e] p-4 text-gray-900 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
                 <div className="flex justify-between items-start">
                   <div>
@@ -1414,7 +1414,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                 </div>
                 <div>
                   <p className="text-muted-foreground">Rewards Points</p>
-                  <p className="font-bold text-[#0a4fa6]">{(card.rewards || 0).toLocaleString()}</p>
+                  <p className="font-bold text-[#D71E28]">{(card.rewards || 0).toLocaleString()}</p>
                 </div>
               </div>
 
@@ -1642,9 +1642,9 @@ export function MoreView({ onLogout }: MoreViewProps) {
               </div>
               <button
                 onClick={() => fileInputRef.current?.click()}
-                className="absolute bottom-0 right-0 h-8 w-8 bg-[#0a4fa6] rounded-full flex items-center justify-center shadow-lg"
+                className="absolute bottom-0 right-0 h-8 w-8 bg-[#D71E28] rounded-full flex items-center justify-center shadow-lg"
               >
-                <Camera className="h-4 w-4 text-white" />
+                <Camera className="h-4 w-4 text-gray-900" />
               </button>
               <input
                 ref={fileInputRef}
@@ -1660,7 +1660,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         </Card>
 
         <Card className="p-4 space-y-4">
-          <h3 className="font-semibold text-[#0a4fa6]">Account Information</h3>
+          <h3 className="font-semibold text-[#D71E28]">Account Information</h3>
           <div className="space-y-3">
             {accounts &&
               accounts.map((account) => (
@@ -1677,7 +1677,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
 
         {/* ... rest of profile view ... */}
         <Card className="p-4 space-y-4">
-          <h3 className="font-semibold text-[#0a4fa6]">Personal Information</h3>
+          <h3 className="font-semibold text-[#D71E28]">Personal Information</h3>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <Mail className="h-5 w-5 text-muted-foreground" />
@@ -1764,7 +1764,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             />
           </div>
           <Button
-            className="w-full bg-[#0a4fa6] hover:bg-[#083d80]"
+            className="w-full bg-[#D71E28] hover:bg-[#A31620]"
             onClick={() => {
               updateUserProfile(editForm)
               toast({ title: "Profile Updated", description: "Your changes have been saved." })
@@ -1809,7 +1809,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
           <>
             {/* Quick Links */}
             <Card className="p-4 space-y-1">
-              <h3 className="font-semibold text-[#0a4fa6] mb-3">Quick Links</h3>
+              <h3 className="font-semibold text-[#D71E28] mb-3">Quick Links</h3>
               {[
                 { label: "FAQs", icon: HelpCircle, subView: "faqs" as HelpSubView },
                 { label: "Contact Us", icon: Phone, subView: "contact" as HelpSubView },
@@ -1832,7 +1832,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
 
             {/* Explore Topics */}
             <Card className="p-4 space-y-1">
-              <h3 className="font-semibold text-[#0a4fa6] mb-3">Explore Topics</h3>
+              <h3 className="font-semibold text-[#D71E28] mb-3">Explore Topics</h3>
               {[
                 { label: "Account Management", subView: "topic-account" as HelpSubView },
                 { label: "Transfers & Payments", subView: "topic-transfers" as HelpSubView },
@@ -1857,7 +1857,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         {/* Contact Us View */}
         {helpSubView === "contact" && (
           <Card className="p-6 space-y-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Contact Crestline Capital</h3>
+            <h3 className="font-semibold text-[#D71E28]">Contact Crestline Capital</h3>
             <div className="space-y-4">
               <div
                 className="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-muted/50"
@@ -1866,7 +1866,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                   toast({ title: "Copied!", description: "Phone number copied to clipboard." })
                 }}
               >
-                <Phone className="h-5 w-5 text-[#0a4fa6]" />
+                <Phone className="h-5 w-5 text-[#D71E28]" />
                 <div className="flex-1">
                   <p className="font-medium">Customer Service</p>
                   <p className="text-sm text-muted-foreground">1-800-935-9935</p>
@@ -1876,19 +1876,19 @@ export function MoreView({ onLogout }: MoreViewProps) {
               <div
                 className="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-muted/50"
                 onClick={() => {
-                  navigator.clipboard.writeText("Crestline.org_info247@zohomail.com")
+                  navigator.clipboard.writeText("crestline.org_info247@zohomail.com")
                   toast({ title: "Copied!", description: "Email copied to clipboard." })
                 }}
               >
-                <Mail className="h-5 w-5 text-[#0a4fa6]" />
+                <Mail className="h-5 w-5 text-[#D71E28]" />
                 <div className="flex-1">
                   <p className="font-medium">Email Support</p>
-                  <p className="text-sm text-muted-foreground">Crestline.org_info247@zohomail.com</p>
+                  <p className="text-sm text-muted-foreground">crestline.org_info247@zohomail.com</p>
                 </div>
                 <Copy className="h-4 w-4 text-muted-foreground" />
               </div>
               <div className="flex items-center gap-3 p-3 border rounded-lg">
-                <Clock className="h-5 w-5 text-[#0a4fa6]" />
+                <Clock className="h-5 w-5 text-[#D71E28]" />
                 <div>
                   <p className="font-medium">Hours of Operation</p>
                   <p className="text-sm text-muted-foreground">24/7 Customer Support</p>
@@ -1902,11 +1902,11 @@ export function MoreView({ onLogout }: MoreViewProps) {
         {helpSubView === "chat" && (
           <Card className="p-4 space-y-4">
             <div className="flex items-center gap-3 pb-3 border-b">
-              <div className="h-10 w-10 rounded-full bg-[#0a4fa6] flex items-center justify-center">
-                <Bot className="h-5 w-5 text-white" />
+              <div className="h-10 w-10 rounded-full bg-[#D71E28] flex items-center justify-center">
+                <Bot className="h-5 w-5 text-gray-900" />
               </div>
               <div>
-                <p className="font-semibold">Crestline Capital Virtual Assistant</p>
+                <p className="font-semibold">Crestline Virtual Assistant</p>
                 <p className="text-xs text-green-600">Online</p>
               </div>
             </div>
@@ -1915,10 +1915,10 @@ export function MoreView({ onLogout }: MoreViewProps) {
               {chatMessages.map((msg, idx) => (
                 <div key={idx} className={`flex ${msg.from === "user" ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg ${msg.from === "user" ? "bg-[#0a4fa6] text-white" : "bg-muted"}`}
+                    className={`max-w-[80%] p-3 rounded-lg ${msg.from === "user" ? "bg-[#D71E28] text-gray-900" : "bg-muted"}`}
                   >
                     <p className="text-sm">{msg.content}</p>
-                    <p className={`text-xs mt-1 ${msg.from === "user" ? "text-white/70" : "text-muted-foreground"}`}>
+                    <p className={`text-xs mt-1 ${msg.from === "user" ? "text-gray-900/70" : "text-muted-foreground"}`}>
                       {msg.time}
                     </p>
                   </div>
@@ -1933,7 +1933,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                 onChange={(e) => setChatInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSendChat()}
               />
-              <Button className="bg-[#0a4fa6] hover:bg-[#083d80]" onClick={handleSendChat}>
+              <Button className="bg-[#D71E28] hover:bg-[#A31620]" onClick={handleSendChat}>
                 <Send className="h-4 w-4" />
               </Button>
             </div>
@@ -1944,10 +1944,10 @@ export function MoreView({ onLogout }: MoreViewProps) {
         {helpSubView === "tickets" && (
           <Card className="p-4 space-y-4">
             <div className="flex justify-between items-center">
-              <h3 className="font-semibold text-[#0a4fa6]">Support Tickets</h3>
+              <h3 className="font-semibold text-[#D71E28]">Support Tickets</h3>
               <Button
                 size="sm"
-                className="bg-[#0a4fa6] hover:bg-[#083d80]"
+                className="bg-[#D71E28] hover:bg-[#A31620]"
                 onClick={() => setHelpSubView("new-ticket")}
               >
                 <Plus className="h-4 w-4 mr-1" /> New Ticket
@@ -1996,7 +1996,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         {/* New Ticket View */}
         {helpSubView === "new-ticket" && (
           <Card className="p-4 space-y-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Create New Ticket</h3>
+            <h3 className="font-semibold text-[#D71E28]">Create New Ticket</h3>
             <div className="space-y-2">
               <Label>Subject</Label>
               <Input
@@ -2029,7 +2029,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                 placeholder="Describe your issue in detail..."
               />
             </div>
-            <Button className="w-full bg-[#0a4fa6] hover:bg-[#083d80]" onClick={createTicket}>
+            <Button className="w-full bg-[#D71E28] hover:bg-[#A31620]" onClick={createTicket}>
               Submit Ticket
             </Button>
           </Card>
@@ -2051,10 +2051,10 @@ export function MoreView({ onLogout }: MoreViewProps) {
               {selectedTicket.messages.map((msg: any, idx: number) => (
                 <div key={idx} className={`flex ${msg.from === "user" ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`max-w-[80%] p-3 rounded-lg ${msg.from === "user" ? "bg-[#0a4fa6] text-white" : "bg-background border"}`}
+                    className={`max-w-[80%] p-3 rounded-lg ${msg.from === "user" ? "bg-[#D71E28] text-gray-900" : "bg-background border"}`}
                   >
                     <p className="text-sm">{msg.content}</p>
-                    <p className={`text-xs mt-1 ${msg.from === "user" ? "text-white/70" : "text-muted-foreground"}`}>
+                    <p className={`text-xs mt-1 ${msg.from === "user" ? "text-gray-900/70" : "text-muted-foreground"}`}>
                       {new Date(msg.timestamp).toLocaleString()}
                     </p>
                   </div>
@@ -2070,7 +2070,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                   placeholder="Enter your reply..."
                 />
                 <Button
-                  className="w-full bg-[#0a4fa6] hover:bg-[#083d80]"
+                  className="w-full bg-[#D71E28] hover:bg-[#A31620]"
                   onClick={() => addReplyToTicket(selectedTicket.id)}
                   disabled={!ticketReply.trim()}
                 >
@@ -2103,7 +2103,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                       />
                     </div>
                     {selectedFaq === faq.id && (
-                      <div className="mt-3 pl-4 border-l-2 border-[#0a4fa6]">
+                      <div className="mt-3 pl-4 border-l-2 border-[#D71E28]">
                         <p className="text-sm text-muted-foreground">{faq.answer}</p>
                       </div>
                     )}
@@ -2116,7 +2116,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         {/* Locations View */}
         {(helpSubView === "locations" || helpSubView === "topic-locations") && (
           <Card className="p-6 space-y-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Find a Branch or ATM</h3>
+            <h3 className="font-semibold text-[#D71E28]">Find a Branch or ATM</h3>
             <div className="flex items-center gap-2">
               <Input
                 placeholder="Enter City, State, or ZIP Code"
@@ -2124,19 +2124,19 @@ export function MoreView({ onLogout }: MoreViewProps) {
                 onChange={(e) => setLocationSearch(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && searchLocations()}
               />
-              <Button className="bg-[#0a4fa6] hover:bg-[#083d80]" onClick={searchLocations}>
+              <Button className="bg-[#D71E28] hover:bg-[#A31620]" onClick={searchLocations}>
                 <Search className="h-4 w-4" />
               </Button>
             </div>
 
             <div className="h-48 w-full bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 rounded-lg flex items-center justify-center relative overflow-hidden">
               <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-1/4 left-1/4 h-3 w-3 bg-[#0a4fa6] rounded-full animate-pulse"></div>
-                <div className="absolute top-1/3 right-1/3 h-3 w-3 bg-[#0a4fa6] rounded-full animate-pulse delay-100"></div>
-                <div className="absolute bottom-1/3 left-1/2 h-3 w-3 bg-[#0a4fa6] rounded-full animate-pulse delay-200"></div>
+                <div className="absolute top-1/4 left-1/4 h-3 w-3 bg-[#D71E28] rounded-full animate-pulse"></div>
+                <div className="absolute top-1/3 right-1/3 h-3 w-3 bg-[#D71E28] rounded-full animate-pulse delay-100"></div>
+                <div className="absolute bottom-1/3 left-1/2 h-3 w-3 bg-[#D71E28] rounded-full animate-pulse delay-200"></div>
               </div>
               <div className="text-center">
-                <Navigation className="h-12 w-12 text-[#0a4fa6] mx-auto mb-2" />
+                <Navigation className="h-12 w-12 text-[#D71E28] mx-auto mb-2" />
                 <p className="text-muted-foreground">Enter a location to find nearby branches</p>
               </div>
             </div>
@@ -2170,7 +2170,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         {/* Topic Views */}
         {helpSubView === "topic-account" && (
           <Card className="p-4 space-y-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Account Management</h3>
+            <h3 className="font-semibold text-[#D71E28]">Account Management</h3>
             <div className="space-y-3">
               {[
                 { title: "Update Personal Information", action: () => setCurrentView("editProfile") },
@@ -2194,7 +2194,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
 
         {helpSubView === "topic-transfers" && (
           <Card className="p-4 space-y-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Transfers & Payments</h3>
+            <h3 className="font-semibold text-[#D71E28]">Transfers & Payments</h3>
             <div className="space-y-3">
               {[
                 { title: "Transfer Between Accounts", desc: "Move money between your Crestline Capital accounts instantly" },
@@ -2221,7 +2221,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
 
         {helpSubView === "topic-cards" && (
           <Card className="p-4 space-y-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Card Management</h3>
+            <h3 className="font-semibold text-[#D71E28]">Card Management</h3>
             <div className="space-y-3">
               {[
                 { title: "Lock/Unlock Card", action: () => setCurrentView("cards") },
@@ -2252,8 +2252,8 @@ export function MoreView({ onLogout }: MoreViewProps) {
 
         {helpSubView === "topic-rewards" && (
           <Card className="p-4 space-y-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Rewards & Benefits</h3>
-            <div className="p-4 bg-gradient-to-r from-[#0a4fa6] to-[#117aca] rounded-lg text-white text-center mb-4">
+            <h3 className="font-semibold text-[#D71E28]">Rewards & Benefits</h3>
+            <div className="p-4 bg-gradient-to-r from-[#D71E28] to-[#E8464F] rounded-lg text-gray-900 text-center mb-4">
               <p className="text-sm opacity-80">Your Points Balance</p>
               <p className="text-3xl font-bold">{safeUserProfile.ultimateRewardsPoints.toLocaleString()}</p>
               <p className="text-sm opacity-80">
@@ -2315,7 +2315,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         {/* THE SECTION TO UPDATE IS BELOW */}
         {helpSubView === "topic-security" && (
           <Card className="p-4 space-y-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Security & Privacy</h3>
+            <h3 className="font-semibold text-[#D71E28]">Security & Privacy</h3>
             {/* Fixed security menu items syntax */}
             {/* Security Menu Items */}
             <div className="space-y-1">
@@ -2360,7 +2360,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         </div>
 
         <Card className="p-4 space-y-4">
-          <h3 className="font-semibold text-[#0a4fa6]">Account Access</h3>
+          <h3 className="font-semibold text-[#D71E28]">Account Access</h3>
           {[
             { label: "Password", desc: "Change your password", view: "security-password" as ViewType },
             { label: "PIN", desc: "Manage your card PIN", view: "security-pin" as ViewType },
@@ -2385,7 +2385,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         </Card>
 
         <Card className="p-4 space-y-4">
-          <h3 className="font-semibold text-[#0a4fa6]">Activity</h3>
+          <h3 className="font-semibold text-[#D71E28]">Activity</h3>
           {[
             {
               label: "Linked Devices",
@@ -2419,14 +2419,14 @@ export function MoreView({ onLogout }: MoreViewProps) {
           <Button variant="ghost" size="icon" onClick={() => setCurrentView("main")}>
             <ChevronLeft className="h-5 w-5" />
           </Button>
-          <h2 className="text-2xl font-semibold">Crestline Capital Ultimate Rewards</h2>
+          <h2 className="text-2xl font-semibold">Crestline Ultimate Rewards</h2>
         </div>
 
-        <Card className="p-6 bg-gradient-to-r from-[#0a4fa6] to-[#117aca] text-white">
+        <Card className="p-6 bg-gradient-to-r from-[#D71E28] to-[#E8464F] text-gray-900">
           <div className="text-center">
-            <p className="text-white/80">Points Available</p>
+            <p className="text-gray-900/80">Points Available</p>
             <p className="text-4xl font-bold mt-2">{safeUserProfile.ultimateRewardsPoints.toLocaleString()}</p>
-            <p className="text-white/80 mt-1">
+            <p className="text-gray-900/80 mt-1">
               Worth up to ${(safeUserProfile.ultimateRewardsPoints * 0.0125).toFixed(2)} in travel{" "}
               {/* Changed currency symbol */}
             </p>
@@ -2444,11 +2444,11 @@ export function MoreView({ onLogout }: MoreViewProps) {
             ].map((option) => (
               <Card
                 key={option.type}
-                className={`p-4 cursor-pointer hover:bg-muted/50 transition-colors ${redeemType === option.type ? "ring-2 ring-[#0a4fa6]" : ""}`}
+                className={`p-4 cursor-pointer hover:bg-muted/50 transition-colors ${redeemType === option.type ? "ring-2 ring-[#D71E28]" : ""}`}
                 onClick={() => setRedeemType(option.type as typeof redeemType)}
               >
                 <div className="flex flex-col items-center text-center">
-                  <option.icon className="h-8 w-8 text-[#0a4fa6] mb-2" />
+                  <option.icon className="h-8 w-8 text-[#D71E28] mb-2" />
                   <p className="font-medium">{option.label}</p>
                   <p className="text-xs text-muted-foreground">{option.value}</p>
                 </div>
@@ -2486,7 +2486,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
               </p>
             )}
           </div>
-          <Button className="w-full bg-[#0a4fa6] hover:bg-[#083d80]" onClick={handleRedeemPoints}>
+          <Button className="w-full bg-[#D71E28] hover:bg-[#A31620]" onClick={handleRedeemPoints}>
             Redeem Points
           </Button>
         </Card>
@@ -2601,9 +2601,9 @@ export function MoreView({ onLogout }: MoreViewProps) {
 
         <Card className="p-4 space-y-4">
           <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-            <Shield className="h-5 w-5 text-[#0a4fa6]" />
+            <Shield className="h-5 w-5 text-[#D71E28]" />
             <div>
-              <p className="text-sm font-medium text-[#0a4fa6]">Password Security</p>
+              <p className="text-sm font-medium text-[#D71E28]">Password Security</p>
               <p className="text-xs text-muted-foreground">
                 Last changed:{" "}
                 {appSettings?.lastPasswordChange
@@ -2720,7 +2720,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
           )}
 
           <Button
-            className="w-full bg-[#0a4fa6] hover:bg-[#083d80]"
+            className="w-full bg-[#D71E28] hover:bg-[#A31620]"
             onClick={handlePasswordChange}
             disabled={passwordLoading}
           >
@@ -2764,9 +2764,9 @@ export function MoreView({ onLogout }: MoreViewProps) {
 
         <Card className="p-4 space-y-4">
           <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-            <CreditCard className="h-5 w-5 text-[#0a4fa6]" />
+            <CreditCard className="h-5 w-5 text-[#D71E28]" />
             <div>
-              <p className="text-sm font-medium text-[#0a4fa6]">Debit Card PIN</p>
+              <p className="text-sm font-medium text-[#D71E28]">Debit Card PIN</p>
               <p className="text-xs text-muted-foreground">
                 Last changed:{" "}
                 {appSettings?.lastPinChange ? new Date(appSettings.lastPinChange).toLocaleDateString() : "Never"}
@@ -2879,7 +2879,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             </ul>
           </div>
 
-          <Button className="w-full bg-[#0a4fa6] hover:bg-[#083d80]" onClick={handlePinChange} disabled={pinLoading}>
+          <Button className="w-full bg-[#D71E28] hover:bg-[#A31620]" onClick={handlePinChange} disabled={pinLoading}>
             {pinLoading ? (
               <>
                 <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -2892,7 +2892,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
         </Card>
 
         <Card className="p-4 space-y-3">
-          <h3 className="font-semibold text-[#0a4fa6]">Where to Use Your PIN</h3>
+          <h3 className="font-semibold text-[#D71E28]">Where to Use Your PIN</h3>
           <div className="space-y-2 text-sm">
             <div className="flex items-center gap-2">
               <CheckCircle className="h-4 w-4 text-green-600" />
@@ -2900,7 +2900,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="h-4 w-4 text-green-600" />
-              <span>Point of sale purCrestlines</span>
+              <span>Point of sale purChases</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="h-4 w-4 text-green-600" />
@@ -3003,7 +3003,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
     }
 
     const downloadBackupCodes = () => {
-      const content = `Crestline Capital Banking Backup Codes\nGenerated: ${new Date().toLocaleDateString()}\n\n${backupCodes.join("\n")}\n\nKeep these codes safe. Each code can only be used once.`
+      const content = `Crestline Capitaling Backup Codes\nGenerated: ${new Date().toLocaleDateString()}\n\n${backupCodes.join("\n")}\n\nKeep these codes safe. Each code can only be used once.`
       const blob = new Blob([content], { type: "text/plain" })
       const url = URL.createObjectURL(blob)
       const a = document.createElement("a")
@@ -3068,11 +3068,11 @@ export function MoreView({ onLogout }: MoreViewProps) {
           // 2FA is enabled - show management options
           <div className="space-y-4">
             <Card className="p-4 space-y-4">
-              <h3 className="font-semibold text-[#0a4fa6]">Current Method</h3>
+              <h3 className="font-semibold text-[#D71E28]">Current Method</h3>
               <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
-                {appSettings.twoFactorMethod === "sms" && <Phone className="h-5 w-5 text-[#0a4fa6]" />}
-                {appSettings.twoFactorMethod === "email" && <Mail className="h-5 w-5 text-[#0a4fa6]" />}
-                {appSettings.twoFactorMethod === "authenticator" && <Key className="h-5 w-5 text-[#0a4fa6]" />}
+                {appSettings.twoFactorMethod === "sms" && <Phone className="h-5 w-5 text-[#D71E28]" />}
+                {appSettings.twoFactorMethod === "email" && <Mail className="h-5 w-5 text-[#D71E28]" />}
+                {appSettings.twoFactorMethod === "authenticator" && <Key className="h-5 w-5 text-[#D71E28]" />}
                 <div>
                   <p className="font-medium capitalize">{appSettings.twoFactorMethod}</p>
                   <p className="text-sm text-muted-foreground">
@@ -3085,7 +3085,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             </Card>
 
             <Card className="p-4 space-y-4">
-              <h3 className="font-semibold text-[#0a4fa6]">Backup Codes</h3>
+              <h3 className="font-semibold text-[#D71E28]">Backup Codes</h3>
               <p className="text-sm text-muted-foreground">
                 Backup codes can be used to access your account if you lose access to your primary 2FA method.
               </p>
@@ -3110,7 +3110,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             </Card>
 
             <Card className="p-4 space-y-4">
-              <h3 className="font-semibold text-[#0a4fa6]">Trusted Devices</h3>
+              <h3 className="font-semibold text-[#D71E28]">Trusted Devices</h3>
               <div className="space-y-2">
                 {appSettings.trustedDevices?.map((device) => (
                   <div key={device.id} className="flex items-center justify-between p-3 border rounded-lg">
@@ -3145,7 +3145,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
             {twoFactorStep === "method" && (
               <>
                 <Card className="p-4 space-y-4">
-                  <h3 className="font-semibold text-[#0a4fa6]">Choose Verification Method</h3>
+                  <h3 className="font-semibold text-[#D71E28]">Choose Verification Method</h3>
                   <div className="space-y-3">
                     {[
                       {
@@ -3166,25 +3166,25 @@ export function MoreView({ onLogout }: MoreViewProps) {
                         key={option.method}
                         className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition-colors ${
                           twoFactorSetup.method === option.method
-                            ? "border-[#0a4fa6] bg-[#0a4fa6]/5"
+                            ? "border-[#D71E28] bg-[#D71E28]/5"
                             : "hover:bg-muted/50"
                         }`}
                         onClick={() => setTwoFactorSetup({ ...twoFactorSetup, method: option.method as "email" | "sms" | "authenticator" })}
                       >
                         <div
                           className={`h-10 w-10 rounded-full flex items-center justify-center ${
-                            twoFactorSetup.method === option.method ? "bg-[#0a4fa6]" : "bg-muted"
+                            twoFactorSetup.method === option.method ? "bg-[#D71E28]" : "bg-muted"
                           }`}
                         >
                           <option.icon
-                            className={`h-5 w-5 ${twoFactorSetup.method === option.method ? "text-white" : "text-muted-foreground"}`}
+                            className={`h-5 w-5 ${twoFactorSetup.method === option.method ? "text-gray-900" : "text-muted-foreground"}`}
                           />
                         </div>
                         <div className="flex-1">
                           <p className="font-medium">{option.label}</p>
                           <p className="text-sm text-muted-foreground">{option.desc}</p>
                         </div>
-                        {twoFactorSetup.method === option.method && <CheckCircle className="h-5 w-5 text-[#0a4fa6]" />}
+                        {twoFactorSetup.method === option.method && <CheckCircle className="h-5 w-5 text-[#D71E28]" />}
                       </div>
                     ))}
                   </div>
@@ -3203,7 +3203,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                   </div>
                 </div>
 
-                <Button className="w-full bg-[#0a4fa6]" onClick={handleEnable2FA} disabled={twoFactorLoading}>
+                <Button className="w-full bg-[#D71E28]" onClick={handleEnable2FA} disabled={twoFactorLoading}>
                   {twoFactorLoading ? (
                     <>
                       <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -3220,8 +3220,8 @@ export function MoreView({ onLogout }: MoreViewProps) {
               <>
                 <Card className="p-4 space-y-6">
                   <div className="text-center">
-                    <div className="h-16 w-16 bg-[#0a4fa6]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Shield className="h-8 w-8 text-[#0a4fa6]" />
+                    <div className="h-16 w-16 bg-[#D71E28]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Shield className="h-8 w-8 text-[#D71E28]" />
                     </div>
                     <h3 className="font-semibold text-lg">Enter Verification Code</h3>
                     <p className="text-sm text-muted-foreground mt-1">
@@ -3255,7 +3255,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
 
                   <Button
                     variant="link"
-                    className="w-full text-[#0a4fa6]"
+                    className="w-full text-[#D71E28]"
                     onClick={() => {
                       toast({
                         title: "Code Resent",
@@ -3281,7 +3281,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                     Back
                   </Button>
                   <Button
-                    className="flex-1 bg-[#0a4fa6]"
+                    className="flex-1 bg-[#D71E28]"
                     onClick={handleVerify2FA}
                     disabled={twoFactorLoading || twoFactorOTP.length !== 6}
                   >
@@ -3345,7 +3345,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                   </div>
                 </div>
 
-                <Button className="w-full bg-[#0a4fa6]" onClick={handleComplete2FA}>
+                <Button className="w-full bg-[#D71E28]" onClick={handleComplete2FA}>
                   I've Saved My Codes
                 </Button>
               </>
@@ -3361,7 +3361,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                   Your account is now protected with two-factor authentication.
                 </p>
                 <Button
-                  className="w-full bg-[#0a4fa6]"
+                  className="w-full bg-[#D71E28]"
                   onClick={() => {
                     setCurrentView("security")
                     setTwoFactorStep("method")
@@ -3447,7 +3447,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
               <ChevronLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h2 className="text-2xl font-bold text-[#0a4fa6]">Notifications</h2>
+              <h2 className="text-2xl font-bold text-[#D71E28]">Notifications</h2>
               <p className="text-sm text-muted-foreground">
                 {unreadNotificationCount} unread {unreadNotificationCount === 1 ? "notification" : "notifications"}
               </p>
@@ -3530,7 +3530,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
               <Card
                 key={notification.id}
                 className={`p-4 cursor-pointer transition-colors hover:bg-accent ${
-                  !notification.read ? "border-l-4 border-l-[#0a4fa6] bg-blue-50/50" : ""
+                  !notification.read ? "border-l-4 border-l-[#D71E28] bg-blue-50/50" : ""
                 }`}
                 onClick={() => {
                   if (!notification.read) {
@@ -3546,10 +3546,10 @@ export function MoreView({ onLogout }: MoreViewProps) {
                       {notification.type === "warning" && <AlertCircle className="h-5 w-5 text-yellow-600" />}
                       {notification.type === "alert" && <AlertTriangle className="h-5 w-5 text-red-600" />}
                       {notification.type === "info" && <Info className="h-5 w-5 text-blue-600" />}
-                      <h3 className={`font-semibold ${!notification.read ? "text-[#0a4fa6]" : ""}`}>
+                      <h3 className={`font-semibold ${!notification.read ? "text-[#D71E28]" : ""}`}>
                         {notification.title}
                       </h3>
-                      {!notification.read && <span className="h-2 w-2 rounded-full bg-[#0a4fa6]" />}
+                      {!notification.read && <span className="h-2 w-2 rounded-full bg-[#D71E28]" />}
                     </div>
                     <p className="text-sm text-muted-foreground mt-1">{notification.message}</p>
                     <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
@@ -3607,7 +3607,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                   <ChevronLeft className="h-5 w-5" />
                 </Button>
                 <div>
-                  <h2 className="text-2xl font-bold text-[#0a4fa6]">Messages</h2>
+                  <h2 className="text-2xl font-bold text-[#D71E28]">Messages</h2>
                   <p className="text-sm text-muted-foreground">
                     {unreadMessageCount} unread {unreadMessageCount === 1 ? "message" : "messages"}
                   </p>
@@ -3646,7 +3646,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                   <Card
                     key={message.id}
                     className={`p-4 cursor-pointer transition-colors hover:bg-accent ${
-                      !message.read ? "border-l-4 border-l-[#0a4fa6] bg-blue-50/50" : ""
+                      !message.read ? "border-l-4 border-l-[#D71E28] bg-blue-50/50" : ""
                     }`}
                     onClick={() => {
                       if (!message.read) {
@@ -3658,11 +3658,11 @@ export function MoreView({ onLogout }: MoreViewProps) {
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <Mail className="h-5 w-5 text-[#0a4fa6]" />
-                          <h3 className={`font-semibold ${!message.read ? "text-[#0a4fa6]" : ""}`}>
+                          <Mail className="h-5 w-5 text-[#D71E28]" />
+                          <h3 className={`font-semibold ${!message.read ? "text-[#D71E28]" : ""}`}>
                             {message.subject}
                           </h3>
-                          {!message.read && <span className="h-2 w-2 rounded-full bg-[#0a4fa6]" />}
+                          {!message.read && <span className="h-2 w-2 rounded-full bg-[#D71E28]" />}
                         </div>
                         <p className="text-sm text-muted-foreground mt-1">From: {message.from}</p>
                         <p className="text-sm mt-1">{message.preview}</p>
@@ -3726,7 +3726,7 @@ export function MoreView({ onLogout }: MoreViewProps) {
                 <Card className="p-6">
                   <div className="space-y-4">
                     <div>
-                      <h2 className="text-2xl font-bold text-[#0a4fa6]">{message.subject}</h2>
+                      <h2 className="text-2xl font-bold text-[#D71E28]">{message.subject}</h2>
                       <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
                         <span>From: {message.from}</span>
                         <span>{format(new Date(message.date), "MMM dd, yyyy 'at' h:mm a")}</span>
