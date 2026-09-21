@@ -62,7 +62,6 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
     { label: 'Investments', href: '/investments', icon: TrendingUp },
     { label: 'Bill Payments', href: '/payments', icon: Receipt },
     { label: 'Notifications', href: '/notifications', icon: Bell, badge: unreadNotificationCount },
-    { label: 'Gmail Hub', href: '/gmail', icon: Mail },
     { label: 'Security & 2FA', href: '/security', icon: Shield },
     { label: 'Settings', href: '/settings', icon: Settings },
     { label: 'Profile', href: '/profile', icon: User },
