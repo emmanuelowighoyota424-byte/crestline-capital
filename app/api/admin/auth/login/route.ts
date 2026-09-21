@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
 
     response.cookies.set({
       name: 'crestline_admin_session',
-      value: authResult.session.sessionId,
+      value: AdminAuthEngine.createSessionToken(authResult.session),
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
