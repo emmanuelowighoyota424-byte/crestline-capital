@@ -59,7 +59,7 @@ export default function SavingsPage() {
         </div>
 
         {/* APY Highlight Banner */}
-        <div className="bg-gradient-to-r from-emerald-950/40 via-[#161e2e] to-[#161e2e] border border-emerald-500/20 rounded-2xl p-6 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="bg-gradient-to-r from-emerald-50 via-[#f0fdf4] to-emerald-50 border border-emerald-500/20 rounded-2xl p-6 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
               <TrendingUp className="w-6 h-6" />

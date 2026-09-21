@@ -500,7 +500,7 @@ export default function SystemModules({
                     <th className="py-3 px-4 text-right">Entry ID</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1e293b]/60">
+                <tbody className="divide-y divide-gray-200">
                   {filteredAudits.map((a) => (
                     <tr key={a.id} className="hover:bg-gray-200/30">
                       <td className="py-3 px-4 font-mono text-gray-500">

@@ -117,7 +117,7 @@ export default function FeaturesPage() {
           })}
         </div>
 
-        <div className="mt-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#161e2e] via-[#1a2337] to-[#161e2e] border border-gray-200 text-center max-w-4xl mx-auto">
+        <div className="mt-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#0a4fa6] via-[#083d80] to-[#0a4fa6] border border-gray-200 text-center max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Ready to experience Chase?</h2>
           <p className="text-sm text-gray-500 max-w-xl mx-auto mb-6">
             Join thousands of individuals and high-growth institutions running their daily liquidity on Chase.

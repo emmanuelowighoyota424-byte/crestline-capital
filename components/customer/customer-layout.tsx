@@ -75,7 +75,7 @@ export function CustomerLayout({ children }: CustomerLayoutProps) {
         <div>
           {/* Logo */}
           <Link href="/dashboard" className="flex items-center gap-3 px-2 py-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.25)]">
+            <div className="w-10 h-10 rounded-xl bg-[#0a4fa6] flex items-center justify-center">
               <Shield className="w-5 h-5 text-gray-900" />
             </div>
             <div>

@@ -174,7 +174,7 @@ export default function OverviewModule({
                 <th className="pb-3 px-3 text-right">Quick Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#1e293b]/60">
+            <tbody className="divide-y divide-gray-200">
               {users.map((user) => (
                 <tr key={user.id} className="hover:bg-gray-200/30 transition-colors">
                   <td className="py-3.5 px-3 font-mono text-gray-900 font-medium">

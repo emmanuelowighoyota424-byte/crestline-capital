@@ -83,7 +83,7 @@ export default function InvestmentsPage() {
                   <th className="pb-3 font-semibold text-right">Return</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1e293b]/50">
+              <tbody className="divide-y divide-gray-200">
                 {portfolioHoldings.map((h) => (
                   <tr key={h.symbol} className="hover:bg-white/30 transition-colors">
                     <td className="py-3.5 font-medium text-gray-900">

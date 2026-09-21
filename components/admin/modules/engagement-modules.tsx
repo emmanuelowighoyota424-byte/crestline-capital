@@ -398,7 +398,7 @@ export default function EngagementModules({
                   <th className="py-3 px-4">Last Active</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1e293b]/60">
+              <tbody className="divide-y divide-gray-200">
                 {agents.map((ag) => (
                   <tr key={ag.id} className="hover:bg-gray-200/30">
                     <td className="py-3 px-4">

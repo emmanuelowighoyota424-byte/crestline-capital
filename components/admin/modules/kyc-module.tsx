@@ -76,7 +76,7 @@ export default function KYCModule({ cases, onApprove, onReject }: KYCModuleProps
                 <th className="py-3.5 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#1e293b]/60">
+            <tbody className="divide-y divide-gray-200">
               {filteredCases.map((c) => (
                 <tr key={c.id} className="hover:bg-gray-200/30 transition-colors">
                   <td className="py-3.5 px-4">

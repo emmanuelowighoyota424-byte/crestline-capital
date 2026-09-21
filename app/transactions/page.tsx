@@ -103,7 +103,7 @@ export default function TransactionsPage() {
                   <th className="py-3 px-4 font-semibold text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1e293b]/50">
+              <tbody className="divide-y divide-gray-200">
                 {filteredTransactions.map((tx) => {
                   const isPositive = tx.amount > 0
                   return (

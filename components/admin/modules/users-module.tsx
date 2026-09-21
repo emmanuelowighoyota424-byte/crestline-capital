@@ -224,7 +224,7 @@ export default function UsersModule({
                     <th className="py-3.5 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1e293b]/60">
+                <tbody className="divide-y divide-gray-200">
                   {filteredUsers.map((user) => (
                     <tr key={user.id} className="hover:bg-gray-200/40 transition-colors">
                       <td className="py-3.5 px-4">
@@ -419,7 +419,7 @@ export default function UsersModule({
                   <th className="py-3 px-4">Date</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1e293b]/60">
+              <tbody className="divide-y divide-gray-200">
                 {referrals.map((ref) => (
                   <tr key={ref.id} className="hover:bg-gray-200/30">
                     <td className="py-3 px-4 font-mono text-gray-900">{ref.referrerEmail}</td>
