@@ -30,13 +30,13 @@ const SANDBOX_ACCOUNTS = [
   { label: "Primary customer", identifier: "Emmanuel", password: "Owighoyota12345" },
   {
     label: "Demo client",
-    identifier: "client@crestlinecapital.com",
-    password: "Crestline2026!Secure",
+    identifier: "client@chasecapital.com",
+    password: "Chase2026!Secure",
   },
   {
     label: "Demo savings",
-    identifier: "alex.morgan@crestline.demo",
-    password: "Crestline2024!",
+    identifier: "alex.morgan@chase.demo",
+    password: "Chase2024!",
   },
 ]
 
@@ -50,7 +50,7 @@ function safeReturnTo(): string {
 
 function FieldIcon({ children }: { children: React.ReactNode }) {
   return (
-    <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748b]">
+    <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400">
       {children}
     </span>
   )
@@ -120,8 +120,8 @@ export default function LoginPage() {
       subtitle="Welcome back. Enter your details to reach your dashboard."
       footer={
         <>
-          New to Crestline Capital?{" "}
-          <Link href="/register" className="font-semibold text-[#38bdf8] hover:text-[#0ea5e9]">
+          New to Chase?{" "}
+          <Link href="/register" className="font-semibold text-[#0a4fa6] hover:text-[#0ea5e9]">
             Open an account
           </Link>
         </>
@@ -140,7 +140,7 @@ export default function LoginPage() {
         )}
 
         <div className="space-y-2">
-          <Label htmlFor="identifier" className="text-[#cbd5e1]">
+          <Label htmlFor="identifier" className="text-gray-600">
             Email or sign-in name
           </Label>
           <div className="relative">
@@ -157,13 +157,13 @@ export default function LoginPage() {
               placeholder="you@example.com"
               value={identifier}
               onChange={(event) => setIdentifier(event.target.value)}
-              className="h-11 border-[#1e293b] bg-[#0b0f19]/60 pl-10 text-[#f8fafc] placeholder:text-[#64748b] focus-visible:border-[#38bdf8] focus-visible:ring-[#38bdf8]/25"
+              className="h-11 border-gray-200 bg-gray-50/60 pl-10 text-gray-900 placeholder:text-gray-400 focus-visible:border-[#0a4fa6] focus-visible:ring-[#38bdf8]/25"
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="password" className="text-[#cbd5e1]">
+          <Label htmlFor="password" className="text-gray-600">
             Password
           </Label>
           <div className="relative">
@@ -178,14 +178,14 @@ export default function LoginPage() {
               placeholder="Enter your password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="h-11 border-[#1e293b] bg-[#0b0f19]/60 pl-10 pr-11 text-[#f8fafc] placeholder:text-[#64748b] focus-visible:border-[#38bdf8] focus-visible:ring-[#38bdf8]/25"
+              className="h-11 border-gray-200 bg-gray-50/60 pl-10 pr-11 text-gray-900 placeholder:text-gray-400 focus-visible:border-[#0a4fa6] focus-visible:ring-[#38bdf8]/25"
             />
             <button
               type="button"
               onClick={() => setShowPassword((visible) => !visible)}
               aria-label={showPassword ? "Hide password" : "Show password"}
               aria-pressed={showPassword}
-              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-[#64748b] transition-colors hover:text-[#38bdf8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#38bdf8]/40"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-[#0a4fa6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#38bdf8]/40"
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
@@ -198,11 +198,11 @@ export default function LoginPage() {
               id="remember"
               checked={remember}
               onCheckedChange={(checked) => setRemember(checked === true)}
-              className="border-[#334155] data-[state=checked]:border-[#38bdf8] data-[state=checked]:bg-[#38bdf8]"
+              className="border-gray-300 data-[state=checked]:border-[#0a4fa6] data-[state=checked]:bg-[#0a4fa6]"
             />
-            <span className="text-sm text-[#94a3b8]">Keep me signed in</span>
+            <span className="text-sm text-gray-500">Keep me signed in</span>
           </label>
-          <Link href="/contact" className="text-sm font-medium text-[#38bdf8] hover:text-[#0ea5e9]">
+          <Link href="/contact" className="text-sm font-medium text-[#0a4fa6] hover:text-[#0ea5e9]">
             Forgot password?
           </Link>
         </div>
@@ -210,7 +210,7 @@ export default function LoginPage() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="h-11 w-full bg-[#38bdf8] text-sm font-semibold text-[#0b0f19] transition-all hover:bg-[#0ea5e9] hover:shadow-[0_0_24px_rgba(56,189,248,0.35)] disabled:opacity-60"
+          className="h-11 w-full bg-[#0a4fa6] text-sm font-semibold text-gray-900 transition-all hover:bg-[#083d80] hover:shadow-[0_0_24px_rgba(56,189,248,0.35)] disabled:opacity-60"
         >
           {isSubmitting ? (
             <>
@@ -225,14 +225,14 @@ export default function LoginPage() {
           )}
         </Button>
 
-        <p className="flex items-center justify-center gap-2 text-xs text-[#64748b]">
+        <p className="flex items-center justify-center gap-2 text-xs text-gray-400">
           <ShieldCheck className="h-3.5 w-3.5 text-[#10b981]" />
           Protected by encrypted sessions and sign-in rate limiting
         </p>
       </form>
 
       {/* Sandbox access — clearly labelled demo data, not real customers. */}
-      <div className="mt-7 rounded-xl border border-[#1e293b] bg-[#0b0f19]/60 p-4">
+      <div className="mt-7 rounded-xl border border-gray-200 bg-gray-50/60 p-4">
         <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-[#f59e0b]">
           <KeyRound className="h-3.5 w-3.5" />
           Sandbox access
@@ -242,13 +242,13 @@ export default function LoginPage() {
           {SANDBOX_ACCOUNTS.map((account) => (
             <li
               key={account.identifier}
-              className="flex items-center justify-between gap-3 rounded-lg border border-[#1e293b]/70 bg-[#0b0f19]/40 px-3 py-2"
+              className="flex items-center justify-between gap-3 rounded-lg border border-gray-200/70 bg-white/40 px-3 py-2"
             >
               <div className="min-w-0">
-                <p className="text-[11px] uppercase tracking-wide text-[#64748b]">
+                <p className="text-[11px] uppercase tracking-wide text-gray-400">
                   {account.label}
                 </p>
-                <p className="truncate font-mono text-xs text-[#94a3b8]">
+                <p className="truncate font-mono text-xs text-gray-500">
                   {account.identifier} · {account.password}
                 </p>
               </div>
@@ -257,7 +257,7 @@ export default function LoginPage() {
                 variant="outline"
                 size="sm"
                 onClick={() => useSandboxCredentials(account)}
-                className="shrink-0 border-[#1e293b] bg-transparent text-xs text-[#cbd5e1] hover:border-[#38bdf8]/40 hover:bg-[#161e2e] hover:text-white"
+                className="shrink-0 border-gray-200 bg-transparent text-xs text-gray-600 hover:border-[#0a4fa6]/40 hover:bg-gray-100 hover:text-gray-900"
               >
                 Use
               </Button>
@@ -265,7 +265,7 @@ export default function LoginPage() {
           ))}
         </ul>
 
-        <p className="mt-3 text-[11px] leading-relaxed text-[#64748b]">
+        <p className="mt-3 text-[11px] leading-relaxed text-gray-400">
           Demo accounts for this sandbox environment. They hold simulated balances only —
           no real funds, cards or deposits are connected.
         </p>

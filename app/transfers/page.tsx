@@ -22,7 +22,7 @@ export default function TransfersPage() {
   const [sourceAccountId, setSourceAccountId] = useState(accounts[0]?.id || '')
   const [recipientName, setRecipientName] = useState('')
   const [recipientAccount, setRecipientAccount] = useState('')
-  const [recipientBank, setRecipientBank] = useState('Crestline Capital (Internal)')
+  const [recipientBank, setRecipientBank] = useState('Chase (Internal)')
   const [amount, setAmount] = useState('')
   const [memo, setMemo] = useState('')
   const [otpCode, setOtpCode] = useState('')
@@ -109,15 +109,15 @@ export default function TransfersPage() {
     <CustomerLayout>
       <div className="max-w-2xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Send & Transfer Funds</h1>
-          <p className="text-sm text-[#94a3b8] mt-1">
+          <h1 className="text-2xl font-bold text-gray-900">Send & Transfer Funds</h1>
+          <p className="text-sm text-gray-500 mt-1">
             Execute real-time double-entry transfers with multi-tiered fraud protection.
           </p>
         </div>
 
-        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xl">
           {error && (
-            <div className="mb-6 p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm flex items-center gap-2">
+            <div className="mb-6 p-3.5 rounded-xl bg-red-100 border border-red-500/30 text-red-600 text-sm flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{error}</span>
             </div>
@@ -126,11 +126,11 @@ export default function TransfersPage() {
           {step === 'DETAILS' && (
             <form onSubmit={handleProceedToReview} className="space-y-4">
               <div>
-                <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">From Account</label>
+                <label className="block text-xs font-medium text-gray-500 uppercase mb-2">From Account</label>
                 <select
                   value={sourceAccountId}
                   onChange={(e) => setSourceAccountId(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8]"
+                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
                 >
                   {accounts.map((acc) => (
                     <option key={acc.id} value={acc.id}>
@@ -141,43 +141,43 @@ export default function TransfersPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Recipient Legal Name</label>
+                <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Recipient Legal Name</label>
                 <input
                   type="text"
                   required
                   value={recipientName}
                   onChange={(e) => setRecipientName(e.target.value)}
                   placeholder="e.g. Jordan Vance"
-                  className="w-full px-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8]"
+                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Recipient Account / IBAN</label>
+                  <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Recipient Account / IBAN</label>
                   <input
                     type="text"
                     required
                     value={recipientAccount}
                     onChange={(e) => setRecipientAccount(e.target.value)}
                     placeholder="e.g. 984128912"
-                    className="w-full px-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Recipient Financial Institution</label>
+                  <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Recipient Financial Institution</label>
                   <input
                     type="text"
                     required
                     value={recipientBank}
                     onChange={(e) => setRecipientBank(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Transfer Amount ($ USD)</label>
+                <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Transfer Amount ($ USD)</label>
                 <input
                   type="number"
                   step="0.01"
@@ -186,25 +186,25 @@ export default function TransfersPage() {
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   placeholder="0.00"
-                  className="w-full px-4 py-3 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-mono text-xl focus:outline-none focus:border-[#38bdf8]"
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono text-xl focus:outline-none focus:border-[#0a4fa6]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Memo / Reference Note (Optional)</label>
+                <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Memo / Reference Note (Optional)</label>
                 <input
                   type="text"
                   value={memo}
                   onChange={(e) => setMemo(e.target.value)}
                   placeholder="e.g. Invoice settlement or rent"
-                  className="w-full px-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8]"
+                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
                 />
               </div>
 
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full py-3 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(56,189,248,0.25)]"
+                  className="w-full py-3 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(56,189,248,0.25)]"
                 >
                   <span>Review Transfer Details</span>
                   <ArrowRight className="w-4 h-4" />
@@ -215,42 +215,42 @@ export default function TransfersPage() {
 
           {step === 'REVIEW' && (
             <div className="space-y-5">
-              <h2 className="text-lg font-bold text-white mb-2">Confirm Transfer Details</h2>
-              <div className="bg-[#0b0f19] rounded-xl p-5 border border-[#1e293b] space-y-3 text-sm">
-                <div className="flex justify-between text-xs text-[#94a3b8]">
+              <h2 className="text-lg font-bold text-gray-900 mb-2">Confirm Transfer Details</h2>
+              <div className="bg-white rounded-xl p-5 border border-gray-200 space-y-3 text-sm">
+                <div className="flex justify-between text-xs text-gray-500">
                   <span>Source Account:</span>
-                  <span className="text-white font-medium">{sourceAccount?.name}</span>
+                  <span className="text-gray-900 font-medium">{sourceAccount?.name}</span>
                 </div>
-                <div className="flex justify-between text-xs text-[#94a3b8]">
+                <div className="flex justify-between text-xs text-gray-500">
                   <span>Recipient:</span>
-                  <span className="text-white font-medium">{recipientName}</span>
+                  <span className="text-gray-900 font-medium">{recipientName}</span>
                 </div>
-                <div className="flex justify-between text-xs text-[#94a3b8]">
+                <div className="flex justify-between text-xs text-gray-500">
                   <span>Institution:</span>
-                  <span className="text-white font-medium">{recipientBank}</span>
+                  <span className="text-gray-900 font-medium">{recipientBank}</span>
                 </div>
-                <div className="flex justify-between text-xs text-[#94a3b8]">
+                <div className="flex justify-between text-xs text-gray-500">
                   <span>Account Number:</span>
-                  <span className="text-white font-mono">{recipientAccount}</span>
+                  <span className="text-gray-900 font-mono">{recipientAccount}</span>
                 </div>
-                <div className="border-t border-[#1e293b] pt-3 flex justify-between items-center">
-                  <span className="font-semibold text-white">Amount:</span>
-                  <span className="font-mono text-xl font-bold text-[#38bdf8]">
+                <div className="border-t border-gray-200 pt-3 flex justify-between items-center">
+                  <span className="font-semibold text-gray-900">Amount:</span>
+                  <span className="font-mono text-xl font-bold text-[#0a4fa6]">
                     ${parsedAmount.toFixed(2)}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-xs text-emerald-400 bg-emerald-500/10 p-3 rounded-xl border border-emerald-500/20">
+              <div className="flex items-center gap-2 text-xs text-green-600 bg-green-100 p-3 rounded-xl border border-emerald-500/20">
                 <ShieldCheck className="w-4 h-4 shrink-0" />
-                <span>Zero-fee standard transfer protected by Crestline Double-Entry Ledger.</span>
+                <span>Zero-fee standard transfer protected by Chase Double-Entry Ledger.</span>
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-[#1e293b]">
+              <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                 <button
                   type="button"
                   onClick={() => setStep('DETAILS')}
-                  className="px-4 py-2.5 text-xs text-[#94a3b8] hover:text-white flex items-center gap-1.5"
+                  className="px-4 py-2.5 text-xs text-gray-500 hover:text-gray-900 flex items-center gap-1.5"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Modify</span>
@@ -259,7 +259,7 @@ export default function TransfersPage() {
                   type="button"
                   onClick={handleProceedToVerify}
                   disabled={loading}
-                  className="px-6 py-2.5 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] font-semibold rounded-xl text-sm transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(56,189,248,0.25)]"
+                  className="px-6 py-2.5 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold rounded-xl text-sm transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(56,189,248,0.25)]"
                 >
                   {loading ? 'Processing...' : 'Authorize Transfer'}
                 </button>
@@ -269,11 +269,11 @@ export default function TransfersPage() {
 
           {step === 'VERIFY' && (
             <div className="space-y-5 text-center">
-              <div className="w-12 h-12 rounded-xl bg-[#38bdf8]/10 text-[#38bdf8] mx-auto flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-[#0a4fa6]/10 text-[#0a4fa6] mx-auto flex items-center justify-center">
                 <Lock className="w-6 h-6" />
               </div>
-              <h2 className="text-lg font-bold text-white">High-Value Security Verification</h2>
-              <p className="text-xs text-[#94a3b8]">
+              <h2 className="text-lg font-bold text-gray-900">High-Value Security Verification</h2>
+              <p className="text-xs text-gray-500">
                 Transfers over $5,000 require multi-factor authorization. Enter your 6-digit one-time passcode below.
               </p>
               <input
@@ -282,13 +282,13 @@ export default function TransfersPage() {
                 value={otpCode}
                 onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, ''))}
                 placeholder="654321"
-                className="w-48 mx-auto text-center text-2xl font-mono tracking-widest py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white focus:outline-none focus:border-[#38bdf8]"
+                className="w-48 mx-auto text-center text-2xl font-mono tracking-widest py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:border-[#0a4fa6]"
               />
               <button
                 type="button"
                 onClick={executeTransfer}
                 disabled={loading || otpCode.length < 6}
-                className="w-full py-3 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] font-semibold rounded-xl text-sm transition-all disabled:opacity-50"
+                className="w-full py-3 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold rounded-xl text-sm transition-all disabled:opacity-50"
               >
                 {loading ? 'Committing to Ledger...' : 'Confirm & Commit Transaction'}
               </button>
@@ -297,26 +297,26 @@ export default function TransfersPage() {
 
           {step === 'SUCCESS' && (
             <div className="text-center py-6 space-y-4">
-              <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
+              <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-green-600 mx-auto flex items-center justify-center">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h2 className="text-2xl font-bold text-white">Transfer Initiated</h2>
-              <p className="text-sm text-[#94a3b8]">
+              <h2 className="text-2xl font-bold text-gray-900">Transfer Initiated</h2>
+              <p className="text-sm text-gray-500">
                 Funds have been successfully debited and queued for immediate settlement.
               </p>
               {txReceipt && (
-                <div className="bg-[#0b0f19] p-4 rounded-xl border border-[#1e293b] text-left text-xs space-y-2 font-mono">
+                <div className="bg-white p-4 rounded-xl border border-gray-200 text-left text-xs space-y-2 font-mono">
                   <div className="flex justify-between">
-                    <span className="text-[#64748b]">Reference:</span>
-                    <span className="text-white">{txReceipt.id}</span>
+                    <span className="text-gray-400">Reference:</span>
+                    <span className="text-gray-900">{txReceipt.id}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#64748b]">Amount:</span>
-                    <span className="text-emerald-400 font-bold">${txReceipt.amount.toFixed(2)}</span>
+                    <span className="text-gray-400">Amount:</span>
+                    <span className="text-green-600 font-bold">${txReceipt.amount.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#64748b]">Recipient:</span>
-                    <span className="text-white">{txReceipt.recipient}</span>
+                    <span className="text-gray-400">Recipient:</span>
+                    <span className="text-gray-900">{txReceipt.recipient}</span>
                   </div>
                 </div>
               )}
@@ -328,7 +328,7 @@ export default function TransfersPage() {
                   setRecipientName('')
                   setRecipientAccount('')
                 }}
-                className="px-6 py-2.5 bg-[#161e2e] hover:bg-[#1e293b] border border-[#1e293b] text-white rounded-xl text-xs font-semibold"
+                className="px-6 py-2.5 bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-900 rounded-xl text-xs font-semibold"
               >
                 Execute Another Transfer
               </button>

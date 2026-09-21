@@ -247,7 +247,7 @@ export function SecurityAlertsDashboard() {
                   {alert.actionRequired && (
                     <Button
                       size="sm"
-                      className="bg-red-600 hover:bg-red-700 text-white"
+                      className="bg-red-600 hover:bg-red-700 text-gray-900"
                       onClick={e => {
                         e.stopPropagation()
                         // Handle action
@@ -378,7 +378,7 @@ export function SecurityAlertsDashboard() {
                   Close
                 </Button>
                 {selectedAlert.actionRequired && (
-                  <Button className="flex-1 bg-red-600 hover:bg-red-700 text-white">
+                  <Button className="flex-1 bg-red-600 hover:bg-red-700 text-gray-900">
                     Take Action
                   </Button>
                 )}

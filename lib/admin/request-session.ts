@@ -14,7 +14,7 @@ import {
   type AdminSession,
 } from '@/lib/admin/admin-auth'
 
-export const ADMIN_SESSION_COOKIE = 'crestline_admin_session'
+export const ADMIN_SESSION_COOKIE = 'chase_admin_session'
 
 /** Verified admin session for this request, or null when absent/invalid/expired. */
 export function getAdminSession(request: NextRequest): AdminSession | null {

@@ -20,30 +20,30 @@ export default function SupportPage() {
     <CustomerLayout>
       <div className="max-w-3xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Client Concierge & Support</h1>
-          <p className="text-sm text-[#94a3b8] mt-1">
+          <h1 className="text-2xl font-bold text-gray-900">Client Concierge & Support</h1>
+          <p className="text-sm text-gray-500 mt-1">
             24/7 dedicated private banking support, fraud reporting, and priority ticket resolution.
           </p>
         </div>
 
         {/* Emergency Fraud Callout */}
-        <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4 flex items-center justify-between gap-4">
+        <div className="bg-red-100 border border-red-500/30 rounded-2xl p-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-red-500/20 text-red-600 flex items-center justify-center shrink-0">
               <ShieldAlert className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-xs font-bold text-red-400 uppercase tracking-wider block">
+              <span className="text-xs font-bold text-red-600 uppercase tracking-wider block">
                 Urgent Fraud / Card Compromise
               </span>
-              <span className="text-xs text-[#f8fafc]">
+              <span className="text-xs text-gray-900">
                 Immediate 24/7 hotline to freeze all accounts and stop unauthorized wires:
               </span>
             </div>
           </div>
           <a
             href="tel:+18005550199"
-            className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-bold text-xs rounded-xl transition-colors whitespace-nowrap"
+            className="px-4 py-2 bg-red-500 hover:bg-red-600 text-gray-900 font-bold text-xs rounded-xl transition-colors whitespace-nowrap"
           >
             1-800-555-0199
           </a>
@@ -51,33 +51,33 @@ export default function SupportPage() {
 
         {/* Support Options */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl">
-            <div className="w-10 h-10 rounded-xl bg-[#38bdf8]/10 text-[#38bdf8] flex items-center justify-center mb-4">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl">
+            <div className="w-10 h-10 rounded-xl bg-[#0a4fa6]/10 text-[#0a4fa6] flex items-center justify-center mb-4">
               <MessageSquare className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-white mb-1">Encrypted Live Chat</h3>
-            <p className="text-xs text-[#94a3b8] mb-4">
+            <h3 className="text-base font-bold text-gray-900 mb-1">Encrypted Live Chat</h3>
+            <p className="text-xs text-gray-500 mb-4">
               Connect directly with a dedicated private banker within 60 seconds.
             </p>
             <button
-              onClick={() => alert('Starting secure encrypted chat session with Crestline Private Client team...')}
-              className="w-full py-2.5 bg-[#0b0f19] hover:bg-[#1e293b] border border-[#1e293b] text-white text-xs font-semibold rounded-xl"
+              onClick={() => alert('Starting secure encrypted chat session with Chase Private Client team...')}
+              className="w-full py-2.5 bg-white hover:bg-gray-200 border border-gray-200 text-gray-900 text-xs font-semibold rounded-xl"
             >
               Start Secure Chat
             </button>
           </div>
 
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl">
             <div className="w-10 h-10 rounded-xl bg-[#818cf8]/10 text-[#818cf8] flex items-center justify-center mb-4">
               <Phone className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-white mb-1">Telephone Banking</h3>
-            <p className="text-xs text-[#94a3b8] mb-4">
+            <h3 className="text-base font-bold text-gray-900 mb-1">Telephone Banking</h3>
+            <p className="text-xs text-gray-500 mb-4">
               Available 24/7 for international wires, check verification, and high-value approvals.
             </p>
             <a
               href="tel:+18005550123"
-              className="w-full py-2.5 bg-[#0b0f19] hover:bg-[#1e293b] border border-[#1e293b] text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2"
+              className="w-full py-2.5 bg-white hover:bg-gray-200 border border-gray-200 text-gray-900 text-xs font-semibold rounded-xl flex items-center justify-center gap-2"
             >
               <span>Call +1 (800) 555-0123</span>
             </a>
@@ -85,18 +85,18 @@ export default function SupportPage() {
         </div>
 
         {/* Submit Ticket Form */}
-        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 sm:p-8 shadow-xl">
-          <h2 className="text-base font-bold text-white mb-4">Open a Priority Support Case</h2>
+        <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xl">
+          <h2 className="text-base font-bold text-gray-900 mb-4">Open a Priority Support Case</h2>
 
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Issue Category</label>
+                  <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Issue Category</label>
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
                   >
                     <option value="Transaction Issue">Transaction Issue / Dispute</option>
                     <option value="Wire Transfer">Wire Transfer Verification</option>
@@ -106,33 +106,33 @@ export default function SupportPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Subject / Reference</label>
+                  <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Subject / Reference</label>
                   <input
                     type="text"
                     required
                     value={ticketSubject}
                     onChange={(e) => setTicketSubject(e.target.value)}
                     placeholder="e.g. Wire transfer settlement timeline"
-                    className="w-full px-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-[#94a3b8] uppercase mb-2">Detailed Description</label>
+                <label className="block text-xs font-medium text-gray-500 uppercase mb-2">Detailed Description</label>
                 <textarea
                   rows={4}
                   required
                   value={ticketMessage}
                   onChange={(e) => setTicketMessage(e.target.value)}
                   placeholder="Provide all relevant details, transaction dates, or beneficiary info..."
-                  className="w-full px-4 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white text-sm focus:outline-none focus:border-[#38bdf8]"
+                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] font-semibold rounded-xl text-sm transition-all shadow-[0_0_15px_rgba(56,189,248,0.25)] flex items-center justify-center gap-2"
+                className="w-full py-3 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold rounded-xl text-sm transition-all shadow-[0_0_15px_rgba(56,189,248,0.25)] flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
                 <span>Submit Priority Case</span>
@@ -140,12 +140,12 @@ export default function SupportPage() {
             </form>
           ) : (
             <div className="text-center py-6 space-y-3">
-              <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-green-600 mx-auto flex items-center justify-center">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white">Support Case Submitted</h3>
-              <p className="text-xs text-[#94a3b8]">
-                Case ID: <span className="font-mono text-white">CASE-{Date.now().toString().slice(-6)}</span>. A senior banking specialist will respond within 30 minutes via secure message and registered email.
+              <h3 className="text-lg font-bold text-gray-900">Support Case Submitted</h3>
+              <p className="text-xs text-gray-500">
+                Case ID: <span className="font-mono text-gray-900">CASE-{Date.now().toString().slice(-6)}</span>. A senior banking specialist will respond within 30 minutes via secure message and registered email.
               </p>
               <button
                 onClick={() => {
@@ -153,7 +153,7 @@ export default function SupportPage() {
                   setTicketSubject('')
                   setTicketMessage('')
                 }}
-                className="px-5 py-2 bg-[#0b0f19] hover:bg-[#1e293b] border border-[#1e293b] text-white rounded-xl text-xs font-semibold"
+                className="px-5 py-2 bg-white hover:bg-gray-200 border border-gray-200 text-gray-900 rounded-xl text-xs font-semibold"
               >
                 Submit Another Case
               </button>

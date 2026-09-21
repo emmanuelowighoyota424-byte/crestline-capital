@@ -12,7 +12,7 @@ interface OpenAccountRequest {
   accountName: string
 }
 
-// POST /api/accounts/open - Open a new Crestline Capital account
+// POST /api/accounts/open - Open a new Chase account
 export async function POST(request: NextRequest) {
   try {
     const supabase = createServiceClient()
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
 
     // Generate account number (masked for security)
     const accountNumber = generateAccountNumber()
-    const routingNumber = '011000015' // Crestline Capital routing number
+    const routingNumber = '011000015' // Chase routing number
 
     // Determine interest rate based on account type
     let interestRate = 0
@@ -148,11 +148,11 @@ export async function POST(request: NextRequest) {
 }
 
 /**
- * Generate a realistic Crestline Capital account number
+ * Generate a realistic Chase account number
  * Format: 10 digits starting with 9
  */
 function generateAccountNumber(): string {
-  const prefix = '9' // Crestline Capital accounts often start with 9
+  const prefix = '9' // Chase accounts often start with 9
   const random = Math.floor(Math.random() * 9000000000) + 1000000000
   return prefix + random.toString().slice(1)
 }

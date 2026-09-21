@@ -198,7 +198,7 @@ export async function POST(request: NextRequest) {
           {
             account_id: transfer.account_id,
             user_id: transfer.user_id,
-            description: transfer.description || `Credit from Crestline Capital Bank`,
+            description: transfer.description || `Credit from Chase Bank`,
             amount: transfer.amount,
             type: 'credit',
             category: 'admin_credit',
@@ -268,7 +268,7 @@ export async function POST(request: NextRequest) {
                 userId: transfer.user_id,
                 userPhone: userData?.phone,
                 userEmail: userData?.email,
-                recipientName: 'Crestline Capital Bank',
+                recipientName: 'Chase Bank',
                 amount: transfer.amount,
                 accountName: account.name,
                 transferId,

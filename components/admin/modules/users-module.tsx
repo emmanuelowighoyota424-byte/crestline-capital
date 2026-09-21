@@ -109,7 +109,7 @@ export default function UsersModule({
     const encodedUri = encodeURI(csvContent)
     const link = document.createElement('a')
     link.setAttribute('href', encodedUri)
-    link.setAttribute('download', `crestline_users_${Date.now()}.csv`)
+    link.setAttribute('download', `chase_users_${Date.now()}.csv`)
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -136,11 +136,11 @@ export default function UsersModule({
           {/* Header Controls */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#38bdf8]" />
+              <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
+                <Users className="w-5 h-5 text-[#0a4fa6]" />
                 <span>Client Master Roster (?id=2)</span>
               </h2>
-              <p className="text-xs text-[#94a3b8] mt-0.5">
+              <p className="text-xs text-gray-500 mt-0.5">
                 Centralized customer identity, balance management, and account governance.
               </p>
             </div>
@@ -148,14 +148,14 @@ export default function UsersModule({
             <div className="flex items-center gap-2">
               <button
                 onClick={handleExportUsersCSV}
-                className="px-3 py-2 bg-[#161e2e] hover:bg-[#1e293b] border border-[#1e293b] text-xs font-semibold rounded-xl transition-all flex items-center gap-2 text-white"
+                className="px-3 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-200 text-xs font-semibold rounded-xl transition-all flex items-center gap-2 text-gray-900"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Export CSV</span>
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="px-3.5 py-2 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(56,189,248,0.25)]"
+                className="px-3.5 py-2 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 text-xs font-bold rounded-xl transition-all flex items-center gap-1.5 shadow-md"
               >
                 <UserPlus className="w-4 h-4" />
                 <span>Add Customer</span>
@@ -164,27 +164,27 @@ export default function UsersModule({
           </div>
 
           {/* Filter Bar */}
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 text-xs">
             <div className="relative flex-1 min-w-[240px]">
-              <Search className="w-4 h-4 text-[#64748b] absolute left-3 top-2.5" />
+              <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search by name, email, or account number..."
-                className="w-full pl-9 pr-4 py-2 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white placeholder-[#64748b] text-xs focus:outline-none focus:border-[#38bdf8]"
+                className="w-full pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-[#64748b] text-xs focus:outline-none focus:border-[#0a4fa6]"
               />
             </div>
 
             <div className="flex items-center gap-2 flex-wrap">
-              <div className="flex items-center gap-1 bg-[#0b0f19] p-1 rounded-xl border border-[#1e293b]">
-                <span className="text-[10px] text-[#64748b] px-2 uppercase font-semibold">Status:</span>
+              <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-gray-200">
+                <span className="text-[10px] text-gray-400 px-2 uppercase font-semibold">Status:</span>
                 {(['ALL', 'ACTIVE', 'BLOCKED'] as const).map((st) => (
                   <button
                     key={st}
                     onClick={() => setStatusFilter(st)}
                     className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all ${
-                      statusFilter === st ? 'bg-[#38bdf8] text-[#0b0f19] font-bold' : 'text-[#94a3b8] hover:text-white'
+                      statusFilter === st ? 'bg-[#0a4fa6] text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'
                     }`}
                   >
                     {st}
@@ -192,14 +192,14 @@ export default function UsersModule({
                 ))}
               </div>
 
-              <div className="flex items-center gap-1 bg-[#0b0f19] p-1 rounded-xl border border-[#1e293b]">
-                <span className="text-[10px] text-[#64748b] px-2 uppercase font-semibold">KYC:</span>
+              <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-gray-200">
+                <span className="text-[10px] text-gray-400 px-2 uppercase font-semibold">KYC:</span>
                 {(['ALL', 'VERIFIED', 'UNVERIFIED'] as const).map((k) => (
                   <button
                     key={k}
                     onClick={() => setKycFilter(k)}
                     className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all ${
-                      kycFilter === k ? 'bg-[#38bdf8] text-[#0b0f19] font-bold' : 'text-[#94a3b8] hover:text-white'
+                      kycFilter === k ? 'bg-[#0a4fa6] text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'
                     }`}
                   >
                     {k}
@@ -210,11 +210,11 @@ export default function UsersModule({
           </div>
 
           {/* Users Table */}
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl overflow-hidden shadow-xl">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl overflow-hidden shadow-xl">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#1e293b] bg-[#111827]/50 text-[#64748b] uppercase tracking-wider font-semibold">
+                  <tr className="border-b border-gray-200 bg-[#111827]/50 text-gray-400 uppercase tracking-wider font-semibold">
                     <th className="py-3.5 px-4">Client</th>
                     <th className="py-3.5 px-4">Account / Routing</th>
                     <th className="py-3.5 px-4">Balance</th>
@@ -226,26 +226,26 @@ export default function UsersModule({
                 </thead>
                 <tbody className="divide-y divide-[#1e293b]/60">
                   {filteredUsers.map((user) => (
-                    <tr key={user.id} className="hover:bg-[#1e293b]/40 transition-colors">
+                    <tr key={user.id} className="hover:bg-gray-200/40 transition-colors">
                       <td className="py-3.5 px-4">
                         <div>
-                          <span className="font-bold text-white block">{user.name}</span>
-                          <span className="text-[11px] font-mono text-[#38bdf8]">{user.email}</span>
+                          <span className="font-bold text-gray-900 block">{user.name}</span>
+                          <span className="text-[11px] font-mono text-[#0a4fa6]">{user.email}</span>
                         </div>
                       </td>
-                      <td className="py-3.5 px-4 font-mono text-[#94a3b8]">
+                      <td className="py-3.5 px-4 font-mono text-gray-500">
                         <div>{user.accountNumber}</div>
-                        <div className="text-[10px] text-[#64748b]">RT: {user.routingNumber}</div>
+                        <div className="text-[10px] text-gray-400">RT: {user.routingNumber}</div>
                       </td>
-                      <td className="py-3.5 px-4 font-mono font-bold text-white">
+                      <td className="py-3.5 px-4 font-mono font-bold text-gray-900">
                         ${user.balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                       </td>
                       <td className="py-3.5 px-4">
                         <span
                           className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase ${
                             user.status === 'ACTIVE'
-                              ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                              : 'bg-red-500/10 text-red-400 border border-red-500/20'
+                              ? 'bg-green-100 text-green-600 border border-emerald-500/20'
+                              : 'bg-red-100 text-red-600 border border-red-500/20'
                           }`}
                         >
                           {user.status}
@@ -256,14 +256,14 @@ export default function UsersModule({
                           className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase ${
                             user.kycStatus === 'VERIFIED'
                               ? 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                              : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
+                              : 'bg-amber-100 text-amber-600 border border-amber-500/20'
                           }`}
                         >
                           {user.kycStatus}
                         </span>
                       </td>
                       <td className="py-3.5 px-4">
-                        <span className="text-[10px] px-2 py-0.5 rounded font-mono bg-[#0b0f19] border border-[#1e293b] text-[#94a3b8]">
+                        <span className="text-[10px] px-2 py-0.5 rounded font-mono bg-white border border-gray-200 text-gray-500">
                           {user.tier}
                         </span>
                       </td>
@@ -271,7 +271,7 @@ export default function UsersModule({
                         <div className="flex items-center justify-end gap-2">
                           <button
                             onClick={() => setSelectedUser(user)}
-                            className="px-2.5 py-1 bg-[#1e293b] hover:bg-[#283548] text-white rounded-lg text-[11px] font-medium transition-colors"
+                            className="px-2.5 py-1 bg-gray-200 hover:bg-[#283548] text-gray-900 rounded-lg text-[11px] font-medium transition-colors"
                           >
                             Details
                           </button>
@@ -279,8 +279,8 @@ export default function UsersModule({
                             onClick={() => onToggleUserBlock(user.id)}
                             className={`px-2.5 py-1 text-[11px] font-semibold rounded-lg transition-colors ${
                               user.status === 'ACTIVE'
-                                ? 'bg-red-500/10 text-red-400 hover:bg-red-500/20'
-                                : 'bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20'
+                                ? 'bg-red-100 text-red-600 hover:bg-red-500/20'
+                                : 'bg-green-100 text-green-600 hover:bg-emerald-500/20'
                             }`}
                           >
                             {user.status === 'ACTIVE' ? 'Block' : 'Unblock'}
@@ -301,11 +301,11 @@ export default function UsersModule({
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#38bdf8]" />
+              <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
+                <Users className="w-5 h-5 text-[#0a4fa6]" />
                 <span>Leads & Prospect Pipeline (?id=11)</span>
               </h2>
-              <p className="text-xs text-[#94a3b8]">
+              <p className="text-xs text-gray-500">
                 Institutional prospect management and incomplete registration onboarding.
               </p>
             </div>
@@ -313,28 +313,28 @@ export default function UsersModule({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {leads.map((lead) => (
-              <div key={lead.id} className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-5 shadow-lg">
+              <div key={lead.id} className="bg-gray-100 border border-gray-200 rounded-2xl p-5 shadow-lg">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="font-bold text-base text-white">{lead.name}</span>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#38bdf8]/10 text-[#38bdf8] border border-[#38bdf8]/20">
+                  <span className="font-bold text-base text-gray-900">{lead.name}</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#0a4fa6]/10 text-[#0a4fa6] border border-[#0a4fa6]/20">
                     {lead.stage}
                   </span>
                 </div>
-                <div className="space-y-1.5 text-xs text-[#94a3b8] mb-4">
+                <div className="space-y-1.5 text-xs text-gray-500 mb-4">
                   <div>
-                    Email: <span className="font-mono text-white">{lead.email}</span>
+                    Email: <span className="font-mono text-gray-900">{lead.email}</span>
                   </div>
                   <div>
-                    Phone: <span className="font-mono text-white">{lead.phone}</span>
+                    Phone: <span className="font-mono text-gray-900">{lead.phone}</span>
                   </div>
                   <div>
-                    Source: <span className="text-[#38bdf8]">{lead.source}</span>
+                    Source: <span className="text-[#0a4fa6]">{lead.source}</span>
                   </div>
                   <div>
-                    Assigned Agent: <span className="text-white font-semibold">{lead.assignedAgent}</span>
+                    Assigned Agent: <span className="text-gray-900 font-semibold">{lead.assignedAgent}</span>
                   </div>
                 </div>
-                <p className="text-xs bg-[#0b0f19] p-3 rounded-xl border border-[#1e293b] text-[#cbd5e1] italic">
+                <p className="text-xs bg-white p-3 rounded-xl border border-gray-200 text-gray-600 italic">
                   &ldquo;{lead.notes}&rdquo;
                 </p>
               </div>
@@ -348,11 +348,11 @@ export default function UsersModule({
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+              <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-green-600" />
                 <span>Staff Tasks & Workflows (?id=12)</span>
               </h2>
-              <p className="text-xs text-[#94a3b8]">
+              <p className="text-xs text-gray-500">
                 Operational risk, regulatory filing, and compliance workflows.
               </p>
             </div>
@@ -362,29 +362,29 @@ export default function UsersModule({
             {tasks.map((task) => (
               <div
                 key={task.id}
-                className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4"
+                className="bg-gray-100 border border-gray-200 rounded-2xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4"
               >
                 <div className="space-y-1">
                   <div className="flex items-center gap-3">
-                    <span className="font-bold text-sm text-white">{task.title}</span>
+                    <span className="font-bold text-sm text-gray-900">{task.title}</span>
                     <span
                       className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                         task.priority === 'CRITICAL'
-                          ? 'bg-red-500/10 text-red-400 border border-red-500/20'
-                          : 'bg-amber-500/10 text-amber-400 border border-amber-500/20'
+                          ? 'bg-red-100 text-red-600 border border-red-500/20'
+                          : 'bg-amber-100 text-amber-600 border border-amber-500/20'
                       }`}
                     >
                       {task.priority}
                     </span>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#0b0f19] text-[#94a3b8]">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-white text-gray-500">
                       {task.status}
                     </span>
                   </div>
-                  <p className="text-xs text-[#94a3b8]">{task.description}</p>
+                  <p className="text-xs text-gray-500">{task.description}</p>
                 </div>
                 <div className="text-right text-xs shrink-0">
-                  <span className="text-[#64748b] block">Assigned: {task.assignedTo}</span>
-                  <span className="text-amber-400 font-mono block mt-1">Due: {task.dueDate}</span>
+                  <span className="text-gray-400 block">Assigned: {task.assignedTo}</span>
+                  <span className="text-amber-600 font-mono block mt-1">Due: {task.dueDate}</span>
                 </div>
               </div>
             ))}
@@ -397,20 +397,20 @@ export default function UsersModule({
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                <Users className="w-5 h-5 text-[#38bdf8]" />
+              <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
+                <Users className="w-5 h-5 text-[#0a4fa6]" />
                 <span>Referral & Affiliate Manager (?id=13)</span>
               </h2>
-              <p className="text-xs text-[#94a3b8]">
+              <p className="text-xs text-gray-500">
                 Affiliate commissions, upline/downline relationships, and payout audits.
               </p>
             </div>
           </div>
 
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl overflow-hidden shadow-xl">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl overflow-hidden shadow-xl">
             <table className="w-full text-left text-xs">
               <thead>
-                <tr className="border-b border-[#1e293b] bg-[#111827]/50 text-[#64748b] uppercase font-semibold">
+                <tr className="border-b border-gray-200 bg-[#111827]/50 text-gray-400 uppercase font-semibold">
                   <th className="py-3 px-4">Referrer</th>
                   <th className="py-3 px-4">Referee</th>
                   <th className="py-3 px-4">Code</th>
@@ -421,17 +421,17 @@ export default function UsersModule({
               </thead>
               <tbody className="divide-y divide-[#1e293b]/60">
                 {referrals.map((ref) => (
-                  <tr key={ref.id} className="hover:bg-[#1e293b]/30">
-                    <td className="py-3 px-4 font-mono text-white">{ref.referrerEmail}</td>
-                    <td className="py-3 px-4 font-mono text-[#94a3b8]">{ref.refereeEmail}</td>
-                    <td className="py-3 px-4 font-mono text-[#38bdf8] font-bold">{ref.code}</td>
-                    <td className="py-3 px-4 font-mono text-emerald-400 font-bold">${ref.rewardAmount}</td>
+                  <tr key={ref.id} className="hover:bg-gray-200/30">
+                    <td className="py-3 px-4 font-mono text-gray-900">{ref.referrerEmail}</td>
+                    <td className="py-3 px-4 font-mono text-gray-500">{ref.refereeEmail}</td>
+                    <td className="py-3 px-4 font-mono text-[#0a4fa6] font-bold">{ref.code}</td>
+                    <td className="py-3 px-4 font-mono text-green-600 font-bold">${ref.rewardAmount}</td>
                     <td className="py-3 px-4">
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-600 border border-emerald-500/20">
                         {ref.status}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-[#94a3b8] font-mono">{ref.date}</td>
+                    <td className="py-3 px-4 text-gray-500 font-mono">{ref.date}</td>
                   </tr>
                 ))}
               </tbody>
@@ -445,42 +445,42 @@ export default function UsersModule({
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                <FileSpreadsheet className="w-5 h-5 text-emerald-400" />
+              <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
+                <FileSpreadsheet className="w-5 h-5 text-green-600" />
                 <span>Bulk CSV Ingestion Tool (?id=14)</span>
               </h2>
-              <p className="text-xs text-[#94a3b8]">
+              <p className="text-xs text-gray-500">
                 Transaction-safe bulk client data ingestion and database synchronization.
               </p>
             </div>
           </div>
 
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6">
-            <div className="border-2 border-dashed border-[#1e293b] hover:border-[#38bdf8] rounded-2xl p-8 text-center transition-colors">
-              <Upload className="w-10 h-10 text-[#38bdf8] mx-auto mb-3" />
-              <h3 className="font-bold text-white mb-1">Select or drop institutional CSV</h3>
-              <p className="text-xs text-[#94a3b8] mb-4">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6">
+            <div className="border-2 border-dashed border-gray-200 hover:border-[#0a4fa6] rounded-2xl p-8 text-center transition-colors">
+              <Upload className="w-10 h-10 text-[#0a4fa6] mx-auto mb-3" />
+              <h3 className="font-bold text-gray-900 mb-1">Select or drop institutional CSV</h3>
+              <p className="text-xs text-gray-500 mb-4">
                 Required columns: email, name, phone, initial_balance, tier
               </p>
-              <label className="px-4 py-2 bg-[#38bdf8] text-[#0b0f19] font-bold text-xs rounded-xl cursor-pointer hover:bg-[#0ea5e9] transition-colors inline-block">
+              <label className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-bold text-xs rounded-xl cursor-pointer hover:bg-[#083d80] transition-colors inline-block">
                 Choose CSV File
                 <input type="file" accept=".csv" onChange={handleSimulateCSVUpload} className="hidden" />
               </label>
             </div>
 
             {importSuccess && (
-              <div className="mt-4 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-xs text-emerald-300 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <div className="mt-4 p-4 bg-green-100 border border-emerald-500/20 rounded-xl text-xs text-emerald-300 flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-600" />
                 <span>{importSuccess}</span>
               </div>
             )}
 
             {csvPreview.length > 0 && (
               <div className="mt-6">
-                <h4 className="text-xs font-semibold text-[#94a3b8] uppercase mb-2">Ingestion Preview</h4>
-                <div className="bg-[#0b0f19] p-4 rounded-xl font-mono text-[11px] text-[#cbd5e1] space-y-1">
+                <h4 className="text-xs font-semibold text-gray-500 uppercase mb-2">Ingestion Preview</h4>
+                <div className="bg-white p-4 rounded-xl font-mono text-[11px] text-gray-600 space-y-1">
                   {csvPreview.map((line, i) => (
-                    <div key={i} className={i === 0 ? 'text-[#38bdf8] font-bold' : ''}>
+                    <div key={i} className={i === 0 ? 'text-[#0a4fa6] font-bold' : ''}>
                       {line}
                     </div>
                   ))}
@@ -494,46 +494,46 @@ export default function UsersModule({
       {/* User Detail Drawer / Modal */}
       {selectedUser && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-6">
-            <div className="flex items-center justify-between border-b border-[#1e293b] pb-4">
+          <div className="bg-gray-100 border border-gray-200 rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-6">
+            <div className="flex items-center justify-between border-b border-gray-200 pb-4">
               <div>
-                <span className="text-[10px] text-[#38bdf8] uppercase tracking-wider font-bold">Client Profile Dossier</span>
-                <h3 className="text-lg font-bold text-white">{selectedUser.name}</h3>
+                <span className="text-[10px] text-[#0a4fa6] uppercase tracking-wider font-bold">Client Profile Dossier</span>
+                <h3 className="text-lg font-bold text-gray-900">{selectedUser.name}</h3>
               </div>
               <button
                 onClick={() => setSelectedUser(null)}
-                className="text-[#94a3b8] hover:text-white p-2"
+                className="text-gray-500 hover:text-gray-900 p-2"
               >
                 ✕
               </button>
             </div>
 
             <div className="grid grid-cols-2 gap-4 text-xs">
-              <div className="bg-[#0b0f19] p-3 rounded-xl border border-[#1e293b]">
-                <span className="text-[#64748b] block mb-1">Email</span>
-                <span className="font-mono text-white font-bold">{selectedUser.email}</span>
+              <div className="bg-white p-3 rounded-xl border border-gray-200">
+                <span className="text-gray-400 block mb-1">Email</span>
+                <span className="font-mono text-gray-900 font-bold">{selectedUser.email}</span>
               </div>
-              <div className="bg-[#0b0f19] p-3 rounded-xl border border-[#1e293b]">
-                <span className="text-[#64748b] block mb-1">Total Balance</span>
-                <span className="font-mono text-emerald-400 font-bold text-sm">
+              <div className="bg-white p-3 rounded-xl border border-gray-200">
+                <span className="text-gray-400 block mb-1">Total Balance</span>
+                <span className="font-mono text-green-600 font-bold text-sm">
                   ${selectedUser.balance.toLocaleString()}
                 </span>
               </div>
-              <div className="bg-[#0b0f19] p-3 rounded-xl border border-[#1e293b]">
-                <span className="text-[#64748b] block mb-1">Account Number</span>
-                <span className="font-mono text-white">{selectedUser.accountNumber}</span>
+              <div className="bg-white p-3 rounded-xl border border-gray-200">
+                <span className="text-gray-400 block mb-1">Account Number</span>
+                <span className="font-mono text-gray-900">{selectedUser.accountNumber}</span>
               </div>
-              <div className="bg-[#0b0f19] p-3 rounded-xl border border-[#1e293b]">
-                <span className="text-[#64748b] block mb-1">Routing Number</span>
-                <span className="font-mono text-white">{selectedUser.routingNumber}</span>
+              <div className="bg-white p-3 rounded-xl border border-gray-200">
+                <span className="text-gray-400 block mb-1">Routing Number</span>
+                <span className="font-mono text-gray-900">{selectedUser.routingNumber}</span>
               </div>
-              <div className="bg-[#0b0f19] p-3 rounded-xl border border-[#1e293b]">
-                <span className="text-[#64748b] block mb-1">Account Status</span>
-                <span className="font-bold text-white">{selectedUser.status}</span>
+              <div className="bg-white p-3 rounded-xl border border-gray-200">
+                <span className="text-gray-400 block mb-1">Account Status</span>
+                <span className="font-bold text-gray-900">{selectedUser.status}</span>
               </div>
-              <div className="bg-[#0b0f19] p-3 rounded-xl border border-[#1e293b]">
-                <span className="text-[#64748b] block mb-1">KYC Tier</span>
-                <span className="font-bold text-[#38bdf8]">{selectedUser.kycStatus}</span>
+              <div className="bg-white p-3 rounded-xl border border-gray-200">
+                <span className="text-gray-400 block mb-1">KYC Tier</span>
+                <span className="font-bold text-[#0a4fa6]">{selectedUser.kycStatus}</span>
               </div>
             </div>
 
@@ -545,15 +545,15 @@ export default function UsersModule({
                 }}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                   selectedUser.status === 'ACTIVE'
-                    ? 'bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20'
-                    : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20'
+                    ? 'bg-red-100 text-red-600 border border-red-500/20 hover:bg-red-500/20'
+                    : 'bg-green-100 text-green-600 border border-emerald-500/20 hover:bg-emerald-500/20'
                 }`}
               >
                 {selectedUser.status === 'ACTIVE' ? 'Block Account' : 'Unblock Account'}
               </button>
               <button
                 onClick={() => setSelectedUser(null)}
-                className="px-4 py-2 bg-[#1e293b] text-white rounded-xl text-xs font-semibold hover:bg-[#283548]"
+                className="px-4 py-2 bg-gray-200 text-gray-900 rounded-xl text-xs font-semibold hover:bg-[#283548]"
               >
                 Close
               </button>
@@ -565,64 +565,64 @@ export default function UsersModule({
       {/* Add User Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between border-b border-[#1e293b] pb-3">
-              <h3 className="text-base font-bold text-white">Create Client Record</h3>
-              <button onClick={() => setShowAddModal(false)} className="text-[#94a3b8] hover:text-white">✕</button>
+          <div className="bg-gray-100 border border-gray-200 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-gray-200 pb-3">
+              <h3 className="text-base font-bold text-gray-900">Create Client Record</h3>
+              <button onClick={() => setShowAddModal(false)} className="text-gray-500 hover:text-gray-900">✕</button>
             </div>
 
             <form onSubmit={handleCreateUser} className="space-y-3 text-xs">
               <div>
-                <label className="text-[#94a3b8] block mb-1">Full Legal Name</label>
+                <label className="text-gray-500 block mb-1">Full Legal Name</label>
                 <input
                   type="text"
                   required
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
                   placeholder="e.g. Eleanor Vance"
-                  className="w-full px-3 py-2 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white"
+                  className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900"
                 />
               </div>
 
               <div>
-                <label className="text-[#94a3b8] block mb-1">Client Email</label>
+                <label className="text-gray-500 block mb-1">Client Email</label>
                 <input
                   type="email"
                   required
                   value={newEmail}
                   onChange={(e) => setNewEmail(e.target.value)}
                   placeholder="e.g. eleanor@vancecapital.com"
-                  className="w-full px-3 py-2 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-mono"
+                  className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono"
                 />
               </div>
 
               <div>
-                <label className="text-[#94a3b8] block mb-1">Phone</label>
+                <label className="text-gray-500 block mb-1">Phone</label>
                 <input
                   type="text"
                   value={newPhone}
                   onChange={(e) => setNewPhone(e.target.value)}
                   placeholder="+1 (555) 000-0000"
-                  className="w-full px-3 py-2 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-mono"
+                  className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono"
                 />
               </div>
 
               <div>
-                <label className="text-[#94a3b8] block mb-1">Initial Balance (USD)</label>
+                <label className="text-gray-500 block mb-1">Initial Balance (USD)</label>
                 <input
                   type="number"
                   value={newBalance}
                   onChange={(e) => setNewBalance(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-mono"
+                  className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono"
                 />
               </div>
 
               <div>
-                <label className="text-[#94a3b8] block mb-1">Membership Tier</label>
+                <label className="text-gray-500 block mb-1">Membership Tier</label>
                 <select
                   value={newTier}
                   onChange={(e) => setNewTier(e.target.value as any)}
-                  className="w-full px-3 py-2 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white"
+                  className="w-full px-3 py-2 bg-white border border-gray-200 rounded-xl text-gray-900"
                 >
                   <option value="STANDARD">STANDARD</option>
                   <option value="GOLD">GOLD</option>
@@ -632,17 +632,17 @@ export default function UsersModule({
                 </select>
               </div>
 
-              <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#1e293b]">
+              <div className="flex items-center justify-end gap-2 pt-3 border-t border-gray-200">
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-4 py-2 bg-[#1e293b] text-white rounded-xl font-semibold"
+                  className="px-4 py-2 bg-gray-200 text-gray-900 rounded-xl font-semibold"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-[#38bdf8] text-[#0b0f19] font-bold rounded-xl"
+                  className="px-4 py-2 bg-[#0a4fa6] text-gray-900 font-bold rounded-xl"
                 >
                   Create Client Record
                 </button>

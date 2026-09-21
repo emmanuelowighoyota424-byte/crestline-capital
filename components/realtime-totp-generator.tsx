@@ -178,7 +178,7 @@ export function RealtimeTOTPGenerator({
           <Button
             onClick={handleCopyCode}
             disabled={currentCode === '000000'}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
             size="sm"
           >
             <Copy className="w-4 h-4 mr-2" />

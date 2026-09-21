@@ -87,7 +87,7 @@ export function TransferDrawer({ open, onOpenChange, onReceiptOpen }: TransferDr
 
     setIsLoading(true)
     
-    // Call real Crestline Capital Bank transfer API
+    // Call real Chase Bank transfer API
     fetch('/api/transfers', {
       method: 'POST',
       headers: {

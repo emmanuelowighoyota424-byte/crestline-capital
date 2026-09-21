@@ -1,5 +1,5 @@
 /**
- * Crestline Capital Immutable Audit Logger
+ * Chase Immutable Audit Logger
  *
  * Captures chronological, tamper-evident audit logs of all privileged,
  * administrative, and monetary activities.
@@ -36,7 +36,7 @@ class AuditStore {
         actorRole: 'SUPER_ADMIN',
         action: 'SYSTEM_GENESIS_INITIALIZATION',
         targetResource: 'SYSTEM',
-        targetId: 'crestline_core',
+        targetId: 'chase_core',
         status: 'SUCCESS',
         details: { note: 'Core system ledger, RBAC rules and security baselines initialized.' },
       },
@@ -60,7 +60,7 @@ class AuditStore {
         targetResource: 'TRANSFER',
         targetId: 'tx_wire_9120',
         status: 'SUCCESS',
-        details: { verifiedBeneficiary: 'Crestline Escrow Corp', clearedBy: 'Analyst #402' },
+        details: { verifiedBeneficiary: 'Chase Escrow Corp', clearedBy: 'Analyst #402' },
       },
     ]
   }

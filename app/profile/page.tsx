@@ -24,40 +24,40 @@ export default function ProfilePage() {
       <div className="max-w-3xl mx-auto space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-white">Profile & KYC Verification</h1>
-            <p className="text-sm text-[#94a3b8] mt-1">
+            <h1 className="text-2xl font-bold text-gray-900">Profile & KYC Verification</h1>
+            <p className="text-sm text-gray-500 mt-1">
               Legal identity details, compliance status, and authorized active hardware.
             </p>
           </div>
           <button
             onClick={() => setEditing(!editing)}
-            className="px-4 py-2 bg-[#161e2e] hover:bg-[#1e293b] text-white border border-[#1e293b] text-xs font-semibold rounded-xl self-start"
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200 text-xs font-semibold rounded-xl self-start"
           >
             {editing ? 'Cancel' : 'Edit Contact Details'}
           </button>
         </div>
 
         {saved && (
-          <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs rounded-xl flex items-center gap-2">
+          <div className="p-3 bg-green-100 border border-emerald-500/30 text-green-600 text-xs rounded-xl flex items-center gap-2">
             <Check className="w-4 h-4" />
             <span>Profile and contact information updated successfully.</span>
           </div>
         )}
 
         {/* KYC Verification Tier Banner */}
-        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl flex items-center justify-between">
+        <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
               <ShieldCheck className="w-7 h-7" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-base font-bold text-white">Tier 2 Customer Due Diligence (CDD)</h2>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                <h2 className="text-base font-bold text-gray-900">Tier 2 Customer Due Diligence (CDD)</h2>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-600 border border-emerald-500/30">
                   VERIFIED
                 </span>
               </div>
-              <p className="text-xs text-[#94a3b8] mt-0.5">
+              <p className="text-xs text-gray-500 mt-0.5">
                 Government photo ID, SSN/TIN, and biometric selfie verified. Full daily transfer limits active ($100,000/day).
               </p>
             </div>
@@ -65,66 +65,66 @@ export default function ProfilePage() {
         </div>
 
         {/* Personal Details Form */}
-        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl space-y-4">
-          <h3 className="text-sm font-bold text-white uppercase tracking-wider border-b border-[#1e293b] pb-3">
+        <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl space-y-4">
+          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-200 pb-3">
             Legal Customer Identity
           </h3>
 
           <form onSubmit={handleSave} className="space-y-4 text-xs">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[#94a3b8] uppercase font-medium mb-1">Legal Full Name</label>
+                <label className="block text-gray-500 uppercase font-medium mb-1">Legal Full Name</label>
                 <input
                   type="text"
                   disabled
                   value={userProfile?.name || 'Alex Morgan'}
-                  className="w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-medium opacity-75 cursor-not-allowed"
+                  className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium opacity-75 cursor-not-allowed"
                 />
               </div>
 
               <div>
-                <label className="block text-[#94a3b8] uppercase font-medium mb-1">Taxpayer ID / SSN</label>
+                <label className="block text-gray-500 uppercase font-medium mb-1">Taxpayer ID / SSN</label>
                 <input
                   type="text"
                   disabled
                   value="•••-••-4819 (Verified)"
-                  className="w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-mono opacity-75 cursor-not-allowed"
+                  className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-mono opacity-75 cursor-not-allowed"
                 />
               </div>
 
               <div>
-                <label className="block text-[#94a3b8] uppercase font-medium mb-1">Email Address</label>
+                <label className="block text-gray-500 uppercase font-medium mb-1">Email Address</label>
                 <input
                   type="email"
                   disabled
-                  value={userProfile?.email || 'alex.morgan@crestlinecapital.com'}
-                  className="w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-medium opacity-75 cursor-not-allowed"
+                  value={userProfile?.email || 'alex.morgan@chasecapital.com'}
+                  className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium opacity-75 cursor-not-allowed"
                 />
               </div>
 
               <div>
-                <label className="block text-[#94a3b8] uppercase font-medium mb-1">Phone Number (SMS MFA)</label>
+                <label className="block text-gray-500 uppercase font-medium mb-1">Phone Number (SMS MFA)</label>
                 <input
                   type="text"
                   disabled={!editing}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className={`w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-medium ${
-                    editing ? 'focus:border-[#38bdf8]' : 'opacity-75'
+                  className={`w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium ${
+                    editing ? 'focus:border-[#0a4fa6]' : 'opacity-75'
                   }`}
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-[#94a3b8] uppercase font-medium mb-1">Residential Address</label>
+              <label className="block text-gray-500 uppercase font-medium mb-1">Residential Address</label>
               <input
                 type="text"
                 disabled={!editing}
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                className={`w-full px-3.5 py-2.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl text-white font-medium ${
-                  editing ? 'focus:border-[#38bdf8]' : 'opacity-75'
+                className={`w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium ${
+                  editing ? 'focus:border-[#0a4fa6]' : 'opacity-75'
                 }`}
               />
             </div>
@@ -133,7 +133,7 @@ export default function ProfilePage() {
               <div className="pt-2 flex justify-end">
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#38bdf8] text-[#0b0f19] font-bold text-xs rounded-xl hover:bg-[#0ea5e9]"
+                  className="px-5 py-2 bg-[#0a4fa6] text-gray-900 font-bold text-xs rounded-xl hover:bg-[#083d80]"
                 >
                   Save Changes
                 </button>
@@ -143,8 +143,8 @@ export default function ProfilePage() {
         </div>
 
         {/* Linked Devices & Sessions */}
-        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl space-y-4">
-          <h3 className="text-sm font-bold text-white uppercase tracking-wider border-b border-[#1e293b] pb-3">
+        <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl space-y-4">
+          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider border-b border-gray-200 pb-3">
             Authorized Hardware & Sessions
           </h3>
 
@@ -152,22 +152,22 @@ export default function ProfilePage() {
             {linkedDevices.map((dev) => (
               <div
                 key={dev.id}
-                className="p-3.5 bg-[#0b0f19] border border-[#1e293b] rounded-xl flex items-center justify-between"
+                className="p-3.5 bg-white border border-gray-200 rounded-xl flex items-center justify-between"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#161e2e] text-[#38bdf8] flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-gray-100 text-[#0a4fa6] flex items-center justify-center">
                     {dev.type === 'mobile' ? <Smartphone className="w-4 h-4" /> : <Laptop className="w-4 h-4" />}
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-semibold text-white">{dev.name}</span>
+                      <span className="text-xs font-semibold text-gray-900">{dev.name}</span>
                       {dev.current && (
-                        <span className="px-1.5 py-0.5 rounded text-[9px] bg-emerald-500/10 text-emerald-400 font-bold">
+                        <span className="px-1.5 py-0.5 rounded text-[9px] bg-green-100 text-green-600 font-bold">
                           CURRENT SESSION
                         </span>
                       )}
                     </div>
-                    <span className="text-[10px] text-[#64748b]">
+                    <span className="text-[10px] text-gray-400">
                       {dev.location} • Last active: {dev.lastActive}
                     </span>
                   </div>
@@ -176,7 +176,7 @@ export default function ProfilePage() {
                 {!dev.current && (
                   <button
                     onClick={() => alert(`Revoked authorization for ${dev.name}. Session token invalidated.`)}
-                    className="text-[11px] text-red-400 hover:text-red-300"
+                    className="text-[11px] text-red-600 hover:text-red-300"
                   >
                     Revoke
                   </button>

@@ -234,7 +234,7 @@ export function AccountManagementHub({
             }}
             className={`flex-shrink-0 px-4 py-2 rounded-full font-medium text-sm transition-all snap-start ${
               activeCategory === category.id
-                ? 'bg-[#0a4fa6] text-white shadow-md'
+                ? 'bg-[#0a4fa6] text-gray-900 shadow-md'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
@@ -294,7 +294,7 @@ export function AccountManagementHub({
       {onLogout && (
         <Button
           onClick={onLogout}
-          className="w-full bg-red-600 hover:bg-red-700 text-white"
+          className="w-full bg-red-600 hover:bg-red-700 text-gray-900"
         >
           <LogOut className="h-4 w-4 mr-2" />
           Sign Out

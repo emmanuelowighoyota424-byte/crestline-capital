@@ -16,12 +16,12 @@ interface Message {
   timestamp: Date
 }
 
-export function CrestlineVirtualAssistant() {
+export function ChaseVirtualAssistant() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hello! I'm Crestline Capital Virtual Assistant. How can I help you today?",
+      text: "Hello! I'm Chase Virtual Assistant. How can I help you today?",
       sender: "assistant",
       timestamp: new Date(),
     },
@@ -128,8 +128,8 @@ export function CrestlineVirtualAssistant() {
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-[#0a4fa6] text-white shadow-2xl hover:bg-[#083d85] transition-all duration-300 flex items-center justify-center group"
-          aria-label="Open Crestline Capital Virtual Assistant"
+          className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-[#0a4fa6] text-gray-900 shadow-2xl hover:bg-[#083d85] transition-all duration-300 flex items-center justify-center group"
+          aria-label="Open Chase Virtual Assistant"
         >
           <div className="absolute inset-0 rounded-full bg-[#0a4fa6] animate-pulse opacity-20"></div>
           <MessageCircle className="h-6 w-6 relative z-10 group-hover:scale-110 transition-transform" />
@@ -139,14 +139,14 @@ export function CrestlineVirtualAssistant() {
       {/* Chat Window */}
       <Drawer open={open} onOpenChange={setOpen}>
         <DrawerContent className={`fixed right-0 bottom-0 w-full max-w-md rounded-t-2xl border-l border-t border-gray-200 shadow-2xl transition-all duration-300 ${isMinimized ? "h-16" : "h-[600px]"}`}>
-          <DrawerHeader className="bg-gradient-to-r from-[#0a4fa6] to-[#117aca] text-white rounded-t-2xl py-4 px-4 flex items-center justify-between">
+          <DrawerHeader className="bg-gradient-to-r from-[#0a4fa6] to-[#117aca] text-gray-900 rounded-t-2xl py-4 px-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 relative">
-                <Image src="/images/Crestline-logo.png" alt="Crestline Capital" fill className="object-contain" />
+                <Image src="/images/Chase-logo.png" alt="Chase" fill className="object-contain" />
               </div>
               <div>
-                <DrawerTitle className="text-white">Crestline Capital Assistant</DrawerTitle>
-                <p className="text-xs text-white/80">Always here to help</p>
+                <DrawerTitle className="text-gray-900">Chase Assistant</DrawerTitle>
+                <p className="text-xs text-gray-900/80">Always here to help</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -154,7 +154,7 @@ export function CrestlineVirtualAssistant() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMinimized(!isMinimized)}
-                className="text-white hover:bg-white/20"
+                className="text-gray-900 hover:bg-white/20"
               >
                 {isMinimized ? <Maximize2 className="h-4 w-4" /> : <Minimize2 className="h-4 w-4" />}
               </Button>
@@ -162,7 +162,7 @@ export function CrestlineVirtualAssistant() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setOpen(false)}
-                className="text-white hover:bg-white/20"
+                className="text-gray-900 hover:bg-white/20"
               >
                 <X className="h-4 w-4" />
               </Button>
@@ -188,12 +188,12 @@ export function CrestlineVirtualAssistant() {
                       <div
                         className={`max-w-xs px-4 py-2 rounded-lg ${
                           message.sender === "user"
-                            ? "bg-[#0a4fa6] text-white rounded-br-none"
+                            ? "bg-[#0a4fa6] text-gray-900 rounded-br-none"
                             : "bg-gray-100 text-gray-900 rounded-bl-none"
                         }`}
                       >
                         <p className="text-sm">{message.text}</p>
-                        <p className={`text-xs mt-1 ${message.sender === "user" ? "text-white/70" : "text-gray-500"}`}>
+                        <p className={`text-xs mt-1 ${message.sender === "user" ? "text-gray-900/70" : "text-gray-500"}`}>
                           {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                         </p>
                       </div>
@@ -250,13 +250,13 @@ export function CrestlineVirtualAssistant() {
                   <Button
                     onClick={handleSendMessage}
                     disabled={isLoading || !inputValue.trim()}
-                    className="bg-[#0a4fa6] hover:bg-[#083d85] text-white"
+                    className="bg-[#0a4fa6] hover:bg-[#083d85] text-gray-900"
                   >
                     <Send className="h-4 w-4" />
                   </Button>
                 </div>
                 <p className="text-xs text-gray-400 text-center">
-                  Crestline Capital Virtual Assistant • Powered by AI
+                  Chase Virtual Assistant • Powered by AI
                 </p>
               </div>
             </div>

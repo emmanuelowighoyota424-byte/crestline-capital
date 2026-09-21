@@ -3,7 +3,7 @@ import { AdminAuthEngine } from '@/lib/admin/admin-auth'
 
 export async function GET(request: NextRequest) {
   try {
-    const cookieSessionId = request.cookies.get('crestline_admin_session')?.value
+    const cookieSessionId = request.cookies.get('chase_admin_session')?.value
     const headerSessionId = request.headers.get('x-admin-session-id')
     const sessionId = cookieSessionId || headerSessionId
 

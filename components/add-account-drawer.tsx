@@ -160,7 +160,7 @@ export function AddAccountDrawer({ open, onOpenChange, onAccountAdded }: AddAcco
                   }
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
                 >
-                  <option value="existing-account">From Existing Crestline Capital Account</option>
+                  <option value="existing-account">From Existing Chase Account</option>
                   <option value="external-transfer">External Bank Transfer</option>
                   <option value="no-deposit">No Initial Deposit</option>
                 </select>
@@ -197,7 +197,7 @@ export function AddAccountDrawer({ open, onOpenChange, onAccountAdded }: AddAcco
 
               <Button
                 onClick={() => setStep("confirm")}
-                className="w-full bg-[#117aca] hover:bg-[#0f5fa8] text-white"
+                className="w-full bg-[#117aca] hover:bg-[#0f5fa8] text-gray-900"
               >
                 Continue
               </Button>
@@ -225,13 +225,13 @@ export function AddAccountDrawer({ open, onOpenChange, onAccountAdded }: AddAcco
               </div>
 
               <p className="text-xs text-gray-500">
-                By opening this account, you agree to Crestline Capital's account terms and conditions.
+                By opening this account, you agree to Chase's account terms and conditions.
               </p>
 
               <Button
                 onClick={handleConfirm}
                 disabled={isLoading}
-                className="w-full bg-[#117aca] hover:bg-[#0f5fa8] text-white"
+                className="w-full bg-[#117aca] hover:bg-[#0f5fa8] text-gray-900"
               >
                 {isLoading ? "Creating Account..." : "Open Account"}
               </Button>
