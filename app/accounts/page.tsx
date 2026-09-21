@@ -45,7 +45,7 @@ export default function AccountsPage() {
           </div>
           <button
             onClick={() => setShowAddModal(true)}
-            className="px-4 py-2.5 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold text-xs rounded-xl shadow-[0_0_15px_rgba(56,189,248,0.25)] transition-all flex items-center gap-2 self-start"
+            className="px-4 py-2.5 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold text-xs rounded-xl shadow-[0_0_15px_rgba(215,30,40,0.25)] transition-all flex items-center gap-2 self-start"
           >
             <Plus className="w-4 h-4" />
             <span>Open New Account</span>
@@ -59,11 +59,11 @@ export default function AccountsPage() {
               key={acc.id}
               className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl flex flex-col justify-between relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#0a4fa6]/5 rounded-bl-full pointer-events-none" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#D71E28]/5 rounded-bl-full pointer-events-none" />
 
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[#0a4fa6] bg-[#0a4fa6]/10 px-2.5 py-1 rounded-full">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[#D71E28] bg-[#D71E28]/10 px-2.5 py-1 rounded-full">
                     {acc.type}
                   </span>
                   <ShieldCheck className="w-4 h-4 text-green-600" />
@@ -138,7 +138,7 @@ export default function AccountsPage() {
                     value={newAccName}
                     onChange={(e) => setNewAccName(e.target.value)}
                     placeholder="e.g. Tax Reserve Account"
-                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                   />
                 </div>
                 <div>
@@ -146,7 +146,7 @@ export default function AccountsPage() {
                   <select
                     value={newAccType}
                     onChange={(e) => setNewAccType(e.target.value as any)}
-                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                   >
                     <option value="checking">Premier Checking (0.10% APY)</option>
                     <option value="savings">High-Yield Savings (4.85% APY)</option>
@@ -163,7 +163,7 @@ export default function AccountsPage() {
                   </button>
                   <button
                     type="submit"
-                    className="px-5 py-2 bg-[#0a4fa6] text-gray-900 font-semibold text-xs rounded-xl hover:bg-[#083d80]"
+                    className="px-5 py-2 bg-[#D71E28] text-gray-900 font-semibold text-xs rounded-xl hover:bg-[#A31620]"
                   >
                     Confirm & Open
                   </button>

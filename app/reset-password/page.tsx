@@ -26,12 +26,12 @@ export default function ResetPasswordPage() {
     <div className="min-h-screen bg-white text-gray-900 flex flex-col justify-between">
       <header className="px-6 py-6 border-b border-gray-200 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.3)]">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center shadow-[0_0_15px_rgba(215,30,40,0.3)]">
             <Shield className="w-5 h-5 text-gray-900" />
           </div>
-          <span className="text-xl font-bold tracking-tight text-gray-900">Chase</span>
+          <span className="text-xl font-bold tracking-tight text-gray-900">Crestline Capital</span>
         </Link>
-        <Link href="/login" className="text-sm text-[#0a4fa6] hover:underline">
+        <Link href="/login" className="text-sm text-[#D71E28] hover:underline">
           Back to Sign In
         </Link>
       </header>
@@ -60,7 +60,7 @@ export default function ResetPasswordPage() {
                       value={token}
                       onChange={(e) => setToken(e.target.value)}
                       placeholder="e.g. TOK-98214"
-                      className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-[#0a4fa6]"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-[#D71E28]"
                     />
                   </div>
                 </div>
@@ -77,7 +77,7 @@ export default function ResetPasswordPage() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••••••"
-                      className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-[#0a4fa6]"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-[#D71E28]"
                     />
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export default function ResetPasswordPage() {
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       placeholder="••••••••••••"
-                      className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-[#0a4fa6]"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 focus:outline-none focus:border-[#D71E28]"
                     />
                   </div>
                 </div>
@@ -102,7 +102,7 @@ export default function ResetPasswordPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(56,189,248,0.25)] disabled:opacity-50"
+                  className="w-full py-3 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(215,30,40,0.25)] disabled:opacity-50"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
@@ -126,7 +126,7 @@ export default function ResetPasswordPage() {
               </p>
               <Link
                 href="/login"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#0a4fa6] text-gray-900 font-semibold rounded-xl text-sm hover:bg-[#083d80] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#D71E28] text-gray-900 font-semibold rounded-xl text-sm hover:bg-[#A31620] transition-all"
               >
                 <span>Proceed to Sign In</span>
                 <ArrowRight className="w-4 h-4" />
@@ -137,7 +137,7 @@ export default function ResetPasswordPage() {
       </main>
 
       <footer className="py-6 text-center text-xs text-gray-400 border-t border-gray-200">
-        <p>© 2026 Chase. All rights reserved.</p>
+        <p>© 2026 Crestline Capital. All rights reserved.</p>
       </footer>
     </div>
   )

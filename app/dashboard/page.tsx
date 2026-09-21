@@ -36,10 +36,10 @@ export default function DashboardPage() {
     <CustomerLayout>
       <div className="space-y-6">
         {/* Welcome Banner */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-[#0a4fa6] via-[#083d80] to-[#0a4fa6] border border-gray-200 rounded-2xl p-6 shadow-xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-[#D71E28] via-[#A31620] to-[#D71E28] border border-gray-200 rounded-2xl p-6 shadow-xl">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-semibold text-[#0a4fa6] uppercase tracking-wider">Verified Customer</span>
+              <span className="text-xs font-semibold text-[#D71E28] uppercase tracking-wider">Verified Customer</span>
               <ShieldCheck className="w-4 h-4 text-green-600" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900">
@@ -52,7 +52,7 @@ export default function DashboardPage() {
           <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/transfers"
-              className="px-4 py-2.5 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold text-xs rounded-xl shadow-md transition-all flex items-center gap-2"
+              className="px-4 py-2.5 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold text-xs rounded-xl shadow-md transition-all flex items-center gap-2"
             >
               <ArrowLeftRight className="w-4 h-4" />
               <span>Send Funds</span>
@@ -65,7 +65,7 @@ export default function DashboardPage() {
           <div className="bg-gray-100 border border-gray-200 rounded-2xl p-5 shadow-lg">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-medium text-gray-500 uppercase">Total Liquidity</span>
-              <Wallet className="w-4 h-4 text-[#0a4fa6]" />
+              <Wallet className="w-4 h-4 text-[#D71E28]" />
             </div>
             <div className="text-2xl font-bold font-mono text-gray-900 mb-1">
               {formatCurrency(totalBalance)}
@@ -125,7 +125,7 @@ export default function DashboardPage() {
                 <Link
                   key={action.label}
                   href={action.href}
-                  className="flex flex-col items-center justify-center p-3 rounded-xl bg-white hover:bg-gray-200 border border-gray-200 transition-all hover:border-[#0a4fa6]/40 group"
+                  className="flex flex-col items-center justify-center p-3 rounded-xl bg-white hover:bg-gray-200 border border-gray-200 transition-all hover:border-[#D71E28]/40 group"
                 >
                   <div className={`p-2.5 rounded-lg bg-gray-100 mb-2 group-hover:scale-110 transition-transform ${action.color}`}>
                     <Icon className="w-5 h-5" />
@@ -144,7 +144,7 @@ export default function DashboardPage() {
             <div>
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-base font-bold text-gray-900">Your Accounts</h2>
-                <Link href="/accounts" className="text-xs text-[#0a4fa6] hover:underline">
+                <Link href="/accounts" className="text-xs text-[#D71E28] hover:underline">
                   View All
                 </Link>
               </div>
@@ -175,7 +175,7 @@ export default function DashboardPage() {
                 href="/accounts"
                 className="w-full py-2.5 bg-white hover:bg-gray-200 text-gray-900 border border-gray-200 text-xs font-semibold rounded-xl flex items-center justify-center gap-2 transition-colors"
               >
-                <Plus className="w-3.5 h-3.5 text-[#0a4fa6]" />
+                <Plus className="w-3.5 h-3.5 text-[#D71E28]" />
                 <span>Open New Account Product</span>
               </Link>
             </div>
@@ -188,7 +188,7 @@ export default function DashboardPage() {
                 <h2 className="text-base font-bold text-gray-900">Recent Transactions</h2>
                 <p className="text-xs text-gray-500">Real-time ledger audit trail</p>
               </div>
-              <Link href="/transactions" className="text-xs text-[#0a4fa6] hover:underline">
+              <Link href="/transactions" className="text-xs text-[#D71E28] hover:underline">
                 Full History
               </Link>
             </div>

@@ -1,5 +1,5 @@
 /**
- * Chase Provider Abstraction Layer
+ * Crestline Capital Provider Abstraction Layer
  *
  * Implements decoupled interfaces for all financial and verification vendors:
  * - BankingProvider (Core account processing)
@@ -72,10 +72,10 @@ export interface SMSProvider {
 
 // Sandbox Implementations
 export const SandboxBankingProvider: BankingProvider = {
-  name: 'Chase Core Ledger Simulator',
+  name: 'Crestline Core Ledger Simulator',
   isSandbox: true,
   async verifyAccount(routing: string, account: string) {
-    return { valid: routing.length === 9 && account.length >= 4, bankName: 'Chase Member Institution' }
+    return { valid: routing.length === 9 && account.length >= 4, bankName: 'Crestline Member Institution' }
   },
   async executeSettlement(transferId: string, amountCents: number) {
     return { settlementId: `stl_${Date.now()}_${transferId}`, status: 'SETTLED' }
@@ -83,7 +83,7 @@ export const SandboxBankingProvider: BankingProvider = {
 }
 
 export const SandboxPaymentProvider: PaymentProvider = {
-  name: 'Chase ACH & Fedwire Gateway (Sandbox)',
+  name: 'Crestline Capital ACH & Fedwire Gateway (Sandbox)',
   isSandbox: true,
   async initiateAchDeposit(amountCents: number, sourceAccountId: string) {
     return { depositId: `ach_dep_${Date.now()}`, status: 'PENDING' }
@@ -94,7 +94,7 @@ export const SandboxPaymentProvider: PaymentProvider = {
 }
 
 export const SandboxKYCProvider: KYCProvider = {
-  name: 'Chase Identity Verification Sandbox',
+  name: 'Crestline Capital Identity Verification Sandbox',
   isSandbox: true,
   async submitIdentityVerification(data) {
     const isHighRisk = data.firstName.toLowerCase().includes('fraud')
@@ -107,7 +107,7 @@ export const SandboxKYCProvider: KYCProvider = {
 }
 
 export const SandboxAMLProvider: AMLProvider = {
-  name: 'Chase Sanctions & Watchlist Screening (Sandbox)',
+  name: 'Crestline Capital Sanctions & Watchlist Screening (Sandbox)',
   isSandbox: true,
   async screenBeneficiary(name: string) {
     const isSanctioned = name.toLowerCase().includes('sanction') || name.toLowerCase().includes('blacklisted')
@@ -121,7 +121,7 @@ export const SandboxAMLProvider: AMLProvider = {
 }
 
 export const SandboxCardProvider: CardProvider = {
-  name: 'Chase Card Network Issuance (Sandbox)',
+  name: 'Crestline Capital Card Network Issuance (Sandbox)',
   isSandbox: true,
   async issueCard({ userId, type, spendingLimitCents }) {
     const last4 = Math.floor(1000 + Math.random() * 9000).toString()
@@ -138,7 +138,7 @@ export const SandboxCardProvider: CardProvider = {
 }
 
 export const SandboxEmailProvider: EmailProvider = {
-  name: process.env.RESEND_API_KEY ? 'Resend Live Email' : 'Chase Local Mailbox Sandbox',
+  name: process.env.RESEND_API_KEY ? 'Resend Live Email' : 'Crestline Local Mailbox Sandbox',
   isSandbox: !process.env.RESEND_API_KEY,
   async sendEmail(to: string, subject: string, htmlContent: string) {
     console.log(`[EmailProvider] Delivering email to ${to}: ${subject}`)
@@ -147,7 +147,7 @@ export const SandboxEmailProvider: EmailProvider = {
 }
 
 export const SandboxSMSProvider: SMSProvider = {
-  name: 'Chase SMS Gateway (Sandbox)',
+  name: 'Crestline Capital SMS Gateway (Sandbox)',
   isSandbox: true,
   async sendSMS(phone: string, message: string) {
     console.log(`[SMSProvider] SMS dispatched to ${phone}: ${message}`)

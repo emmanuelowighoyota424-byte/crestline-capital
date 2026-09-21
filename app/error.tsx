@@ -28,7 +28,7 @@ export default function Error({
         </pre>
         <button
           onClick={() => reset()}
-          className="px-6 py-2.5 bg-[#0a4fa6] text-gray-900 rounded-lg font-medium hover:bg-[#083d85] transition-colors"
+          className="px-6 py-2.5 bg-[#D71E28] text-gray-900 rounded-lg font-medium hover:bg-[#083d85] transition-colors"
         >
           Try again
         </button>

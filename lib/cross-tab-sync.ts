@@ -24,7 +24,7 @@ export class CrossTabSync {
 
     channels.forEach(channel => {
       try {
-        const bc = new BroadcastChannel(`chase-${channel}`)
+        const bc = new BroadcastChannel(`crestline-${channel}`)
 
         bc.onmessage = (event) => {
           console.log(`[v0] Cross-tab message on ${channel}:`, event.data)

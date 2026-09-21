@@ -86,8 +86,8 @@ export class InstrumentedNotificationManager {
         if (canSendPush && 'Notification' in window && Notification.permission === 'granted') {
           const pushSpan = instrumentPushNotificationBrowser(payload.title, {
             body: payload.message,
-            icon: '/images/chase-logo.png',
-            badge: '/images/chase-logo.png',
+            icon: '/images/Crestline-logo.png',
+            badge: '/images/Crestline-logo.png',
             tag: payload.category,
             requireInteraction: payload.priority === 'high',
           }, payload.category)
@@ -95,8 +95,8 @@ export class InstrumentedNotificationManager {
           await withNotificationSpan(pushSpan, () => {
             const notification = new Notification(payload.title, {
               body: payload.message,
-              icon: '/images/chase-logo.png',
-              badge: '/images/chase-logo.png',
+              icon: '/images/Crestline-logo.png',
+              badge: '/images/Crestline-logo.png',
               tag: payload.category,
               requireInteraction: payload.priority === 'high',
             })

@@ -110,7 +110,7 @@ const FAQs: FAQ[] = [
     category: 'account',
     question: 'Can I transfer money between my accounts?',
     answer:
-      'Yes. Click the "Transfer" button on your dashboard to transfer funds between your Chase accounts. Select the source and destination accounts, enter the amount, and confirm. Transfers are processed in real-time.',
+      'Yes. Click the "Transfer" button on your dashboard to transfer funds between your Crestline Capital accounts. Select the source and destination accounts, enter the amount, and confirm. Transfers are processed in real-time.',
     keywords: ['transfer', 'move money', 'between accounts', 'internal'],
   },
 
@@ -142,9 +142,9 @@ const FAQs: FAQ[] = [
   {
     id: 'security-4',
     category: 'security',
-    question: 'Is my connection to Chase secure?',
+    question: 'Is my connection to Crestline Capital secure?',
     answer:
-      'Yes. All connections to Chase are encrypted using industry-standard SSL/TLS protocols. Your data is transmitted securely over HTTPS. We also implement Content Security Policy (CSP) headers and other security best practices to protect against common web attacks.',
+      'Yes. All connections to Crestline Capital are encrypted using industry-standard SSL/TLS protocols. Your data is transmitted securely over HTTPS. We also implement Content Security Policy (CSP) headers and other security best practices to protect against common web attacks.',
     keywords: ['https', 'encryption', 'secure connection', 'ssl', 'tls'],
   },
 
@@ -160,7 +160,7 @@ const FAQs: FAQ[] = [
   {
     id: 'general-2',
     category: 'general',
-    question: 'Can I pay my bills through Chase?',
+    question: 'Can I pay my bills through Crestline Capital?',
     answer:
       'Yes. Click the "Pay Bills" option on your dashboard. Enter the biller information, amount, and payment date. Bills are processed securely and you can track payment status in real-time. Payment confirmations are sent via email.',
     keywords: ['pay bills', 'payment', 'biller', 'scheduled', 'recurring'],
@@ -194,7 +194,7 @@ const FAQs: FAQ[] = [
   {
     id: 'general-6',
     category: 'general',
-    question: 'How do I create a new Chase account?',
+    question: 'How do I create a new Crestline Capital account?',
     answer:
       'Click "Sign up" on the login page. Complete the 3-step signup form: Step 1 - Personal information (first name, last name, email, phone), Step 2 - Security information (SSN, date of birth, address), Step 3 - Credentials (username, password). Your account will be created immediately and you can log in right away.',
     keywords: ['signup', 'register', 'create account', 'new user', 'join'],
@@ -241,16 +241,16 @@ export default function FAQPage() {
   }, [searchQuery, selectedCategory])
 
   return (
-    <div className="chase-legal min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="crest-legal min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-40">
         <div className="max-w-5xl mx-auto px-6 py-6">
-          <Link href="/" className="flex items-center gap-2 text-[#117aca] hover:underline mb-4 w-fit">
+          <Link href="/" className="flex items-center gap-2 text-[#E8464F] hover:underline mb-4 w-fit">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
           <h1 className="text-4xl font-bold text-gray-900">Frequently Asked Questions</h1>
-          <p className="text-gray-600 mt-2">Find answers to common questions about Chase Bank services</p>
+          <p className="text-gray-600 mt-2">Find answers to common questions about Crestline Capital services</p>
         </div>
       </div>
 
@@ -267,7 +267,7 @@ export default function FAQPage() {
                 setSearchQuery(e.target.value)
                 setSelectedCategory(null) // Reset category when searching
               }}
-              className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#117aca] transition-colors"
+              className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#E8464F] transition-colors"
             />
           </div>
           {searchQuery && <p className="text-sm text-gray-500 mt-2">{filteredFAQs.length} results found</p>}
@@ -285,8 +285,8 @@ export default function FAQPage() {
             }}
             className={`px-4 py-2 rounded-full font-medium transition-all ${
               selectedCategory === null
-                ? 'bg-[#117aca] text-gray-900'
-                : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-[#117aca]'
+                ? 'bg-[#E8464F] text-gray-900'
+                : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-[#E8464F]'
             }`}
           >
             All Topics
@@ -300,8 +300,8 @@ export default function FAQPage() {
               }}
               className={`px-4 py-2 rounded-full font-medium transition-all ${
                 selectedCategory === cat.id
-                  ? 'bg-[#117aca] text-gray-900'
-                  : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-[#117aca]'
+                  ? 'bg-[#E8464F] text-gray-900'
+                  : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-[#E8464F]'
               }`}
             >
               {cat.label}
@@ -341,28 +341,28 @@ export default function FAQPage() {
         {/* Contact Support Section */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-            <Mail className="w-12 h-12 text-[#117aca] mx-auto mb-4" />
+            <Mail className="w-12 h-12 text-[#E8464F] mx-auto mb-4" />
             <h3 className="font-semibold text-gray-900 mb-2">Email Support</h3>
-            <p className="text-gray-600 text-sm mb-4">support@Chase.com</p>
-            <a href="mailto:support@Chase.com" className="text-[#117aca] hover:underline text-sm font-medium">
+            <p className="text-gray-600 text-sm mb-4">support@crestlinecapital.com</p>
+            <a href="mailto:support@crestlinecapital.com" className="text-[#E8464F] hover:underline text-sm font-medium">
               Send Email
             </a>
           </div>
 
           <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-            <Phone className="w-12 h-12 text-[#117aca] mx-auto mb-4" />
+            <Phone className="w-12 h-12 text-[#E8464F] mx-auto mb-4" />
             <h3 className="font-semibold text-gray-900 mb-2">Phone Support</h3>
             <p className="text-gray-600 text-sm mb-4">1-800-935-9935</p>
-            <a href="tel:1-800-935-9935" className="text-[#117aca] hover:underline text-sm font-medium">
+            <a href="tel:1-800-935-9935" className="text-[#E8464F] hover:underline text-sm font-medium">
               Call Now
             </a>
           </div>
 
           <div className="bg-white rounded-lg shadow-sm p-6 text-center">
-            <MessageSquare className="w-12 h-12 text-[#117aca] mx-auto mb-4" />
+            <MessageSquare className="w-12 h-12 text-[#E8464F] mx-auto mb-4" />
             <h3 className="font-semibold text-gray-900 mb-2">Chat Support</h3>
             <p className="text-gray-600 text-sm mb-4">Available 24/7</p>
-            <button className="text-[#117aca] hover:underline text-sm font-medium">Start Chat</button>
+            <button className="text-[#E8464F] hover:underline text-sm font-medium">Start Chat</button>
           </div>
         </div>
       </div>

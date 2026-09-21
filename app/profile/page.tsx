@@ -97,7 +97,7 @@ export default function ProfilePage() {
                 <input
                   type="email"
                   disabled
-                  value={userProfile?.email || 'alex.morgan@chasecapital.com'}
+                  value={userProfile?.email || 'alex.morgan@crestlinecapital.com'}
                   className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium opacity-75 cursor-not-allowed"
                 />
               </div>
@@ -110,7 +110,7 @@ export default function ProfilePage() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className={`w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium ${
-                    editing ? 'focus:border-[#0a4fa6]' : 'opacity-75'
+                    editing ? 'focus:border-[#D71E28]' : 'opacity-75'
                   }`}
                 />
               </div>
@@ -124,7 +124,7 @@ export default function ProfilePage() {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 className={`w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 font-medium ${
-                  editing ? 'focus:border-[#0a4fa6]' : 'opacity-75'
+                  editing ? 'focus:border-[#D71E28]' : 'opacity-75'
                 }`}
               />
             </div>
@@ -133,7 +133,7 @@ export default function ProfilePage() {
               <div className="pt-2 flex justify-end">
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#0a4fa6] text-gray-900 font-bold text-xs rounded-xl hover:bg-[#083d80]"
+                  className="px-5 py-2 bg-[#D71E28] text-gray-900 font-bold text-xs rounded-xl hover:bg-[#A31620]"
                 >
                   Save Changes
                 </button>
@@ -155,7 +155,7 @@ export default function ProfilePage() {
                 className="p-3.5 bg-white border border-gray-200 rounded-xl flex items-center justify-between"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-gray-100 text-[#0a4fa6] flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-gray-100 text-[#D71E28] flex items-center justify-center">
                     {dev.type === 'mobile' ? <Smartphone className="w-4 h-4" /> : <Laptop className="w-4 h-4" />}
                   </div>
                   <div>

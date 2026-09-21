@@ -35,7 +35,7 @@ export default function SettingsPage() {
         {/* Security & Authentication Section */}
         <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl space-y-5">
           <div className="flex items-center gap-2 border-b border-gray-200 pb-3">
-            <Shield className="w-4 h-4 text-[#0a4fa6]" />
+            <Shield className="w-4 h-4 text-[#D71E28]" />
             <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">Security & Access</h2>
           </div>
 
@@ -49,7 +49,7 @@ export default function SettingsPage() {
                 type="checkbox"
                 checked={appSettings?.biometricLogin ?? true}
                 onChange={(e) => handleToggle('biometricLogin', e.target.checked)}
-                className="w-5 h-5 accent-[#0a4fa6] cursor-pointer"
+                className="w-5 h-5 accent-[#D71E28] cursor-pointer"
               />
             </div>
 
@@ -62,7 +62,7 @@ export default function SettingsPage() {
                 type="checkbox"
                 checked={appSettings?.twoFactorEnabled ?? true}
                 onChange={(e) => handleToggle('twoFactorEnabled', e.target.checked)}
-                className="w-5 h-5 accent-[#0a4fa6] cursor-pointer"
+                className="w-5 h-5 accent-[#D71E28] cursor-pointer"
               />
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function SettingsPage() {
         {/* Notification Preferences */}
         <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl space-y-5">
           <div className="flex items-center gap-2 border-b border-gray-200 pb-3">
-            <Bell className="w-4 h-4 text-[#0a4fa6]" />
+            <Bell className="w-4 h-4 text-[#D71E28]" />
             <h2 className="text-sm font-bold text-gray-900 uppercase tracking-wider">Notification Channels</h2>
           </div>
 
@@ -85,7 +85,7 @@ export default function SettingsPage() {
                 type="checkbox"
                 checked={appSettings?.pushNotifications ?? true}
                 onChange={(e) => handleToggle('pushNotifications', e.target.checked)}
-                className="w-5 h-5 accent-[#0a4fa6] cursor-pointer"
+                className="w-5 h-5 accent-[#D71E28] cursor-pointer"
               />
             </div>
 
@@ -98,7 +98,7 @@ export default function SettingsPage() {
                 type="checkbox"
                 checked={appSettings?.emailNotifications ?? true}
                 onChange={(e) => handleToggle('emailNotifications', e.target.checked)}
-                className="w-5 h-5 accent-[#0a4fa6] cursor-pointer"
+                className="w-5 h-5 accent-[#D71E28] cursor-pointer"
               />
             </div>
           </div>

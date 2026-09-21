@@ -38,7 +38,7 @@ export default function KYCModule({ cases, onApprove, onReject }: KYCModuleProps
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-            <FileCheck className="w-5 h-5 text-[#0a4fa6]" />
+            <FileCheck className="w-5 h-5 text-[#D71E28]" />
             <span>KYC & Identity Verification Review Queue (?id=10)</span>
           </h2>
           <p className="text-xs text-gray-500 mt-0.5">
@@ -52,7 +52,7 @@ export default function KYCModule({ cases, onApprove, onReject }: KYCModuleProps
               key={st}
               onClick={() => setFilter(st)}
               className={`px-3 py-1.5 rounded-lg font-medium transition-all ${
-                filter === st ? 'bg-[#0a4fa6] text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'
+                filter === st ? 'bg-[#D71E28] text-gray-900 font-bold' : 'text-gray-500 hover:text-gray-900'
               }`}
             >
               {st}
@@ -81,7 +81,7 @@ export default function KYCModule({ cases, onApprove, onReject }: KYCModuleProps
                 <tr key={c.id} className="hover:bg-gray-200/30 transition-colors">
                   <td className="py-3.5 px-4">
                     <span className="font-bold text-gray-900 block">{c.userName}</span>
-                    <span className="font-mono text-[#0a4fa6] text-[11px]">{c.userEmail}</span>
+                    <span className="font-mono text-[#D71E28] text-[11px]">{c.userEmail}</span>
                   </td>
                   <td className="py-3.5 px-4">
                     <span className="px-2 py-0.5 rounded bg-white border border-gray-200 text-gray-500 font-mono text-[10px]">
@@ -110,7 +110,7 @@ export default function KYCModule({ cases, onApprove, onReject }: KYCModuleProps
                     <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => setSelectedCase(c)}
-                        className="px-2.5 py-1 bg-gray-200 hover:bg-[#283548] text-[#0a4fa6] rounded-lg text-[11px] font-semibold transition-colors flex items-center gap-1"
+                        className="px-2.5 py-1 bg-gray-200 hover:bg-[#283548] text-[#D71E28] rounded-lg text-[11px] font-semibold transition-colors flex items-center gap-1"
                       >
                         <Eye className="w-3 h-3" />
                         <span>Inspect</span>
@@ -149,7 +149,7 @@ export default function KYCModule({ cases, onApprove, onReject }: KYCModuleProps
           <div className="bg-gray-100 border border-gray-200 rounded-3xl max-w-xl w-full p-6 shadow-2xl space-y-5">
             <div className="flex items-center justify-between border-b border-gray-200 pb-4">
               <div>
-                <span className="text-[10px] text-[#0a4fa6] font-bold uppercase tracking-wider">KYC Compliance Dossier</span>
+                <span className="text-[10px] text-[#D71E28] font-bold uppercase tracking-wider">KYC Compliance Dossier</span>
                 <h3 className="text-lg font-bold text-gray-900">{selectedCase.userName}</h3>
               </div>
               <button onClick={() => setSelectedCase(null)} className="text-gray-500 hover:text-gray-900">✕</button>
@@ -176,7 +176,7 @@ export default function KYCModule({ cases, onApprove, onReject }: KYCModuleProps
 
             {/* Document Visual Preview Placeholder */}
             <div className="bg-white border border-gray-200 rounded-2xl p-6 text-center">
-              <div className="w-12 h-12 rounded-xl bg-[#0a4fa6]/10 text-[#0a4fa6] flex items-center justify-center mx-auto mb-2">
+              <div className="w-12 h-12 rounded-xl bg-[#D71E28]/10 text-[#D71E28] flex items-center justify-center mx-auto mb-2">
                 <FileText className="w-6 h-6" />
               </div>
               <span className="font-mono text-xs text-gray-900 block">

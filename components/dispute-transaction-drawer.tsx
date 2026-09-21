@@ -141,7 +141,7 @@ export function DisputeTransactionDrawer({ open, onOpenChange, transactionId }: 
               </Button>
             )}
             <div>
-              <SheetTitle className="text-[#0a4fa6]">
+              <SheetTitle className="text-[#D71E28]">
                 {isComplete ? "Dispute Submitted" : "Dispute Transaction"}
               </SheetTitle>
               {!isComplete && <p className="text-sm text-muted-foreground">Step {step} of 3</p>}
@@ -181,7 +181,7 @@ export function DisputeTransactionDrawer({ open, onOpenChange, transactionId }: 
                     key={reason.id}
                     className={`flex items-start space-x-3 p-4 rounded-xl border-2 transition-colors cursor-pointer ${
                       selectedReason === reason.id
-                        ? "border-[#0a4fa6] bg-blue-50"
+                        ? "border-[#D71E28] bg-blue-50"
                         : "border-border hover:border-muted-foreground/30"
                     }`}
                     onClick={() => setSelectedReason(reason.id)}
@@ -189,7 +189,7 @@ export function DisputeTransactionDrawer({ open, onOpenChange, transactionId }: 
                     <RadioGroupItem value={reason.id} id={reason.id} className="mt-1" />
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <reason.icon className="h-4 w-4 text-[#0a4fa6]" />
+                        <reason.icon className="h-4 w-4 text-[#D71E28]" />
                         <Label htmlFor={reason.id} className="font-medium cursor-pointer">
                           {reason.label}
                         </Label>
@@ -201,7 +201,7 @@ export function DisputeTransactionDrawer({ open, onOpenChange, transactionId }: 
               </RadioGroup>
 
               <Button
-                className="w-full bg-[#0a4fa6] hover:bg-[#083d82] h-12 rounded-xl"
+                className="w-full bg-[#D71E28] hover:bg-[#083d82] h-12 rounded-xl"
                 disabled={!selectedReason}
                 onClick={() => setStep(2)}
               >
@@ -293,7 +293,7 @@ export function DisputeTransactionDrawer({ open, onOpenChange, transactionId }: 
               )}
 
               <Button
-                className="w-full bg-[#0a4fa6] hover:bg-[#083d82] h-12 rounded-xl"
+                className="w-full bg-[#D71E28] hover:bg-[#083d82] h-12 rounded-xl"
                 disabled={!additionalDetails.trim()}
                 onClick={() => setStep(3)}
               >
@@ -391,7 +391,7 @@ export function DisputeTransactionDrawer({ open, onOpenChange, transactionId }: 
               <div className="bg-muted/50 rounded-xl p-4 text-left space-y-3">
                 <div>
                   <p className="text-xs text-muted-foreground">Reference Number</p>
-                  <p className="font-mono font-bold text-[#0a4fa6]">{disputeReference}</p>
+                  <p className="font-mono font-bold text-[#D71E28]">{disputeReference}</p>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">Transaction</p>
@@ -420,7 +420,7 @@ export function DisputeTransactionDrawer({ open, onOpenChange, transactionId }: 
                 </ul>
               </div>
 
-              <Button className="w-full bg-[#0a4fa6] hover:bg-[#083d82] h-12 rounded-xl" onClick={handleClose}>
+              <Button className="w-full bg-[#D71E28] hover:bg-[#083d82] h-12 rounded-xl" onClick={handleClose}>
                 Done
               </Button>
             </div>

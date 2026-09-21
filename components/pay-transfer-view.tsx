@@ -50,7 +50,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
       clearTimeout(optionClickTimers[optionId])
     }
 
-    // Simulate loading for smooth UX (like Chase app)
+    // Simulate loading for smooth UX (like Crestline Capital app)
     const timer = setTimeout(() => {
       callback()
       setLoadingOption(null)
@@ -106,7 +106,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search payments & transfers"
-            className="pl-11 bg-card border-0 Chase-card-shadow h-12 rounded-xl"
+            className="pl-11 bg-card border-0 crest-card-glow h-12 rounded-xl"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -132,15 +132,15 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
       <div className="grid grid-cols-2 gap-3">
         {/* Send Money with Zelle */}
         <Card
-          className="Chase-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
+          className="crest-card-glow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
           onClick={() => handleOptionClick("send-money", onSendMoney)}
         >
           <CardContent className="p-4">
-            <div className="h-12 w-12 rounded-full bg-[#0a4fa6]/10 flex items-center justify-center mb-3">
+            <div className="h-12 w-12 rounded-full bg-[#D71E28]/10 flex items-center justify-center mb-3">
               {loadingOption === "send-money" ? (
-                <Loader2 className="h-6 w-6 text-[#0a4fa6] animate-spin" />
+                <Loader2 className="h-6 w-6 text-[#D71E28] animate-spin" />
               ) : (
-                <Smartphone className="h-6 w-6 text-[#0a4fa6]" />
+                <Smartphone className="h-6 w-6 text-[#D71E28]" />
               )}
             </div>
             <h3 className="font-semibold text-sm">Send money with Zelle®</h3>
@@ -150,15 +150,15 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
 
         {/* Transfer Between Accounts */}
         <Card
-          className="Chase-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
+          className="crest-card-glow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
           onClick={() => handleOptionClick("transfer", onTransfer)}
         >
           <CardContent className="p-4">
-            <div className="h-12 w-12 rounded-full bg-[#0a4fa6]/10 flex items-center justify-center mb-3">
+            <div className="h-12 w-12 rounded-full bg-[#D71E28]/10 flex items-center justify-center mb-3">
               {loadingOption === "transfer" ? (
-                <Loader2 className="h-6 w-6 text-[#0a4fa6] animate-spin" />
+                <Loader2 className="h-6 w-6 text-[#D71E28] animate-spin" />
               ) : (
-                <RefreshCw className="h-6 w-6 text-[#0a4fa6]" />
+                <RefreshCw className="h-6 w-6 text-[#D71E28]" />
               )}
             </div>
             <h3 className="font-semibold text-sm">Transfer</h3>
@@ -168,15 +168,15 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
 
         {/* Pay Bills */}
         <Card
-          className="Chase-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
+          className="crest-card-glow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
           onClick={() => handleOptionClick("pay-bills", onPayBills)}
         >
           <CardContent className="p-4">
-            <div className="h-12 w-12 rounded-full bg-[#0a4fa6]/10 flex items-center justify-center mb-3">
+            <div className="h-12 w-12 rounded-full bg-[#D71E28]/10 flex items-center justify-center mb-3">
               {loadingOption === "pay-bills" ? (
-                <Loader2 className="h-6 w-6 text-[#0a4fa6] animate-spin" />
+                <Loader2 className="h-6 w-6 text-[#D71E28] animate-spin" />
               ) : (
-                <Receipt className="h-6 w-6 text-[#0a4fa6]" />
+                <Receipt className="h-6 w-6 text-[#D71E28]" />
               )}
             </div>
             <h3 className="font-semibold text-sm">Pay bills</h3>
@@ -186,15 +186,15 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
 
         {/* Wires & Global Transfers */}
         <Card
-          className="Chase-card-shadow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
+          className="crest-card-glow border-0 cursor-pointer hover:bg-muted/30 transition-all duration-150 active:scale-[0.97]"
           onClick={() => handleOptionClick("wire", onWire)}
         >
           <CardContent className="p-4">
-            <div className="h-12 w-12 rounded-full bg-[#0a4fa6]/10 flex items-center justify-center mb-3">
+            <div className="h-12 w-12 rounded-full bg-[#D71E28]/10 flex items-center justify-center mb-3">
               {loadingOption === "wire" ? (
-                <Loader2 className="h-6 w-6 text-[#0a4fa6] animate-spin" />
+                <Loader2 className="h-6 w-6 text-[#D71E28] animate-spin" />
               ) : (
-                <Banknote className="h-6 w-6 text-[#0a4fa6]" />
+                <Banknote className="h-6 w-6 text-[#D71E28]" />
               )}
             </div>
             <h3 className="font-semibold text-sm">Wires & global</h3>
@@ -205,12 +205,12 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
 
       {/* Scheduled Payments */}
       {activeScheduledPayments.length > 0 && (
-        <Card className="Chase-card-shadow border-0">
+        <Card className="crest-card-glow border-0">
           <CardContent className="p-4">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-[#0a4fa6]" />
-                <h3 className="font-semibold text-[#0a4fa6]">Scheduled Payments</h3>
+                <Clock className="h-4 w-4 text-[#D71E28]" />
+                <h3 className="font-semibold text-[#D71E28]">Scheduled Payments</h3>
                 <Badge variant="secondary" className="text-xs">
                   {activeScheduledPayments.length}
                 </Badge>
@@ -218,7 +218,7 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
               <Button
                 variant="ghost"
                 size="sm"
-                className="text-[#0a4fa6] text-xs h-auto p-0"
+                className="text-[#D71E28] text-xs h-auto p-0"
                 onClick={() => setShowScheduledDetails(!showScheduledDetails)}
               >
                 {showScheduledDetails ? "Show less" : "Manage"}
@@ -266,14 +266,14 @@ export function PayTransferView({ onSendMoney, onPayBills, onTransfer, onWire, o
       )}
 
       {/* Recent Activity */}
-      <Card className="Chase-card-shadow border-0">
+      <Card className="crest-card-glow border-0">
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="font-semibold text-[#0a4fa6]">Recent Activity</h3>
+            <h3 className="font-semibold text-[#D71E28]">Recent Activity</h3>
             <Button
               variant="ghost"
               size="sm"
-              className="text-[#0a4fa6] text-xs h-auto p-0 gap-1"
+              className="text-[#D71E28] text-xs h-auto p-0 gap-1"
               onClick={() => setShowAllTransactions(!showAllTransactions)}
             >
               {showAllTransactions ? "Show less" : "See all"}

@@ -131,7 +131,7 @@ export function TransactionsDrawer({ open, onOpenChange, onReceiptOpen }: Transa
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `chase-transactions-${new Date().toISOString().split("T")[0]}.csv`
+    a.download = `crestline-transactions-${new Date().toISOString().split("T")[0]}.csv`
     a.click()
     URL.revokeObjectURL(url)
 
@@ -190,7 +190,7 @@ export function TransactionsDrawer({ open, onOpenChange, onReceiptOpen }: Transa
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent className="h-[95vh] flex flex-col">
-        <DrawerHeader className="border-b bg-gradient-to-r from-[#0a4fa6] to-[#117aca] text-gray-900 rounded-t-xl">
+        <DrawerHeader className="border-b bg-gradient-to-r from-[#D71E28] to-[#E8464F] text-gray-900 rounded-t-xl">
           <div className="flex items-center gap-3">
             <Button
               variant="ghost"

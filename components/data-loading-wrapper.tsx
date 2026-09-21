@@ -59,13 +59,13 @@ export function DataLoadingWrapper({
 
     return (
       loadingComponent || (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#0a4fa6]/5 to-white">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#D71E28]/5 to-white">
           <div className="text-center space-y-4">
             <div className="flex justify-center">
               <div className="relative h-16 w-16">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0a4fa6] to-[#083d80] rounded-full animate-spin" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#D71E28] to-[#A31620] rounded-full animate-spin" />
                 <div className="absolute inset-1 bg-white rounded-full flex items-center justify-center">
-                  <Loader2 className="h-6 w-6 text-[#0a4fa6] animate-spin" />
+                  <Loader2 className="h-6 w-6 text-[#D71E28] animate-spin" />
                 </div>
               </div>
             </div>
@@ -79,7 +79,7 @@ export function DataLoadingWrapper({
               {keys.map((key, i) => (
                 <div
                   key={key}
-                  className="h-2 w-2 rounded-full bg-[#0a4fa6]"
+                  className="h-2 w-2 rounded-full bg-[#D71E28]"
                   style={{
                     animation: `pulse 1.5s ease-in-out ${i * 0.2}s infinite`,
                   }}

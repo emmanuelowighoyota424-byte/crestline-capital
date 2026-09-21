@@ -24,7 +24,7 @@ const defaultPayees = [
   { id: "3", name: "Gas Company", category: "Utilities", lastAmount: 0, accountNumber: "****9012" },
   { id: "4", name: "Internet Provider", category: "Utilities", lastAmount: 0, accountNumber: "****3456" },
   { id: "5", name: "Phone Bill", category: "Utilities", lastAmount: 0, accountNumber: "****7890" },
-  { id: "6", name: "Credit Card - Chase", category: "Credit Cards", lastAmount: 0, accountNumber: "****4567" },
+  { id: "6", name: "Credit Card - Crestline Capital", category: "Credit Cards", lastAmount: 0, accountNumber: "****4567" },
   { id: "7", name: "Credit Card - Amex", category: "Credit Cards", lastAmount: 0, accountNumber: "****8901" },
   { id: "8", name: "Mortgage - Wells Fargo", category: "Loans", lastAmount: 0, accountNumber: "****2345" },
   { id: "9", name: "Auto Loan - Capital One", category: "Loans", lastAmount: 0, accountNumber: "****6789" },
@@ -147,7 +147,7 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
     setIsLoading(true)
     setStep("confirm")
 
-    // Call real Chase Bank bill pay API
+    // Call real Crestline Capital bill pay API
     fetch('/api/bill-pay', {
       method: 'POST',
       headers: {
@@ -316,7 +316,7 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
       }}
     >
       <DrawerContent className="h-[90vh]">
-        <DrawerHeader className="bg-[#0a4fa6] text-gray-900 rounded-t-lg">
+        <DrawerHeader className="bg-[#D71E28] text-gray-900 rounded-t-lg">
           <DrawerTitle className="text-gray-900">Pay Bills</DrawerTitle>
         </DrawerHeader>
 
@@ -331,7 +331,7 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
           <TabsContent value="pay" className="space-y-4 overflow-y-auto max-h-[60vh]">
             {step === "select" && (
               <>
-                <div className="bg-blue-50 p-3 rounded-lg text-sm text-[#0a4fa6]">Select a payee to pay your bill</div>
+                <div className="bg-blue-50 p-3 rounded-lg text-sm text-[#D71E28]">Select a payee to pay your bill</div>
 
                 <div className="space-y-2">
                   {allPayees.slice(0, 8).map((payee) => (
@@ -417,7 +417,7 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
                   </Select>
                 </div>
 
-                <Button className="w-full bg-[#0a4fa6]" onClick={handlePayBill} disabled={isLoading}>
+                <Button className="w-full bg-[#D71E28]" onClick={handlePayBill} disabled={isLoading}>
                   {isLoading ? "Processing..." : "Schedule Payment"}
                 </Button>
               </div>
@@ -425,7 +425,7 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
 
             {step === "confirm" && (
               <div className="py-8 text-center">
-                <div className="w-16 h-16 bg-[#0a4fa6] rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-[#D71E28] rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="w-8 h-8 border-3 border-white border-t-transparent rounded-full animate-spin" />
                 </div>
                 <h3 className="text-xl font-semibold">Processing Payment...</h3>
@@ -535,7 +535,7 @@ export function PayBillsDrawer({ open, onOpenChange, onReceiptOpen }: PayBillsDr
               </Select>
             </div>
 
-            <Button className="w-full bg-[#0a4fa6]" onClick={handleAddPayee}>
+            <Button className="w-full bg-[#D71E28]" onClick={handleAddPayee}>
               <Plus className="h-4 w-4 mr-2" />
               Add Payee
             </Button>

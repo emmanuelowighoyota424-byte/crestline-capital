@@ -100,7 +100,7 @@ export default function EngagementModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <Inbox className="w-5 h-5 text-[#0a4fa6]" />
+              <Inbox className="w-5 h-5 text-[#D71E28]" />
               <span>Internal Staff Memos & Executive Inbox (?id=30)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -117,7 +117,7 @@ export default function EngagementModules({
             ].map((m, i) => (
               <div key={i} className="bg-gray-100 border border-gray-200 rounded-2xl p-5 space-y-1">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-bold text-[#0a4fa6] font-mono">{m.from}</span>
+                  <span className="font-bold text-[#D71E28] font-mono">{m.from}</span>
                   <span className="text-gray-400">{m.time}</span>
                 </div>
                 <h4 className="font-bold text-sm text-gray-900">{m.title}</h4>
@@ -150,12 +150,12 @@ export default function EngagementModules({
                   onClick={() => setActiveTicket(t)}
                   className={`p-4 rounded-2xl border cursor-pointer transition-all ${
                     activeTicket?.id === t.id
-                      ? 'bg-gray-200 border-[#0a4fa6]'
+                      ? 'bg-gray-200 border-[#D71E28]'
                       : 'bg-gray-100 border-gray-200 hover:bg-[#1a2333]'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-mono font-bold text-[#0a4fa6]">{t.ticketNumber}</span>
+                    <span className="text-xs font-mono font-bold text-[#D71E28]">{t.ticketNumber}</span>
                     <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-green-100 text-green-600">
                       {t.status}
                     </span>
@@ -172,7 +172,7 @@ export default function EngagementModules({
                 <div>
                   <div className="border-b border-gray-200 pb-3 mb-4 flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] font-mono text-[#0a4fa6]">{activeTicket.ticketNumber}</span>
+                      <span className="text-[10px] font-mono text-[#D71E28]">{activeTicket.ticketNumber}</span>
                       <h3 className="font-bold text-sm text-gray-900">{activeTicket.subject}</h3>
                       <span className="text-xs text-gray-500">{activeTicket.userEmail}</span>
                     </div>
@@ -187,7 +187,7 @@ export default function EngagementModules({
                         key={i}
                         className={`p-3 rounded-xl max-w-[85%] ${
                           msg.isStaff
-                            ? 'bg-[#0a4fa6]/10 border border-[#0a4fa6]/20 ml-auto text-gray-900'
+                            ? 'bg-[#D71E28]/10 border border-[#D71E28]/20 ml-auto text-gray-900'
                             : 'bg-white border border-gray-200 text-gray-600'
                         }`}
                       >
@@ -211,7 +211,7 @@ export default function EngagementModules({
                   />
                   <button
                     type="submit"
-                    className="px-4 py-2.5 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-bold text-xs rounded-xl"
+                    className="px-4 py-2.5 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-bold text-xs rounded-xl"
                   >
                     Reply
                   </button>
@@ -242,7 +242,7 @@ export default function EngagementModules({
                   key={i}
                   className={`p-3 rounded-xl max-w-[80%] ${
                     c.isStaff
-                      ? 'bg-[#0a4fa6]/15 border border-[#0a4fa6]/30 ml-auto text-gray-900'
+                      ? 'bg-[#D71E28]/15 border border-[#D71E28]/30 ml-auto text-gray-900'
                       : 'bg-white border border-gray-200 text-gray-600'
                   }`}
                 >
@@ -265,7 +265,7 @@ export default function EngagementModules({
               />
               <button
                 type="submit"
-                className="px-5 py-2.5 bg-[#0a4fa6] text-gray-900 font-bold text-xs rounded-xl hover:bg-[#083d80]"
+                className="px-5 py-2.5 bg-[#D71E28] text-gray-900 font-bold text-xs rounded-xl hover:bg-[#A31620]"
               >
                 Send
               </button>
@@ -352,7 +352,7 @@ export default function EngagementModules({
         <div className="space-y-6">
           <div>
             <h2 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <Mail className="w-5 h-5 text-[#0a4fa6]" />
+              <Mail className="w-5 h-5 text-[#D71E28]" />
               <span>Inbound Contact & Partnership Inquiries (?id=34)</span>
             </h2>
             <p className="text-xs text-gray-500">
@@ -369,7 +369,7 @@ export default function EngagementModules({
               <p className="text-gray-500">
                 Requesting intro call regarding automated Fedwire liquidity sweeps into Treasury 90-day notes.
               </p>
-              <div className="text-[11px] text-[#0a4fa6] font-mono mt-2">Contact: sterling@apexwealth.com</div>
+              <div className="text-[11px] text-[#D71E28] font-mono mt-2">Contact: sterling@apexwealth.com</div>
             </div>
           </div>
         </div>
@@ -403,7 +403,7 @@ export default function EngagementModules({
                   <tr key={ag.id} className="hover:bg-gray-200/30">
                     <td className="py-3 px-4">
                       <span className="font-bold text-gray-900 block">{ag.name}</span>
-                      <span className="text-[11px] font-mono text-[#0a4fa6]">{ag.email}</span>
+                      <span className="text-[11px] font-mono text-[#D71E28]">{ag.email}</span>
                     </td>
                     <td className="py-3 px-4 font-mono font-semibold text-purple-600">{ag.role}</td>
                     <td className="py-3 px-4">

@@ -30,13 +30,13 @@ const SANDBOX_ACCOUNTS = [
   { label: "Primary customer", identifier: "Emmanuel", password: "Owighoyota12345" },
   {
     label: "Demo client",
-    identifier: "client@chasecapital.com",
-    password: "Chase2026!Secure",
+    identifier: "client@crestlinecapital.com",
+    password: "Crestline2026!Secure",
   },
   {
     label: "Demo savings",
-    identifier: "alex.morgan@chase.demo",
-    password: "Chase2024!",
+    identifier: "alex.morgan@crestline.demo",
+    password: "Crestline2024!",
   },
 ]
 
@@ -120,8 +120,8 @@ export default function LoginPage() {
       subtitle="Welcome back. Enter your details to reach your dashboard."
       footer={
         <>
-          New to Chase?{" "}
-          <Link href="/register" className="font-semibold text-[#0a4fa6] hover:text-[#0ea5e9]">
+          New to Crestline Capital?{" "}
+          <Link href="/register" className="font-semibold text-[#D71E28] hover:text-[#E8464F]">
             Open an account
           </Link>
         </>
@@ -157,7 +157,7 @@ export default function LoginPage() {
               placeholder="you@example.com"
               value={identifier}
               onChange={(event) => setIdentifier(event.target.value)}
-              className="h-11 border-gray-200 bg-gray-50/60 pl-10 text-gray-900 placeholder:text-gray-400 focus-visible:border-[#0a4fa6] focus-visible:ring-[#38bdf8]/25"
+              className="h-11 border-gray-200 bg-gray-50/60 pl-10 text-gray-900 placeholder:text-gray-400 focus-visible:border-[#D71E28] focus-visible:ring-[#D71E28]/25"
             />
           </div>
         </div>
@@ -178,14 +178,14 @@ export default function LoginPage() {
               placeholder="Enter your password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="h-11 border-gray-200 bg-gray-50/60 pl-10 pr-11 text-gray-900 placeholder:text-gray-400 focus-visible:border-[#0a4fa6] focus-visible:ring-[#38bdf8]/25"
+              className="h-11 border-gray-200 bg-gray-50/60 pl-10 pr-11 text-gray-900 placeholder:text-gray-400 focus-visible:border-[#D71E28] focus-visible:ring-[#D71E28]/25"
             />
             <button
               type="button"
               onClick={() => setShowPassword((visible) => !visible)}
               aria-label={showPassword ? "Hide password" : "Show password"}
               aria-pressed={showPassword}
-              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-[#0a4fa6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#38bdf8]/40"
+              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-gray-400 transition-colors hover:text-[#D71E28] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D71E28]/40"
             >
               {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
             </button>
@@ -198,11 +198,11 @@ export default function LoginPage() {
               id="remember"
               checked={remember}
               onCheckedChange={(checked) => setRemember(checked === true)}
-              className="border-gray-300 data-[state=checked]:border-[#0a4fa6] data-[state=checked]:bg-[#0a4fa6]"
+              className="border-gray-300 data-[state=checked]:border-[#D71E28] data-[state=checked]:bg-[#D71E28]"
             />
             <span className="text-sm text-gray-500">Keep me signed in</span>
           </label>
-          <Link href="/contact" className="text-sm font-medium text-[#0a4fa6] hover:text-[#0ea5e9]">
+          <Link href="/contact" className="text-sm font-medium text-[#D71E28] hover:text-[#E8464F]">
             Forgot password?
           </Link>
         </div>
@@ -210,7 +210,7 @@ export default function LoginPage() {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="h-11 w-full bg-[#0a4fa6] text-sm font-semibold text-gray-900 transition-all hover:bg-[#083d80] hover:shadow-[0_0_24px_rgba(56,189,248,0.35)] disabled:opacity-60"
+          className="h-11 w-full bg-[#D71E28] text-sm font-semibold text-gray-900 transition-all hover:bg-[#A31620] hover:shadow-[0_0_24px_rgba(215,30,40,0.35)] disabled:opacity-60"
         >
           {isSubmitting ? (
             <>
@@ -257,7 +257,7 @@ export default function LoginPage() {
                 variant="outline"
                 size="sm"
                 onClick={() => useSandboxCredentials(account)}
-                className="shrink-0 border-gray-200 bg-transparent text-xs text-gray-600 hover:border-[#0a4fa6]/40 hover:bg-gray-100 hover:text-gray-900"
+                className="shrink-0 border-gray-200 bg-transparent text-xs text-gray-600 hover:border-[#D71E28]/40 hover:bg-gray-100 hover:text-gray-900"
               >
                 Use
               </Button>

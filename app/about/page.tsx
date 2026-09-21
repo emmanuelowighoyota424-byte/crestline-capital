@@ -10,13 +10,13 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 3v18h18" />
                   <path d="M7 16l4-8 4 4 4-6" />
                 </svg>
               </div>
-              <span className="font-bold text-lg">Chase</span>
+              <span className="font-bold text-lg">Crestline Capital</span>
             </Link>
             <div className="flex items-center gap-3">
               <Link href="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
@@ -27,7 +27,7 @@ export default function AboutPage() {
               </Link>
               <Link
                 href="/register"
-                className="rounded-lg bg-[#0a4fa6] px-4 py-2 text-sm font-semibold text-gray-900 transition-all hover:bg-[#083d80] hover:shadow-[0_0_20px_rgba(56,189,248,0.3)]"
+                className="rounded-lg bg-[#D71E28] px-4 py-2 text-sm font-semibold text-gray-900 transition-all hover:bg-[#A31620] hover:shadow-[0_0_20px_rgba(215,30,40,0.3)]"
               >
                 Open account
               </Link>
@@ -40,7 +40,7 @@ export default function AboutPage() {
       <section className="pt-32 pb-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-            About <span className="chase-text-gradient">Chase</span>
+            About <span className="crest-text-gradient">Crestline Capital</span>
           </h1>
           <p className="text-lg text-gray-500 leading-relaxed">
             We&apos;re building the future of digital banking — secure, intelligent, and designed for how people actually manage their money.
@@ -55,7 +55,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
               <p className="text-gray-500 leading-relaxed mb-4">
-                Chase was founded with a singular vision: make premium banking accessible to everyone. We believe that financial tools should be powerful yet simple, secure yet effortless.
+                Crestline Capital was founded with a singular vision: make premium banking accessible to everyone. We believe that financial tools should be powerful yet simple, secure yet effortless.
               </p>
               <p className="text-gray-500 leading-relaxed">
                 Our platform combines enterprise-grade security with consumer-friendly design, giving you complete control over your financial life.
@@ -93,7 +93,7 @@ export default function AboutPage() {
               { number: "256-bit", label: "Encryption" },
             ].map((stat, i) => (
               <div key={i} className="text-center p-6 rounded-xl bg-gray-100/50 border border-gray-200">
-                <p className="text-2xl font-bold chase-text-gradient mb-2">{stat.number}</p>
+                <p className="text-2xl font-bold crest-text-gradient mb-2">{stat.number}</p>
                 <p className="text-sm text-gray-500">{stat.label}</p>
               </div>
             ))}
@@ -104,9 +104,9 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-20 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Join Chase Today</h2>
+          <h2 className="text-3xl font-bold mb-4">Join Crestline Capital Today</h2>
           <p className="text-gray-500 mb-8">Experience banking reimagined.</p>
-          <Link href="/" className="inline-block px-8 py-4 bg-[#0a4fa6] text-gray-900 rounded-xl font-bold hover:bg-[#083d80] transition-all hover:shadow-[0_0_30px_rgba(56,189,248,0.3)]">
+          <Link href="/" className="inline-block px-8 py-4 bg-[#D71E28] text-gray-900 rounded-xl font-bold hover:bg-[#A31620] transition-all hover:shadow-[0_0_30px_rgba(215,30,40,0.3)]">
             Get Started
           </Link>
         </div>
@@ -116,12 +116,12 @@ export default function AboutPage() {
       <footer className="border-t border-gray-200 py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></svg>
             </div>
-            <span className="font-semibold">Chase</span>
+            <span className="font-semibold">Crestline Capital</span>
           </div>
-          <p className="text-xs text-gray-500">© 2026 Chase. All rights reserved.</p>
+          <p className="text-xs text-gray-500">© 2026 Crestline Capital. All rights reserved.</p>
         </div>
       </footer>
     </div>

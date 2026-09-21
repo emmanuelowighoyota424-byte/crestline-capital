@@ -52,7 +52,7 @@ export default function SupportPage() {
         {/* Support Options */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-xl">
-            <div className="w-10 h-10 rounded-xl bg-[#0a4fa6]/10 text-[#0a4fa6] flex items-center justify-center mb-4">
+            <div className="w-10 h-10 rounded-xl bg-[#D71E28]/10 text-[#D71E28] flex items-center justify-center mb-4">
               <MessageSquare className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-gray-900 mb-1">Encrypted Live Chat</h3>
@@ -60,7 +60,7 @@ export default function SupportPage() {
               Connect directly with a dedicated private banker within 60 seconds.
             </p>
             <button
-              onClick={() => alert('Starting secure encrypted chat session with Chase Private Client team...')}
+              onClick={() => alert('Starting secure encrypted chat session with Crestline Capital Private Client team...')}
               className="w-full py-2.5 bg-white hover:bg-gray-200 border border-gray-200 text-gray-900 text-xs font-semibold rounded-xl"
             >
               Start Secure Chat
@@ -96,7 +96,7 @@ export default function SupportPage() {
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                   >
                     <option value="Transaction Issue">Transaction Issue / Dispute</option>
                     <option value="Wire Transfer">Wire Transfer Verification</option>
@@ -113,7 +113,7 @@ export default function SupportPage() {
                     value={ticketSubject}
                     onChange={(e) => setTicketSubject(e.target.value)}
                     placeholder="e.g. Wire transfer settlement timeline"
-                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                    className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                   />
                 </div>
               </div>
@@ -126,13 +126,13 @@ export default function SupportPage() {
                   value={ticketMessage}
                   onChange={(e) => setTicketMessage(e.target.value)}
                   placeholder="Provide all relevant details, transaction dates, or beneficiary info..."
-                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#0a4fa6]"
+                  className="w-full px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:border-[#D71E28]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold rounded-xl text-sm transition-all shadow-[0_0_15px_rgba(56,189,248,0.25)] flex items-center justify-center gap-2"
+                className="w-full py-3 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-semibold rounded-xl text-sm transition-all shadow-[0_0_15px_rgba(215,30,40,0.25)] flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
                 <span>Submit Priority Case</span>

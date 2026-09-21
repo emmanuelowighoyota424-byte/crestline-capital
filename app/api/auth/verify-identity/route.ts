@@ -11,7 +11,7 @@ interface IdentityVerificationRequest {
 
 /**
  * Verify user identity using SSN/TIN and Account Number
- * Matches Chase Bank security requirements
+ * Matches Crestline Capital security requirements
  */
 export async function POST(request: NextRequest) {
   const supabase = getSupabaseClient('service')
@@ -108,13 +108,13 @@ export async function POST(request: NextRequest) {
     // Send verification email
     const verificationEmail = await sendEmail({
       to: matchedUser.email,
-      subject: "Chase Account Recovery - Identity Verified",
+      subject: "Crestline Capital Account Recovery - Identity Verified",
       html: `
         <h2>Identity Verification Confirmed</h2>
         <p>Your identity has been verified. You can now proceed with your account recovery.</p>
         <p><strong>Recovery Type:</strong> ${recoveryType === "username" ? "Username Recovery" : "Password Reset"}</p>
         <p>This verification is valid for 15 minutes.</p>
-        <p>If you did not request this, please contact Chase security immediately.</p>
+        <p>If you did not request this, please contact Crestline Capital security immediately.</p>
       `,
     })
 

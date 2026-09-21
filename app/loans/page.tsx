@@ -15,13 +15,13 @@ export default function LoansPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></svg></div>
-              <span className="font-bold text-lg">Chase</span>
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></svg></div>
+              <span className="font-bold text-lg">Crestline Capital</span>
             </Link>
             <div className="flex items-center gap-3">
               <Link href="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Home</Link>
               <Link href="/login" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">Sign in</Link>
-              <Link href="/register" className="rounded-lg bg-[#0a4fa6] px-4 py-2 text-sm font-semibold text-gray-900 transition-all hover:bg-[#083d80] hover:shadow-[0_0_20px_rgba(56,189,248,0.3)]">Open account</Link>
+              <Link href="/register" className="rounded-lg bg-[#D71E28] px-4 py-2 text-sm font-semibold text-gray-900 transition-all hover:bg-[#A31620] hover:shadow-[0_0_20px_rgba(215,30,40,0.3)]">Open account</Link>
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function LoansPage() {
       <section className="pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">Personal <span className="chase-text-gradient">Loans</span></h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6">Personal <span className="crest-text-gradient">Loans</span></h1>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">Competitive rates, flexible terms, no hidden fees.</p>
           </div>
 
@@ -41,17 +41,17 @@ export default function LoansPage() {
               <div>
                 <div className="flex justify-between mb-2">
                   <label className="text-sm text-gray-500">Loan Amount</label>
-                  <span className="text-sm font-semibold text-[#0a4fa6]">${loanAmount.toLocaleString()}</span>
+                  <span className="text-sm font-semibold text-[#D71E28]">${loanAmount.toLocaleString()}</span>
                 </div>
-                <input type="range" min="1000" max="100000" step="1000" value={loanAmount} onChange={(e) => setLoanAmount(Number(e.target.value))} className="w-full accent-[#0a4fa6]" />
+                <input type="range" min="1000" max="100000" step="1000" value={loanAmount} onChange={(e) => setLoanAmount(Number(e.target.value))} className="w-full accent-[#D71E28]" />
                 <div className="flex justify-between text-xs text-gray-500 mt-1"><span>$1,000</span><span>$100,000</span></div>
               </div>
               <div>
                 <div className="flex justify-between mb-2">
                   <label className="text-sm text-gray-500">Term</label>
-                  <span className="text-sm font-semibold text-[#0a4fa6]">{loanTerm} months</span>
+                  <span className="text-sm font-semibold text-[#D71E28]">{loanTerm} months</span>
                 </div>
-                <input type="range" min="12" max="84" step="12" value={loanTerm} onChange={(e) => setLoanTerm(Number(e.target.value))} className="w-full accent-[#0a4fa6]" />
+                <input type="range" min="12" max="84" step="12" value={loanTerm} onChange={(e) => setLoanTerm(Number(e.target.value))} className="w-full accent-[#D71E28]" />
                 <div className="flex justify-between text-xs text-gray-500 mt-1"><span>12 mo</span><span>84 mo</span></div>
               </div>
               <div className="p-4 rounded-xl bg-white/60 border border-gray-200">
@@ -73,10 +73,10 @@ export default function LoansPage() {
               <div key={i} className="feature-card text-center">
                 <div className="text-3xl mb-3">{product.icon}</div>
                 <h3 className="font-semibold text-gray-900 mb-2">{product.name}</h3>
-                <p className="text-2xl font-bold text-[#0a4fa6] mb-2">{product.rate} APR</p>
+                <p className="text-2xl font-bold text-[#D71E28] mb-2">{product.rate} APR</p>
                 <p className="text-xs text-gray-500">{product.amount}</p>
                 <p className="text-xs text-gray-500">{product.term}</p>
-                <button className="mt-4 w-full py-2 rounded-lg bg-[#0a4fa6]/10 text-[#0a4fa6] text-sm font-semibold hover:bg-[#0a4fa6]/20 transition-colors">Apply</button>
+                <button className="mt-4 w-full py-2 rounded-lg bg-[#D71E28]/10 text-[#D71E28] text-sm font-semibold hover:bg-[#D71E28]/20 transition-colors">Apply</button>
               </div>
             ))}
           </div>
@@ -85,8 +85,8 @@ export default function LoansPage() {
 
       <footer className="border-t border-gray-200 py-8 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
-          <div className="flex items-center gap-2 mb-4 md:mb-0"><div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></svg></div><span className="font-semibold">Chase</span></div>
-          <p className="text-xs text-gray-500">© 2026 Chase. All rights reserved.</p>
+          <div className="flex items-center gap-2 mb-4 md:mb-0"><div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5"><path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-6" /></svg></div><span className="font-semibold">Crestline Capital</span></div>
+          <p className="text-xs text-gray-500">© 2026 Crestline Capital. All rights reserved.</p>
         </div>
       </footer>
     </div>

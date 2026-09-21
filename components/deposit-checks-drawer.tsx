@@ -254,7 +254,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
     >
       <DrawerContent className="max-h-[95vh]">
         {/* Header */}
-        <DrawerHeader className="border-b bg-[#0a4fa6] text-gray-900 rounded-t-lg">
+        <DrawerHeader className="border-b bg-[#D71E28] text-gray-900 rounded-t-lg">
           <div className="flex items-center justify-between">
             <DrawerTitle className="text-gray-900 flex items-center gap-2">
               <Camera className="h-5 w-5" />
@@ -300,13 +300,13 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                     }}
                     className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
                       selectedAccount === account.id
-                        ? "border-[#0a4fa6] bg-blue-50"
-                        : "border-gray-200 hover:border-[#0a4fa6]/50"
+                        ? "border-[#D71E28] bg-blue-50"
+                        : "border-gray-200 hover:border-[#D71E28]/50"
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-[#0a4fa6] rounded-full flex items-center justify-center">
+                        <div className="w-10 h-10 bg-[#D71E28] rounded-full flex items-center justify-center">
                           <Building2 className="h-5 w-5 text-gray-900" />
                         </div>
                         <div>
@@ -326,9 +326,9 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
               {/* Deposit Limits Info */}
               <div className="bg-blue-50 rounded-lg p-4 mt-4">
                 <div className="flex items-start gap-3">
-                  <Info className="h-5 w-5 text-[#0a4fa6] mt-0.5" />
+                  <Info className="h-5 w-5 text-[#D71E28] mt-0.5" />
                   <div className="text-sm">
-                    <p className="font-medium text-[#0a4fa6]">Deposit Limits</p>
+                    <p className="font-medium text-[#D71E28]">Deposit Limits</p>
                     <p className="text-gray-600 mt-1">Daily: ${depositLimits.daily.toLocaleString()}</p>
                     <p className="text-gray-600">Per Check: ${depositLimits.perCheck.toLocaleString()}</p>
                     <p className="text-gray-600">Monthly: ${depositLimits.monthly.toLocaleString()}</p>
@@ -380,7 +380,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                     variant="outline"
                     size="sm"
                     onClick={() => setAmount(quickAmount.toString())}
-                    className="text-[#0a4fa6]"
+                    className="text-[#D71E28]"
                   >
                     ${quickAmount}
                   </Button>
@@ -393,7 +393,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                 </Button>
                 <Button
                   onClick={() => setStep("capture-front")}
-                  className="flex-1 bg-[#0a4fa6]"
+                  className="flex-1 bg-[#D71E28]"
                   disabled={
                     !amount || Number.parseFloat(amount) <= 0 || Number.parseFloat(amount) > depositLimits.perCheck
                   }
@@ -479,7 +479,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">Front of Check</p>
                   <div className="flex gap-2">
-                    <Button onClick={startCamera} className="bg-[#0a4fa6]">
+                    <Button onClick={startCamera} className="bg-[#D71E28]">
                       <Camera className="h-4 w-4 mr-2" />
                       Use Camera
                     </Button>
@@ -504,12 +504,12 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                 onClick={() => setShowTips(!showTips)}
                 className="w-full flex items-center justify-between p-3 bg-blue-50 rounded-lg text-sm"
               >
-                <span className="flex items-center gap-2 text-[#0a4fa6]">
+                <span className="flex items-center gap-2 text-[#D71E28]">
                   <HelpCircle className="h-4 w-4" />
                   Tips for capturing your check
                 </span>
                 <ChevronRight
-                  className={`h-4 w-4 text-[#0a4fa6] transition-transform ${showTips ? "rotate-90" : ""}`}
+                  className={`h-4 w-4 text-[#D71E28] transition-transform ${showTips ? "rotate-90" : ""}`}
                 />
               </button>
 
@@ -539,7 +539,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                   Back
                 </Button>
                 {frontImage && (
-                  <Button onClick={() => setStep("capture-back")} className="flex-1 bg-[#0a4fa6]">
+                  <Button onClick={() => setStep("capture-back")} className="flex-1 bg-[#D71E28]">
                     Continue
                   </Button>
                 )}
@@ -560,7 +560,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                 <AlertCircle className="h-5 w-5 text-amber-600 mt-0.5" />
                 <div className="text-sm">
                   <p className="font-medium text-amber-800">Don't forget to endorse!</p>
-                  <p className="text-amber-700">Sign the back and write "For Mobile Deposit Only to Chase"</p>
+                  <p className="text-amber-700">Sign the back and write "For Mobile Deposit Only to Crestline Capital"</p>
                 </div>
               </div>
 
@@ -629,7 +629,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">Back of Check</p>
                   <div className="flex gap-2">
-                    <Button onClick={startCamera} className="bg-[#0a4fa6]">
+                    <Button onClick={startCamera} className="bg-[#D71E28]">
                       <Camera className="h-4 w-4 mr-2" />
                       Use Camera
                     </Button>
@@ -654,7 +654,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                   Back
                 </Button>
                 {backImage && (
-                  <Button onClick={() => setStep("review")} className="flex-1 bg-[#0a4fa6]">
+                  <Button onClick={() => setStep("review")} className="flex-1 bg-[#D71E28]">
                     Continue
                   </Button>
                 )}
@@ -674,7 +674,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
               <div className="bg-gray-50 rounded-lg p-4 space-y-4">
                 <div className="flex justify-between items-center pb-3 border-b">
                   <span className="text-muted-foreground">Deposit Amount</span>
-                  <span className="text-2xl font-bold text-[#0a4fa6]">${Number.parseFloat(amount).toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-[#D71E28]">${Number.parseFloat(amount).toFixed(2)}</span>
                 </div>
 
                 <div className="flex justify-between items-center">
@@ -747,9 +747,9 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
               {/* Funds Availability */}
               <div className="bg-blue-50 rounded-lg p-4">
                 <div className="flex items-start gap-3">
-                  <Clock className="h-5 w-5 text-[#0a4fa6] mt-0.5" />
+                  <Clock className="h-5 w-5 text-[#D71E28] mt-0.5" />
                   <div className="text-sm">
-                    <p className="font-medium text-[#0a4fa6]">Funds Availability</p>
+                    <p className="font-medium text-[#D71E28]">Funds Availability</p>
                     <p className="text-gray-600 mt-1">
                       ${(Number.parseFloat(amount) * 0.225).toFixed(2)} available immediately
                     </p>
@@ -764,7 +764,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                 <Button variant="outline" onClick={() => setStep("capture-back")} className="flex-1">
                   Back
                 </Button>
-                <Button onClick={processDeposit} className="flex-1 bg-[#0a4fa6]">
+                <Button onClick={processDeposit} className="flex-1 bg-[#D71E28]">
                   Deposit Check
                 </Button>
               </div>
@@ -777,20 +777,20 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
               <div className="relative w-24 h-24 mb-6">
                 <div className="absolute inset-0 border-4 border-gray-200 rounded-full" />
                 <div
-                  className="absolute inset-0 border-4 border-[#0a4fa6] rounded-full transition-all duration-500"
+                  className="absolute inset-0 border-4 border-[#D71E28] rounded-full transition-all duration-500"
                   style={{
                     clipPath: `polygon(50% 50%, 50% 0%, ${50 + 50 * Math.sin(processingProgress * 0.0628)}% ${50 - 50 * Math.cos(processingProgress * 0.0628)}%, 50% 50%)`,
                   }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Loader2 className="h-10 w-10 text-[#0a4fa6] animate-spin" />
+                  <Loader2 className="h-10 w-10 text-[#D71E28] animate-spin" />
                 </div>
               </div>
               <p className="text-lg font-medium mb-2">Processing Your Deposit</p>
               <p className="text-sm text-muted-foreground mb-4">Please wait while we verify your check...</p>
               <div className="w-full max-w-xs bg-gray-200 rounded-full h-2">
                 <div
-                  className="bg-[#0a4fa6] h-2 rounded-full transition-all duration-300"
+                  className="bg-[#D71E28] h-2 rounded-full transition-all duration-300"
                   style={{ width: `${processingProgress}%` }}
                 />
               </div>
@@ -832,7 +832,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                     View Receipt
                   </Button>
                 )}
-                <Button onClick={handleClose} className="flex-1 bg-[#0a4fa6]">
+                <Button onClick={handleClose} className="flex-1 bg-[#D71E28]">
                   Done
                 </Button>
               </div>
@@ -843,7 +843,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                   resetState()
                   setStep("select-account")
                 }}
-                className="mt-4 text-[#0a4fa6]"
+                className="mt-4 text-[#D71E28]"
               >
                 Deposit Another Check
               </Button>

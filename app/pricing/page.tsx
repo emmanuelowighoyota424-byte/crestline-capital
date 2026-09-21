@@ -63,10 +63,10 @@ export default function PricingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center">
                 <ShieldCheck className="w-5 h-5 text-gray-900" />
               </div>
-              <span className="font-bold text-lg text-gray-900">Chase</span>
+              <span className="font-bold text-lg text-gray-900">Crestline Capital</span>
             </Link>
             <div className="flex items-center gap-4">
               <Link href="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
@@ -85,7 +85,7 @@ export default function PricingPage() {
 
       <div className="pt-32 pb-20 px-4 max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#0a4fa6] mb-2 block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#D71E28] mb-2 block">
             Transparent Pricing
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
@@ -102,12 +102,12 @@ export default function PricingPage() {
               key={t.name}
               className={`rounded-2xl p-7 flex flex-col justify-between relative transition-all ${
                 t.popular
-                  ? 'bg-gray-100 border-2 border-[#0a4fa6] shadow-[0_0_30px_rgba(56,189,248,0.15)]'
+                  ? 'bg-gray-100 border-2 border-[#D71E28] shadow-[0_0_30px_rgba(215,30,40,0.15)]'
                   : 'bg-gray-100 border border-gray-200'
               }`}
             >
               {t.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#0a4fa6] text-gray-900 text-[10px] font-extrabold uppercase tracking-wider rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#D71E28] text-gray-900 text-[10px] font-extrabold uppercase tracking-wider rounded-full">
                   Most Popular
                 </div>
               )}
@@ -123,7 +123,7 @@ export default function PricingPage() {
                 <div className="space-y-3 pt-4 border-t border-gray-200">
                   {t.features.map((f) => (
                     <div key={f} className="flex items-start gap-2.5 text-xs text-gray-900">
-                      <Check className="w-4 h-4 text-[#0a4fa6] shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-[#D71E28] shrink-0 mt-0.5" />
                       <span>{f}</span>
                     </div>
                   ))}
@@ -135,7 +135,7 @@ export default function PricingPage() {
                   href={t.href}
                   className={`w-full py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all ${
                     t.popular
-                      ? 'bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 shadow-[0_0_15px_rgba(56,189,248,0.25)]'
+                      ? 'bg-[#D71E28] hover:bg-[#A31620] text-gray-900 shadow-[0_0_15px_rgba(215,30,40,0.25)]'
                       : 'bg-white hover:bg-gray-200 text-gray-900 border border-gray-200'
                   }`}
                 >

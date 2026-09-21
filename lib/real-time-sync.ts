@@ -1,4 +1,4 @@
-// Real-time synchronization service for Chase Banking App
+// Real-time synchronization service for Crestline Capitaling App
 // Handles cross-component state updates and real-time data flow
 
 type SyncEventType = 'update' | 'delete' | 'create' | 'sync'
@@ -32,7 +32,7 @@ export class RealTimeSync {
 
     // Use BroadcastChannel for efficient cross-tab communication
     try {
-      this.broadcastChannel = new BroadcastChannel('Chase_realtime_sync')
+      this.broadcastChannel = new BroadcastChannel('Crestline_realtime_sync')
       this.broadcastChannel.onmessage = (event) => {
         this.handleBroadcastMessage(event.data)
       }
@@ -138,7 +138,7 @@ export class RealTimeSync {
 
   private updateLastActive() {
     if (typeof window !== "undefined") {
-      localStorage.setItem('Chase_tab_active', JSON.stringify({
+      localStorage.setItem('Crestline_tab_active', JSON.stringify({
         tabId: this.tabId,
         timestamp: Date.now()
       }))

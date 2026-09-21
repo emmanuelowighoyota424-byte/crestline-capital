@@ -93,36 +93,36 @@ export default function LandingPage() {
   // FAQ Accordion State
   const [openFaq, setOpenFaq] = useState<number | null>(0)
 
-  // Computed Yield Math (4.85% APY Chase vs 0.45% National Average)
-  const chaseRate = 0.0485
+  // Computed Yield Math (4.85% APY Crestline Capital vs 0.45% National Average)
+  const crestlineRate = 0.0485
   const nationalAvgRate = 0.0045
 
-  const chaseReturn = Math.round(
-    depositAmount * (Math.pow(1 + chaseRate / 365, 365 * termYears) - 1)
+  const crestlineReturn = Math.round(
+    depositAmount * (Math.pow(1 + crestlineRate / 365, 365 * termYears) - 1)
   )
   const nationalReturn = Math.round(
     depositAmount * (Math.pow(1 + nationalAvgRate / 365, 365 * termYears) - 1)
   )
-  const netAdvantage = chaseReturn - nationalReturn
+  const netAdvantage = crestlineReturn - nationalReturn
 
   const depositPresets = [25000, 50000, 100000, 250000, 500000, 1000000]
 
   const faqs = [
     {
-      q: 'How does Chase provide a 4.85% APY return on liquid balances?',
+      q: 'How does Crestline Capital provide a 4.85% APY return on liquid balances?',
       a: 'Through our automated liquidity sweep network, idle balances are swept nightly into diversified short-term U.S. Treasury bills and high-grade institutional reverse repurchase facilities through partner banks. You enjoy daily compounding interest while retaining 100% immediate liquidity for same-day wires and debit transactions.',
     },
     {
       q: 'Are deposits protected by FDIC insurance?',
-      a: 'Yes. Funds deposited through Chase are eligible for pass-through FDIC insurance up to $250,000 for individual accounts and up to $2,500,000 for commercial multi-bank cash sweep accounts through our FDIC-insured partner bank network.',
+      a: 'Yes. Funds deposited through Crestline Capital are eligible for pass-through FDIC insurance up to $250,000 for individual accounts and up to $2,500,000 for commercial multi-bank cash sweep accounts through our FDIC-insured partner bank network.',
     },
     {
       q: 'What are the fees for domestic and international wire transfers?',
-      a: 'Chase does not charge incoming or outgoing wire fees for domestic Fedwire or standard SEPA transactions on verified accounts. High-volume commercial accounts also receive unlimited zero-fee international SWIFT settlements.',
+      a: 'Crestline Capital does not charge incoming or outgoing wire fees for domestic Fedwire or standard SEPA transactions on verified accounts. High-volume commercial accounts also receive unlimited zero-fee international SWIFT settlements.',
     },
     {
       q: 'What is the double-entry accounting ledger and how does it protect my funds?',
-      a: 'Unlike traditional black-box core banking software, Chase uses an immutable, mathematically balanced double-entry ledger. Every single credit to a customer liability account is balanced by an atomic debit to vault cash or clearing accounts. Every transaction is cryptographically signed and verifiable.',
+      a: 'Unlike traditional black-box core banking software, Crestline Capital uses an immutable, mathematically balanced double-entry ledger. Every single credit to a customer liability account is balanced by an atomic debit to vault cash or clearing accounts. Every transaction is cryptographically signed and verifiable.',
     },
     {
       q: 'How quickly can I open an account and issue cards?',
@@ -142,7 +142,7 @@ export default function LandingPage() {
           </div>
           <button
             onClick={() => setViewMode('landing')}
-            className="text-xs px-3 py-1.5 bg-[#0a4fa6] text-gray-900 font-bold rounded-lg hover:bg-[#083d80] transition-all flex items-center gap-1"
+            className="text-xs px-3 py-1.5 bg-[#D71E28] text-gray-900 font-bold rounded-lg hover:bg-[#A31620] transition-all flex items-center gap-1"
           >
             ← Return to Landing Page
           </button>
@@ -153,7 +153,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col selection:bg-[#0a4fa6] selection:text-gray-900">
+    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col selection:bg-[#D71E28] selection:text-gray-900">
       {/* Top Universal Regulatory & Navigation Header */}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
         {/* Subtle Regulatory Strip */}
@@ -169,7 +169,7 @@ export default function LandingPage() {
           <div className="flex items-center gap-4 text-[10px] font-mono">
             <span>HIGH-YIELD TREASURY SWEEPS: 4.85% APY</span>
             <span className="text-gray-300">•</span>
-            <Link href="/security" className="text-gray-500 hover:text-[#0a4fa6] transition-colors flex items-center gap-1">
+            <Link href="/security" className="text-gray-500 hover:text-[#D71E28] transition-colors flex items-center gap-1">
               <Shield className="w-3 h-3 text-green-600" />
               <span>Security Center</span>
             </Link>
@@ -180,14 +180,14 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0a4fa6] to-[#f4c542] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#FFB500] flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
               <Shield className="w-5 h-5 text-gray-900" />
             </div>
             <div>
               <span className="font-bold text-base text-gray-900 tracking-tight block leading-none">
-                Chase
+                Crestline Capital
               </span>
-              <span className="text-[10px] text-[#0a4fa6] font-mono tracking-wider uppercase leading-none">
+              <span className="text-[10px] text-[#D71E28] font-mono tracking-wider uppercase leading-none">
                 Digital Banking
               </span>
             </div>
@@ -238,7 +238,7 @@ export default function LandingPage() {
 
             <Link
               href="/register"
-              className="px-4 py-2 text-xs font-bold text-gray-900 bg-[#0a4fa6] hover:bg-[#083d80] rounded-xl shadow-[0_0_15px_rgba(56,189,248,0.3)] transition-all flex items-center gap-1.5"
+              className="px-4 py-2 text-xs font-bold text-gray-900 bg-[#D71E28] hover:bg-[#A31620] rounded-xl shadow-[0_0_15px_rgba(215,30,40,0.3)] transition-all flex items-center gap-1.5"
             >
               <span>Open Account</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -307,7 +307,7 @@ export default function LandingPage() {
               </Link>
               <Link
                 href="/register"
-                className="w-full py-2.5 bg-[#0a4fa6] text-gray-900 font-bold rounded-xl text-center block"
+                className="w-full py-2.5 bg-[#D71E28] text-gray-900 font-bold rounded-xl text-center block"
               >
                 Open Free Account
               </Link>
@@ -319,7 +319,7 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-gray-200">
         {/* Ambient Glow Elements */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#0a4fa6]/10 blur-[130px] rounded-full pointer-events-none"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#D71E28]/10 blur-[130px] rounded-full pointer-events-none"></div>
         <div className="absolute top-1/3 right-1/4 w-[400px] h-[250px] bg-[#6366f1]/10 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -328,13 +328,13 @@ export default function LandingPage() {
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             <span className="text-gray-600">SOC2 Type II Certified</span>
             <span className="text-gray-300">•</span>
-            <span className="text-[#0a4fa6] font-mono">4.85% APY Daily Compounding</span>
+            <span className="text-[#D71E28] font-mono">4.85% APY Daily Compounding</span>
           </div>
 
           {/* Main Display Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-6 max-w-5xl mx-auto leading-[1.08]">
             Intelligent Banking for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0a4fa6] via-[#818cf8] to-[#c084fc]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D71E28] via-[#818cf8] to-[#c084fc]">
               Modern Capital
             </span>
           </h1>
@@ -348,7 +348,7 @@ export default function LandingPage() {
           <div className="flex flex-wrap items-center justify-center gap-4 mb-16">
             <Link
               href="/register"
-              className="px-7 py-4 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-bold text-sm rounded-xl shadow-lg hover:shadow-[0_0_40px_rgba(56,189,248,0.5)] transition-all flex items-center gap-2"
+              className="px-7 py-4 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-bold text-sm rounded-xl shadow-lg hover:shadow-[0_0_40px_rgba(215,30,40,0.5)] transition-all flex items-center gap-2"
             >
               <span>Open An Account in 3 Minutes</span>
               <ArrowRight className="w-4 h-4" />
@@ -380,7 +380,7 @@ export default function LandingPage() {
             </div>
 
             <div className="bg-gray-100/80 border border-gray-200 rounded-2xl p-4 text-center">
-              <span className="text-2xl lg:text-3xl font-bold font-mono text-[#0a4fa6] block">
+              <span className="text-2xl lg:text-3xl font-bold font-mono text-[#D71E28] block">
                 $250K
               </span>
               <span className="text-[11px] text-gray-500 tracking-tight">FDIC Insured Pass-Through</span>
@@ -414,7 +414,7 @@ export default function LandingPage() {
               Calculate Your Real Cash Sweeps Return
             </h2>
             <p className="text-sm text-gray-500">
-              Traditional mega-banks pay an average of 0.45% APY while lending your deposits at 7%+. Chase sweeps your idle funds into high-grade Treasury repos earning 4.85% APY with daily compounding.
+              Traditional mega-banks pay an average of 0.45% APY while lending your deposits at 7%+. Crestline Capital sweeps your idle funds into high-grade Treasury repos earning 4.85% APY with daily compounding.
             </p>
           </div>
 
@@ -438,7 +438,7 @@ export default function LandingPage() {
                   step="5000"
                   value={depositAmount}
                   onChange={(e) => setDepositAmount(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#0a4fa6]"
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#D71E28]"
                 />
 
                 {/* Preset Chips */}
@@ -449,7 +449,7 @@ export default function LandingPage() {
                       onClick={() => setDepositAmount(amount)}
                       className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all ${
                         depositAmount === amount
-                          ? 'bg-[#0a4fa6] text-gray-900 font-bold shadow-sm'
+                          ? 'bg-[#D71E28] text-gray-900 font-bold shadow-sm'
                           : 'bg-gray-100 text-gray-500 hover:text-gray-900 border border-gray-200'
                       }`}
                     >
@@ -474,7 +474,7 @@ export default function LandingPage() {
                       onClick={() => setTermYears(t.years)}
                       className={`p-3 rounded-xl border text-center transition-all ${
                         termYears === t.years
-                          ? 'bg-[#0a4fa6]/10 border-[#0a4fa6] text-[#0a4fa6] font-bold'
+                          ? 'bg-[#D71E28]/10 border-[#D71E28] text-[#D71E28] font-bold'
                           : 'bg-gray-100 border-gray-200 text-gray-500 hover:text-gray-900'
                       }`}
                     >
@@ -500,10 +500,10 @@ export default function LandingPage() {
                   Estimated Total Earnings ({termYears} Year{termYears > 1 ? 's' : ''})
                 </span>
                 <div className="text-3xl sm:text-4xl font-black font-mono text-green-600">
-                  +${chaseReturn.toLocaleString()}
+                  +${crestlineReturn.toLocaleString()}
                 </div>
-                <div className="text-xs text-[#0a4fa6] font-mono mt-1">
-                  Chase @ 4.85% APY
+                <div className="text-xs text-[#D71E28] font-mono mt-1">
+                  Crestline Capital @ 4.85% APY
                 </div>
               </div>
 
@@ -513,7 +513,7 @@ export default function LandingPage() {
                   <span className="font-mono text-gray-900">+${nationalReturn.toLocaleString()}</span>
                 </div>
                 <div className="flex items-center justify-between text-gray-600 font-semibold pt-2 border-t border-gray-200">
-                  <span>Your Additional Yield with Chase:</span>
+                  <span>Your Additional Yield with Crestline Capital:</span>
                   <span className="font-mono text-green-600 font-bold">
                     +${netAdvantage.toLocaleString()}
                   </span>
@@ -522,7 +522,7 @@ export default function LandingPage() {
 
               <Link
                 href="/register"
-                className="w-full py-3.5 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-bold text-xs rounded-xl text-center block shadow-md transition-all"
+                className="w-full py-3.5 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-bold text-xs rounded-xl text-center block shadow-md transition-all"
               >
                 Lock in 4.85% APY on Your Capital →
               </Link>
@@ -535,8 +535,8 @@ export default function LandingPage() {
       <section id="simulator" className="py-20 bg-white border-b border-gray-200 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-mono font-bold text-[#0a4fa6] uppercase tracking-widest block mb-2">
-              The Chase Experience
+            <span className="text-xs font-mono font-bold text-[#D71E28] uppercase tracking-widest block mb-2">
+              The Crestline Capital Experience
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
               Engineered for Institutional Precision
@@ -562,7 +562,7 @@ export default function LandingPage() {
                   onClick={() => setActiveTab(tab.id as ActiveTab)}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                     isActive
-                      ? 'bg-[#0a4fa6] text-gray-900 shadow-[0_0_15px_rgba(56,189,248,0.3)]'
+                      ? 'bg-[#D71E28] text-gray-900 shadow-[0_0_15px_rgba(215,30,40,0.3)]'
                       : 'bg-gray-100 text-gray-500 hover:text-gray-900 border border-gray-200'
                   }`}
                 >
@@ -590,7 +590,7 @@ export default function LandingPage() {
                       <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                       4.85% APY Active
                     </span>
-                    <span className="px-3 py-1 rounded-full text-xs font-mono text-[#0a4fa6] bg-[#0a4fa6]/10 border border-[#0a4fa6]/20">
+                    <span className="px-3 py-1 rounded-full text-xs font-mono text-[#D71E28] bg-[#D71E28]/10 border border-[#D71E28]/20">
                       +$189.72 Yield Today
                     </span>
                   </div>
@@ -617,7 +617,7 @@ export default function LandingPage() {
                   </div>
                   <div className="p-4 bg-white rounded-2xl border border-gray-200">
                     <span className="text-xs text-gray-400 block">Total FDIC Coverage</span>
-                    <span className="text-xl font-bold font-mono text-[#0a4fa6] block mt-1">
+                    <span className="text-xl font-bold font-mono text-[#D71E28] block mt-1">
                       $2,500,000.00
                     </span>
                     <span className="text-[10px] text-gray-500 mt-1 block">
@@ -633,7 +633,7 @@ export default function LandingPage() {
                   {[
                     { desc: 'Inbound Domestic Fedwire (Morgan Stanley Clearing)', amt: '+$250,000.00', status: 'SETTLED', time: '14:23 UTC' },
                     { desc: 'Daily Treasury Sweep Interest Credit (4.85% APY)', amt: '+$189.72', status: 'POSTED', time: '00:00 UTC' },
-                    { desc: 'Chase Platinum Visa — Amazon Web Services Direct', amt: '-$12,450.00', status: 'SETTLED', time: 'Yesterday' },
+                    { desc: 'Crestline Platinum Visa — Amazon Web Services Direct', amt: '-$12,450.00', status: 'SETTLED', time: 'Yesterday' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center justify-between p-3 bg-white rounded-xl border border-gray-200 text-xs">
                       <div>
@@ -691,12 +691,12 @@ export default function LandingPage() {
                   </div>
 
                   <div className="bg-white p-5 rounded-2xl border border-gray-200 space-y-4">
-                    <span className="text-xs font-semibold text-[#0a4fa6] uppercase tracking-wider block">
+                    <span className="text-xs font-semibold text-[#D71E28] uppercase tracking-wider block">
                       Settlement Speed & Fee Transparency
                     </span>
                     <div className="space-y-2 text-xs">
                       <div className="flex justify-between">
-                        <span className="text-gray-500">Chase Wire Fee:</span>
+                        <span className="text-gray-500">Crestline Wire Fee:</span>
                         <span className="font-mono text-green-600 font-bold">$0.00 (Zero Fee)</span>
                       </div>
                       <div className="flex justify-between">
@@ -715,7 +715,7 @@ export default function LandingPage() {
 
                     <button
                       onClick={() => alert(`Simulated wire dispatch for $${wireAmount} queued on Fedwire rails.`)}
-                      className="w-full py-2.5 bg-[#0a4fa6] text-gray-900 font-bold text-xs rounded-xl hover:bg-[#083d80] transition-all"
+                      className="w-full py-2.5 bg-[#D71E28] text-gray-900 font-bold text-xs rounded-xl hover:bg-[#A31620] transition-all"
                     >
                       Authorize Test Wire Dispatch
                     </button>
@@ -729,13 +729,13 @@ export default function LandingPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 {/* Visual Card */}
                 <div className="relative aspect-[1.586] rounded-3xl p-6 bg-gradient-to-br from-gray-100 via-gray-50 to-white border border-gray-300 shadow-2xl flex flex-col justify-between overflow-hidden">
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-[#0a4fa6]/10 rounded-full blur-3xl pointer-events-none"></div>
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-[#D71E28]/10 rounded-full blur-3xl pointer-events-none"></div>
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Shield className="w-5 h-5 text-[#0a4fa6]" />
+                      <Shield className="w-5 h-5 text-[#D71E28]" />
                       <span className="font-bold text-xs text-gray-900 uppercase tracking-wider">
-                        Chase Platinum
+                        Crestline Platinum
                       </span>
                     </div>
                     <span className="font-mono text-[10px] text-green-600 bg-green-100 px-2 py-0.5 rounded border border-emerald-500/20">
@@ -752,7 +752,7 @@ export default function LandingPage() {
                       <span>CVV: {showCvv ? '842' : '•••'}</span>
                       <button
                         onClick={() => setShowCvv(!showCvv)}
-                        className="text-[#0a4fa6] underline"
+                        className="text-[#D71E28] underline"
                       >
                         {showCvv ? 'Hide' : 'Reveal Dynamic CVV'}
                       </button>
@@ -829,7 +829,7 @@ export default function LandingPage() {
                   </div>
 
                   <div className="flex justify-between text-gray-900">
-                    <span className="text-[#0a4fa6]">1010 • Federal Reserve Vault Cash (Asset)</span>
+                    <span className="text-[#D71E28]">1010 • Federal Reserve Vault Cash (Asset)</span>
                     <span className="text-green-600 font-bold">$50,000.00</span>
                     <span className="text-gray-400">—</span>
                   </div>
@@ -874,7 +874,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Pillar 1 */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#0a4fa6]/40 transition-all group">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#D71E28]/40 transition-all group">
               <div className="w-12 h-12 rounded-xl bg-green-100 text-green-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <TrendingUp className="w-6 h-6" />
               </div>
@@ -887,8 +887,8 @@ export default function LandingPage() {
             </div>
 
             {/* Pillar 2 */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#0a4fa6]/40 transition-all group">
-              <div className="w-12 h-12 rounded-xl bg-[#0a4fa6]/10 text-[#0a4fa6] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#D71E28]/40 transition-all group">
+              <div className="w-12 h-12 rounded-xl bg-[#D71E28]/10 text-[#D71E28] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <ArrowLeftRight className="w-6 h-6" />
               </div>
               <h3 className="text-base font-bold text-gray-900 mb-2">
@@ -900,12 +900,12 @@ export default function LandingPage() {
             </div>
 
             {/* Pillar 3 */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#0a4fa6]/40 transition-all group">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#D71E28]/40 transition-all group">
               <div className="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <CreditCard className="w-6 h-6" />
               </div>
               <h3 className="text-base font-bold text-gray-900 mb-2">
-                Chase Platinum Visa Cards
+                Crestline Platinum Visa Cards
               </h3>
               <p className="text-xs text-gray-500 leading-relaxed">
                 Issue unlimited virtual cards for subscriptions and physical engraved metal cards for executives. Dynamic CVVs, 0% foreign transaction fees, and instant freeze.
@@ -913,7 +913,7 @@ export default function LandingPage() {
             </div>
 
             {/* Pillar 4 */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#0a4fa6]/40 transition-all group">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#D71E28]/40 transition-all group">
               <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Layers className="w-6 h-6" />
               </div>
@@ -926,7 +926,7 @@ export default function LandingPage() {
             </div>
 
             {/* Pillar 5 */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#0a4fa6]/40 transition-all group">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#D71E28]/40 transition-all group">
               <div className="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Landmark className="w-6 h-6" />
               </div>
@@ -939,7 +939,7 @@ export default function LandingPage() {
             </div>
 
             {/* Pillar 6 */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#0a4fa6]/40 transition-all group">
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-[#D71E28]/40 transition-all group">
               <div className="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <ShieldCheck className="w-6 h-6" />
               </div>
@@ -958,14 +958,14 @@ export default function LandingPage() {
       <section id="comparison" className="py-20 bg-white border-b border-gray-200 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-mono font-bold text-[#0a4fa6] uppercase tracking-widest block mb-2">
+            <span className="text-xs font-mono font-bold text-[#D71E28] uppercase tracking-widest block mb-2">
               Market Benchmarking
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-              How Chase Compares
+              How Crestline Capital Compares
             </h2>
             <p className="text-sm text-gray-500">
-              See why private clients, high-growth startups, and corporate treasurers choose Chase over legacy institutions.
+              See why private clients, high-growth startups, and corporate treasurers choose Crestline Capital over legacy institutions.
             </p>
           </div>
 
@@ -975,8 +975,8 @@ export default function LandingPage() {
                 <thead>
                   <tr className="border-b border-gray-200 bg-gray-50/60 text-gray-400 uppercase font-semibold">
                     <th className="py-4 px-6 text-gray-900 font-bold">Feature / Standard</th>
-                    <th className="py-4 px-6 text-[#0a4fa6] font-bold bg-[#0a4fa6]/5">
-                      Chase
+                    <th className="py-4 px-6 text-[#D71E28] font-bold bg-[#D71E28]/5">
+                      Crestline Capital
                     </th>
                     <th className="py-4 px-6">Traditional Mega-Banks</th>
                     <th className="py-4 px-6">Standard Retail Neobanks</th>
@@ -987,7 +987,7 @@ export default function LandingPage() {
                     <td className="py-4 px-6 text-gray-900 font-semibold">
                       Liquid Cash Yield (APY)
                     </td>
-                    <td className="py-4 px-6 text-green-600 font-mono font-bold bg-[#0a4fa6]/5">
+                    <td className="py-4 px-6 text-green-600 font-mono font-bold bg-[#D71E28]/5">
                       4.85% APY (Daily Sweeps)
                     </td>
                     <td className="py-4 px-6 text-gray-500 font-mono">0.01% - 0.45%</td>
@@ -998,7 +998,7 @@ export default function LandingPage() {
                     <td className="py-4 px-6 text-gray-900 font-semibold">
                       Domestic & Global Wire Fees
                     </td>
-                    <td className="py-4 px-6 text-green-600 font-mono font-bold bg-[#0a4fa6]/5">
+                    <td className="py-4 px-6 text-green-600 font-mono font-bold bg-[#D71E28]/5">
                       $0.00 Zero Wire Fees
                     </td>
                     <td className="py-4 px-6 text-red-600 font-mono">$35 - $50 / wire</td>
@@ -1009,7 +1009,7 @@ export default function LandingPage() {
                     <td className="py-4 px-6 text-gray-900 font-semibold">
                       Double-Entry Accounting Verification
                     </td>
-                    <td className="py-4 px-6 text-green-600 bg-[#0a4fa6]/5 flex items-center gap-1.5 font-bold">
+                    <td className="py-4 px-6 text-green-600 bg-[#D71E28]/5 flex items-center gap-1.5 font-bold">
                       <Check className="w-4 h-4 text-green-600" />
                       <span>Cryptographic Real-Time</span>
                     </td>
@@ -1021,7 +1021,7 @@ export default function LandingPage() {
                     <td className="py-4 px-6 text-gray-900 font-semibold">
                       Account Opening Velocity
                     </td>
-                    <td className="py-4 px-6 text-gray-900 font-mono font-bold bg-[#0a4fa6]/5">
+                    <td className="py-4 px-6 text-gray-900 font-mono font-bold bg-[#D71E28]/5">
                       Under 4 Minutes (Digital)
                     </td>
                     <td className="py-4 px-6 text-gray-500">3 - 7 Business Days (Branch)</td>
@@ -1032,7 +1032,7 @@ export default function LandingPage() {
                     <td className="py-4 px-6 text-gray-900 font-semibold">
                       FDIC Pass-Through Protection
                     </td>
-                    <td className="py-4 px-6 text-gray-900 font-mono font-bold bg-[#0a4fa6]/5">
+                    <td className="py-4 px-6 text-gray-900 font-mono font-bold bg-[#D71E28]/5">
                       Up to $2.5M (Multi-bank Sweep)
                     </td>
                     <td className="py-4 px-6 text-gray-500 font-mono">$250,000 Standard</td>
@@ -1043,7 +1043,7 @@ export default function LandingPage() {
                     <td className="py-4 px-6 text-gray-900 font-semibold">
                       Multi-Signature Air-Gapped Vault Security
                     </td>
-                    <td className="py-4 px-6 text-green-600 bg-[#0a4fa6]/5 flex items-center gap-1.5 font-bold">
+                    <td className="py-4 px-6 text-green-600 bg-[#D71E28]/5 flex items-center gap-1.5 font-bold">
                       <Check className="w-4 h-4 text-green-600" />
                       <span>192-bit Hardware Security Module Protection</span>
                     </td>
@@ -1082,7 +1082,7 @@ export default function LandingPage() {
             </div>
 
             <div className="p-6 bg-gray-50 border border-gray-200 rounded-2xl space-y-3">
-              <Lock className="w-8 h-8 text-[#0a4fa6]" />
+              <Lock className="w-8 h-8 text-[#D71E28]" />
               <h4 className="font-bold text-sm text-gray-900">256-Bit Cryptography</h4>
               <p className="text-xs text-gray-500">
                 Military-grade AES-256 encryption for data at rest, TLS 1.3 for data in flight, and hardware security modules (HSM) for keys.
@@ -1112,7 +1112,7 @@ export default function LandingPage() {
       <section id="faq" className="py-20 bg-white border-b border-gray-200 scroll-mt-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-xs font-mono font-bold text-[#0a4fa6] uppercase tracking-widest block mb-2">
+            <span className="text-xs font-mono font-bold text-[#D71E28] uppercase tracking-widest block mb-2">
               Institutional Transparency
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
@@ -1137,7 +1137,7 @@ export default function LandingPage() {
                   >
                     <span className="text-sm font-bold text-gray-900">{faq.q}</span>
                     <ChevronDown
-                      className={`w-4 h-4 text-[#0a4fa6] transition-transform duration-200 shrink-0 ${
+                      className={`w-4 h-4 text-[#D71E28] transition-transform duration-200 shrink-0 ${
                         isOpen ? 'rotate-180' : ''
                       }`}
                     />
@@ -1157,7 +1157,7 @@ export default function LandingPage() {
       {/* High-Conversion Pre-Footer Call to Action */}
       <section className="py-20 bg-gradient-to-b from-[#070a11] via-[#0c1322] to-[#070a11] border-b border-gray-200 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0a4fa6] to-[#818cf8] flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(56,189,248,0.4)]">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center mx-auto shadow-[0_0_20px_rgba(215,30,40,0.4)]">
             <Shield className="w-6 h-6 text-gray-900" />
           </div>
 
@@ -1172,7 +1172,7 @@ export default function LandingPage() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               href="/register"
-              className="px-8 py-4 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-bold text-sm rounded-xl shadow-[0_0_25px_rgba(56,189,248,0.35)] transition-all flex items-center gap-2"
+              className="px-8 py-4 bg-[#D71E28] hover:bg-[#A31620] text-gray-900 font-bold text-sm rounded-xl shadow-[0_0_25px_rgba(215,30,40,0.35)] transition-all flex items-center gap-2"
             >
               <span>Get Started Immediately</span>
               <ArrowRight className="w-4 h-4" />
@@ -1195,19 +1195,19 @@ export default function LandingPage() {
             {/* Brand Column */}
             <div className="col-span-2 space-y-4">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#0a4fa6] to-[#818cf8] flex items-center justify-center">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center">
                   <Shield className="w-4 h-4 text-gray-900" />
                 </div>
                 <span className="font-bold text-sm text-gray-900 tracking-tight">
-                  Chase
+                  Crestline Capital
                 </span>
               </div>
               <p className="text-xs text-gray-400 leading-relaxed max-w-sm">
                 Next-generation financial technology platform providing automated high-yield Treasury cash sweeps, multi-currency wire rails, and mathematical double-entry accounting.
               </p>
-              <div className="text-[11px] font-mono text-[#0a4fa6] space-y-1">
+              <div className="text-[11px] font-mono text-[#D71E28] space-y-1">
                 <div>HQ: 55 Wall Street, New York, NY 10005</div>
-                <div>Regulatory Desk: institutional@chasecapital.com</div>
+                <div>Regulatory Desk: institutional@crestlinecapital.com</div>
               </div>
             </div>
 
@@ -1235,7 +1235,7 @@ export default function LandingPage() {
                 <li><Link href="/faq" className="hover:text-gray-900">Knowledge Base</Link></li>
                 <li><Link href="/pricing" className="hover:text-gray-900">Fee Transparency</Link></li>
                 <li><Link href="/contact" className="hover:text-gray-900">Support & Inquiries</Link></li>
-                <li><Link href="/about" className="hover:text-gray-900">About Chase</Link></li>
+                <li><Link href="/about" className="hover:text-gray-900">About Crestline Capital</Link></li>
               </ul>
             </div>
 
@@ -1256,13 +1256,13 @@ export default function LandingPage() {
           {/* Mandatory Institutional Disclosures */}
           <div className="border-t border-gray-200 pt-8 space-y-4 text-[11px] text-gray-400 leading-relaxed">
             <p>
-              Chase is a financial technology company and not an FDIC-insured bank. Banking services provided by our FDIC-insured partner banks, Members FDIC. The Chase Platinum Visa Debit Card is issued by our partner bank pursuant to a license from Visa U.S.A. Inc. and may be used everywhere Visa debit cards are accepted.
+              Crestline Capital is a financial technology company and not an FDIC-insured bank. Banking services provided by our FDIC-insured partner banks, Members FDIC. The Crestline Platinum Visa Debit Card is issued by our partner bank pursuant to a license from Visa U.S.A. Inc. and may be used everywhere Visa debit cards are accepted.
             </p>
             <p>
               Investment and Treasury sweep products: Are Not FDIC Insured • Have No Bank Guarantee • May Lose Value. Yield rates (including 4.85% APY) reflect annual percentage yield on cash balances swept into short-term U.S. government obligations and are variable and subject to Federal Open Market Committee (FOMC) rate adjustments.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-gray-200/60 text-gray-500">
-              <div>© 2026 Chase Financial Technologies Inc. All rights reserved. Equal Housing Lender.</div>
+              <div>© 2026 Crestline Capital Financial Technologies Inc. All rights reserved. Equal Housing Lender.</div>
               <div className="flex items-center gap-4 text-xs font-mono">
                 <span className="text-green-600">● 100% Core Service Uptime</span>
                 <span>TLS 1.3 / AES-256</span>

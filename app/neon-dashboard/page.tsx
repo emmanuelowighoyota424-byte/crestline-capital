@@ -30,12 +30,12 @@ export default function NeonDashboardPage() {
 
   const handleContinueToApp = () => {
     // Set local storage to indicate logged in state
-    localStorage.setItem("chase_logged_in", "true")
-    localStorage.setItem("chase_user_id", session?.user?.id || "neon-user")
-    localStorage.setItem("chase_user_name", session?.user?.name || session?.user?.email || "")
-    localStorage.setItem("chase_user_email", session?.user?.email || "")
-    localStorage.setItem("chase_last_login", new Date().toISOString())
-    localStorage.setItem("chase_auth_provider", "neon")
+    localStorage.setItem("crestline_logged_in", "true")
+    localStorage.setItem("crestline_user_id", session?.user?.id || "neon-user")
+    localStorage.setItem("crestline_user_name", session?.user?.name || session?.user?.email || "")
+    localStorage.setItem("crestline_user_email", session?.user?.email || "")
+    localStorage.setItem("crestline_last_login", new Date().toISOString())
+    localStorage.setItem("crestline_auth_provider", "neon")
     
     // Redirect to main app
     router.push("/")
@@ -43,9 +43,9 @@ export default function NeonDashboardPage() {
 
   if (isPending) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0a4fa6]/5 to-white">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#D71E28]/5 to-white">
         <div className="animate-pulse flex flex-col items-center gap-4">
-          <div className="h-12 w-12 rounded-full bg-[#0a4fa6] animate-spin" />
+          <div className="h-12 w-12 rounded-full bg-[#D71E28] animate-spin" />
           <p className="text-gray-600 font-medium">Loading session...</p>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function NeonDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a4fa6]/5 to-white p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#D71E28]/5 to-white p-4">
       <div className="max-w-md mx-auto pt-12">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
@@ -90,9 +90,9 @@ export default function NeonDashboardPage() {
           <div className="space-y-3">
             <Button
               onClick={handleContinueToApp}
-              className="w-full bg-[#0a4fa6] hover:bg-[#083d85] text-gray-900 py-6"
+              className="w-full bg-[#D71E28] hover:bg-[#083d85] text-gray-900 py-6"
             >
-              Continue to Chase
+              Continue to Crestline Capital
             </Button>
             <Button
               onClick={handleSignOut}
@@ -107,7 +107,7 @@ export default function NeonDashboardPage() {
           <div className="mt-6 text-center">
             <a
               href="/neon-account/settings"
-              className="text-sm text-[#0a4fa6] hover:underline"
+              className="text-sm text-[#D71E28] hover:underline"
             >
               Manage Account Settings
             </a>

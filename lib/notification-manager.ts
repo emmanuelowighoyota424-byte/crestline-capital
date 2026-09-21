@@ -94,8 +94,8 @@ export class NotificationManager {
         try {
           const notification = new Notification(payload.title, {
             body: payload.message,
-            icon: "/images/chase-logo.png",
-            badge: "/images/chase-logo.png",
+            icon: "/images/Crestline-logo.png",
+            badge: "/images/Crestline-logo.png",
             tag: payload.category,
             requireInteraction: payload.priority === "high",
           })

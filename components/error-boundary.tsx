@@ -45,7 +45,7 @@ export class ErrorBoundary extends Component<Props, State> {
               this.setState({ hasError: false, error: null, errorInfo: null })
               window.location.reload()
             }}
-            style={{ marginTop: 16, padding: "8px 16px", background: "#0a4fa6", color: "#fff", border: "none", borderRadius: 6, cursor: "pointer" }}
+            style={{ marginTop: 16, padding: "8px 16px", background: "#D71E28", color: "#fff", border: "none", borderRadius: 6, cursor: "pointer" }}
           >
             Reload
           </button>

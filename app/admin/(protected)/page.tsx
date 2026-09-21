@@ -151,10 +151,10 @@ function AdminConsoleContent() {
   // Sync active admin identity and verify session
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const storedName = sessionStorage.getItem('chase_admin_name')
-      const storedEmail = sessionStorage.getItem('chase_admin_email')
-      const storedRole = sessionStorage.getItem('chase_admin_role')
-      const storedSessionId = sessionStorage.getItem('chase_admin_session_id')
+      const storedName = sessionStorage.getItem('crestline_admin_name')
+      const storedEmail = sessionStorage.getItem('crestline_admin_email')
+      const storedRole = sessionStorage.getItem('crestline_admin_role')
+      const storedSessionId = sessionStorage.getItem('crestline_admin_session_id')
 
       if (storedEmail) {
         setAdminSession({
@@ -172,10 +172,10 @@ function AdminConsoleContent() {
                 email: data.session.email,
                 role: data.session.role,
               })
-              sessionStorage.setItem('chase_admin_session_id', data.session.sessionId)
-              sessionStorage.setItem('chase_admin_role', data.session.role)
-              sessionStorage.setItem('chase_admin_email', data.session.email)
-              sessionStorage.setItem('chase_admin_name', data.session.name)
+              sessionStorage.setItem('crestline_admin_session_id', data.session.sessionId)
+              sessionStorage.setItem('crestline_admin_role', data.session.role)
+              sessionStorage.setItem('crestline_admin_email', data.session.email)
+              sessionStorage.setItem('crestline_admin_name', data.session.name)
             }
           })
           .catch(() => {})
@@ -249,7 +249,7 @@ function AdminConsoleContent() {
     try {
       await fetch('/api/admin/auth/logout', { method: 'POST' })
     } catch {}
-    sessionStorage.removeItem('chase_admin_session_id')
+    sessionStorage.removeItem('crestline_admin_session_id')
     router.push('/admin/login')
   }
 
@@ -264,7 +264,7 @@ function AdminConsoleContent() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col font-sans selection:bg-[#0a4fa6] selection:text-gray-900">
+    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col font-sans selection:bg-[#D71E28] selection:text-gray-900">
       {/* Top Universal Navbar */}
       <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 sm:px-6 sticky top-0 z-40">
         <div className="flex items-center gap-4">
@@ -276,14 +276,14 @@ function AdminConsoleContent() {
           </button>
 
           <Link href="/admin" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.3)]">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center shadow-[0_0_15px_rgba(215,30,40,0.3)]">
               <Shield className="w-4 h-4 text-gray-900" />
             </div>
             <div className="hidden sm:block">
               <span className="font-bold text-sm text-gray-900 tracking-tight block leading-none">
-                Chase
+                Crestline Capital
               </span>
-              <span className="text-[10px] text-[#0a4fa6] font-mono tracking-wider uppercase leading-none">
+              <span className="text-[10px] text-[#D71E28] font-mono tracking-wider uppercase leading-none">
                 Production Admin (v2.4)
               </span>
             </div>
@@ -304,7 +304,7 @@ function AdminConsoleContent() {
               value={globalSearch}
               onChange={(e) => setGlobalSearch(e.target.value)}
               placeholder="Search module (or hotkey /)..."
-              className="w-full pl-8 pr-3 py-1.5 bg-gray-100 border border-gray-200 rounded-xl text-xs text-gray-900 placeholder-[#64748b] focus:outline-none focus:border-[#0a4fa6]"
+              className="w-full pl-8 pr-3 py-1.5 bg-gray-100 border border-gray-200 rounded-xl text-xs text-gray-900 placeholder-[#64748b] focus:outline-none focus:border-[#D71E28]"
             />
           </div>
 
@@ -318,18 +318,18 @@ function AdminConsoleContent() {
 
           {/* Authenticated Administrator Pill */}
           <div className="hidden xl:flex items-center gap-2.5 px-3 py-1 bg-gray-100 border border-gray-200 rounded-2xl">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#38bdf8] to-[#818cf8] text-gray-900 font-bold text-[11px] flex items-center justify-center">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#D71E28] to-[#818cf8] text-gray-900 font-bold text-[11px] flex items-center justify-center">
               {adminSession.name.charAt(0)}
             </div>
             <div className="text-left">
               <span className="text-xs font-semibold text-gray-900 block leading-tight">
                 {adminSession.name}
               </span>
-              <span className="text-[10px] text-[#0a4fa6] font-mono leading-none block">
+              <span className="text-[10px] text-[#D71E28] font-mono leading-none block">
                 {adminSession.email}
               </span>
             </div>
-            <span className="ml-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-[#0a4fa6]/10 text-[#0a4fa6] border border-[#0a4fa6]/20">
+            <span className="ml-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-[#D71E28]/10 text-[#D71E28] border border-[#D71E28]/20">
               {adminSession.role}
             </span>
           </div>
@@ -369,12 +369,12 @@ function AdminConsoleContent() {
                         onClick={() => navigateToModule(item.id)}
                         className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                           isActive
-                            ? 'bg-[#0a4fa6]/10 text-[#0a4fa6] font-bold border border-[#0a4fa6]/20 shadow-sm'
+                            ? 'bg-[#D71E28]/10 text-[#D71E28] font-bold border border-[#D71E28]/20 shadow-sm'
                             : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
-                          <Icon className={`w-4 h-4 ${isActive ? 'text-[#0a4fa6]' : 'text-gray-400'}`} />
+                          <Icon className={`w-4 h-4 ${isActive ? 'text-[#D71E28]' : 'text-gray-400'}`} />
                           <span>{item.name}</span>
                         </div>
                         {item.id !== 'overview' && (
@@ -392,7 +392,7 @@ function AdminConsoleContent() {
             {/* Admin User Card */}
             <div className="p-2.5 rounded-xl bg-[#111827] border border-gray-200 flex items-center justify-between">
               <div className="flex items-center gap-2.5 overflow-hidden">
-                <div className="w-8 h-8 rounded-lg bg-[#0a4fa6]/10 border border-[#0a4fa6]/20 text-[#0a4fa6] font-bold flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-[#D71E28]/10 border border-[#D71E28]/20 text-[#D71E28] font-bold flex items-center justify-center shrink-0">
                   {adminSession.name.charAt(0)}
                 </div>
                 <div className="overflow-hidden">
@@ -439,7 +439,7 @@ function AdminConsoleContent() {
             <div className="flex items-center justify-between border-b border-gray-200 pb-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono text-[#0a4fa6]">
+                  <span className="text-xs font-mono text-[#D71E28]">
                     MODULE {activeModule.toUpperCase()}
                   </span>
                   <span className="text-gray-400">•</span>
@@ -564,8 +564,8 @@ export default function AdminPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center text-[#0a4fa6] font-mono text-sm">
-          Loading Chase Administration System...
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center text-[#D71E28] font-mono text-sm">
+          Loading Crestline Capital Administration System...
         </div>
       }
     >

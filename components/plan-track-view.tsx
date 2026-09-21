@@ -129,10 +129,10 @@ export function PlanTrackView() {
     <div className="space-y-6 pb-24 touch-pan-y overscroll-contain">
       {/* Summary Cards */}
       <div className="grid gap-4 md:grid-cols-2">
-        <Card className="chase-card-shadow border-0">
+        <Card className="crest-card-glow border-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Spending This Month</CardTitle>
-            <Wallet className="h-4 w-4 text-[#0a4fa6]" />
+            <Wallet className="h-4 w-4 text-[#D71E28]" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -148,10 +148,10 @@ export function PlanTrackView() {
           </CardContent>
         </Card>
 
-        <Card className="chase-card-shadow border-0">
+        <Card className="crest-card-glow border-0">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Savings Goals</CardTitle>
-            <PiggyBank className="h-4 w-4 text-[#0a4fa6]" />
+            <PiggyBank className="h-4 w-4 text-[#D71E28]" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
@@ -172,7 +172,7 @@ export function PlanTrackView() {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="font-semibold flex items-center gap-2">
-            <Target className="h-5 w-5 text-[#0a4fa6]" />
+            <Target className="h-5 w-5 text-[#D71E28]" />
             Savings Goals
           </h3>
           <Button size="sm" variant="outline" className="bg-transparent" onClick={() => setAddGoalOpen(true)}>
@@ -182,11 +182,11 @@ export function PlanTrackView() {
         </div>
 
         {savingsGoals.length === 0 ? (
-          <Card className="p-8 text-center chase-card-shadow border-0">
+          <Card className="p-8 text-center crest-card-glow border-0">
             <Target className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
             <p className="text-muted-foreground">No savings goals yet</p>
             <p className="text-xs text-muted-foreground mt-1">Create a goal to start saving</p>
-            <Button className="mt-4 bg-[#0a4fa6]" onClick={() => setAddGoalOpen(true)}>
+            <Button className="mt-4 bg-[#D71E28]" onClick={() => setAddGoalOpen(true)}>
               <Plus className="h-4 w-4 mr-1" />
               Create First Goal
             </Button>
@@ -200,7 +200,7 @@ export function PlanTrackView() {
               const daysLeft = Math.ceil((new Date(goal.deadline).getTime() - Date.now()) / (1000 * 60 * 60 * 24))
 
               return (
-                <Card key={goal.id} className="p-4 chase-card-shadow border-0">
+                <Card key={goal.id} className="p-4 crest-card-glow border-0">
                   <div className="flex justify-between items-start mb-2">
                     <h4 className="font-medium">{goal.name}</h4>
                     <div className="flex items-center gap-1">
@@ -240,7 +240,7 @@ export function PlanTrackView() {
                   {!isComplete && (
                     <Button
                       size="sm"
-                      className="w-full mt-3 bg-[#0a4fa6] hover:bg-[#083d82]"
+                      className="w-full mt-3 bg-[#D71E28] hover:bg-[#083d82]"
                       onClick={() => openAddAmount(goal.id)}
                     >
                       <Plus className="h-4 w-4 mr-1" />
@@ -264,7 +264,7 @@ export function PlanTrackView() {
               .map((item, index) => {
                 const percentage = monthlySpending > 0 ? (item.amount / monthlySpending) * 100 : 0
                 return (
-                  <Card key={index} className="p-4 chase-card-shadow border-0">
+                  <Card key={index} className="p-4 crest-card-glow border-0">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-3">
                         <div className={`h-3 w-3 rounded-full ${categoryColors[item.category] || "bg-gray-400"}`} />
@@ -280,7 +280,7 @@ export function PlanTrackView() {
                 )
               })
           ) : (
-            <Card className="p-6 text-center chase-card-shadow border-0">
+            <Card className="p-6 text-center crest-card-glow border-0">
               <Wallet className="h-12 w-12 mx-auto text-muted-foreground mb-3" />
               <p className="text-muted-foreground">No spending data for this month yet</p>
             </Card>
@@ -343,7 +343,7 @@ export function PlanTrackView() {
             <Button variant="outline" onClick={() => setAddGoalOpen(false)}>
               Cancel
             </Button>
-            <Button className="bg-[#0a4fa6]" onClick={handleCreateGoal}>
+            <Button className="bg-[#D71E28]" onClick={handleCreateGoal}>
               Create Goal
             </Button>
           </DialogFooter>
@@ -382,7 +382,7 @@ export function PlanTrackView() {
                   onChange={(e) => setCustomAmount(e.target.value)}
                 />
                 <Button
-                  className="bg-[#0a4fa6]"
+                  className="bg-[#D71E28]"
                   onClick={() =>
                     selectedGoalId && customAmount && handleAddToGoal(selectedGoalId, Number(customAmount))
                   }
