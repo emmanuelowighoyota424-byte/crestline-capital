@@ -50,6 +50,7 @@ export interface AdminSession {
 }
 
 // Credentials live in lib/admin/admin-secrets.ts (server-only, never bundled to client).
+import { createHmac, timingSafeEqual } from 'node:crypto'
 import { ADMIN_MASTER_KEY, ADMIN_DEFAULT_CREDENTIALS } from '@/lib/admin/admin-secrets'
 
 // NOTE: DEFAULT_MASTER_KEY and DEFAULT_ADMIN_CREDENTIALS have been removed.
@@ -273,20 +274,45 @@ export class AdminAuthEngine {
     return { success: true, session }
   }
 
-  /**
-   * Verify an active session
-   */
-  public static verifySession(sessionId: string): AdminSession | null {
-    if (!sessionId) return null
-    const session = activeSessions.get(sessionId)
-    if (!session) return null
+  /** Create a signed, stateless session token so authentication survives serverless instance changes. */
+  public static createSessionToken(session: AdminSession): string {
+    const payload = Buffer.from(JSON.stringify(session), 'utf8').toString('base64url')
+    const secret = process.env.ADMIN_SESSION_SECRET || process.env.ADMIN_MASTER_KEY || ADMIN_MASTER_KEY
+    if (!secret) throw new Error('ADMIN_SESSION_SECRET or ADMIN_MASTER_KEY must be configured.')
+    const signature = createHmac('sha256', secret).update(payload).digest('base64url')
+    return `v1.${payload}.${signature}`
+  }
 
-    // Check expiration
-    if (new Date(session.expiresAt).getTime() < Date.now()) {
-      activeSessions.delete(sessionId)
-      return null
+  /** Verify either a signed session token or a legacy in-memory session id. */
+  public static verifySession(sessionToken: string): AdminSession | null {
+    if (!sessionToken) return null
+
+    if (sessionToken.startsWith('v1.')) {
+      const parts = sessionToken.split('.')
+      if (parts.length !== 3) return null
+      const [, payload, signature] = parts
+      const secret = process.env.ADMIN_SESSION_SECRET || process.env.ADMIN_MASTER_KEY || ADMIN_MASTER_KEY
+      if (!secret) return null
+      const expected = createHmac('sha256', secret).update(payload).digest('base64url')
+      const suppliedBytes = Buffer.from(signature)
+      const expectedBytes = Buffer.from(expected)
+      if (suppliedBytes.length !== expectedBytes.length || !timingSafeEqual(suppliedBytes, expectedBytes)) return null
+      try {
+        const session = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8')) as AdminSession
+        if (!session.sessionId || !session.expiresAt || !session.role || !session.permissions) return null
+        if (new Date(session.expiresAt).getTime() < Date.now()) return null
+        return session
+      } catch {
+        return null
+      }
     }
 
+    const session = activeSessions.get(sessionToken)
+    if (!session) return null
+    if (new Date(session.expiresAt).getTime() < Date.now()) {
+      activeSessions.delete(sessionToken)
+      return null
+    }
     return session
   }
 
