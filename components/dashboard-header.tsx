@@ -157,15 +157,7 @@ export function DashboardHeader() {
                 </span>
               )}
             </Button>
-            <Link href="/gmail" title="Open Gmail Workspace">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-white hover:bg-white/10 relative"
-              >
-                <Mail className="h-5 w-5" />
-              </Button>
-            </Link>
+
           </div>
 
           <div className="flex items-center gap-2">
