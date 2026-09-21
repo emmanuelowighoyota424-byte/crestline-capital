@@ -17,19 +17,19 @@ export const DEMO_ACCOUNTS = [
   {
     accountType: "Checking",
     accountNumber: "****4501",
-    balance: 28450.75,
+    balance: 0,
     currency: "USD",
   },
   {
     accountType: "Savings",
     accountNumber: "****4502",
-    balance: 52500.00,
+    balance: 0,
     currency: "USD",
   },
   {
     accountType: "Business",
     accountNumber: "****4503",
-    balance: 125000.50,
+    balance: 0,
     currency: "USD",
   },
 ]
@@ -37,19 +37,19 @@ export const DEMO_ACCOUNTS = [
 export const DEMO_TRANSACTIONS = [
   {
     type: "transfer",
-    amount: 500.00,
+    amount: 0,
     description: "Transfer to Savings",
     timestamp: new Date(Date.now() - 86400000),
   },
   {
     type: "payment",
-    amount: 150.00,
+    amount: 0,
     description: "Utilities Bill Payment",
     timestamp: new Date(Date.now() - 172800000),
   },
   {
     type: "deposit",
-    amount: 5000.00,
+    amount: 0,
     description: "Direct Deposit - Payroll",
     timestamp: new Date(Date.now() - 259200000),
   },
