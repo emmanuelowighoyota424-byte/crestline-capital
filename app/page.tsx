@@ -982,7 +982,7 @@ export default function LandingPage() {
                     <th className="py-4 px-6">Standard Retail Neobanks</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1e293b]/60 font-medium">
+                <tbody className="divide-y divide-gray-200 font-medium">
                   <tr>
                     <td className="py-4 px-6 text-gray-900 font-semibold">
                       Liquid Cash Yield (APY)

@@ -36,7 +36,7 @@ export default function DashboardPage() {
     <CustomerLayout>
       <div className="space-y-6">
         {/* Welcome Banner */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-[#161e2e] via-[#1a2337] to-[#161e2e] border border-gray-200 rounded-2xl p-6 shadow-xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-[#0a4fa6] via-[#083d80] to-[#0a4fa6] border border-gray-200 rounded-2xl p-6 shadow-xl">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-xs font-semibold text-[#0a4fa6] uppercase tracking-wider">Verified Customer</span>
@@ -203,7 +203,7 @@ export default function DashboardPage() {
                     <th className="pb-3 font-semibold text-right">Amount</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1e293b]/50">
+                <tbody className="divide-y divide-gray-200">
                   {recentTransactions.map((tx) => {
                     const isPositive = tx.amount > 0
                     return (

@@ -75,7 +75,7 @@ export default function BusinessPage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-[#161e2e] via-[#1a2337] to-[#161e2e] border border-gray-200 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto">
+        <div className="bg-gradient-to-r from-[#0a4fa6] via-[#083d80] to-[#0a4fa6] border border-gray-200 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Upgrade your company’s treasury</h2>
           <p className="text-sm text-gray-500 max-w-lg mx-auto mb-6">
             Accounts protected up to $5,000,000 via our FDIC Insured Sweep Network.

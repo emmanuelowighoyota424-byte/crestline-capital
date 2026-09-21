@@ -139,7 +139,7 @@ export default function FinancialModules({
                     <th className="py-3 px-4 text-right">Ledger Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1e293b]/60">
+                <tbody className="divide-y divide-gray-200">
                   {deposits.map((dep) => (
                     <tr key={dep.id} className="hover:bg-gray-200/30">
                       <td className="py-3 px-4 font-mono text-gray-900 font-medium">{dep.userEmail}</td>
@@ -217,7 +217,7 @@ export default function FinancialModules({
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1e293b]/60">
+                <tbody className="divide-y divide-gray-200">
                   {withdrawals.map((wth) => (
                     <tr key={wth.id} className="hover:bg-gray-200/30">
                       <td className="py-3 px-4 font-mono text-gray-900">{wth.userEmail}</td>
@@ -474,7 +474,7 @@ export default function FinancialModules({
                   <th className="py-3 px-4">Last Updated</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1e293b]/60">
+              <tbody className="divide-y divide-gray-200">
                 {currencies.map((curr) => (
                   <tr key={curr.code} className="hover:bg-gray-200/30">
                     <td className="py-3 px-4 font-bold text-gray-900">
@@ -571,7 +571,7 @@ export default function FinancialModules({
                   <th className="py-3 px-4">Issued Date</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1e293b]/60">
+              <tbody className="divide-y divide-gray-200">
                 {grants.map((g) => (
                   <tr key={g.id} className="hover:bg-gray-200/30">
                     <td className="py-3 px-4 font-bold text-gray-900">{g.title}</td>
