@@ -111,7 +111,7 @@ export async function POST(request: NextRequest) {
       await supabase.from('notifications').insert([
         {
           user_id: newUserId,
-          title: 'Welcome to Crestline Capital!',
+          title: 'Welcome to Chase!',
           message: `Your new checking account (****${accountNumber}) has been created. Your account number is ${fullAccountNumber}.`,
           type: 'account',
           is_read: false,

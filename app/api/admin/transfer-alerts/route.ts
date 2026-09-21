@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
       userId,
       userPhone,
       userEmail,
-      recipientName: recipientName || 'Crestline Capital Bank',
+      recipientName: recipientName || 'Chase Bank',
       amount,
       accountName,
       transferId,

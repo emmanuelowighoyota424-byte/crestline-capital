@@ -77,7 +77,7 @@ export async function POST(request: NextRequest) {
     const maxAge = Math.max(60, Math.floor((sessionExpiresAt - Date.now()) / 1000))
 
     response.cookies.set({
-      name: 'crestline_admin_session',
+      name: 'chase_admin_session',
       value: authResult.session.sessionId,
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',

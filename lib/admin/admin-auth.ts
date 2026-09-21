@@ -1,5 +1,5 @@
 /**
- * Crestline Capital - Admin Authentication & RBAC Engine
+ * Chase - Admin Authentication & RBAC Engine
  *
  * Implements 192-bit (48-char hex) master gatekeeper authentication,
  * session token rotation, rate-limiting, and granular server-side RBAC permissions.
@@ -189,7 +189,7 @@ export class AdminAuthEngine {
     const session: AdminSession = {
       sessionId,
       adminId: 'usr_admin_master',
-      email: 'security.admin@crestlinecapital.internal',
+      email: 'security.admin@chasecapital.internal',
       name: 'Institutional Executive Admin',
       role: 'SUPER_ADMIN',
       permissions: ROLE_PERMISSIONS.SUPER_ADMIN,

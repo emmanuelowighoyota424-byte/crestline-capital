@@ -30,12 +30,12 @@ export default function NeonDashboardPage() {
 
   const handleContinueToApp = () => {
     // Set local storage to indicate logged in state
-    localStorage.setItem("crestline_logged_in", "true")
-    localStorage.setItem("crestline_user_id", session?.user?.id || "neon-user")
-    localStorage.setItem("crestline_user_name", session?.user?.name || session?.user?.email || "")
-    localStorage.setItem("crestline_user_email", session?.user?.email || "")
-    localStorage.setItem("crestline_last_login", new Date().toISOString())
-    localStorage.setItem("crestline_auth_provider", "neon")
+    localStorage.setItem("chase_logged_in", "true")
+    localStorage.setItem("chase_user_id", session?.user?.id || "neon-user")
+    localStorage.setItem("chase_user_name", session?.user?.name || session?.user?.email || "")
+    localStorage.setItem("chase_user_email", session?.user?.email || "")
+    localStorage.setItem("chase_last_login", new Date().toISOString())
+    localStorage.setItem("chase_auth_provider", "neon")
     
     // Redirect to main app
     router.push("/")
@@ -62,7 +62,7 @@ export default function NeonDashboardPage() {
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
             <div className="w-20 h-20 bg-[#00e5bf] rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-10 h-10 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -90,9 +90,9 @@ export default function NeonDashboardPage() {
           <div className="space-y-3">
             <Button
               onClick={handleContinueToApp}
-              className="w-full bg-[#0a4fa6] hover:bg-[#083d85] text-white py-6"
+              className="w-full bg-[#0a4fa6] hover:bg-[#083d85] text-gray-900 py-6"
             >
-              Continue to Crestline Capital
+              Continue to Chase
             </Button>
             <Button
               onClick={handleSignOut}

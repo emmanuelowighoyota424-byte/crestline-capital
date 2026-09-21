@@ -36,23 +36,23 @@ export default function DashboardPage() {
     <CustomerLayout>
       <div className="space-y-6">
         {/* Welcome Banner */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-[#161e2e] via-[#1a2337] to-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-[#161e2e] via-[#1a2337] to-[#161e2e] border border-gray-200 rounded-2xl p-6 shadow-xl">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-semibold text-[#38bdf8] uppercase tracking-wider">Verified Customer</span>
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span className="text-xs font-semibold text-[#0a4fa6] uppercase tracking-wider">Verified Customer</span>
+              <ShieldCheck className="w-4 h-4 text-green-600" />
             </div>
-            <h1 className="text-2xl font-bold text-white">
+            <h1 className="text-2xl font-bold text-gray-900">
               Welcome back, {userProfile?.name || 'Alex Morgan'}
             </h1>
-            <p className="text-sm text-[#94a3b8] mt-1">
+            <p className="text-sm text-gray-500 mt-1">
               Here is your financial overview and active ledger status.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <Link
               href="/transfers"
-              className="px-4 py-2.5 bg-[#38bdf8] hover:bg-[#0ea5e9] text-[#0b0f19] font-semibold text-xs rounded-xl shadow-[0_0_15px_rgba(56,189,248,0.25)] transition-all flex items-center gap-2"
+              className="px-4 py-2.5 bg-[#0a4fa6] hover:bg-[#083d80] text-gray-900 font-semibold text-xs rounded-xl shadow-md transition-all flex items-center gap-2"
             >
               <ArrowLeftRight className="w-4 h-4" />
               <span>Send Funds</span>
@@ -62,59 +62,59 @@ export default function DashboardPage() {
 
         {/* Financial KPI Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-5 shadow-lg">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl p-5 shadow-lg">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-medium text-[#94a3b8] uppercase">Total Liquidity</span>
-              <Wallet className="w-4 h-4 text-[#38bdf8]" />
+              <span className="text-xs font-medium text-gray-500 uppercase">Total Liquidity</span>
+              <Wallet className="w-4 h-4 text-[#0a4fa6]" />
             </div>
-            <div className="text-2xl font-bold font-mono text-white mb-1">
+            <div className="text-2xl font-bold font-mono text-gray-900 mb-1">
               {formatCurrency(totalBalance)}
             </div>
-            <span className="text-[11px] text-emerald-400 font-medium">Available across all accounts</span>
+            <span className="text-[11px] text-green-600 font-medium">Available across all accounts</span>
           </div>
 
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-5 shadow-lg">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl p-5 shadow-lg">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-medium text-[#94a3b8] uppercase">Checking Pool</span>
-              <span className="text-[10px] text-[#64748b] font-mono">{checkingAccount?.accountNumber || '•••• 4821'}</span>
+              <span className="text-xs font-medium text-gray-500 uppercase">Checking Pool</span>
+              <span className="text-[10px] text-gray-400 font-mono">{checkingAccount?.accountNumber || '•••• 4821'}</span>
             </div>
-            <div className="text-2xl font-bold font-mono text-white mb-1">
+            <div className="text-2xl font-bold font-mono text-gray-900 mb-1">
               {formatCurrency(checkingAccount?.balance || 0)}
             </div>
-            <span className="text-[11px] text-[#94a3b8]">Primary operating account</span>
+            <span className="text-[11px] text-gray-500">Primary operating account</span>
           </div>
 
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-5 shadow-lg">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl p-5 shadow-lg">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-medium text-[#94a3b8] uppercase">High-Yield Savings</span>
-              <PiggyBank className="w-4 h-4 text-emerald-400" />
+              <span className="text-xs font-medium text-gray-500 uppercase">High-Yield Savings</span>
+              <PiggyBank className="w-4 h-4 text-green-600" />
             </div>
-            <div className="text-2xl font-bold font-mono text-emerald-400 mb-1">
+            <div className="text-2xl font-bold font-mono text-green-600 mb-1">
               {formatCurrency(savingsAccount?.balance || 0)}
             </div>
-            <span className="text-[11px] text-[#94a3b8]">4.85% APY Compounding</span>
+            <span className="text-[11px] text-gray-500">4.85% APY Compounding</span>
           </div>
 
-          <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-5 shadow-lg">
+          <div className="bg-gray-100 border border-gray-200 rounded-2xl p-5 shadow-lg">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-medium text-[#94a3b8] uppercase">Active Cards</span>
-              <CreditCard className="w-4 h-4 text-indigo-400" />
+              <span className="text-xs font-medium text-gray-500 uppercase">Active Cards</span>
+              <CreditCard className="w-4 h-4 text-indigo-600" />
             </div>
-            <div className="text-2xl font-bold font-mono text-white mb-1">
+            <div className="text-2xl font-bold font-mono text-gray-900 mb-1">
               {creditCards.length} Cards
             </div>
-            <span className="text-[11px] text-[#94a3b8]">All networks operational</span>
+            <span className="text-[11px] text-gray-500">All networks operational</span>
           </div>
         </div>
 
         {/* Quick Action Matrix */}
-        <div className="bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-lg">
-          <h2 className="text-sm font-semibold text-[#94a3b8] uppercase tracking-wider mb-4">Quick Financial Actions</h2>
+        <div className="bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-lg">
+          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Quick Financial Actions</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3">
             {[
               { label: 'Send Money', href: '/transfers', icon: ArrowUpRight, color: 'text-sky-400' },
-              { label: 'Deposit', href: '/deposits', icon: ArrowDownLeft, color: 'text-emerald-400' },
-              { label: 'Withdraw', href: '/withdrawals', icon: ArrowLeftRight, color: 'text-amber-400' },
+              { label: 'Deposit', href: '/deposits', icon: ArrowDownLeft, color: 'text-green-600' },
+              { label: 'Withdraw', href: '/withdrawals', icon: ArrowLeftRight, color: 'text-amber-600' },
               { label: 'Pay Bills', href: '/payments', icon: Receipt, color: 'text-violet-400' },
               { label: 'Manage Cards', href: '/cards', icon: CreditCard, color: 'text-pink-400' },
               { label: 'Savings Goals', href: '/savings', icon: PiggyBank, color: 'text-teal-400' },
@@ -125,12 +125,12 @@ export default function DashboardPage() {
                 <Link
                   key={action.label}
                   href={action.href}
-                  className="flex flex-col items-center justify-center p-3 rounded-xl bg-[#0b0f19] hover:bg-[#1e293b] border border-[#1e293b] transition-all hover:border-[#38bdf8]/40 group"
+                  className="flex flex-col items-center justify-center p-3 rounded-xl bg-white hover:bg-gray-200 border border-gray-200 transition-all hover:border-[#0a4fa6]/40 group"
                 >
-                  <div className={`p-2.5 rounded-lg bg-[#161e2e] mb-2 group-hover:scale-110 transition-transform ${action.color}`}>
+                  <div className={`p-2.5 rounded-lg bg-gray-100 mb-2 group-hover:scale-110 transition-transform ${action.color}`}>
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-medium text-[#f8fafc] text-center">{action.label}</span>
+                  <span className="text-xs font-medium text-gray-900 text-center">{action.label}</span>
                 </Link>
               )
             })}
@@ -140,11 +140,11 @@ export default function DashboardPage() {
         {/* Account Cards & Recent Transactions */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Accounts Breakdown */}
-          <div className="lg:col-span-1 bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-lg flex flex-col justify-between">
+          <div className="lg:col-span-1 bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-lg flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h2 className="text-base font-bold text-white">Your Accounts</h2>
-                <Link href="/accounts" className="text-xs text-[#38bdf8] hover:underline">
+                <h2 className="text-base font-bold text-gray-900">Your Accounts</h2>
+                <Link href="/accounts" className="text-xs text-[#0a4fa6] hover:underline">
                   View All
                 </Link>
               </div>
@@ -153,42 +153,42 @@ export default function DashboardPage() {
                 {accounts.map((acc) => (
                   <div
                     key={acc.id}
-                    className="p-3.5 rounded-xl bg-[#0b0f19] border border-[#1e293b] flex items-center justify-between"
+                    className="p-3.5 rounded-xl bg-white border border-gray-200 flex items-center justify-between"
                   >
                     <div>
-                      <h3 className="text-sm font-semibold text-white">{acc.name}</h3>
-                      <p className="text-xs text-[#64748b] font-mono">{acc.accountNumber}</p>
+                      <h3 className="text-sm font-semibold text-gray-900">{acc.name}</h3>
+                      <p className="text-xs text-gray-400 font-mono">{acc.accountNumber}</p>
                     </div>
                     <div className="text-right">
-                      <span className="text-sm font-bold font-mono text-white block">
+                      <span className="text-sm font-bold font-mono text-gray-900 block">
                         {formatCurrency(acc.balance)}
                       </span>
-                      <span className="text-[10px] text-emerald-400">Available</span>
+                      <span className="text-[10px] text-green-600">Available</span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#1e293b]">
+            <div className="mt-6 pt-4 border-t border-gray-200">
               <Link
                 href="/accounts"
-                className="w-full py-2.5 bg-[#0b0f19] hover:bg-[#1e293b] text-white border border-[#1e293b] text-xs font-semibold rounded-xl flex items-center justify-center gap-2 transition-colors"
+                className="w-full py-2.5 bg-white hover:bg-gray-200 text-gray-900 border border-gray-200 text-xs font-semibold rounded-xl flex items-center justify-center gap-2 transition-colors"
               >
-                <Plus className="w-3.5 h-3.5 text-[#38bdf8]" />
+                <Plus className="w-3.5 h-3.5 text-[#0a4fa6]" />
                 <span>Open New Account Product</span>
               </Link>
             </div>
           </div>
 
           {/* Recent Activity Table */}
-          <div className="lg:col-span-2 bg-[#161e2e] border border-[#1e293b] rounded-2xl p-6 shadow-lg">
+          <div className="lg:col-span-2 bg-gray-100 border border-gray-200 rounded-2xl p-6 shadow-lg">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h2 className="text-base font-bold text-white">Recent Transactions</h2>
-                <p className="text-xs text-[#94a3b8]">Real-time ledger audit trail</p>
+                <h2 className="text-base font-bold text-gray-900">Recent Transactions</h2>
+                <p className="text-xs text-gray-500">Real-time ledger audit trail</p>
               </div>
-              <Link href="/transactions" className="text-xs text-[#38bdf8] hover:underline">
+              <Link href="/transactions" className="text-xs text-[#0a4fa6] hover:underline">
                 Full History
               </Link>
             </div>
@@ -196,7 +196,7 @@ export default function DashboardPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
-                  <tr className="border-b border-[#1e293b] text-[#64748b] uppercase">
+                  <tr className="border-b border-gray-200 text-gray-400 uppercase">
                     <th className="pb-3 font-semibold">Description</th>
                     <th className="pb-3 font-semibold">Category</th>
                     <th className="pb-3 font-semibold">Date</th>
@@ -207,22 +207,22 @@ export default function DashboardPage() {
                   {recentTransactions.map((tx) => {
                     const isPositive = tx.amount > 0
                     return (
-                      <tr key={tx.id} className="hover:bg-[#0b0f19]/40 transition-colors">
-                        <td className="py-3 font-medium text-white flex items-center gap-2">
+                      <tr key={tx.id} className="hover:bg-white/40 transition-colors">
+                        <td className="py-3 font-medium text-gray-900 flex items-center gap-2">
                           <div
                             className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                              isPositive ? 'bg-emerald-500/10 text-emerald-400' : 'bg-red-500/10 text-red-400'
+                              isPositive ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
                             }`}
                           >
                             {isPositive ? <ArrowDownLeft className="w-3.5 h-3.5" /> : <ArrowUpRight className="w-3.5 h-3.5" />}
                           </div>
                           <span className="truncate max-w-[160px] sm:max-w-xs">{tx.description}</span>
                         </td>
-                        <td className="py-3 text-[#94a3b8]">{tx.category || 'General'}</td>
-                        <td className="py-3 text-[#64748b]">{tx.date}</td>
+                        <td className="py-3 text-gray-500">{tx.category || 'General'}</td>
+                        <td className="py-3 text-gray-400">{tx.date}</td>
                         <td
                           className={`py-3 text-right font-mono font-bold ${
-                            isPositive ? 'text-emerald-400' : 'text-white'
+                            isPositive ? 'text-green-600' : 'text-gray-900'
                           }`}
                         >
                           {isPositive ? '+' : ''}

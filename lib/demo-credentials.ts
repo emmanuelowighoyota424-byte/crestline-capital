@@ -5,12 +5,12 @@
 export const DEMO_CREDENTIALS = {
   firstName: "Alex",
   lastName: "Morgan",
-  email: "alex.morgan@crestline.demo",
+  email: "alex.morgan@chase.demo",
   username: "Alex Morgan",
   // This is a bcrypt hash - replace with actual hash in production
   passwordHash: "$2b$10$YourHashedPasswordHere",
   // Plain text ONLY for reference - NEVER store this
-  passwordPlain: "Crestline2024!",
+  passwordPlain: "Chase2024!",
 }
 
 export const DEMO_ACCOUNTS = [

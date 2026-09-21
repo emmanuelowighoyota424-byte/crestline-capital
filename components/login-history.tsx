@@ -219,7 +219,7 @@ export function LoginHistory() {
                   {record.suspiciousFlags.length > 0 && (
                     <Button
                       size="sm"
-                      className="w-full bg-red-600 hover:bg-red-700 text-white mt-3"
+                      className="w-full bg-red-600 hover:bg-red-700 text-gray-900 mt-3"
                       onClick={e => {
                         e.stopPropagation()
                         // Handle suspicious login action

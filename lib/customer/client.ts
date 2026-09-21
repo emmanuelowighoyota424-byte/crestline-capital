@@ -9,7 +9,7 @@
  * keeps working either way.
  */
 
-export const CUSTOMER_TOKEN_KEY = "crestline_session_token"
+export const CUSTOMER_TOKEN_KEY = "chase_session_token"
 
 export interface CustomerIdentity {
   id: string
@@ -52,11 +52,11 @@ export function customerSessionHeaders(extra?: Record<string, string>): Record<s
 /** Cache the identity where the signed-in shell reads it. */
 export function persistIdentity(customer: CustomerIdentity): void {
   try {
-    localStorage.setItem("crestline_logged_in", "true")
-    localStorage.setItem("crestline_user_id", String(customer.id ?? ""))
-    localStorage.setItem("crestline_user_name", String(customer.name ?? ""))
-    localStorage.setItem("crestline_user_email", String(customer.email ?? ""))
-    localStorage.setItem("crestline_last_login", new Date().toISOString())
+    localStorage.setItem("chase_logged_in", "true")
+    localStorage.setItem("chase_user_id", String(customer.id ?? ""))
+    localStorage.setItem("chase_user_name", String(customer.name ?? ""))
+    localStorage.setItem("chase_user_email", String(customer.email ?? ""))
+    localStorage.setItem("chase_last_login", new Date().toISOString())
   } catch {
     // Storage unavailable — the session itself is unaffected.
   }
@@ -167,10 +167,10 @@ export async function signOut(): Promise<void> {
 
   clearCustomerToken()
   try {
-    localStorage.removeItem("crestline_logged_in")
-    localStorage.removeItem("crestline_user_id")
-    localStorage.removeItem("crestline_user_name")
-    localStorage.removeItem("crestline_user_email")
+    localStorage.removeItem("chase_logged_in")
+    localStorage.removeItem("chase_user_id")
+    localStorage.removeItem("chase_user_name")
+    localStorage.removeItem("chase_user_email")
   } catch {
     // Nothing to clear.
   }

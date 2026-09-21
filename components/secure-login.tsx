@@ -338,7 +338,7 @@ export function SecureLogin({ onLogin }: SecureLoginProps) {
             <Button
               onClick={handleTOTPVerify}
               disabled={isLoading || totp.length !== 6}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
             >
               {isLoading ? 'Verifying...' : 'Verify'}
             </Button>
@@ -358,8 +358,8 @@ export function SecureLogin({ onLogin }: SecureLoginProps) {
         <Card className="w-full max-w-md p-8 shadow-2xl">
           <div className="text-center mb-8">
             <Image 
-              src="/images/Crestline-logo.png" 
-              alt="Crestline Capital" 
+              src="/images/Chase-logo.png" 
+              alt="Chase" 
               width={64} 
               height={64} 
               className="mx-auto mb-4 rounded-lg"
@@ -392,7 +392,7 @@ export function SecureLogin({ onLogin }: SecureLoginProps) {
             <Button
               onClick={handleOTPVerify}
               disabled={isLoading || otp.length !== 6}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
             >
               {isLoading ? 'Verifying...' : 'Verify & Login'}
             </Button>
@@ -414,8 +414,8 @@ export function SecureLogin({ onLogin }: SecureLoginProps) {
       <Card className="w-full max-w-md p-8 shadow-2xl">
         <div className="text-center mb-8">
           <Image 
-            src="/images/Crestline-logo.png" 
-            alt="Crestline Capital" 
+            src="/images/Chase-logo.png" 
+            alt="Chase" 
             width={64} 
             height={64} 
             className="mx-auto mb-4 rounded-lg"
@@ -492,7 +492,7 @@ export function SecureLogin({ onLogin }: SecureLoginProps) {
           <Button
             onClick={handleLogin}
             disabled={isLoading || !email || !password}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold h-10"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900 font-semibold h-10"
           >
             {isLoading ? 'Authenticating...' : 'Sign In Securely'}
           </Button>

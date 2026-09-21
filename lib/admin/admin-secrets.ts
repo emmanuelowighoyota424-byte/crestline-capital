@@ -1,5 +1,5 @@
 /**
- * Crestline Capital - Admin Server-Side Secrets
+ * Chase - Admin Server-Side Secrets
  *
  * ⚠️  SERVER-ONLY: This file must NEVER be imported from client components ('use client').
  * It contains credentials that must never reach the browser bundle.

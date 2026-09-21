@@ -1,5 +1,5 @@
 /**
- * Crestline Capital Server-Side RBAC (Role-Based Access Control)
+ * Chase Server-Side RBAC (Role-Based Access Control)
  *
  * Enforces least-privilege administrative access and prevents privilege escalation.
  */

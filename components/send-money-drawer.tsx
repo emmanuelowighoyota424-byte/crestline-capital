@@ -159,7 +159,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
     setIsLoading(true)
     setStep("confirm")
 
-    // Call real Crestline Capital Bank Zelle API
+    // Call real Chase Bank Zelle API
     fetch('/api/transfers', {
       method: 'POST',
       headers: {
@@ -261,8 +261,8 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
       }}
     >
       <DrawerContent className="h-[85vh]">
-        <DrawerHeader className="bg-[#0a4fa6] text-white rounded-t-lg">
-          <DrawerTitle className="text-white">Send with Zelle®</DrawerTitle>
+        <DrawerHeader className="bg-[#0a4fa6] text-gray-900 rounded-t-lg">
+          <DrawerTitle className="text-gray-900">Send with Zelle®</DrawerTitle>
           <div className="flex items-center gap-2 mt-2">
             {["select", "amount", "confirm", "success"].map((s, i) => (
               <div
@@ -313,7 +313,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
                       className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted cursor-pointer transition-colors border"
                       onClick={() => handleSelectContact(contact)}
                     >
-                      <div className="h-10 w-10 rounded-full bg-[#0a4fa6] flex items-center justify-center text-sm font-medium text-white">
+                      <div className="h-10 w-10 rounded-full bg-[#0a4fa6] flex items-center justify-center text-sm font-medium text-gray-900">
                         {contact.avatar}
                       </div>
                       <div className="flex-1">
@@ -400,7 +400,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
           {step === "amount" && (
             <div className="space-y-4">
               <div className="flex items-center gap-3 p-4 bg-muted rounded-lg">
-                <div className="h-12 w-12 rounded-full bg-[#0a4fa6] flex items-center justify-center text-lg font-medium text-white">
+                <div className="h-12 w-12 rounded-full bg-[#0a4fa6] flex items-center justify-center text-lg font-medium text-gray-900">
                   {selectedContact?.avatar || <User className="h-6 w-6" />}
                 </div>
                 <div>
@@ -496,7 +496,7 @@ export function SendMoneyDrawer({ open, onOpenChange, onReceiptOpen }: SendMoney
             <div className="space-y-4 py-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle2 className="h-8 w-8 text-white" />
+                  <CheckCircle2 className="h-8 w-8 text-gray-900" />
                 </div>
                 <h3 className="text-xl font-semibold text-green-600">Money Sent!</h3>
                 <p className="text-muted-foreground mt-2">

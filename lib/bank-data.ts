@@ -1,4 +1,4 @@
-// Comprehensive bank data with 4,558+ US banks and all Crestline Capital routing numbers by state
+// Comprehensive bank data with 4,558+ US banks and all Chase routing numbers by state
 export type Bank = {
   id: string
   name: string
@@ -8,7 +8,7 @@ export type Bank = {
   type: "national" | "regional" | "local"
 }
 
-// Crestline Capital Bank routing numbers by state and transaction type
+// Chase Bank routing numbers by state and transaction type
 export const CRESTLINE_ROUTING_NUMBERS = {
   // Domestic and International Wire
   wireTransfer: "021000021",
@@ -203,8 +203,8 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
       type: "national",
     },
     {
-      id: "Crestline_ct",
-      name: "Crestline Capital Bank",
+      id: "Chase_ct",
+      name: "Chase Bank",
       routing: "021100361",
       region: "Northeast",
       state: "Connecticut",
@@ -247,16 +247,16 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
 
     // New York
     {
-      id: "Crestline_ny_ds",
-      name: "Crestline Capital Bank (Downstate)",
+      id: "Chase_ny_ds",
+      name: "Chase Bank (Downstate)",
       routing: "021000021",
       region: "Northeast",
       state: "New York",
       type: "national",
     },
     {
-      id: "Crestline_ny_us",
-      name: "Crestline Capital Bank (Upstate)",
+      id: "Chase_ny_us",
+      name: "Chase Bank (Upstate)",
       routing: "022300173",
       region: "Northeast",
       state: "New York",
@@ -308,8 +308,8 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
 
     // New Jersey
     {
-      id: "Crestline_nj",
-      name: "Crestline Capital Bank",
+      id: "Chase_nj",
+      name: "Chase Bank",
       routing: "021202337",
       region: "Northeast",
       state: "New Jersey",
@@ -403,8 +403,8 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
   midwest: [
     // Illinois
     {
-      id: "Crestline_il",
-      name: "Crestline Capital Bank",
+      id: "Chase_il",
+      name: "Chase Bank",
       routing: "071000013",
       region: "Midwest",
       state: "Illinois",
@@ -456,8 +456,8 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
 
     // Michigan
     {
-      id: "Crestline_mi",
-      name: "Crestline Capital Bank",
+      id: "Chase_mi",
+      name: "Chase Bank",
       routing: "072000326",
       region: "Midwest",
       state: "Michigan",
@@ -507,7 +507,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Ohio
-    { id: "Crestline_oh", name: "Crestline Capital Bank", routing: "044000037", region: "Midwest", state: "Ohio", type: "national" },
+    { id: "Chase_oh", name: "Chase Bank", routing: "044000037", region: "Midwest", state: "Ohio", type: "national" },
     { id: "hb_oh", name: "Huntington Bank", routing: "044000024", region: "Midwest", state: "Ohio", type: "regional" },
     { id: "kb", name: "KeyBank", routing: "041001039", region: "Midwest", state: "Ohio", type: "regional" },
     { id: "pnc_oh", name: "PNC Bank", routing: "041000124", region: "Midwest", state: "Ohio", type: "national" },
@@ -532,8 +532,8 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
 
     // Wisconsin
     {
-      id: "Crestline_wi",
-      name: "Crestline Capital Bank",
+      id: "Chase_wi",
+      name: "Chase Bank",
       routing: "075000019",
       region: "Midwest",
       state: "Wisconsin",
@@ -588,7 +588,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Indiana
-    { id: "Crestline_in", name: "Crestline Capital Bank", routing: "074000010", region: "Midwest", state: "Indiana", type: "national" },
+    { id: "Chase_in", name: "Chase Bank", routing: "074000010", region: "Midwest", state: "Indiana", type: "national" },
     {
       id: "fifth_third_in",
       name: "Fifth Third Bank",
@@ -755,7 +755,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
 
   south: [
     // Texas
-    { id: "Crestline_tx", name: "Crestline Capital Bank", routing: "111000614", region: "South", state: "Texas", type: "national" },
+    { id: "Chase_tx", name: "Chase Bank", routing: "111000614", region: "South", state: "Texas", type: "national" },
     { id: "wf_tx", name: "Wells Fargo", routing: "111900659", region: "South", state: "Texas", type: "national" },
     { id: "boa_tx", name: "Bank of America", routing: "111000025", region: "South", state: "Texas", type: "national" },
     { id: "citi_tx", name: "Citibank", routing: "113193532", region: "South", state: "Texas", type: "national" },
@@ -811,7 +811,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Florida
-    { id: "Crestline_fl", name: "Crestline Capital Bank", routing: "267084131", region: "South", state: "Florida", type: "national" },
+    { id: "Chase_fl", name: "Chase Bank", routing: "267084131", region: "South", state: "Florida", type: "national" },
     { id: "wf_fl", name: "Wells Fargo", routing: "063107513", region: "South", state: "Florida", type: "national" },
     {
       id: "boa_fl",
@@ -858,7 +858,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Georgia
-    { id: "Crestline_ga", name: "Crestline Capital Bank", routing: "061092387", region: "South", state: "Georgia", type: "national" },
+    { id: "Chase_ga", name: "Chase Bank", routing: "061092387", region: "South", state: "Georgia", type: "national" },
     { id: "truist_ga", name: "Truist Bank", routing: "061000104", region: "South", state: "Georgia", type: "regional" },
     {
       id: "regions_ga",
@@ -1074,7 +1074,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     { id: "avenue_tn", name: "Avenue Bank", routing: "064205424", region: "South", state: "Tennessee", type: "local" },
 
     // Louisiana
-    { id: "Crestline_la", name: "Crestline Capital Bank", routing: "065400137", region: "South", state: "Louisiana", type: "national" },
+    { id: "Chase_la", name: "Chase Bank", routing: "065400137", region: "South", state: "Louisiana", type: "national" },
     {
       id: "regions_la",
       name: "Regions Bank",
@@ -1177,7 +1177,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Kentucky
-    { id: "Crestline_ky", name: "Crestline Capital Bank", routing: "083000137", region: "South", state: "Kentucky", type: "national" },
+    { id: "Chase_ky", name: "Chase Bank", routing: "083000137", region: "South", state: "Kentucky", type: "national" },
     { id: "pnc_ky", name: "PNC Bank", routing: "083000108", region: "South", state: "Kentucky", type: "national" },
     {
       id: "fifth_third_ky",
@@ -1205,7 +1205,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Oklahoma
-    { id: "Crestline_ok", name: "Crestline Capital Bank", routing: "103000648", region: "South", state: "Oklahoma", type: "national" },
+    { id: "Chase_ok", name: "Chase Bank", routing: "103000648", region: "South", state: "Oklahoma", type: "national" },
     { id: "bok_ok", name: "BOK Financial", routing: "103900036", region: "South", state: "Oklahoma", type: "regional" },
     {
       id: "midfirst_ok",
@@ -1294,8 +1294,8 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
 
     // West Virginia
     {
-      id: "Crestline_wv",
-      name: "Crestline Capital Bank",
+      id: "Chase_wv",
+      name: "Chase Bank",
       routing: "051900366",
       region: "South",
       state: "West Virginia",
@@ -1329,7 +1329,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
 
   west: [
     // California
-    { id: "Crestline_ca", name: "Crestline Capital Bank", routing: "322271627", region: "West", state: "California", type: "national" },
+    { id: "Chase_ca", name: "Chase Bank", routing: "322271627", region: "West", state: "California", type: "national" },
     {
       id: "boa_ca",
       name: "Bank of America",
@@ -1400,7 +1400,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Washington
-    { id: "Crestline_wa", name: "Crestline Capital Bank", routing: "325070760", region: "West", state: "Washington", type: "national" },
+    { id: "Chase_wa", name: "Chase Bank", routing: "325070760", region: "West", state: "Washington", type: "national" },
     {
       id: "boa_wa",
       name: "Bank of America",
@@ -1445,7 +1445,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Oregon
-    { id: "Crestline_or", name: "Crestline Capital Bank", routing: "325070760", region: "West", state: "Oregon", type: "national" },
+    { id: "Chase_or", name: "Chase Bank", routing: "325070760", region: "West", state: "Oregon", type: "national" },
     { id: "boa_or", name: "Bank of America", routing: "121000358", region: "West", state: "Oregon", type: "national" },
     { id: "wf_or", name: "Wells Fargo", routing: "123006800", region: "West", state: "Oregon", type: "national" },
     { id: "usb_or", name: "U.S. Bank", routing: "123000220", region: "West", state: "Oregon", type: "national" },
@@ -1461,7 +1461,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Arizona
-    { id: "Crestline_az", name: "Crestline Capital Bank", routing: "122100024", region: "West", state: "Arizona", type: "national" },
+    { id: "Chase_az", name: "Chase Bank", routing: "122100024", region: "West", state: "Arizona", type: "national" },
     { id: "boa_az", name: "Bank of America", routing: "122101706", region: "West", state: "Arizona", type: "national" },
     { id: "wf_az", name: "Wells Fargo", routing: "122105278", region: "West", state: "Arizona", type: "national" },
     { id: "usb_az", name: "U.S. Bank", routing: "122105155", region: "West", state: "Arizona", type: "national" },
@@ -1491,7 +1491,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Nevada
-    { id: "Crestline_nv", name: "Crestline Capital Bank", routing: "322271627", region: "West", state: "Nevada", type: "national" },
+    { id: "Chase_nv", name: "Chase Bank", routing: "322271627", region: "West", state: "Nevada", type: "national" },
     { id: "wf_nv", name: "Wells Fargo", routing: "121042882", region: "West", state: "Nevada", type: "national" },
     { id: "boa_nv", name: "Bank of America", routing: "121000358", region: "West", state: "Nevada", type: "national" },
     { id: "usb_nv", name: "U.S. Bank", routing: "121201694", region: "West", state: "Nevada", type: "national" },
@@ -1514,7 +1514,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Colorado
-    { id: "Crestline_co", name: "Crestline Capital Bank", routing: "102001017", region: "West", state: "Colorado", type: "national" },
+    { id: "Chase_co", name: "Chase Bank", routing: "102001017", region: "West", state: "Colorado", type: "national" },
     { id: "wf_co", name: "Wells Fargo", routing: "102000076", region: "West", state: "Colorado", type: "national" },
     {
       id: "boa_co",
@@ -1544,7 +1544,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     },
 
     // Utah
-    { id: "Crestline_ut", name: "Crestline Capital Bank", routing: "124001545", region: "West", state: "Utah", type: "national" },
+    { id: "Chase_ut", name: "Chase Bank", routing: "124001545", region: "West", state: "Utah", type: "national" },
     { id: "wf_ut", name: "Wells Fargo", routing: "124002971", region: "West", state: "Utah", type: "national" },
     { id: "usb_ut", name: "U.S. Bank", routing: "124000025", region: "West", state: "Utah", type: "national" },
     { id: "zions_ut", name: "Zions Bank", routing: "124000054", region: "West", state: "Utah", type: "regional" },
@@ -1559,7 +1559,7 @@ export const BANKS_BY_REGION: Record<string, Bank[]> = {
     { id: "key_ut", name: "KeyBank", routing: "124000737", region: "West", state: "Utah", type: "regional" },
 
     // Idaho
-    { id: "Crestline_id", name: "Crestline Capital Bank", routing: "123271978", region: "West", state: "Idaho", type: "national" },
+    { id: "Chase_id", name: "Chase Bank", routing: "123271978", region: "West", state: "Idaho", type: "national" },
     { id: "wf_id", name: "Wells Fargo", routing: "124103799", region: "West", state: "Idaho", type: "national" },
     { id: "usb_id", name: "U.S. Bank", routing: "123000220", region: "West", state: "Idaho", type: "national" },
     { id: "zions_id", name: "Zions Bank", routing: "124000054", region: "West", state: "Idaho", type: "regional" },
@@ -1729,8 +1729,8 @@ export function getBanksByState(state: string): Bank[] {
   return ALL_BANKS.filter((bank) => bank.state.toLowerCase() === state.toLowerCase())
 }
 
-// Helper to get Crestline Capital routing number by state
-export function getCrestlineRoutingByState(state: string): string | null {
+// Helper to get Chase routing number by state
+export function getChaseRoutingByState(state: string): string | null {
   return CRESTLINE_ROUTING_NUMBERS.states[state as keyof typeof CRESTLINE_ROUTING_NUMBERS.states] || null
 }
 

@@ -4,8 +4,8 @@ import type React from "react"
 import Link from "next/link"
 import { CreditCard, Lock, ShieldCheck, Zap } from "lucide-react"
 
-/** The Crestline mark, shared by both auth surfaces. */
-export function CrestlineMark({ size = 40 }: { size?: number }) {
+/** The Chase mark, shared by both auth surfaces. */
+export function ChaseMark({ size = 40 }: { size?: number }) {
   return (
     <div
       className="flex items-center justify-center rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] shadow-[0_8px_30px_rgba(56,189,248,0.35)]"
@@ -66,10 +66,10 @@ export function AuthShell({
   footer: React.ReactNode
 }) {
   return (
-    <div className="relative min-h-screen bg-[#0b0f19] text-[#f8fafc]">
+    <div className="relative min-h-screen bg-white text-gray-900">
       {/* Ambient background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-[#38bdf8]/10 blur-[120px]" />
+        <div className="absolute -top-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-[#0a4fa6]/10 blur-[120px]" />
         <div className="absolute bottom-0 right-0 h-[26rem] w-[26rem] rounded-full bg-[#818cf8]/10 blur-[120px]" />
         <div className="auth-grid absolute inset-0 opacity-[0.35]" />
       </div>
@@ -78,19 +78,19 @@ export function AuthShell({
         {/* Brand panel */}
         <div className="hidden flex-col justify-between px-10 py-12 lg:flex xl:px-16">
           <Link href="/" className="flex items-center gap-3">
-            <CrestlineMark />
-            <span className="text-lg font-bold tracking-tight">Crestline Capital</span>
+            <ChaseMark />
+            <span className="text-lg font-bold tracking-tight">Chase</span>
           </Link>
 
           <div className="max-w-lg">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#38bdf8]">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#0a4fa6]">
               Digital banking
             </p>
             <h1 className="text-4xl font-bold leading-tight xl:text-5xl">
               Banking that keeps up with{" "}
-              <span className="crestline-text-gradient">every move you make</span>
+              <span className="chase-text-gradient">every move you make</span>
             </h1>
-            <p className="mt-5 text-base leading-relaxed text-[#94a3b8]">
+            <p className="mt-5 text-base leading-relaxed text-gray-500">
               Checking, savings, cards and payments in one account — with the controls
               you would expect from a modern bank.
             </p>
@@ -98,19 +98,19 @@ export function AuthShell({
             <ul className="mt-10 space-y-5">
               {HIGHLIGHTS.map(({ icon: Icon, title: heading, body }) => (
                 <li key={heading} className="flex gap-4">
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#1e293b] bg-[#161e2e]/80">
-                    <Icon className="h-4 w-4 text-[#38bdf8]" />
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-gray-100/80">
+                    <Icon className="h-4 w-4 text-[#0a4fa6]" />
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold text-[#f8fafc]">{heading}</span>
-                    <span className="block text-sm text-[#94a3b8]">{body}</span>
+                    <span className="block text-sm font-semibold text-gray-900">{heading}</span>
+                    <span className="block text-sm text-gray-500">{body}</span>
                   </span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <p className="flex items-center gap-2 text-xs text-[#64748b]">
+          <p className="flex items-center gap-2 text-xs text-gray-400">
             <Lock className="h-3.5 w-3.5" />
             Sandbox environment — demo data only, no real funds are held or moved.
           </p>
@@ -120,21 +120,21 @@ export function AuthShell({
         <div className="flex items-center justify-center px-5 py-10 sm:px-8 lg:px-10">
           <div className="w-full max-w-md">
             <Link href="/" className="mb-8 flex items-center gap-3 lg:hidden">
-              <CrestlineMark size={36} />
-              <span className="text-base font-bold tracking-tight">Crestline Capital</span>
+              <ChaseMark size={36} />
+              <span className="text-base font-bold tracking-tight">Chase</span>
             </Link>
 
             <div className="glass-card p-6 shadow-[0_24px_70px_rgba(2,6,23,0.55)] sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#38bdf8]">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#0a4fa6]">
                 {eyebrow}
               </p>
               <h2 className="mt-3 text-2xl font-bold tracking-tight">{title}</h2>
-              <p className="mt-2 text-sm text-[#94a3b8]">{subtitle}</p>
+              <p className="mt-2 text-sm text-gray-500">{subtitle}</p>
 
               <div className="mt-7">{children}</div>
             </div>
 
-            <div className="mt-6 text-center text-sm text-[#94a3b8]">{footer}</div>
+            <div className="mt-6 text-center text-sm text-gray-500">{footer}</div>
           </div>
         </div>
       </div>

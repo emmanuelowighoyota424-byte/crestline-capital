@@ -29,7 +29,7 @@ export async function GET() {
   return NextResponse.json({
     // The app process itself is up; per-dependency state is reported below.
     status: "healthy",
-    application: "Crestline Capital",
+    application: "Chase",
     version: "1.0.0",
     timestamp: new Date().toISOString(),
     checks,

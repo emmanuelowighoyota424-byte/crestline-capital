@@ -111,7 +111,7 @@ export function RealtimeAccountDashboard({
             </div>
             <button
               onClick={() => setShowBalances(!showBalances)}
-              className="p-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+              className="p-3 rounded-full bg-blue-600 text-gray-900 hover:bg-blue-700 transition-colors"
             >
               {showBalances ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
             </button>
@@ -149,7 +149,7 @@ export function RealtimeAccountDashboard({
               <p className="text-gray-500 mb-4">No accounts yet</p>
               <Button
                 onClick={() => setActiveTab('add')}
-                className="bg-blue-600 hover:bg-blue-700 text-white"
+                className="bg-blue-600 hover:bg-blue-700 text-gray-900"
               >
                 Create Your First Account
               </Button>
@@ -272,7 +272,7 @@ export function RealtimeAccountDashboard({
             <Button
               onClick={handleCreateAccount}
               disabled={isCreating}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
             >
               {isCreating ? 'Creating...' : 'Create Account'}
             </Button>

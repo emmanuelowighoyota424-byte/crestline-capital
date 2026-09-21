@@ -1,5 +1,5 @@
 /**
- * Crestline Capital Double-Entry Ledger Engine
+ * Chase Double-Entry Ledger Engine
  *
  * Enforces fundamental accounting equation:
  * SUM(DEBITS) === SUM(CREDITS)
@@ -63,7 +63,7 @@ class LedgerStore {
   private seedDefaultAccounts() {
     const defaultAccounts: LedgerAccount[] = [
       // Assets
-      { id: 'acc_vault', code: '1000-VAULT', name: 'Crestline Reserve Vault', type: 'ASSET', currency: 'USD', balance: 5000000000, allowOverdraft: true },
+      { id: 'acc_vault', code: '1000-VAULT', name: 'Chase Reserve Vault', type: 'ASSET', currency: 'USD', balance: 5000000000, allowOverdraft: true },
       { id: 'acc_fed_clearing', code: '1010-FED-CLEARING', name: 'Federal Reserve Clearing Account', type: 'ASSET', currency: 'USD', balance: 2500000000, allowOverdraft: true },
       { id: 'acc_card_clearing', code: '1020-CARD-CLEARING', name: 'Card Network Settlement', type: 'ASSET', currency: 'USD', balance: 1000000000, allowOverdraft: true },
       

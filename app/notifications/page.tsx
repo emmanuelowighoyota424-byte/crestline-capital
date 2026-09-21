@@ -20,22 +20,22 @@ export default function NotificationsPage() {
       <div className="max-w-3xl mx-auto space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-white">Security & Account Notifications</h1>
-            <p className="text-sm text-[#94a3b8] mt-1">
+            <h1 className="text-2xl font-bold text-gray-900">Security & Account Notifications</h1>
+            <p className="text-sm text-gray-500 mt-1">
               Real-time transaction alerts, fraud alerts, and compliance status updates.
             </p>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => notifications.forEach((n) => markNotificationAsRead(n.id))}
-              className="px-3 py-2 bg-[#161e2e] hover:bg-[#1e293b] text-[#94a3b8] hover:text-white border border-[#1e293b] text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-colors"
+              className="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-900 border border-gray-200 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-colors"
             >
-              <Check className="w-3.5 h-3.5 text-[#38bdf8]" />
+              <Check className="w-3.5 h-3.5 text-[#0a4fa6]" />
               <span>Mark All Read</span>
             </button>
             <button
               onClick={clearNotifications}
-              className="px-3 py-2 bg-[#161e2e] hover:bg-red-500/10 text-[#94a3b8] hover:text-red-400 border border-[#1e293b] text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-colors"
+              className="px-3 py-2 bg-gray-100 hover:bg-red-100 text-gray-500 hover:text-red-600 border border-gray-200 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition-colors"
             >
               <Trash2 className="w-3.5 h-3.5" />
               <span>Clear</span>
@@ -55,8 +55,8 @@ export default function NotificationsPage() {
               onClick={() => setFilter(f.id as any)}
               className={`px-3 py-1.5 text-xs rounded-xl font-medium transition-all ${
                 filter === f.id
-                  ? 'bg-[#38bdf8] text-[#0b0f19] font-semibold'
-                  : 'bg-[#161e2e] text-[#94a3b8] hover:text-white border border-[#1e293b]'
+                  ? 'bg-[#0a4fa6] text-gray-900 font-semibold'
+                  : 'bg-gray-100 text-gray-500 hover:text-gray-900 border border-gray-200'
               }`}
             >
               {f.label}
@@ -73,18 +73,18 @@ export default function NotificationsPage() {
                 onClick={() => markNotificationAsRead(item.id)}
                 className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-start justify-between gap-4 ${
                   !item.read
-                    ? 'bg-[#161e2e] border-[#38bdf8]/40 shadow-[0_0_15px_rgba(56,189,248,0.05)]'
-                    : 'bg-[#161e2e]/50 border-[#1e293b] opacity-80'
+                    ? 'bg-gray-100 border-[#0a4fa6]/40 shadow-[0_0_15px_rgba(56,189,248,0.05)]'
+                    : 'bg-gray-100/50 border-gray-200 opacity-80'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div
                     className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 ${
                       item.type === 'alert'
-                        ? 'bg-red-500/10 text-red-400'
+                        ? 'bg-red-100 text-red-600'
                         : item.type === 'warning'
-                        ? 'bg-amber-500/10 text-amber-400'
-                        : 'bg-[#38bdf8]/10 text-[#38bdf8]'
+                        ? 'bg-amber-100 text-amber-600'
+                        : 'bg-[#0a4fa6]/10 text-[#0a4fa6]'
                     }`}
                   >
                     {item.type === 'alert' ? (
@@ -97,21 +97,21 @@ export default function NotificationsPage() {
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-0.5">
-                      <h3 className="text-sm font-semibold text-white">{item.title}</h3>
+                      <h3 className="text-sm font-semibold text-gray-900">{item.title}</h3>
                       {!item.read && (
-                        <span className="w-2 h-2 rounded-full bg-[#38bdf8] shrink-0" />
+                        <span className="w-2 h-2 rounded-full bg-[#0a4fa6] shrink-0" />
                       )}
                     </div>
-                    <p className="text-xs text-[#94a3b8] leading-relaxed">{item.message}</p>
-                    <span className="text-[10px] text-[#64748b] mt-2 block">{item.date}</span>
+                    <p className="text-xs text-gray-500 leading-relaxed">{item.message}</p>
+                    <span className="text-[10px] text-gray-400 mt-2 block">{item.date}</span>
                   </div>
                 </div>
               </div>
             ))
           ) : (
-            <div className="text-center py-12 bg-[#161e2e] border border-[#1e293b] rounded-2xl">
-              <Bell className="w-8 h-8 text-[#64748b] mx-auto mb-2" />
-              <p className="text-sm text-[#94a3b8]">No notifications matching current filter.</p>
+            <div className="text-center py-12 bg-gray-100 border border-gray-200 rounded-2xl">
+              <Bell className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+              <p className="text-sm text-gray-500">No notifications matching current filter.</p>
             </div>
           )}
         </div>

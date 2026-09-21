@@ -208,7 +208,7 @@ export function TwoFactorSetup({ email, onComplete, onCancel }: TwoFactorSetupPr
             <Button
               onClick={() => setStep('verify')}
               disabled={isLoading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
             >
               Next: Verify Code
             </Button>
@@ -262,7 +262,7 @@ export function TwoFactorSetup({ email, onComplete, onCancel }: TwoFactorSetupPr
               <Button
                 onClick={handleVerifyCode}
                 disabled={isLoading || verificationCode.length !== 6}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
               >
                 {isLoading ? 'Verifying...' : 'Verify Code'}
               </Button>
@@ -341,7 +341,7 @@ export function TwoFactorSetup({ email, onComplete, onCancel }: TwoFactorSetupPr
               <Button
                 onClick={handleBackupCodes}
                 disabled={isLoading}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
               >
                 {isLoading ? 'Enabling 2FA...' : 'Complete Setup'}
               </Button>
@@ -376,7 +376,7 @@ export function TwoFactorSetup({ email, onComplete, onCancel }: TwoFactorSetupPr
           </div>
           <Button
             onClick={() => onCancel?.()}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
           >
             Done
           </Button>

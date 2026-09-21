@@ -286,7 +286,7 @@ export function AuthenticationSettings() {
               <Button
                 onClick={() => fileInputRef.current?.click()}
                 disabled={uploading}
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                className="w-full bg-purple-600 hover:bg-purple-700 text-gray-900"
               >
                 {uploading ? 'Uploading...' : 'Change Picture'}
               </Button>
@@ -326,7 +326,7 @@ export function AuthenticationSettings() {
               <Button
                 onClick={() => setShow2FASetup(true)}
                 disabled={isLoading}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
               >
                 Setup TOTP 2FA
               </Button>
@@ -465,7 +465,7 @@ export function AuthenticationSettings() {
             {!showPasswordForm ? (
               <Button
                 onClick={() => setShowPasswordForm(true)}
-                className="mt-4 bg-purple-600 hover:bg-purple-700 text-white"
+                className="mt-4 bg-purple-600 hover:bg-purple-700 text-gray-900"
               >
                 Change Password
               </Button>
@@ -488,7 +488,7 @@ export function AuthenticationSettings() {
                   <Button
                     onClick={handleChangePassword}
                     disabled={isLoading || !currentPassword}
-                    className="flex-1 bg-purple-600 hover:bg-purple-700 text-white"
+                    className="flex-1 bg-purple-600 hover:bg-purple-700 text-gray-900"
                   >
                     {isLoading ? 'Verifying...' : 'Verify & Continue'}
                   </Button>
@@ -521,7 +521,7 @@ export function AuthenticationSettings() {
             <Button
               onClick={handleLogoutAllDevices}
               disabled={isLoading}
-              className="mt-4 bg-red-600 hover:bg-red-700 text-white"
+              className="mt-4 bg-red-600 hover:bg-red-700 text-gray-900"
             >
               {isLoading ? 'Logging out...' : 'Logout All Devices'}
             </Button>

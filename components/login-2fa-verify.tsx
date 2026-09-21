@@ -142,7 +142,7 @@ export function Login2FAVerify({
           <Button
             type="submit"
             disabled={isLoading || code.length === 0}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
           >
             {isLoading ? 'Verifying...' : 'Verify'}
           </Button>

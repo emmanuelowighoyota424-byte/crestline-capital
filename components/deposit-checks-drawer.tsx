@@ -254,13 +254,13 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
     >
       <DrawerContent className="max-h-[95vh]">
         {/* Header */}
-        <DrawerHeader className="border-b bg-[#0a4fa6] text-white rounded-t-lg">
+        <DrawerHeader className="border-b bg-[#0a4fa6] text-gray-900 rounded-t-lg">
           <div className="flex items-center justify-between">
-            <DrawerTitle className="text-white flex items-center gap-2">
+            <DrawerTitle className="text-gray-900 flex items-center gap-2">
               <Camera className="h-5 w-5" />
               Deposit Checks
             </DrawerTitle>
-            <Button variant="ghost" size="icon" onClick={handleClose} className="text-white hover:bg-white/20">
+            <Button variant="ghost" size="icon" onClick={handleClose} className="text-gray-900 hover:bg-white/20">
               <X className="h-5 w-5" />
             </Button>
           </div>
@@ -307,7 +307,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-[#0a4fa6] rounded-full flex items-center justify-center">
-                          <Building2 className="h-5 w-5 text-white" />
+                          <Building2 className="h-5 w-5 text-gray-900" />
                         </div>
                         <div>
                           <p className="font-medium">{account.name}</p>
@@ -430,7 +430,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                       variant="outline"
                       size="icon"
                       onClick={() => setFlashOn(!flashOn)}
-                      className="bg-black/50 border-white/50 text-white hover:bg-black/70"
+                      className="bg-black/50 border-white/50 text-gray-900 hover:bg-black/70"
                     >
                       <Flashlight className={`h-5 w-5 ${flashOn ? "text-yellow-400" : ""}`} />
                     </Button>
@@ -445,7 +445,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                       variant="outline"
                       size="icon"
                       onClick={stopCamera}
-                      className="bg-black/50 border-white/50 text-white hover:bg-black/70"
+                      className="bg-black/50 border-white/50 text-gray-900 hover:bg-black/70"
                     >
                       <X className="h-5 w-5" />
                     </Button>
@@ -458,7 +458,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                     alt="Front of check"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+                  <div className="absolute top-2 right-2 bg-green-500 text-gray-900 px-2 py-1 rounded text-xs flex items-center gap-1">
                     <CheckCircle2 className="h-3 w-3" />
                     Captured
                   </div>
@@ -560,7 +560,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                 <AlertCircle className="h-5 w-5 text-amber-600 mt-0.5" />
                 <div className="text-sm">
                   <p className="font-medium text-amber-800">Don't forget to endorse!</p>
-                  <p className="text-amber-700">Sign the back and write "For Mobile Deposit Only to Crestline Capital"</p>
+                  <p className="text-amber-700">Sign the back and write "For Mobile Deposit Only to Chase"</p>
                 </div>
               </div>
 
@@ -580,7 +580,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                       variant="outline"
                       size="icon"
                       onClick={() => setFlashOn(!flashOn)}
-                      className="bg-black/50 border-white/50 text-white hover:bg-black/70"
+                      className="bg-black/50 border-white/50 text-gray-900 hover:bg-black/70"
                     >
                       <Flashlight className={`h-5 w-5 ${flashOn ? "text-yellow-400" : ""}`} />
                     </Button>
@@ -595,7 +595,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                       variant="outline"
                       size="icon"
                       onClick={stopCamera}
-                      className="bg-black/50 border-white/50 text-white hover:bg-black/70"
+                      className="bg-black/50 border-white/50 text-gray-900 hover:bg-black/70"
                     >
                       <X className="h-5 w-5" />
                     </Button>
@@ -608,7 +608,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                     alt="Back of check"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs flex items-center gap-1">
+                  <div className="absolute top-2 right-2 bg-green-500 text-gray-900 px-2 py-1 rounded text-xs flex items-center gap-1">
                     <CheckCircle2 className="h-3 w-3" />
                     Captured
                   </div>
@@ -708,7 +708,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                          <ZoomIn className="h-6 w-6 text-white" />
+                          <ZoomIn className="h-6 w-6 text-gray-900" />
                         </div>
                       </>
                     )}
@@ -732,7 +732,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                          <ZoomIn className="h-6 w-6 text-white" />
+                          <ZoomIn className="h-6 w-6 text-gray-900" />
                         </div>
                       </>
                     )}
@@ -860,7 +860,7 @@ export function DepositChecksDrawer({ open, onOpenChange, onReceiptOpen }: Depos
             <Button
               variant="ghost"
               size="icon"
-              className="absolute top-4 right-4 text-white hover:bg-white/20"
+              className="absolute top-4 right-4 text-gray-900 hover:bg-white/20"
               onClick={() => setImagePreview(null)}
             >
               <X className="h-6 w-6" />

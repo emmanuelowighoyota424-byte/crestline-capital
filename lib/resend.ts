@@ -3,7 +3,7 @@
  *
  * Configuration:
  *   RESEND_API_KEY     required; enables live sending
- *   RESEND_FROM_EMAIL  optional; default sender, e.g. "Crestline Capital <mail@yourdomain.com>"
+ *   RESEND_FROM_EMAIL  optional; default sender, e.g. "Chase <mail@yourdomain.com>"
  *   RESEND_REPLY_TO    optional; default Reply-To address
  *
  * Two things matter here:
@@ -18,7 +18,7 @@
 import { Resend } from 'resend'
 
 /** Resend's sandbox sender - works before a custom domain is verified. */
-export const RESEND_SANDBOX_FROM = 'Crestline Capital <onboarding@resend.dev>'
+export const RESEND_SANDBOX_FROM = 'Chase <onboarding@resend.dev>'
 
 export function isResendConfigured(): boolean {
   return Boolean(process.env.RESEND_API_KEY?.trim())

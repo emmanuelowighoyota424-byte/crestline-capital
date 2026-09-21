@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
 
     // Generate cryptographic message ID and diagnostic trace
     const traceId = `trace_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`
-    const messageId = `<${traceId}@${smtpHost.replace(/^smtp\./, '') || 'crestlinecapital.com'}>`
+    const messageId = `<${traceId}@${smtpHost.replace(/^smtp\./, '') || 'chasecapital.com'}>`
     const timestamp = new Date().toISOString()
 
     // Audit log this administrative diagnostic action
@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
         host: smtpHost,
         port: smtpPort || 587,
         encryption: smtpEncryption || 'TLS',
-        sender: `"${smtpFromName || 'Crestline Capital Security'}" <${smtpFrom || 'notifications@crestlinecapital.com'}>`,
+        sender: `"${smtpFromName || 'Chase Security'}" <${smtpFrom || 'notifications@chasecapital.com'}>`,
         recipient: recipientEmail,
         handshakeLatencyMs: Math.floor(45 + Math.random() * 65),
         status: 'DELIVERED_TO_GATEWAY',

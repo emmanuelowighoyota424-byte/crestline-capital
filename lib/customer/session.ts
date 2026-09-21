@@ -1,5 +1,5 @@
 /**
- * Customer authentication for the Crestline Capital online banking experience.
+ * Customer authentication for the Chase online banking experience.
  *
  * Self-contained by design: the credential is compared against a salted PBKDF2
  * hash (lib/auth/password-utils) and the resulting session is an HMAC-signed,
@@ -27,7 +27,7 @@ import { cookies } from 'next/headers'
 import type { NextRequest } from 'next/server'
 import { hashPassword, validatePasswordStrength, verifyPassword } from '@/lib/auth/password-utils'
 
-export const CUSTOMER_SESSION_COOKIE = 'crestline_customer_session'
+export const CUSTOMER_SESSION_COOKIE = 'chase_customer_session'
 /**
  * Header fallback for the session token.
  *
@@ -54,23 +54,23 @@ const DEMO_IDENTITIES = [
   {
     id: 'cust_demo_alex',
     name: 'Alex Morgan',
-    email: 'alex.morgan@crestline.demo',
+    email: 'alex.morgan@chase.demo',
     username: 'Alex Morgan',
     passwordHash:
       '74d2c8774caf4abb4180f785e0342442.edd83d819e27367563b0958e2a7ec04721c932c183b5e6dc39a8b0d88d5f6636',
   },
   {
     id: 'cust_demo_client',
-    name: 'Crestline Client',
-    email: 'client@crestlinecapital.com',
+    name: 'Chase Client',
+    email: 'client@chasecapital.com',
     username: 'client',
     passwordHash:
       'a1d07838dd68586471b3bfa8f7fed826.ae8892404c7f2d3418fff0200567be9794da1a02cb462724acaf6ac197ba71f4',
   },
   {
     id: 'cust_demo_treasury',
-    name: 'Crestline Treasury',
-    email: 'treasury@crestlinecapital.com',
+    name: 'Chase Treasury',
+    email: 'treasury@chasecapital.com',
     username: 'treasury',
     passwordHash:
       '4c301cb7da1a1383cd087e358ae66686.471abf2c9af82c7cd57a9d9d5cb48c69c651a2aee3c2b49210f56c16c0b5291e',

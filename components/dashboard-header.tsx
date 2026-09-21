@@ -128,18 +128,18 @@ export function DashboardHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 Crestline-gradient transform-gpu backface-hidden pt-[env(safe-area-inset-top)]">
+      <header className="sticky top-0 z-50 Chase-gradient transform-gpu backface-hidden pt-[env(safe-area-inset-top)]">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-white/10 relative"
+              className="text-gray-900 hover:bg-white/10 relative"
               onClick={() => setMessagesOpen(true)}
             >
               <MessageSquare className="h-5 w-5" />
               {unreadMessages > 0 && (
-                <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full text-[10px] font-bold text-white flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full text-[10px] font-bold text-gray-900 flex items-center justify-center">
                   {unreadMessages}
                 </span>
               )}
@@ -147,12 +147,12 @@ export function DashboardHeader() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-white/10 relative"
+              className="text-gray-900 hover:bg-white/10 relative"
               onClick={() => setNotificationsOpen(true)}
             >
               <Bell className="h-5 w-5" />
               {unreadNotificationCount > 0 && (
-                <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full text-[10px] font-bold text-white flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full text-[10px] font-bold text-gray-900 flex items-center justify-center">
                   {unreadNotificationCount}
                 </span>
               )}
@@ -161,8 +161,8 @@ export function DashboardHeader() {
           </div>
 
           <div className="flex items-center gap-2">
-            <Image src="/images/Crestline-logo.png" alt="Crestline Capital" width={36} height={36} className="rounded" loading="eager" />
-            <span className="text-white text-xl font-bold tracking-wide">CRESTLINE</span>
+            <Image src="/images/Chase-logo.png" alt="Chase" width={36} height={36} className="rounded" loading="eager" />
+            <span className="text-gray-900 text-xl font-bold tracking-wide">CRESTLINE</span>
           </div>
 
           <Button
@@ -311,7 +311,7 @@ export function DashboardHeader() {
               <div className="relative">
                 <Avatar className="h-24 w-24 border-4 border-[#0a4fa6]">
                   <AvatarImage src={userProfile.profilePicture || "/placeholder.svg"} alt={userProfile.name || ""} />
-                  <AvatarFallback className="bg-[#0a4fa6] text-white text-2xl font-bold">
+                  <AvatarFallback className="bg-[#0a4fa6] text-gray-900 text-2xl font-bold">
                     {(userProfile.name || "")
                       .split(" ")
                       .map((n) => n[0])
@@ -360,10 +360,10 @@ export function DashboardHeader() {
             </div>
 
             {/* Rewards Card */}
-            <div className="Crestline-gradient rounded-xl p-4 text-white">
+            <div className="Chase-gradient rounded-xl p-4 text-gray-900">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm opacity-90">Crestline Capital Ultimate Rewards</span>
-                <Badge variant="secondary" className="bg-white/20 text-white">
+                <span className="text-sm opacity-90">Chase Ultimate Rewards</span>
+                <Badge variant="secondary" className="bg-white/20 text-gray-900">
                   Private Client
                 </Badge>
               </div>

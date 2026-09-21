@@ -225,7 +225,7 @@ export default function AdminTransferForm({ users, onSuccess }: AdminTransferFor
           <Button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-medium"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900 py-2 rounded-lg font-medium"
           >
             {loading ? 'Processing...' : 'Initiate Transfer'}
           </Button>
@@ -298,7 +298,7 @@ export default function AdminTransferForm({ users, onSuccess }: AdminTransferFor
             <Button
               type="submit"
               disabled={loading}
-              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-medium"
+              className="flex-1 bg-green-600 hover:bg-green-700 text-gray-900 py-2 rounded-lg font-medium"
             >
               {loading ? 'Confirming...' : 'Confirm Transfer'}
             </Button>

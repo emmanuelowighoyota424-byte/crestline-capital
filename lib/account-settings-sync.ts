@@ -147,7 +147,7 @@ class AccountSettingsSyncEngine {
         category: 'privacy',
         key: 'shareActivityWithBank',
         label: 'Share Activity Data',
-        description: 'Help improve Crestline Capital services by sharing usage data',
+        description: 'Help improve Chase services by sharing usage data',
         value: true,
         type: 'toggle',
         lastUpdated: new Date(),
