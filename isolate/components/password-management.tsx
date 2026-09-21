@@ -237,7 +237,7 @@ export function PasswordManagement({ userId }: PasswordManagementProps) {
           <Button
             onClick={handleChangePassword}
             disabled={isLoading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
           >
             {isLoading ? 'Updating...' : 'Update Password'}
           </Button>
@@ -250,7 +250,7 @@ export function PasswordManagement({ userId }: PasswordManagementProps) {
           <p className="text-gray-600 mb-4">
             Click the button below to receive a password reset link via email
           </p>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+          <Button className="bg-blue-600 hover:bg-blue-700 text-gray-900">
             Send Reset Link
           </Button>
         </div>

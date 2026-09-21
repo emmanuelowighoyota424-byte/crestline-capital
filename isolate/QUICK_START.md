@@ -4,9 +4,9 @@
 
 ### Default Test Account
 ```
-Username: CHUN HUNG
-Email: hungchun164@gmail.com
-Password: Chun2000
+Username: Crestline Member
+Email: admin@crestlinecapital.internal
+Password: [redacted]
 ```
 
 ---

@@ -11,8 +11,8 @@ The application is fully functional and ready to test. Everything works together
 Navigate to app
 Click anywhere (shows login)
 Use default credentials:
-  Username: CHUN HUNG
-  Password: Chun2000
+  Username: Crestline Member
+  Password: [redacted]
 Click Sign In
 ```
 

@@ -135,8 +135,8 @@ IMPORTANT INFORMATION
 ═══════════════════════════════════════════════════════════════
                      CRESTLINE CUSTOMER SERVICE
                         1-800-935-9935
-            www.Crestline.com | Crestline.com/support
-                © ${new Date().getFullYear()} JPMorgan Crestline Capital & Co.
+            www.CrestlineCapital.com | CrestlineCapital.com/support
+                © ${new Date().getFullYear()} Crestline Capital
 ═══════════════════════════════════════════════════════════════
     `
   }
@@ -152,7 +152,7 @@ IMPORTANT INFORMATION
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crestline Capital Bank Receipt - ${transaction.reference}</title>
+  <title>Crestline Capital Receipt - ${transaction.reference}</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
@@ -170,7 +170,7 @@ IMPORTANT INFORMATION
       overflow: hidden;
     }
     .header {
-      background: linear-gradient(135deg, #0a4fa6 0%, #083d80 100%);
+      background: linear-gradient(135deg, #D71E28 0%, #A31620 100%);
       color: white;
       padding: 30px 20px;
       text-align: center;
@@ -213,7 +213,7 @@ IMPORTANT INFORMATION
       text-align: center;
       padding: 25px;
       margin-bottom: 25px;
-      border: 2px solid #0a4fa6;
+      border: 2px solid #D71E28;
       border-radius: 8px;
       background: linear-gradient(135deg, rgba(10,79,166,0.05) 0%, rgba(1,61,128,0.05) 100%);
     }
@@ -235,7 +235,7 @@ IMPORTANT INFORMATION
     .amount-fee { 
       font-size: 13px; 
       margin-top: 10px;
-      color: #0a4fa6;
+      color: #D71E28;
       border-top: 1px solid #e5e7eb;
       padding-top: 10px;
     }
@@ -248,9 +248,9 @@ IMPORTANT INFORMATION
       text-transform: uppercase;
       letter-spacing: 1.5px;
       font-weight: 700;
-      color: #0a4fa6;
+      color: #D71E28;
       margin-bottom: 12px;
-      border-bottom: 2px solid #0a4fa6;
+      border-bottom: 2px solid #D71E28;
       padding-bottom: 8px;
     }
     
@@ -301,7 +301,7 @@ IMPORTANT INFORMATION
     .footer-title { 
       font-weight: bold;
       margin-bottom: 8px;
-      color: #0a4fa6;
+      color: #D71E28;
       font-size: 13px;
     }
     .footer-contact { margin: 5px 0; }
@@ -430,10 +430,10 @@ IMPORTANT INFORMATION
     <div class="footer">
       <div class="footer-title">Crestline Capital Customer Service</div>
       <div class="footer-contact">Phone: 1-800-935-9935</div>
-      <div class="footer-contact">Website: www.Crestline.com</div>
-      <div class="footer-contact">Support: Crestline.com/support</div>
+      <div class="footer-contact">Website: www.CrestlineCapital.com</div>
+      <div class="footer-contact">Support: CrestlineCapital.com/support</div>
       <div class="footer-copyright">
-        © ${new Date().getFullYear()} JPMorgan Crestline Capital & Co. All rights reserved.<br/>
+        © ${new Date().getFullYear()} Crestline Capital All rights reserved.<br/>
         Generated: ${new Date().toLocaleString('en-US')}
       </div>
     </div>
@@ -558,13 +558,13 @@ IMPORTANT INFORMATION
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md max-h-[90vh] overflow-y-auto bg-gradient-to-b from-white to-gray-50 p-0 rounded-2xl shadow-2xl">
         {/* Header with Back/Close Button */}
-        <div className="sticky top-0 z-10 bg-white rounded-t-2xl border-b border-[#0a4fa6]/10 px-6 py-4">
+        <div className="sticky top-0 z-10 bg-white rounded-t-2xl border-b border-[#D71E28]/10 px-6 py-4">
           <div className="flex flex-row items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-[#0a4fa6] to-[#083d80] flex items-center justify-center shadow-md">
-                <FileText className="h-5 w-5 text-white" />
+              <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-[#D71E28] to-[#A31620] flex items-center justify-center shadow-md">
+                <FileText className="h-5 w-5 text-gray-900" />
               </div>
-              <DialogTitle className="text-lg font-bold text-[#0a4fa6]">Receipt</DialogTitle>
+              <DialogTitle className="text-lg font-bold text-[#D71E28]">Receipt</DialogTitle>
             </div>
             <button
               onClick={() => onOpenChange(false)}
@@ -572,7 +572,7 @@ IMPORTANT INFORMATION
               title="Close receipt"
               aria-label="Close receipt"
             >
-              <X className="h-5 w-5 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition" />
+              <X className="h-5 w-5 text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-gray-900 transition" />
             </button>
           </div>
         </div>
@@ -581,7 +581,7 @@ IMPORTANT INFORMATION
         <div className="px-6 pb-6">
           {isLoading ? (
           <div className="flex flex-col items-center justify-center py-12">
-            <Loader2 className="h-8 w-8 text-[#0a4fa6] animate-spin mb-3" />
+            <Loader2 className="h-8 w-8 text-[#D71E28] animate-spin mb-3" />
             <p className="text-sm text-muted-foreground">Loading receipt...</p>
           </div>
         ) : (
@@ -595,7 +595,7 @@ IMPORTANT INFORMATION
             </div>
             <div>
               <h3 className="text-sm font-medium text-muted-foreground">Status</h3>
-              <p className="text-lg font-bold capitalize text-[#0a4fa6]">{transaction.status}</p>
+              <p className="text-lg font-bold capitalize text-[#D71E28]">{transaction.status}</p>
             </div>
           </div>
 
@@ -617,26 +617,26 @@ IMPORTANT INFORMATION
           </div>
 
           {/* Details Section */}
-          <div className="space-y-0 bg-white rounded-2xl border border-[#0a4fa6]/15 shadow-md overflow-hidden divide-y divide-[#0a4fa6]/10">
+          <div className="space-y-0 bg-white rounded-2xl border border-[#D71E28]/15 shadow-md overflow-hidden divide-y divide-[#D71E28]/10">
             {/* Account Holder */}
-            <div className="px-4 py-3 border-b border-[#0a4fa6]/10 hover:bg-[#0a4fa6]/5 transition">
+            <div className="px-4 py-3 border-b border-[#D71E28]/10 hover:bg-[#D71E28]/5 transition">
               <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Account Holder</p>
               <p className="font-semibold text-foreground mt-1">{userProfile?.name || "Lin Huang"}</p>
             </div>
 
             {/* Description */}
-            <div className="px-4 py-3 border-b border-[#0a4fa6]/10 hover:bg-[#0a4fa6]/5 transition">
+            <div className="px-4 py-3 border-b border-[#D71E28]/10 hover:bg-[#D71E28]/5 transition">
               <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Description</p>
               <p className="font-semibold text-foreground mt-1">{transaction.description}</p>
             </div>
 
             {/* Date & Category */}
-            <div className="grid grid-cols-2 gap-0 border-b border-[#0a4fa6]/10">
-              <div className="px-4 py-3 border-r border-[#0a4fa6]/10 hover:bg-[#0a4fa6]/5 transition">
+            <div className="grid grid-cols-2 gap-0 border-b border-[#D71E28]/10">
+              <div className="px-4 py-3 border-r border-[#D71E28]/10 hover:bg-[#D71E28]/5 transition">
                 <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Date</p>
                 <p className="font-semibold text-foreground mt-1 text-sm">{formatDate(transaction.date)}</p>
               </div>
-              <div className="px-4 py-3 hover:bg-[#0a4fa6]/5 transition">
+              <div className="px-4 py-3 hover:bg-[#D71E28]/5 transition">
                 <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Category</p>
                 <p className="font-semibold text-foreground mt-1 text-sm">{transaction.category}</p>
               </div>
@@ -644,7 +644,7 @@ IMPORTANT INFORMATION
 
             {/* Recipient */}
             {transaction.recipientName && (
-              <div className="px-4 py-3 border-b border-[#0a4fa6]/10 hover:bg-[#0a4fa6]/5 transition">
+              <div className="px-4 py-3 border-b border-[#D71E28]/10 hover:bg-[#D71E28]/5 transition">
                 <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Recipient</p>
                 <p className="font-semibold text-foreground mt-1">{transaction.recipientName}</p>
               </div>
@@ -652,7 +652,7 @@ IMPORTANT INFORMATION
 
             {/* Sender */}
             {transaction.senderName && (
-              <div className="px-4 py-3 border-b border-[#0a4fa6]/10 hover:bg-[#0a4fa6]/5 transition">
+              <div className="px-4 py-3 border-b border-[#D71E28]/10 hover:bg-[#D71E28]/5 transition">
                 <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Sender</p>
                 <p className="font-semibold text-foreground mt-1">{transaction.senderName}</p>
               </div>
@@ -660,7 +660,7 @@ IMPORTANT INFORMATION
 
             {/* From Account */}
             {transaction.accountFrom && (
-              <div className="px-4 py-3 border-b border-[#0a4fa6]/10 hover:bg-[#0a4fa6]/5 transition">
+              <div className="px-4 py-3 border-b border-[#D71E28]/10 hover:bg-[#D71E28]/5 transition">
                 <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">From Account</p>
                 <p className="font-semibold text-foreground mt-1">{transaction.accountFrom}</p>
               </div>
@@ -668,14 +668,14 @@ IMPORTANT INFORMATION
 
             {/* To Account */}
             {transaction.accountTo && (
-              <div className="px-4 py-3 border-b border-[#0a4fa6]/10 hover:bg-[#0a4fa6]/5 transition">
+              <div className="px-4 py-3 border-b border-[#D71E28]/10 hover:bg-[#D71E28]/5 transition">
                 <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">To Account</p>
                 <p className="font-semibold text-foreground mt-1">{transaction.accountTo}</p>
               </div>
             )}
 
             {/* Reference Number */}
-            <div className="px-4 py-3 flex items-center justify-between hover:bg-[#0a4fa6]/5 transition">
+            <div className="px-4 py-3 flex items-center justify-between hover:bg-[#D71E28]/5 transition">
               <div className="flex-1">
                 <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Reference</p>
                 <p className="font-mono font-semibold text-foreground mt-1 text-sm break-all">{transaction.reference}</p>
@@ -697,7 +697,7 @@ IMPORTANT INFORMATION
           </div>
 
           {/* Transaction Type Indicator */}
-          <div className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-[#0a4fa6]/5 to-transparent rounded-lg">
+          <div className="flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-[#D71E28]/5 to-transparent rounded-lg">
             {transaction.type === "debit" ? (
               <>
                 <ArrowUpRight className="h-5 w-5 text-red-500" />
@@ -712,7 +712,7 @@ IMPORTANT INFORMATION
           </div>
 
           {/* Action Buttons */}
-          <div className="grid grid-cols-4 gap-2 bg-gradient-to-r from-[#0a4fa6]/5 to-transparent rounded-2xl p-3 border border-[#0a4fa6]/10">
+          <div className="grid grid-cols-4 gap-2 bg-gradient-to-r from-[#D71E28]/5 to-transparent rounded-2xl p-3 border border-[#D71E28]/10">
             {/* Download */}
             <Button
               variant="ghost"
@@ -721,7 +721,7 @@ IMPORTANT INFORMATION
               onClick={handleDownloadPDF}
               title="Download receipt"
             >
-              <Download className="h-5 w-5 text-[#0a4fa6] mb-1" />
+              <Download className="h-5 w-5 text-[#D71E28] mb-1" />
               <span className="text-xs font-medium">Download</span>
             </Button>
 
@@ -733,7 +733,7 @@ IMPORTANT INFORMATION
               onClick={handlePrint}
               title="Print receipt"
             >
-              <Printer className="h-5 w-5 text-[#0a4fa6] mb-1" />
+              <Printer className="h-5 w-5 text-[#D71E28] mb-1" />
               <span className="text-xs font-medium">Print</span>
             </Button>
 
@@ -746,21 +746,21 @@ IMPORTANT INFORMATION
                   className="flex-col h-auto py-2.5 rounded-md hover:bg-white transition"
                   title="Share receipt"
                 >
-                  <Share2 className="h-5 w-5 text-[#0a4fa6] mb-1" />
+                  <Share2 className="h-5 w-5 text-[#D71E28] mb-1" />
                   <span className="text-xs font-medium">Share</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={handleShare}>
-                  <Copy className="h-4 w-4 mr-2 text-[#0a4fa6]" />
+                  <Copy className="h-4 w-4 mr-2 text-[#D71E28]" />
                   <span>Copy to clipboard</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={handleEmailReceipt}>
-                  <Mail className="h-4 w-4 mr-2 text-[#0a4fa6]" />
+                  <Mail className="h-4 w-4 mr-2 text-[#D71E28]" />
                   <span>Email receipt</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={handleSendSMS}>
-                  <MessageSquare className="h-4 w-4 mr-2 text-[#0a4fa6]" />
+                  <MessageSquare className="h-4 w-4 mr-2 text-[#D71E28]" />
                   <span>Send via SMS</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -781,7 +781,7 @@ IMPORTANT INFORMATION
 
           {/* Dispute Transaction Section */}
           {onDisputeOpen && transactionId && transaction.type === "debit" && (
-            <div className="mt-6 pt-4 border-t border-[#0a4fa6]/10">
+            <div className="mt-6 pt-4 border-t border-[#D71E28]/10">
               <Button
                 className="w-full bg-red-50 text-red-700 border border-red-200 hover:bg-red-100 transition font-medium flex items-center justify-center gap-2"
                 onClick={() => {

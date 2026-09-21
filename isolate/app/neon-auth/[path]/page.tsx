@@ -15,7 +15,7 @@ export default async function NeonAuthPage({
   const { path } = await params
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0a4fa6]/5 to-white p-4">
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#D71E28]/5 to-white p-4">
       <div className="w-full max-w-md">
         <AuthView path={path} />
       </div>

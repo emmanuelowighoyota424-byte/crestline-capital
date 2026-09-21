@@ -28,7 +28,7 @@ export function CreditJourneyCard({ onViewScore }: CreditJourneyCardProps) {
   const progressPercentage = ((creditScore - 300) / (850 - 300)) * 100
 
   return (
-    <Card className="bg-gradient-to-r from-[#0060A9] to-[#117ACA] text-white border-none p-6 shadow-md">
+    <Card className="bg-gradient-to-r from-[#0060A9] to-[#117ACA] text-gray-900 border-none p-6 shadow-md">
       <div className="flex justify-between items-start">
         <div>
           <h3 className="text-xl font-semibold mb-2">Credit Journey</h3>

@@ -144,19 +144,19 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
   const defaultUserProfile = {
     id: "user1",
-    name: "CHUN HUNG",
+    name: "Crestline Member",
     email: "security@crestlinecapital.com",
     phone: "+1 (702) 886-4745",
     address: "34B Philadelphia, Pennsylvania PA, USA",
     dateOfBirth: "1961-08-24",
-    ssn: "697-03-2642",
+    ssn: "XXX-XX-XXXX",
     memberSince: "August 1988",
     profilePicture: "",
-    tier: "Crestline Capital Private Client",
+    tier: "Crestline Private Client",
   }
 
-  const DEFAULT_USERNAME = "CHUN HUNG"
-  const DEFAULT_PASSWORD = "Chun200@"
+  const DEFAULT_USERNAME = "Crestline Member"
+  const DEFAULT_PASSWORD = "[redacted]"
   const DEFAULT_EMAIL = "chun.hung@demo.example.com"
 
   useEffect(() => {
@@ -938,7 +938,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
       <div className="fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center">
         <div className="bg-white w-full sm:max-w-md sm:rounded-2xl rounded-t-3xl max-h-[90vh] overflow-y-auto animate-in slide-in-from-bottom duration-300">
           {/* Modal Header */}
-          <div className="sticky top-0 bg-[#117aca] text-white p-4 flex items-center justify-between sm:rounded-t-2xl">
+          <div className="sticky top-0 bg-[#E8464F] text-gray-900 p-4 flex items-center justify-between sm:rounded-t-2xl">
             <button onClick={closeModal} className="p-1 hover:bg-white/20 rounded-full transition-colors">
               {modalView === "forgot-username" ||
               modalView === "forgot-password" ||
@@ -1006,7 +1006,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
                 <div className="flex items-start gap-3">
-                  <Shield className="w-5 h-5 text-[#117aca] mt-0.5 flex-shrink-0" />
+                  <Shield className="w-5 h-5 text-[#E8464F] mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-sm font-medium text-gray-900 mb-1">Security Notice</p>
                     <p className="text-xs text-gray-600">
@@ -1024,7 +1024,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <Button
                 onClick={() => setModalView("none")}
-                className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-3 mt-6"
+                className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-3 mt-6"
               >
                 Back to Login
               </Button>
@@ -1040,10 +1040,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <div className="space-y-3">
                 <button
                   onClick={() => setModalView("identify")}
-                  className="w-full p-4 border-2 border-[#117aca] rounded-xl hover:bg-blue-50 transition-all flex items-center gap-4 bg-blue-50"
+                  className="w-full p-4 border-2 border-[#E8464F] rounded-xl hover:bg-blue-50 transition-all flex items-center gap-4 bg-blue-50"
                 >
-                  <div className="w-12 h-12 bg-[#117aca] rounded-full flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 bg-[#E8464F] rounded-full flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-gray-900" />
                   </div>
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">Verify Your Identity</p>
@@ -1053,10 +1053,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
                 <button
                   onClick={() => setModalView("forgot-username")}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#117aca] hover:bg-blue-50 transition-all flex items-center gap-4"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#E8464F] hover:bg-blue-50 transition-all flex items-center gap-4"
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <User className="w-6 h-6 text-[#117aca]" />
+                    <User className="w-6 h-6 text-[#E8464F]" />
                   </div>
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">Forgot Username</p>
@@ -1066,10 +1066,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
                 <button
                   onClick={() => setModalView("forgot-password")}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#117aca] hover:bg-blue-50 transition-all flex items-center gap-4"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#E8464F] hover:bg-blue-50 transition-all flex items-center gap-4"
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Lock className="w-6 h-6 text-[#117aca]" />
+                    <Lock className="w-6 h-6 text-[#E8464F]" />
                   </div>
                   <div className="text-left">
                     <p className="font-semibold text-gray-900">Forgot Password</p>
@@ -1080,7 +1080,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <div className="mt-6 p-4 bg-gray-50 rounded-xl">
                 <div className="flex items-start gap-3">
-                  <Shield className="w-5 h-5 text-[#117aca] mt-0.5" />
+                  <Shield className="w-5 h-5 text-[#E8464F] mt-0.5" />
                   <div>
                     <p className="text-sm font-medium text-gray-900">Security Tip</p>
                     <p className="text-xs text-gray-600">
@@ -1109,13 +1109,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                           onClick={() => setRecoveryMethod(method)}
                           className={`p-3 rounded-lg border-2 transition-all ${
                             recoveryMethod === method
-                              ? "border-[#117aca] bg-blue-50"
+                              ? "border-[#E8464F] bg-blue-50"
                               : "border-gray-200 hover:border-gray-300"
                           }`}
                         >
-                          {method === "email" && <Mail className="w-5 h-5 mx-auto mb-1 text-[#117aca]" />}
-                          {method === "phone" && <Phone className="w-5 h-5 mx-auto mb-1 text-[#117aca]" />}
-                          {method === "ssn" && <Shield className="w-5 h-5 mx-auto mb-1 text-[#117aca]" />}
+                          {method === "email" && <Mail className="w-5 h-5 mx-auto mb-1 text-[#E8464F]" />}
+                          {method === "phone" && <Phone className="w-5 h-5 mx-auto mb-1 text-[#E8464F]" />}
+                          {method === "ssn" && <Shield className="w-5 h-5 mx-auto mb-1 text-[#E8464F]" />}
                           <span className="text-xs capitalize">{method === "ssn" ? "SSN" : method}</span>
                         </button>
                       ))}
@@ -1129,7 +1129,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="email"
                         value={recoveryEmail}
                         onChange={(e) => setRecoveryEmail(e.target.value)}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent"
                         placeholder="Enter your registered email"
                       />
                     </div>
@@ -1142,7 +1142,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="tel"
                         value={recoveryPhone}
                         onChange={(e) => setRecoveryPhone(e.target.value)}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent"
                         placeholder="Enter your registered phone"
                       />
                     </div>
@@ -1156,7 +1156,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         maxLength={4}
                         value={recoverySSN}
                         onChange={(e) => setRecoverySSN(e.target.value.replace(/\D/g, ""))}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent"
                         placeholder="****"
                       />
                     </div>
@@ -1165,7 +1165,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <Button
                     onClick={handleForgotSubmit}
                     disabled={isLoading}
-                    className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6"
+                    className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6"
                   >
                     {isLoading ? "Sending..." : "Send Verification Code"}
                   </Button>
@@ -1179,7 +1179,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       maxLength={6}
                       value={verificationCode}
                       onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, ""))}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent text-center text-2xl tracking-widest"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent text-center text-2xl tracking-widest"
                       placeholder="000000"
                     />
                     <p className="text-xs text-gray-500 mt-2">Enter the 6-digit code sent to your {recoveryMethod}</p>
@@ -1188,7 +1188,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <Button
                     onClick={handleVerifyCode}
                     disabled={isLoading}
-                    className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6"
+                    className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6"
                   >
                     {isLoading ? "Verifying..." : "Verify & Recover Username"}
                   </Button>
@@ -1201,7 +1201,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         description: `A new verification code has been sent to your ${recoveryMethod}.`,
                       })
                     }}
-                    className="w-full mt-3 text-[#117aca] hover:underline text-sm"
+                    className="w-full mt-3 text-[#E8464F] hover:underline text-sm"
                   >
                     Resend Code
                   </button>
@@ -1227,13 +1227,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                           onClick={() => setRecoveryMethod(method)}
                           className={`p-3 rounded-lg border-2 transition-all ${
                             recoveryMethod === method
-                              ? "border-[#117aca] bg-blue-50"
+                              ? "border-[#E8464F] bg-blue-50"
                               : "border-gray-200 hover:border-gray-300"
                           }`}
                         >
-                          {method === "email" && <Mail className="w-5 h-5 mx-auto mb-1 text-[#117aca]" />}
-                          {method === "phone" && <Phone className="w-5 h-5 mx-auto mb-1 text-[#117aca]" />}
-                          {method === "ssn" && <Shield className="w-5 h-5 mx-auto mb-1 text-[#117aca]" />}
+                          {method === "email" && <Mail className="w-5 h-5 mx-auto mb-1 text-[#E8464F]" />}
+                          {method === "phone" && <Phone className="w-5 h-5 mx-auto mb-1 text-[#E8464F]" />}
+                          {method === "ssn" && <Shield className="w-5 h-5 mx-auto mb-1 text-[#E8464F]" />}
                           <span className="text-xs capitalize">{method === "ssn" ? "SSN" : method}</span>
                         </button>
                       ))}
@@ -1247,7 +1247,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="email"
                         value={recoveryEmail}
                         onChange={(e) => setRecoveryEmail(e.target.value)}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent"
                         placeholder="Enter your registered email"
                       />
                     </div>
@@ -1260,7 +1260,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="tel"
                         value={recoveryPhone}
                         onChange={(e) => setRecoveryPhone(e.target.value)}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent"
                         placeholder="Enter your registered phone"
                       />
                     </div>
@@ -1274,7 +1274,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         maxLength={4}
                         value={recoverySSN}
                         onChange={(e) => setRecoverySSN(e.target.value.replace(/\D/g, ""))}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent"
                         placeholder="****"
                       />
                     </div>
@@ -1283,7 +1283,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <Button
                     onClick={handleForgotSubmit}
                     disabled={isLoading}
-                    className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6"
+                    className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6"
                   >
                     {isLoading ? "Sending..." : "Send Verification Code"}
                   </Button>
@@ -1297,7 +1297,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       maxLength={6}
                       value={verificationCode}
                       onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, ""))}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent text-center text-2xl tracking-widest"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent text-center text-2xl tracking-widest"
                       placeholder="000000"
                     />
                   </div>
@@ -1308,7 +1308,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       type="password"
                       value={newPassword}
                       onChange={(e) => setNewPassword(e.target.value)}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent"
                       placeholder="Enter new password"
                     />
                   </div>
@@ -1319,7 +1319,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       type="password"
                       value={confirmNewPassword}
                       onChange={(e) => setConfirmNewPassword(e.target.value)}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F] focus:border-transparent"
                       placeholder="Confirm new password"
                     />
                   </div>
@@ -1345,7 +1345,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <Button
                     onClick={handleVerifyCode}
                     disabled={isLoading}
-                    className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6"
+                    className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6"
                   >
                     {isLoading ? "Resetting..." : "Reset Password"}
                   </Button>
@@ -1378,14 +1378,14 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         const cleaned = e.target.value.replace(/\D/g, "").slice(0, 9)
                         setIdentitySSN(cleaned)
                       }}
-                      className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#117aca] transition-colors bg-transparent placeholder-gray-400"
+                      className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#E8464F] transition-colors bg-transparent placeholder-gray-400"
                       placeholder="000-00-0000 or Tax ID"
                       maxLength={9}
                     />
                     <button
                       type="button"
                       onClick={() => setShowSSN(!showSSN)}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 text-[#117aca] hover:text-[#0a5a9e] font-semibold text-sm"
+                      className="absolute right-0 top-1/2 -translate-y-1/2 text-[#E8464F] hover:text-[#0a5a9e] font-semibold text-sm"
                     >
                       {showSSN ? "Hide" : "Show"}
                     </button>
@@ -1396,7 +1396,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <button
                     type="button"
                     onClick={() => setModalView("identify-no-ssn")}
-                    className="text-[#117aca] hover:underline text-sm mt-2 inline-flex items-center gap-1"
+                    className="text-[#E8464F] hover:underline text-sm mt-2 inline-flex items-center gap-1"
                   >
                     Don't have a Social Security number?
                     <ExternalLink className="w-3 h-3" />
@@ -1414,14 +1414,14 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         const cleaned = e.target.value.replace(/\D/g, "").slice(0, 16)
                         setIdentityAccountNumber(cleaned)
                       }}
-                      className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#117aca] transition-colors bg-transparent placeholder-gray-400"
+                      className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#E8464F] transition-colors bg-transparent placeholder-gray-400"
                       placeholder="Enter your account or card number"
                       maxLength={16}
                     />
                     <button
                       type="button"
                       onClick={() => setShowAccountNumber(!showAccountNumber)}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 text-[#117aca] hover:text-[#0a5a9e] font-semibold text-sm"
+                      className="absolute right-0 top-1/2 -translate-y-1/2 text-[#E8464F] hover:text-[#0a5a9e] font-semibold text-sm"
                     >
                       {showAccountNumber ? "Hide" : "Show"}
                     </button>
@@ -1429,7 +1429,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <button
                     type="button"
                     onClick={() => setModalView("identify-authorized")}
-                    className="text-[#117aca] hover:underline text-sm mt-3 inline-flex items-center gap-1"
+                    className="text-[#E8464F] hover:underline text-sm mt-3 inline-flex items-center gap-1"
                   >
                     I'm an authorized user on someone else's account
                     <ExternalLink className="w-3 h-3" />
@@ -1450,7 +1450,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 href="/faq"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#117aca] hover:underline text-sm mt-6 inline-flex items-center gap-1"
+                className="text-[#E8464F] hover:underline text-sm mt-6 inline-flex items-center gap-1"
               >
                 Questions? Read our FAQs
                 <ExternalLink className="w-3 h-3" />
@@ -1460,7 +1460,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <Button
                 onClick={handleIdentityVerification}
                 disabled={isLoading || (!identitySSN.trim() && !identityAccountNumber.trim())}
-                className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6 mt-8 text-base font-semibold"
+                className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6 mt-8 text-base font-semibold"
               >
                 {isLoading ? "Verifying..." : "Continue"}
               </Button>
@@ -1483,7 +1483,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <select
                     value={altIdType}
                     onChange={(e) => setAltIdType(e.target.value as "passport" | "license" | "itin")}
-                    className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-[#117aca] transition-colors"
+                    className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-[#E8464F] transition-colors"
                   >
                     <option value="">Select identification type</option>
                     <option value="passport">Passport</option>
@@ -1500,7 +1500,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       value={altIdCountry}
                       onChange={(e) => setAltIdCountry(e.target.value)}
                       placeholder="e.g., US, Canada, Mexico"
-                      className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-[#117aca] transition-colors"
+                      className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-[#E8464F] transition-colors"
                     />
                   </div>
                 )}
@@ -1512,13 +1512,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       type={showAltId ? "text" : "password"}
                       value={altIdNumber}
                       onChange={(e) => setAltIdNumber(e.target.value.replace(/\D/g, "").slice(0, 20))}
-                      className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#117aca] transition-colors bg-transparent placeholder-gray-400"
+                      className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#E8464F] transition-colors bg-transparent placeholder-gray-400"
                       placeholder="Enter your identification number"
                     />
                     <button
                       type="button"
                       onClick={() => setShowAltId(!showAltId)}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 text-[#117aca] hover:text-[#0a5a9e] font-semibold text-sm"
+                      className="absolute right-0 top-1/2 -translate-y-1/2 text-[#E8464F] hover:text-[#0a5a9e] font-semibold text-sm"
                     >
                       {showAltId ? "Hide" : "Show"}
                     </button>
@@ -1536,7 +1536,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <Button
                 onClick={handleAlternativeIdentification}
                 disabled={isLoading || !altIdType || !altIdNumber.trim()}
-                className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6 mt-8 text-base font-semibold"
+                className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6 mt-8 text-base font-semibold"
               >
                 {isLoading ? "Verifying..." : "Verify Identity"}
               </Button>
@@ -1560,7 +1560,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     type="text"
                     value={authorizedUserName}
                     onChange={(e) => setAuthorizedUserName(e.target.value)}
-                    className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#117aca] transition-colors bg-transparent"
+                    className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#E8464F] transition-colors bg-transparent"
                     placeholder="First and Last Name"
                   />
                 </div>
@@ -1571,7 +1571,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     type="text"
                     value={accountHolder}
                     onChange={(e) => setAccountHolder(e.target.value)}
-                    className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#117aca] transition-colors bg-transparent"
+                    className="w-full border-b-2 border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#E8464F] transition-colors bg-transparent"
                     placeholder="Account owner's first and last name"
                   />
                 </div>
@@ -1581,7 +1581,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <select
                     value={accountHolderRelation}
                     onChange={(e) => setAccountHolderRelation(e.target.value)}
-                    className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-[#117aca] transition-colors"
+                    className="w-full border-2 border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-[#E8464F] transition-colors"
                   >
                     <option value="">Select relationship</option>
                     <option value="spouse">Spouse</option>
@@ -1604,7 +1604,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <Button
                 onClick={handleAuthorizedUserVerification}
                 disabled={isLoading || !authorizedUserName.trim() || !accountHolder.trim() || !accountHolderRelation.trim()}
-                className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6 mt-8 text-base font-semibold"
+                className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6 mt-8 text-base font-semibold"
               >
                 {isLoading ? "Verifying..." : "Continue"}
               </Button>
@@ -1620,10 +1620,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <div className="space-y-4">
                 <button
                   onClick={() => setModalView("signup-form")}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#117aca] hover:bg-blue-50 transition-all flex items-center gap-4"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#E8464F] hover:bg-blue-50 transition-all flex items-center gap-4"
                 >
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <CreditCard className="w-6 h-6 text-[#117aca]" />
+                    <CreditCard className="w-6 h-6 text-[#E8464F]" />
                   </div>
                   <div className="text-left flex-1">
                     <p className="font-semibold text-gray-900">I have a Crestline Capital account</p>
@@ -1633,7 +1633,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
                 <button
                   onClick={() => setModalView("open-account")}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#117aca] hover:bg-blue-50 transition-all flex items-center gap-4"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#E8464F] hover:bg-blue-50 transition-all flex items-center gap-4"
                 >
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                     <Building2 className="w-6 h-6 text-green-600" />
@@ -1673,12 +1673,12 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <div key={step} className="flex items-center">
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                        signupStep >= step ? "bg-[#117aca] text-white" : "bg-gray-200 text-gray-500"
+                        signupStep >= step ? "bg-[#E8464F] text-gray-900" : "bg-gray-200 text-gray-500"
                       }`}
                     >
                       {signupStep > step ? <Check className="w-4 h-4" /> : step}
                     </div>
-                    {step < 3 && <div className={`w-8 h-1 ${signupStep > step ? "bg-[#117aca]" : "bg-gray-200"}`} />}
+                    {step < 3 && <div className={`w-8 h-1 ${signupStep > step ? "bg-[#E8464F]" : "bg-gray-200"}`} />}
                   </div>
                 ))}
               </div>
@@ -1694,7 +1694,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                           type="text"
                           value={signupData.firstName}
                           onChange={(e) => setSignupData({ ...signupData, firstName: e.target.value })}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                         />
                       </div>
                       <div>
@@ -1703,7 +1703,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                           type="text"
                           value={signupData.lastName}
                           onChange={(e) => setSignupData({ ...signupData, lastName: e.target.value })}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                         />
                       </div>
                     </div>
@@ -1713,7 +1713,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="email"
                         value={signupData.email}
                         onChange={(e) => setSignupData({ ...signupData, email: e.target.value })}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                       />
                     </div>
                     <div>
@@ -1722,7 +1722,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="tel"
                         value={signupData.phone}
                         onChange={(e) => setSignupData({ ...signupData, phone: e.target.value })}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                       />
                     </div>
                   </div>
@@ -1739,7 +1739,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="password"
                         value={signupData.ssn}
                         onChange={(e) => setSignupData({ ...signupData, ssn: e.target.value })}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                         placeholder="***-**-****"
                       />
                     </div>
@@ -1749,7 +1749,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="date"
                         value={signupData.dob}
                         onChange={(e) => setSignupData({ ...signupData, dob: e.target.value })}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                       />
                     </div>
                     <div>
@@ -1758,7 +1758,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="text"
                         value={signupData.address}
                         onChange={(e) => setSignupData({ ...signupData, address: e.target.value })}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                       />
                     </div>
                     <div className="grid grid-cols-2 gap-3">
@@ -1768,7 +1768,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                           type="text"
                           value={signupData.city}
                           onChange={(e) => setSignupData({ ...signupData, city: e.target.value })}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                         />
                       </div>
                       <div>
@@ -1777,7 +1777,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                           type="text"
                           value={signupData.state}
                           onChange={(e) => setSignupData({ ...signupData, state: e.target.value })}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                         />
                       </div>
                     </div>
@@ -1795,7 +1795,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="text"
                         value={signupData.username}
                         onChange={(e) => setSignupData({ ...signupData, username: e.target.value })}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                       />
                     </div>
                     <div>
@@ -1804,7 +1804,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="password"
                         value={signupData.password}
                         onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                       />
                       <div className="mt-2 p-2 bg-gray-50 rounded text-xs">
                         <ul className="space-y-1">
@@ -1829,7 +1829,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         type="password"
                         value={signupData.confirmPassword}
                         onChange={(e) => setSignupData({ ...signupData, confirmPassword: e.target.value })}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#117aca]"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E8464F]"
                       />
                       {signupData.confirmPassword && signupData.password !== signupData.confirmPassword && (
                         <p className="text-red-500 text-xs mt-1">Passwords do not match</p>
@@ -1846,11 +1846,11 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                         />
                         <span className="text-sm text-gray-600">
                           I agree to the{" "}
-                          <a href="#" className="text-[#117aca] hover:underline">
+                          <a href="#" className="text-[#E8464F] hover:underline">
                             Terms of Service
                           </a>{" "}
                           and{" "}
-                          <a href="#" className="text-[#117aca] hover:underline">
+                          <a href="#" className="text-[#E8464F] hover:underline">
                             Privacy Policy
                           </a>
                         </span>
@@ -1875,7 +1875,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <Button
                 onClick={handleSignupSubmit}
                 disabled={isLoading}
-                className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6 mt-6"
+                className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6 mt-6"
               >
                 {isLoading ? "Processing..." : signupStep === 3 ? "Create Account" : "Continue"}
               </Button>
@@ -1891,22 +1891,22 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <div className="space-y-3">
                 <button
                   onClick={() => setModalView("account-type")}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#117aca] hover:bg-blue-50 transition-all text-left"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#E8464F] hover:bg-blue-50 transition-all text-left"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <Building2 className="w-6 h-6 text-[#117aca]" />
+                      <Building2 className="w-6 h-6 text-[#E8464F]" />
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-gray-900">Checking Account</p>
-                      <p className="text-sm text-gray-500">Crestline Capital Total Checking - $0 deposit to open</p>
+                      <p className="text-sm text-gray-500">Crestline Total Checking - $0 deposit to open</p>
                     </div>
                   </div>
                 </button>
 
                 <button
                   onClick={() => setModalView("account-type")}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#117aca] hover:bg-blue-50 transition-all text-left"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#E8464F] hover:bg-blue-50 transition-all text-left"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
@@ -1914,29 +1914,29 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-gray-900">Savings Account</p>
-                      <p className="text-sm text-gray-500">Crestline Capital Savings - Earn interest on your balance</p>
+                      <p className="text-sm text-gray-500">Crestline Savings - Earn interest on your balance</p>
                     </div>
                   </div>
                 </button>
 
                 <button
                   onClick={() => setModalView("account-type")}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#117aca] hover:bg-blue-50 transition-all text-left"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#E8464F] hover:bg-blue-50 transition-all text-left"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                      <CreditCard className="w-6 h-6 text-[#117aca]" />
+                      <CreditCard className="w-6 h-6 text-[#E8464F]" />
                     </div>
                     <div className="flex-1">
                       <p className="font-semibold text-gray-900">Credit Card</p>
-                      <p className="text-sm text-gray-500">Crestline Capital Freedom, Sapphire, and more</p>
+                      <p className="text-sm text-gray-500">Crestline Freedom, Sapphire, and more</p>
                     </div>
                   </div>
                 </button>
 
                 <button
-                  onClick={() => window.open("https://www.Crestline.com/personal/investments", "_blank")}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#117aca] hover:bg-blue-50 transition-all text-left"
+                  onClick={() => window.open("https://www.CrestlineCapital.com/personal/investments", "_blank")}
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl hover:border-[#E8464F] hover:bg-blue-50 transition-all text-left"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
@@ -1961,9 +1961,9 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           {/* Account Type Details */}
           {modalView === "account-type" && (
             <div className="p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Crestline Capital Total Checking</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-4">Crestline Total Checking</h2>
 
-              <div className="bg-gradient-to-r from-[#117aca] to-[#0a5a9e] text-white p-6 rounded-xl mb-6">
+              <div className="bg-gradient-to-r from-[#E8464F] to-[#0a5a9e] text-gray-900 p-6 rounded-xl mb-6">
                 <p className="text-3xl font-bold">$300</p>
                 <p className="text-sm opacity-90">New account bonus when you set up direct deposit</p>
               </div>
@@ -2006,7 +2006,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <Button
                 onClick={() => setModalView("open-account-form")}
-                className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6"
+                className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6"
               >
                 Open Account in App
               </Button>
@@ -2022,7 +2022,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             <div className="p-6">
               <button
                 onClick={() => setModalView("account-type")}
-                className="mb-4 text-[#117aca] hover:underline text-sm font-medium flex items-center gap-1"
+                className="mb-4 text-[#E8464F] hover:underline text-sm font-medium flex items-center gap-1"
               >
                 ← Back
               </button>
@@ -2037,7 +2037,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     placeholder="e.g., My Checking"
                     value={accountName}
                     onChange={(e) => setAccountName(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#117aca] focus:ring-1 focus:ring-[#117aca]"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#E8464F] focus:ring-1 focus:ring-[#E8464F]"
                   />
                 </div>
 
@@ -2053,7 +2053,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       step="0.01"
                       value={initialDeposit}
                       onChange={(e) => setInitialDeposit(e.target.value)}
-                      className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#117aca] focus:ring-1 focus:ring-[#117aca]"
+                      className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#E8464F] focus:ring-1 focus:ring-[#E8464F]"
                     />
                   </div>
                   <p className="text-xs text-gray-500 mt-1">Minimum deposit is $0. You can add funds anytime.</p>
@@ -2065,7 +2065,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   <select
                     value={fundingSource}
                     onChange={(e) => setFundingSource(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#117aca] focus:ring-1 focus:ring-[#117aca]"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#E8464F] focus:ring-1 focus:ring-[#E8464F]"
                   >
                     <option value="existing-account">Existing Crestline Capital Account</option>
                     <option value="debit-card">Debit Card</option>
@@ -2080,10 +2080,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     type="checkbox"
                     checked={agreeToTerms}
                     onChange={(e) => setAgreeToTerms(e.target.checked)}
-                    className="mt-1 w-4 h-4 text-[#117aca] rounded focus:ring-[#117aca]"
+                    className="mt-1 w-4 h-4 text-[#E8464F] rounded focus:ring-[#E8464F]"
                   />
                   <label className="text-xs text-gray-600">
-                    I agree to the Crestline Capital Bank Terms of Service and understand that this account will be opened immediately upon confirmation. Funds will be available in real-time.
+                    I agree to the Crestline Capital Terms of Service and understand that this account will be opened immediately upon confirmation. Funds will be available in real-time.
                   </label>
                 </div>
               </div>
@@ -2092,7 +2092,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               <Button
                 onClick={handleOpenAccount}
                 disabled={!agreeToTerms || !accountName.trim() || isOpeningAccount}
-                className="w-full bg-[#117aca] hover:bg-[#0a5a9e] py-6 mt-6"
+                className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] py-6 mt-6"
               >
                 {isOpeningAccount ? "Opening Account..." : "Open Account Instantly"}
               </Button>
@@ -2116,7 +2116,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <Shield className="w-5 h-5 text-[#117aca]" />
+                    <Shield className="w-5 h-5 text-[#E8464F]" />
                     <span className="font-medium text-gray-900">Privacy Policy</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400" />
@@ -2129,7 +2129,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <Lock className="w-5 h-5 text-[#117aca]" />
+                    <Lock className="w-5 h-5 text-[#E8464F]" />
                     <span className="font-medium text-gray-900">Security Center</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400" />
@@ -2145,7 +2145,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <User className="w-5 h-5 text-[#117aca]" />
+                    <User className="w-5 h-5 text-[#E8464F]" />
                     <span className="font-medium text-gray-900">Terms of Service</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400" />
@@ -2176,7 +2176,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <div className="mt-4 p-4 bg-gray-50 rounded-xl">
                 <p className="text-xs text-gray-600">
-                  <strong>Report suspicious activity:</strong> Call 1-800-935-9935 or visit Crestline.com/reportfraud
+                  <strong>Report suspicious activity:</strong> Call 1-800-935-9935 or visit CrestlineCapital.com/reportfraud
                 </p>
               </div>
             </div>
@@ -2189,55 +2189,55 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <div className="space-y-3">
                 <button
-                  onClick={() => window.open("https://locator.Crestline.com/", "_blank")}
+                  onClick={() => window.open("https://locator.CrestlineCapital.com/", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <Building2 className="w-5 h-5 text-[#117aca]" />
+                    <Building2 className="w-5 h-5 text-[#E8464F]" />
                     <span className="font-medium text-gray-900">Find a Branch or ATM</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400" />
                 </button>
 
                 <button
-                  onClick={() => window.open("https://www.Crestline.com/personal/credit-cards", "_blank")}
+                  onClick={() => window.open("https://www.CrestlineCapital.com/personal/credit-cards", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <CreditCard className="w-5 h-5 text-[#117aca]" />
+                    <CreditCard className="w-5 h-5 text-[#E8464F]" />
                     <span className="font-medium text-gray-900">Credit Cards</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400" />
                 </button>
 
                 <button
-                  onClick={() => window.open("https://www.Crestline.com/personal/mortgage", "_blank")}
+                  onClick={() => window.open("https://www.CrestlineCapital.com/personal/mortgage", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <HomeIcon className="w-5 h-5 text-[#117aca]" />
+                    <HomeIcon className="w-5 h-5 text-[#E8464F]" />
                     <span className="font-medium text-gray-900">Home Loans</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400" />
                 </button>
 
                 <button
-                  onClick={() => window.open("https://www.Crestline.com/business", "_blank")}
+                  onClick={() => window.open("https://www.CrestlineCapital.com/business", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <Building2 className="w-5 h-5 text-[#117aca]" />
+                    <Building2 className="w-5 h-5 text-[#E8464F]" />
                     <span className="font-medium text-gray-900">Business Banking</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400" />
                 </button>
 
                 <button
-                  onClick={() => window.open("mailto:Crestline.org_info247@zohomail.com", "_blank")}
+                  onClick={() => window.open("mailto:crestline.org_info247@zohomail.com", "_blank")}
                   className="w-full p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-[#117aca]" />
+                    <Mail className="w-5 h-5 text-[#E8464F]" />
                     <span className="font-medium text-gray-900">Customer Support</span>
                   </div>
                   <ExternalLink className="w-4 h-4 text-gray-400" />
@@ -2246,7 +2246,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
               <div className="mt-6 p-4 bg-gray-50 rounded-xl text-center">
                 <p className="text-sm text-gray-600 mb-2">Need help?</p>
-                <p className="text-[#117aca] font-semibold">1-800-935-9935</p>
+                <p className="text-[#E8464F] font-semibold">1-800-935-9935</p>
                 <p className="text-xs text-gray-500 mt-1">Available 24/7</p>
               </div>
             </div>
@@ -2257,7 +2257,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
             <div className="p-6">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-[#117aca]" />
+                  <Shield className="w-8 h-8 text-[#E8464F]" />
                 </div>
                 <h2 className="text-xl font-bold text-gray-900 mb-2">Two-Factor Authentication</h2>
                 <p className="text-gray-600">
@@ -2270,7 +2270,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 maxLength={6}
                 placeholder="000000"
                 value={otpCode}
-                className="w-full border border-gray-300 rounded-lg px-4 py-4 text-center text-2xl tracking-widest mb-6 focus:ring-2 focus:ring-[#117aca] focus:border-transparent"
+                className="w-full border border-gray-300 rounded-lg px-4 py-4 text-center text-2xl tracking-widest mb-6 focus:ring-2 focus:ring-[#E8464F] focus:border-transparent"
                 onChange={async (e) => {
                   const code = e.target.value
                   setOtpCode(code)
@@ -2355,7 +2355,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     description: `A new verification code has been sent to ${appSettings?.twoFactorPhone || "your phone"}.`,
                   })
                 }}
-                className="w-full py-3 text-[#117aca] hover:underline text-sm mb-2"
+                className="w-full py-3 text-[#E8464F] hover:underline text-sm mb-2"
               >
                 Resend Code
               </button>
@@ -2377,11 +2377,11 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   }
 
   return (
-    <div className="min-h-screen min-h-dvh bg-[#117aca] flex flex-col overflow-x-hidden overscroll-none touch-pan-y">
+    <div className="min-h-screen min-h-dvh bg-[#E8464F] flex flex-col overflow-x-hidden overscroll-none touch-pan-y">
       {/* Header with CRESTLINE logo */}
       <div className="py-8 flex justify-center items-center">
         <div className="flex items-center gap-2">
-          <span className="text-white text-2xl font-bold tracking-wide">CRESTLINE</span>
+          <span className="text-gray-900 text-2xl font-bold tracking-wide">CRESTLINE</span>
           <Image src="/images/Crestline-logo.png" alt="Crestline Capital" width={36} height={36} className="rounded" />
         </div>
       </div>
@@ -2403,7 +2403,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               onKeyDown={handleKeyPress}
-              className="w-full border-b border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#117aca] transition-colors bg-transparent placeholder-gray-500"
+              className="w-full border-b border-gray-300 py-3 px-0 text-gray-900 focus:outline-none focus:border-[#E8464F] transition-colors bg-transparent placeholder-gray-500"
               placeholder="Enter your username"
               autoComplete="username"
             />
@@ -2417,7 +2417,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={handleKeyPress}
-                className="w-full border-b border-gray-300 py-3 px-0 pr-10 text-gray-900 focus:outline-none focus:border-[#117aca] transition-colors bg-transparent placeholder-gray-500"
+                className="w-full border-b border-gray-300 py-3 px-0 pr-10 text-gray-900 focus:outline-none focus:border-[#E8464F] transition-colors bg-transparent placeholder-gray-500"
                 placeholder="Enter your password"
                 autoComplete="current-password"
               />
@@ -2438,7 +2438,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 id="remember"
                 checked={rememberMe}
                 onCheckedChange={(checked) => setRememberMe(checked as boolean)}
-                className="border-[#117aca] data-[state=checked]:bg-[#117aca] data-[state=checked]:border-[#117aca]"
+                className="border-[#E8464F] data-[state=checked]:bg-[#E8464F] data-[state=checked]:border-[#E8464F]"
               />
               <label htmlFor="remember" className="text-sm text-gray-600 cursor-pointer">
                 Remember me
@@ -2511,7 +2511,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   maxLength={6}
                   value={tokenCode}
                   onChange={(e) => setTokenCode(e.target.value.replace(/\D/g, ""))}
-                  className="w-full border-b border-gray-300 py-3 px-0 pr-10 text-gray-900 focus:outline-none focus:border-[#117aca] transition-colors bg-transparent placeholder-gray-500 text-center tracking-widest"
+                  className="w-full border-b border-gray-300 py-3 px-0 pr-10 text-gray-900 focus:outline-none focus:border-[#E8464F] transition-colors bg-transparent placeholder-gray-500 text-center tracking-widest"
                   placeholder="Enter 6-digit code"
                 />
                 <button
@@ -2548,7 +2548,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       setIsLoading(false)
                     }
                   }}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 text-[#117aca] hover:text-[#0a5a9e]"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 text-[#E8464F] hover:text-[#0a5a9e]"
                   disabled={isLoading}
                 >
                   <Mail className="w-5 h-5" />
@@ -2584,7 +2584,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                       setIsLoading(false)
                     }
                   }}
-                  className="text-[#117aca] hover:underline ml-1 disabled:opacity-50"
+                  className="text-[#E8464F] hover:underline ml-1 disabled:opacity-50"
                   disabled={isLoading}
                 >
                   Resend code
@@ -2597,7 +2597,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           <Button
             onClick={handleSignIn}
             disabled={isLoading}
-            className="w-full bg-[#117aca] hover:bg-[#0a5a9e] text-white py-6 rounded-md text-base font-medium transition-colors border-2 border-[#117aca]"
+            className="w-full bg-[#E8464F] hover:bg-[#0a5a9e] text-gray-900 py-6 rounded-md text-base font-medium transition-colors border-2 border-[#E8464F]"
           >
             {isLoading ? (
               <div className="flex items-center gap-2">
@@ -2619,7 +2619,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           {/* Neon Auth Sign In */}
           <a
             href="/neon-auth/sign-in"
-            className="w-full flex items-center justify-center gap-2 p-3 border-2 border-[#00e5bf] bg-[#00e5bf]/10 text-[#0a4fa6] rounded-lg hover:bg-[#00e5bf]/20 transition-colors font-medium text-sm"
+            className="w-full flex items-center justify-center gap-2 p-3 border-2 border-[#00e5bf] bg-[#00e5bf]/10 text-[#D71E28] rounded-lg hover:bg-[#00e5bf]/20 transition-colors font-medium text-sm"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -2631,7 +2631,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
           {/* Forgot username or password link */}
           <div className="text-center mt-6 mb-8">
-            <button onClick={() => setModalView("forgot")} className="text-[#117aca] hover:underline text-sm font-medium">
+            <button onClick={() => setModalView("forgot")} className="text-[#E8464F] hover:underline text-sm font-medium">
               Forgot username or password?
             </button>
           </div>
@@ -2640,13 +2640,13 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           <div className="space-y-2 mb-6">
             <button 
               onClick={() => setModalView("signup")} 
-              className="w-full p-3 border-2 border-[#117aca] text-[#117aca] rounded-lg hover:bg-blue-50 transition-colors font-medium text-sm"
+              className="w-full p-3 border-2 border-[#E8464F] text-[#E8464F] rounded-lg hover:bg-blue-50 transition-colors font-medium text-sm"
             >
               Sign up for Crestline Capital online
             </button>
             <button 
               onClick={() => setModalView("open-account")} 
-              className="w-full p-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-[#117aca] hover:bg-blue-50 transition-colors font-medium text-sm"
+              className="w-full p-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-[#E8464F] hover:bg-blue-50 transition-colors font-medium text-sm"
             >
               Open a new account
             </button>
@@ -2654,19 +2654,19 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
           {/* Additional Links Row */}
           <div className="flex items-center justify-center gap-2 text-xs text-gray-600 flex-wrap">
-            <button onClick={() => setModalView("privacy")} className="text-[#117aca] hover:underline">
+            <button onClick={() => setModalView("privacy")} className="text-[#E8464F] hover:underline">
               Privacy & Security
             </button>
             <span className="text-gray-400">•</span>
-            <a href="/faq" className="text-[#117aca] hover:underline">
+            <a href="/faq" className="text-[#E8464F] hover:underline">
               FAQ
             </a>
             <span className="text-gray-400">•</span>
-            <a href="/terms" className="text-[#117aca] hover:underline">
+            <a href="/terms" className="text-[#E8464F] hover:underline">
               Terms
             </a>
             <span className="text-gray-400">•</span>
-            <button onClick={() => setModalView("more-options")} className="text-[#117aca] hover:underline">
+            <button onClick={() => setModalView("more-options")} className="text-[#E8464F] hover:underline">
               More
             </button>
           </div>
@@ -2675,21 +2675,21 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
       {/* Footer - Equal Housing Lender, FDIC, Copyright - Updated year to 2025 */}
       <div className="pb-6 pt-4 text-center space-y-2 px-4">
-        <div className="flex items-center justify-center gap-1 text-xs text-white/80">
+        <div className="flex items-center justify-center gap-1 text-xs text-gray-900/80">
           <HomeIcon className="w-4 h-4" />
           <span>Equal Housing Lender</span>
         </div>
-        <p className="text-xs text-white/80 leading-relaxed">
-          Deposit products provided by JPMorgan Crestline Capital Bank, N.A.
+        <p className="text-xs text-gray-900/80 leading-relaxed">
+          Deposit products provided by JPMorgan Crestline Capital, N.A.
           <br />
           Member FDIC
         </p>
-        <p className="text-xs text-white/80 leading-relaxed">
-          Credit cards are issued by JPMorgan Crestline Capital Bank, N.A.
+        <p className="text-xs text-gray-900/80 leading-relaxed">
+          Credit cards are issued by JPMorgan Crestline Capital, N.A.
           <br />
           Member FDIC
         </p>
-        <p className="text-xs text-white/80 mt-2">© 2025 JPMorgan Crestline Capital & Co.</p>
+        <p className="text-xs text-gray-900/80 mt-2">© 2025 Crestline Capital</p>
       </div>
 
       {renderModal()}

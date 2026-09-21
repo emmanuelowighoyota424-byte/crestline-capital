@@ -54,7 +54,7 @@ export function BottomNavigation({ activeView, onViewChange }: BottomNavigationP
         {/* Sliding active indicator */}
         <div
           className={cn(
-            "absolute top-0 h-[2.5px] bg-[#0a4fa6] rounded-b-full nav-indicator",
+            "absolute top-0 h-[2.5px] bg-[#D71E28] rounded-b-full nav-indicator",
             !isReady && "opacity-0"
           )}
           style={{
@@ -74,8 +74,8 @@ export function BottomNavigation({ activeView, onViewChange }: BottomNavigationP
               className={cn(
                 "flex flex-col items-center gap-0.5 py-2 px-3 min-w-[64px] rounded-xl transition-all duration-200 bg-transparent border-0 cursor-pointer",
                 isActive
-                  ? "text-[#0a4fa6]"
-                  : "text-muted-foreground active:text-[#0a4fa6]",
+                  ? "text-[#D71E28]"
+                  : "text-muted-foreground active:text-[#D71E28]",
               )}
               onClick={() => onViewChange(item.id)}
               aria-label={item.label}

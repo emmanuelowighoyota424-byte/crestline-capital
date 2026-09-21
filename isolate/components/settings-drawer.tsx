@@ -42,7 +42,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `chase-data-${new Date().toISOString().split("T")[0]}.json`
+    a.download = `crestline-data-${new Date().toISOString().split("T")[0]}.json`
     a.click()
     URL.revokeObjectURL(url)
     toast({
@@ -89,8 +89,8 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-[#0a4fa6]/10 flex items-center justify-center">
-                <item.icon className="h-5 w-5 text-[#0a4fa6]" />
+              <div className="h-10 w-10 rounded-full bg-[#D71E28]/10 flex items-center justify-center">
+                <item.icon className="h-5 w-5 text-[#D71E28]" />
               </div>
               <div>
                 <p className="font-medium">{item.label}</p>
@@ -114,7 +114,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
       </div>
 
       <Card className="p-4 space-y-4">
-        <h4 className="font-medium text-[#0a4fa6]">Push Notifications</h4>
+        <h4 className="font-medium text-[#D71E28]">Push Notifications</h4>
         {[
           { key: "pushNotifications", label: "Push Notifications", desc: "Receive notifications on your device" },
           { key: "transactionAlerts", label: "Transaction Alerts", desc: "Get notified for all transactions" },
@@ -135,7 +135,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
       </Card>
 
       <Card className="p-4 space-y-4">
-        <h4 className="font-medium text-[#0a4fa6]">Email & SMS</h4>
+        <h4 className="font-medium text-[#D71E28]">Email & SMS</h4>
         {[
           { key: "emailNotifications", label: "Email Notifications", desc: "Receive emails for important updates" },
           { key: "smsAlerts", label: "SMS Alerts", desc: "Receive text messages for alerts" },
@@ -156,7 +156,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
 
       {appSettings?.balanceAlerts && (
         <Card className="p-4 space-y-4">
-          <h4 className="font-medium text-[#0a4fa6]">Balance Threshold</h4>
+          <h4 className="font-medium text-[#D71E28]">Balance Threshold</h4>
           <p className="text-sm text-muted-foreground">
             Alert when balance falls below ${appSettings.balanceThreshold || 100}
           </p>
@@ -186,7 +186,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
       </div>
 
       <Card className="p-4 space-y-4">
-        <h4 className="font-medium text-[#0a4fa6]">Authentication</h4>
+        <h4 className="font-medium text-[#D71E28]">Authentication</h4>
         <div className="flex items-center justify-between py-2">
           <div>
             <Label className="font-medium">Biometric Login</Label>
@@ -209,7 +209,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
       </Card>
 
       <Card className="p-4 space-y-4">
-        <h4 className="font-medium text-[#0a4fa6]">Quick Access</h4>
+        <h4 className="font-medium text-[#D71E28]">Quick Access</h4>
         <div className="flex items-center justify-between py-2">
           <div>
             <Label className="font-medium">Quick Balance</Label>
@@ -234,7 +234,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
       </div>
 
       <Card className="p-4 space-y-4">
-        <h4 className="font-medium text-[#0a4fa6]">Display</h4>
+        <h4 className="font-medium text-[#D71E28]">Display</h4>
         <div className="flex items-center justify-between py-2">
           <div>
             <Label className="font-medium">Dark Mode</Label>
@@ -248,7 +248,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
       </Card>
 
       <Card className="p-4 space-y-4">
-        <h4 className="font-medium text-[#0a4fa6]">Regional</h4>
+        <h4 className="font-medium text-[#D71E28]">Regional</h4>
         <div className="space-y-4">
           <div>
             <Label className="font-medium">Language</Label>
@@ -288,7 +288,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
       </Card>
 
       <Card className="p-4 space-y-4">
-        <h4 className="font-medium text-[#0a4fa6]">Statements</h4>
+        <h4 className="font-medium text-[#D71E28]">Statements</h4>
         <div className="flex items-center justify-between py-2">
           <div>
             <Label className="font-medium">Paperless Statements</Label>
@@ -313,7 +313,7 @@ export function SettingsDrawer({ open, onOpenChange }: SettingsDrawerProps) {
       </div>
 
       <Card className="p-4 space-y-4">
-        <h4 className="font-medium text-[#0a4fa6]">Your Data</h4>
+        <h4 className="font-medium text-[#D71E28]">Your Data</h4>
         <Button variant="outline" className="w-full justify-start bg-transparent" onClick={handleExportData}>
           <Download className="h-4 w-4 mr-2" />
           Export My Data

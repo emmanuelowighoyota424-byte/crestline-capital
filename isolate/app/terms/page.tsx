@@ -3,17 +3,17 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Crestline Capital Bank',
-  description: 'Review the terms and conditions for using Crestline Capital Bank services.',
+  title: 'Terms of Service | Crestline Capital',
+  description: 'Review the terms and conditions for using Crestline Capital services.',
 }
 
 export default function TermsPage() {
   return (
-    <div className="crestline-legal min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="crest-legal min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-6 py-6">
-          <Link href="/" className="flex items-center gap-2 text-[#117aca] hover:underline mb-4 w-fit">
+          <Link href="/" className="flex items-center gap-2 text-[#E8464F] hover:underline mb-4 w-fit">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
@@ -29,7 +29,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Agreement to Terms</h2>
             <p className="text-gray-700 leading-relaxed">
-              These Terms of Service ("Terms") govern your access to and use of Crestline Capital Bank's website, mobile applications, and banking services. By accessing or using Crestline Capital services, you agree to be bound by these Terms. If you do not agree to any part of these Terms, you may not use our services.
+              These Terms of Service ("Terms") govern your access to and use of Crestline Capital's website, mobile applications, and banking services. By accessing or using Crestline Capital services, you agree to be bound by these Terms. If you do not agree to any part of these Terms, you may not use our services.
             </p>
           </section>
 
@@ -150,7 +150,7 @@ export default function TermsPage() {
               For questions about these Terms of Service, please contact us at:
             </p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
-              <p className="text-gray-700"><strong>Email:</strong> support@Crestline.com</p>
+              <p className="text-gray-700"><strong>Email:</strong> support@crestlinecapital.com</p>
               <p className="text-gray-700"><strong>Phone:</strong> 1-800-935-9935</p>
             </div>
           </section>

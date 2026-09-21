@@ -144,7 +144,7 @@ function AdminConsoleContent() {
     role: string
   }>({
     name: 'Emmanuel Owighoyota',
-    email: 'owighoyotaemmanuel424@gmail.com',
+    email: 'admin@crestlinecapital.internal',
     role: 'SUPER_ADMIN',
   })
 
@@ -264,26 +264,26 @@ function AdminConsoleContent() {
   }
 
   return (
-    <div className="min-h-screen bg-[#070a11] text-[#f8fafc] flex flex-col font-sans selection:bg-[#38bdf8] selection:text-[#0b0f19]">
+    <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col font-sans selection:bg-[#D71E28] selection:text-gray-900">
       {/* Top Universal Navbar */}
-      <header className="h-16 bg-[#0b0f19] border-b border-[#1e293b] flex items-center justify-between px-4 sm:px-6 sticky top-0 z-40">
+      <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 sm:px-6 sticky top-0 z-40">
         <div className="flex items-center gap-4">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#94a3b8] hover:text-white rounded-xl hover:bg-[#161e2e]"
+            className="lg:hidden p-2 text-gray-500 hover:text-gray-900 rounded-xl hover:bg-gray-100"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
 
           <Link href="/admin" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] flex items-center justify-center shadow-[0_0_15px_rgba(56,189,248,0.3)]">
-              <Shield className="w-4 h-4 text-[#0b0f19]" />
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#D71E28] to-[#818cf8] flex items-center justify-center shadow-[0_0_15px_rgba(215,30,40,0.3)]">
+              <Shield className="w-4 h-4 text-gray-900" />
             </div>
             <div className="hidden sm:block">
-              <span className="font-bold text-sm text-white tracking-tight block leading-none">
+              <span className="font-bold text-sm text-gray-900 tracking-tight block leading-none">
                 Crestline Capital
               </span>
-              <span className="text-[10px] text-[#38bdf8] font-mono tracking-wider uppercase leading-none">
+              <span className="text-[10px] text-[#D71E28] font-mono tracking-wider uppercase leading-none">
                 Production Admin (v2.4)
               </span>
             </div>
@@ -292,44 +292,44 @@ function AdminConsoleContent() {
 
         {/* Global Search & Indicators */}
         <div className="flex items-center gap-3">
-          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#161e2e] border border-[#1e293b] text-xs font-mono text-[#94a3b8]">
+          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-xs font-mono text-gray-500">
             <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
             <span>Sunday, August 30, 2026</span>
           </div>
 
           <div className="relative hidden sm:block w-48 lg:w-64">
-            <Search className="w-3.5 h-3.5 text-[#64748b] absolute left-3 top-2.5" />
+            <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-2.5" />
             <input
               type="text"
               value={globalSearch}
               onChange={(e) => setGlobalSearch(e.target.value)}
               placeholder="Search module (or hotkey /)..."
-              className="w-full pl-8 pr-3 py-1.5 bg-[#161e2e] border border-[#1e293b] rounded-xl text-xs text-white placeholder-[#64748b] focus:outline-none focus:border-[#38bdf8]"
+              className="w-full pl-8 pr-3 py-1.5 bg-gray-100 border border-gray-200 rounded-xl text-xs text-gray-900 placeholder-[#64748b] focus:outline-none focus:border-[#D71E28]"
             />
           </div>
 
           <Link
             href="/dashboard"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs text-[#94a3b8] hover:text-white transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-500 hover:text-gray-900 transition-colors"
           >
             <span>Customer Portal</span>
             <ExternalLink className="w-3 h-3" />
           </Link>
 
           {/* Authenticated Administrator Pill */}
-          <div className="hidden xl:flex items-center gap-2.5 px-3 py-1 bg-[#161e2e] border border-[#1e293b] rounded-2xl">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#38bdf8] to-[#818cf8] text-[#0b0f19] font-bold text-[11px] flex items-center justify-center">
+          <div className="hidden xl:flex items-center gap-2.5 px-3 py-1 bg-gray-100 border border-gray-200 rounded-2xl">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#D71E28] to-[#818cf8] text-gray-900 font-bold text-[11px] flex items-center justify-center">
               {adminSession.name.charAt(0)}
             </div>
             <div className="text-left">
-              <span className="text-xs font-semibold text-white block leading-tight">
+              <span className="text-xs font-semibold text-gray-900 block leading-tight">
                 {adminSession.name}
               </span>
-              <span className="text-[10px] text-[#38bdf8] font-mono leading-none block">
+              <span className="text-[10px] text-[#D71E28] font-mono leading-none block">
                 {adminSession.email}
               </span>
             </div>
-            <span className="ml-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-[#38bdf8]/10 text-[#38bdf8] border border-[#38bdf8]/20">
+            <span className="ml-1 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-[#D71E28]/10 text-[#D71E28] border border-[#D71E28]/20">
               {adminSession.role}
             </span>
           </div>
@@ -338,7 +338,7 @@ function AdminConsoleContent() {
             onClick={handleLogout}
             id="btn-admin-header-logout"
             title="Lock & Terminate Admin Session"
-            className="p-2 text-[#94a3b8] hover:text-red-400 hover:bg-[#161e2e] rounded-xl transition-colors flex items-center gap-1 text-xs"
+            className="p-2 text-gray-500 hover:text-red-600 hover:bg-gray-100 rounded-xl transition-colors flex items-center gap-1 text-xs"
           >
             <LogOut className="w-4 h-4" />
             <span className="hidden lg:inline">Logout</span>
@@ -349,14 +349,14 @@ function AdminConsoleContent() {
       <div className="flex-1 flex overflow-hidden">
         {/* Left Sidebar Drawer (Desktop & Mobile Drawer) */}
         <aside
-          className={`fixed lg:static inset-y-16 left-0 z-30 w-72 bg-[#0b0f19] border-r border-[#1e293b] flex flex-col justify-between overflow-y-auto transition-transform lg:translate-x-0 ${
+          className={`fixed lg:static inset-y-16 left-0 z-30 w-72 bg-white border-r border-gray-200 flex flex-col justify-between overflow-y-auto transition-transform lg:translate-x-0 ${
             mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
           <div className="p-4 space-y-6">
             {NAV_CATEGORIES.map((cat) => (
               <div key={cat.title} className="space-y-1">
-                <span className="text-[10px] font-bold text-[#64748b] tracking-wider uppercase px-3 block mb-2">
+                <span className="text-[10px] font-bold text-gray-400 tracking-wider uppercase px-3 block mb-2">
                   {cat.title}
                 </span>
                 <div className="space-y-0.5">
@@ -369,16 +369,16 @@ function AdminConsoleContent() {
                         onClick={() => navigateToModule(item.id)}
                         className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                           isActive
-                            ? 'bg-[#38bdf8]/10 text-[#38bdf8] font-bold border border-[#38bdf8]/20 shadow-sm'
-                            : 'text-[#94a3b8] hover:text-white hover:bg-[#161e2e]'
+                            ? 'bg-[#D71E28]/10 text-[#D71E28] font-bold border border-[#D71E28]/20 shadow-sm'
+                            : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
-                          <Icon className={`w-4 h-4 ${isActive ? 'text-[#38bdf8]' : 'text-[#64748b]'}`} />
+                          <Icon className={`w-4 h-4 ${isActive ? 'text-[#D71E28]' : 'text-gray-400'}`} />
                           <span>{item.name}</span>
                         </div>
                         {item.id !== 'overview' && (
-                          <span className="text-[9px] font-mono text-[#64748b]">?id={item.id}</span>
+                          <span className="text-[9px] font-mono text-gray-400">?id={item.id}</span>
                         )}
                       </button>
                     )
@@ -388,18 +388,18 @@ function AdminConsoleContent() {
             ))}
           </div>
 
-          <div className="p-4 border-t border-[#1e293b] bg-[#070a11]/50 space-y-3 text-xs">
+          <div className="p-4 border-t border-gray-200 bg-gray-50/50 space-y-3 text-xs">
             {/* Admin User Card */}
-            <div className="p-2.5 rounded-xl bg-[#111827] border border-[#1e293b] flex items-center justify-between">
+            <div className="p-2.5 rounded-xl bg-[#111827] border border-gray-200 flex items-center justify-between">
               <div className="flex items-center gap-2.5 overflow-hidden">
-                <div className="w-8 h-8 rounded-lg bg-[#38bdf8]/10 border border-[#38bdf8]/20 text-[#38bdf8] font-bold flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-[#D71E28]/10 border border-[#D71E28]/20 text-[#D71E28] font-bold flex items-center justify-center shrink-0">
                   {adminSession.name.charAt(0)}
                 </div>
                 <div className="overflow-hidden">
-                  <span className="font-semibold text-white block text-xs truncate">
+                  <span className="font-semibold text-gray-900 block text-xs truncate">
                     {adminSession.name}
                   </span>
-                  <span className="text-[10px] text-[#94a3b8] block truncate font-mono">
+                  <span className="text-[10px] text-gray-500 block truncate font-mono">
                     {adminSession.email}
                   </span>
                 </div>
@@ -408,17 +408,17 @@ function AdminConsoleContent() {
                 onClick={handleLogout}
                 id="btn-admin-sidebar-logout"
                 title="Log Out"
-                className="p-1.5 text-[#64748b] hover:text-red-400 hover:bg-[#161e2e] rounded-lg transition-colors shrink-0"
+                className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-gray-100 rounded-lg transition-colors shrink-0"
               >
                 <LogOut className="w-4 h-4" />
               </button>
             </div>
 
-            <div className="flex items-center gap-2 text-emerald-400 font-mono text-[11px] pt-1">
+            <div className="flex items-center gap-2 text-green-600 font-mono text-[11px] pt-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
               <span>Ledger Balanced & Immutable</span>
             </div>
-            <p className="text-[10px] text-[#64748b]">
+            <p className="text-[10px] text-gray-400">
               Double-Entry Core v2.4 • GAAP/IFRS Compliance Active
             </p>
           </div>
@@ -433,21 +433,21 @@ function AdminConsoleContent() {
         )}
 
         {/* Center Main Stage Content */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-8 bg-[#070a11]">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-8 bg-gray-50">
           <div className="max-w-7xl mx-auto space-y-6">
             {/* Active Module Header */}
-            <div className="flex items-center justify-between border-b border-[#1e293b] pb-4">
+            <div className="flex items-center justify-between border-b border-gray-200 pb-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono text-[#38bdf8]">
+                  <span className="text-xs font-mono text-[#D71E28]">
                     MODULE {activeModule.toUpperCase()}
                   </span>
-                  <span className="text-[#64748b]">•</span>
-                  <span className="text-xs text-[#94a3b8] font-mono">
+                  <span className="text-gray-400">•</span>
+                  <span className="text-xs text-gray-500 font-mono">
                     Sunday, August 30, 2026
                   </span>
                 </div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mt-1">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight mt-1">
                   {currentNavTitle}
                 </h1>
               </div>
@@ -455,9 +455,9 @@ function AdminConsoleContent() {
               <div className="hidden sm:flex items-center gap-2">
                 <button
                   onClick={refreshStore}
-                  className="px-3 py-1.5 bg-[#161e2e] hover:bg-[#1e293b] text-[#94a3b8] hover:text-white rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                  className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-900 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors"
                 >
-                  <Lock className="w-3.5 h-3.5 text-emerald-400" />
+                  <Lock className="w-3.5 h-3.5 text-green-600" />
                   <span>Air-Gapped Sync</span>
                 </button>
               </div>
@@ -564,7 +564,7 @@ export default function AdminPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#070a11] flex items-center justify-center text-[#38bdf8] font-mono text-sm">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center text-[#D71E28] font-mono text-sm">
           Loading Crestline Capital Administration System...
         </div>
       }

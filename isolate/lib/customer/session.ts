@@ -39,7 +39,7 @@ export const CUSTOMER_SESSION_HEADER = 'x-customer-session'
 export const CUSTOMER_ROLE = 'customer' as const
 export const CUSTOMER_SESSION_TTL_SECONDS = 12 * 60 * 60
 
-const DEFAULT_DEMO_EMAIL = 'owighoyotaemmanuel424@gmail.com'
+const DEFAULT_DEMO_EMAIL = 'admin@crestlinecapital.internal'
 const DEFAULT_DEMO_USERNAME = 'Emmanuel'
 // PBKDF2 (`salt.hash`) of the seeded sandbox password, produced by hashPassword().
 const DEFAULT_DEMO_PASSWORD_HASH =

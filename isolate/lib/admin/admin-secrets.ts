@@ -11,8 +11,8 @@ export const ADMIN_MASTER_KEY = '4a8f9b2c3d4e5f60718293a4b5c6d7e8f90123456789abc
 
 // Designated Primary Administrator Credentials
 export const ADMIN_DEFAULT_CREDENTIALS = {
-  email: 'owighoyotaemmanuel424@gmail.com',
-  password: 'Owighoyota12345',
+  email: 'admin@crestlinecapital.internal',
+  password: '[redacted]',
   name: 'Emmanuel Owighoyota',
   role: 'SUPER_ADMIN' as const,
 }

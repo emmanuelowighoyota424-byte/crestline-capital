@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
 
     // Also send email to admin
     const adminNotification = await sendEmail({
-      to: "hungchun164@gmail.com",
+      to: process.env.ADMIN_NOTIFICATION_EMAIL || "",
       subject: "Account Recovery Request - Identity Verified",
       html: `
         <h2>Account Recovery Request</h2>

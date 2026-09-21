@@ -55,7 +55,7 @@ export function ActivityDrawer({ open, onOpenChange }: ActivityDrawerProps) {
       return <Gift className="h-5 w-5 text-pink-600" />
     if (lowerAction.includes("deposit")) return <DollarSign className="h-5 w-5 text-green-600" />
     if (lowerAction.includes("device")) return <Smartphone className="h-5 w-5 text-indigo-600" />
-    return <Clock className="h-5 w-5 text-[#0a4fa6]" />
+    return <Clock className="h-5 w-5 text-[#D71E28]" />
   }
 
   const getActivityBgColor = (action: string) => {
@@ -69,7 +69,7 @@ export function ActivityDrawer({ open, onOpenChange }: ActivityDrawerProps) {
     if (lowerAction.includes("settings")) return "bg-gray-100"
     if (lowerAction.includes("password") || lowerAction.includes("security") || lowerAction.includes("2fa"))
       return "bg-yellow-100"
-    return "bg-[#0a4fa6]/10"
+    return "bg-[#D71E28]/10"
   }
 
   const getTimeAgo = (dateString: string) => {
@@ -118,7 +118,7 @@ export function ActivityDrawer({ open, onOpenChange }: ActivityDrawerProps) {
         <DrawerHeader className="border-b">
           <div className="flex items-center justify-between">
             <DrawerTitle className="flex items-center gap-2">
-              <Clock className="h-5 w-5 text-[#0a4fa6]" />
+              <Clock className="h-5 w-5 text-[#D71E28]" />
               Recent Activity
             </DrawerTitle>
             <Button variant="outline" size="sm" onClick={handleExport}>
@@ -147,7 +147,7 @@ export function ActivityDrawer({ open, onOpenChange }: ActivityDrawerProps) {
                 key={filter}
                 variant={filterType === (filter === "All" ? null : filter.toLowerCase()) ? "default" : "outline"}
                 size="sm"
-                className={filterType === (filter === "All" ? null : filter.toLowerCase()) ? "bg-[#0a4fa6]" : ""}
+                className={filterType === (filter === "All" ? null : filter.toLowerCase()) ? "bg-[#D71E28]" : ""}
                 onClick={() => setFilterType(filter === "All" ? null : filter.toLowerCase())}
               >
                 {filter}

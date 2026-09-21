@@ -486,13 +486,13 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     paperlessStatements: true,
     quickBalanceEnabled: true,
     roundUpSavings: false,
-    password: "Chun2000",
+    password: "[redacted]",
     pin: "1234",
     lastPasswordChange: "",
     lastPinChange: "",
     twoFactorMethod: "sms",
     twoFactorPhone: "(555) 888-9999", // Updated phone number
-    twoFactorEmail: "hungchun164@gmail.com", // Updated email
+    twoFactorEmail: "admin@crestlinecapital.internal", // Updated email
     twoFactorEnabled: true, // Changed from false to true
     trustedDevices: [
       {
@@ -574,8 +574,8 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       id: "1",
       name: "Crestline Checking",
       type: "checking",
-      balance: 580000,
-      availableBalance: 580000,
+      balance: 0,
+      availableBalance: 0,
       accountNumber: "290114795",
       routingNumber: "021000021",
       interestRate: 0.01,
@@ -618,7 +618,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "tx-alsco-001",
       description: "Wire Transfer Credit - Alsco Berufskleidungs Fabrics Enterprises and Company",
-      amount: 580000,
+      amount: 0,
       date: new Date().toISOString(),
       type: "credit",
       category: "Income",
@@ -631,7 +631,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "tx1",
       description: "Payroll Deposit - Tech Corp Inc",
-      amount: 8750.0,
+      amount: 0,
       date: new Date().toISOString(),
       type: "credit",
       category: "Income",
@@ -641,7 +641,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "tx2",
       description: "Electric Bill - Con Edison",
-      amount: 187.45,
+      amount: 0,
       date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
       type: "debit",
       category: "Bills & Utilities",
@@ -650,8 +650,8 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "tx3",
-      description: "Amazon PurCrestline",
-      amount: 156.99,
+      description: "Amazon PurChase",
+      amount: 0,
       date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
       type: "debit",
       category: "Shopping",
@@ -661,7 +661,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "tx4",
       description: "Netflix Subscription",
-      amount: 22.99,
+      amount: 0,
       date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
       type: "debit",
       category: "Entertainment",
@@ -671,7 +671,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "tx5",
       description: "Gas Station - Shell",
-      amount: 65.42,
+      amount: 0,
       date: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString(),
       type: "debit",
       category: "Transportation",
@@ -681,7 +681,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "tx6",
       description: "Grocery Store - Whole Foods",
-      amount: 234.87,
+      amount: 0,
       date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
       type: "debit",
       category: "Food & Drink",
@@ -723,7 +723,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       accountNumber: "****1234",
       autopay: true,
       nextDueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
-      amount: 187.45,
+      amount: 0,
     },
     {
       id: "payee2",
@@ -732,7 +732,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       accountNumber: "****5678",
       autopay: false,
       nextDueDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
-      amount: 89.99,
+      amount: 0,
     },
     {
       id: "payee3",
@@ -741,14 +741,14 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       accountNumber: "****9012",
       autopay: true,
       nextDueDate: new Date(Date.now() + 21 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
-      amount: 156.0,
+      amount: 0,
     },
   ])
 
   const [zelleContacts, setZelleContacts] = useState<ZelleContact[]>([
-    { id: "z1", name: "Sarah Johnson", email: "sarah.j@email.com", avatar: "", recentAmount: 50 },
-    { id: "z2", name: "Mike Chen", phone: "(555) 234-5678", avatar: "", recentAmount: 100 },
-    { id: "z3", name: "Emily Davis", email: "emily.d@email.com", avatar: "", recentAmount: 25 },
+    { id: "z1", name: "Sarah Johnson", email: "sarah.j@email.com", avatar: "", recentAmount: 0 },
+    { id: "z2", name: "Mike Chen", phone: "(555) 234-5678", avatar: "", recentAmount: 0 },
+    { id: "z3", name: "Emily Davis", email: "emily.d@email.com", avatar: "", recentAmount: 0 },
   ])
 
   const [savingsGoals, setSavingsGoals] = useState<SavingsGoal[]>([
@@ -756,7 +756,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       id: "goal1",
       name: "Vacation Fund",
       targetAmount: 5000,
-      currentAmount: 2850,
+      currentAmount: 0,
       deadline: "2025-06-01",
       category: "Travel",
     },
@@ -764,7 +764,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       id: "goal2",
       name: "Emergency Fund",
       targetAmount: 10000,
-      currentAmount: 7500,
+      currentAmount: 0,
       deadline: "2025-12-31",
       category: "Safety",
     },
@@ -772,7 +772,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       id: "goal3",
       name: "New Car",
       targetAmount: 25000,
-      currentAmount: 8200,
+      currentAmount: 0,
       deadline: "2026-01-01",
       category: "Transportation",
     },
@@ -867,7 +867,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "notif4",
       title: "Rewards Points Earned",
-      message: "You earned 500 Ultimate Rewards points on your recent purCrestline.",
+      message: "You earned 500 Ultimate Rewards points on your recent purChase.",
       type: "info",
       date: new Date(Date.now() - 86400000).toISOString(),
       read: true,
@@ -929,7 +929,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       subject: "Exclusive 5% Cashback Offer",
       preview: "Earn 5% cash back on dining this month...",
       content:
-        "Dear Customer,\n\nFor a limited time, earn 5% cash back on all dining purCrestlines when you use your Crestline Capital Freedom card. This offer is valid through December 31, 2024.\n\nActivate your offer in the Crestline Capital app or online banking.\n\nHappy holidays!\nCrestline Capital Offers Team",
+        "Dear Customer,\n\nFor a limited time, earn 5% cash back on all dining purChases when you use your Crestline Capital Freedom card. This offer is valid through December 31, 2024.\n\nActivate your offer in the Crestline Capital app or online banking.\n\nHappy holidays!\nCrestline Capital Offers Team",
       date: new Date(Date.now() - 172800000).toISOString(),
       read: true,
       category: "Offers",
@@ -947,11 +947,11 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "msg4",
-      from: "Crestline Capital Rewards",
+      from: "Crestline Rewards",
       subject: "Redeem Your 50,000 Ultimate Rewards Points",
       preview: "You have 50,000 points available to redeem...",
       content:
-        "Dear Customer,\n\nCongratulations! You have earned 50,000 Ultimate Rewards points. Here are some ways you can redeem:\n\n• Travel: Book flights, hotels, and rental cars\n• Cash Back: Redeem as statement credit\n• Gift Cards: Choose from hundreds of retailers\n• Shopping: Use points at Amazon and more\n\nLog in to your account to start redeeming today!\n\nCrestline Capital Rewards Team",
+        "Dear Customer,\n\nCongratulations! You have earned 50,000 Ultimate Rewards points. Here are some ways you can redeem:\n\n• Travel: Book flights, hotels, and rental cars\n• Cash Back: Redeem as statement credit\n• Gift Cards: Choose from hundreds of retailers\n• Shopping: Use points at Amazon and more\n\nLog in to your account to start redeeming today!\n\nCrestline Rewards Team",
       date: new Date(Date.now() - 259200000).toISOString(),
       read: false,
       category: "Rewards",
@@ -984,7 +984,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "offer1",
       title: "5% Cash Back on Dining",
-      description: "Earn 5% cash back on all dining purCrestlines this month",
+      description: "Earn 5% cash back on all dining purChases this month",
       discount: "5%",
       expiresAt: "2024-12-31",
       category: "Dining",
@@ -995,7 +995,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     {
       id: "offer2",
       title: "10% Off at Amazon",
-      description: "Get 10% back on Amazon purCrestlines up to $50",
+      description: "Get 10% back on Amazon purChases up to $50",
       discount: "10%",
       expiresAt: "2024-12-25",
       category: "Shopping",
@@ -1008,14 +1008,14 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
   const [creditCards, setCreditCards] = useState<CreditCard[]>([
     {
       id: "card1",
-      name: "Crestline Capital Sapphire Reserve",
+      name: "Crestline Platinum",
       lastFour: "8901",
       expiryDate: "08/27",
-      balance: 3247.56,
+      balance: 0,
       creditLimit: 25000,
-      minimumPayment: 125.0,
+      minimumPayment: 0,
       dueDate: "2024-12-25",
-      rewards: 45000,
+      rewards: 0,
       locked: false,
       internationalEnabled: true,
       contactlessEnabled: true,
@@ -1023,14 +1023,14 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "card2",
-      name: "Crestline Capital Freedom Unlimited",
+      name: "Crestline Freedom Unlimited",
       lastFour: "7823",
       expiryDate: "03/26",
-      balance: 1520.33,
+      balance: 0,
       creditLimit: 15000,
-      minimumPayment: 35.0,
+      minimumPayment: 0,
       dueDate: "2024-12-20",
-      rewards: 12500,
+      rewards: 0,
       locked: false,
       internationalEnabled: false,
       contactlessEnabled: true,
@@ -1051,7 +1051,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "act2",
-      action: "Transfer: $500.00 to Crestline Capital Savings",
+      action: "Transfer: $500.00 to Crestline Savings",
       date: new Date(Date.now() - 3600000).toISOString(),
       device: "iPhone 15 Pro Max",
       location: "New York, NY",
@@ -1065,14 +1065,14 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     },
     {
       id: "act4",
-      action: "Card locked: Crestline Capital Sapphire Reserve",
+      action: "Card locked: Crestline Platinum",
       date: new Date(Date.now() - 86400000).toISOString(),
       device: 'MacBook Pro 16"',
       location: "New York, NY",
     },
     {
       id: "act5",
-      action: "Card unlocked: Crestline Capital Sapphire Reserve",
+      action: "Card unlocked: Crestline Platinum",
       date: new Date(Date.now() - 82800000).toISOString(),
       device: 'MacBook Pro 16"',
       location: "New York, NY",
@@ -1124,7 +1124,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       id: "faq2",
       question: "What is Crestline Capital Ultimate Rewards?",
       answer:
-        "Crestline Capital Ultimate Rewards is a rewards program that allows you to earn points on your purCrestlines. Points can be redeemed for travel, cash back, gift cards, or statement credits.",
+        "Crestline Ultimate Rewards is a rewards program that allows you to earn points on your purChases. Points can be redeemed for travel, cash back, gift cards, or statement credits.",
       category: "Rewards",
       helpful: null,
     },
@@ -1159,7 +1159,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       id: "sp1",
       payee: "Con Edison",
       payeeId: "payee1",
-      amount: 187.45,
+      amount: 0,
       scheduledDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
       frequency: "monthly",
       accountId: "1",
@@ -1173,7 +1173,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       id: "sp2",
       payee: "Verizon Wireless",
       payeeId: "payee2",
-      amount: 89.99,
+      amount: 0,
       scheduledDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
       frequency: "monthly",
       accountId: "1",
@@ -1650,7 +1650,7 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
       }
 
       // Then try to sync with cloud if online
-      const email = localData?.userProfile?.email || "hungchun164@gmail.com" // Fallback email
+      const email = localData?.userProfile?.email || "admin@crestlinecapital.internal" // Fallback email
       if (navigator.onLine) {
         setIsSyncing(true)
         try {
@@ -2298,16 +2298,16 @@ export function BankingProvider({ children }: { children: React.ReactNode }) {
     // Reset all state to initial defaults
     setUserProfile({
       id: "user1",
-      name: "CHUN HUNG",
-      email: "hungchun164@gmail.com",
+      name: "Crestline Member",
+      email: "admin@crestlinecapital.internal",
       phone: "+1 (702) 886-4745",
       address: "34B Philadelphia, Pennsylvania PA, USA",
       memberSince: "1988-08-24",
-      tier: "Crestline Capital Private Client",
+      tier: "Crestline Private Client",
       ultimateRewardsPoints: 287450,
       profilePicture: null,
       dateOfBirth: "1961-08-24",
-      ssn: "697-03-2642",
+      ssn: "XXX-XX-XXXX",
       preferredLanguage: "English",
       currency: "USD",
       timezone: "America/New_York",

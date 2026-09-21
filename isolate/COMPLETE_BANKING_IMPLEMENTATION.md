@@ -291,9 +291,9 @@ This guide documents the complete Chase Bank-like banking application with full 
 ## Testing Credentials
 
 ### Default User
-- **Username**: CHUN HUNG
-- **Password**: Chun2000
-- **Email**: hungchun164@gmail.com
+- **Username**: Crestline Member
+- **Password**: [redacted]
+- **Email**: admin@crestlinecapital.internal
 
 ### Test Accounts
 - Checking Account

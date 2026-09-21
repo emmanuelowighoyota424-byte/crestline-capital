@@ -3,17 +3,17 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Crestline Capital Bank',
+  title: 'Privacy Policy | Crestline Capital',
   description: 'Learn how Crestline Capital protects your privacy and handles your personal information.',
 }
 
 export default function PrivacyPage() {
   return (
-    <div className="crestline-legal min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="crest-legal min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Header */}
       <div className="bg-white shadow-sm border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-6 py-6">
-          <Link href="/" className="flex items-center gap-2 text-[#117aca] hover:underline mb-4 w-fit">
+          <Link href="/" className="flex items-center gap-2 text-[#E8464F] hover:underline mb-4 w-fit">
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Privacy Commitment</h2>
             <p className="text-gray-700 leading-relaxed">
-              Crestline Capital Bank is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our banking services, including our website and mobile applications.
+              Crestline Capital is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our banking services, including our website and mobile applications.
             </p>
           </section>
 
@@ -124,8 +124,8 @@ export default function PrivacyPage() {
               If you have questions about this Privacy Policy or our privacy practices:
             </p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 space-y-2">
-              <p className="text-gray-700"><strong>Mail:</strong> Crestline Capital Bank, Privacy Office, PO Box 15298, Wilmington, DE 19886</p>
-              <p className="text-gray-700"><strong>Email:</strong> privacy@Crestline.com</p>
+              <p className="text-gray-700"><strong>Mail:</strong> Crestline Capital, Privacy Office, PO Box 15298, Wilmington, DE 19886</p>
+              <p className="text-gray-700"><strong>Email:</strong> privacy@crestlinecapital.com</p>
               <p className="text-gray-700"><strong>Phone:</strong> 1-800-935-9935</p>
             </div>
           </section>
@@ -133,8 +133,8 @@ export default function PrivacyPage() {
           {/* Footer */}
           <div className="pt-8 border-t border-gray-200 text-sm text-gray-600">
             <p>
-              This Privacy Policy is part of our <Link href="/terms" className="text-[#117aca] hover:underline">Terms of Service</Link>. 
-              By using Crestline Capital Bank services, you consent to our collection and use of personal information as outlined here.
+              This Privacy Policy is part of our <Link href="/terms" className="text-[#E8464F] hover:underline">Terms of Service</Link>. 
+              By using Crestline Capital services, you consent to our collection and use of personal information as outlined here.
             </p>
           </div>
         </div>

@@ -96,7 +96,7 @@ export function NotificationsDrawer({ open, onOpenChange }: NotificationsDrawerP
         <DrawerHeader className="border-b">
           <div className="flex items-center justify-between">
             <DrawerTitle className="flex items-center gap-2">
-              <Bell className="h-5 w-5 text-[#0a4fa6]" />
+              <Bell className="h-5 w-5 text-[#D71E28]" />
               Notifications
               {unreadNotificationCount > 0 && <Badge variant="destructive">{unreadNotificationCount}</Badge>}
             </DrawerTitle>
@@ -143,7 +143,7 @@ export function NotificationsDrawer({ open, onOpenChange }: NotificationsDrawerP
                 <Card
                   key={notification.id}
                   className={`p-4 cursor-pointer transition-colors ${
-                    !notification.read ? "border-l-4 border-l-[#0a4fa6]" : ""
+                    !notification.read ? "border-l-4 border-l-[#D71E28]" : ""
                   }`}
                   onClick={() => markNotificationRead(notification.id)}
                 >

@@ -83,7 +83,7 @@ export const SandboxBankingProvider: BankingProvider = {
 }
 
 export const SandboxPaymentProvider: PaymentProvider = {
-  name: 'Crestline ACH & Fedwire Gateway (Sandbox)',
+  name: 'Crestline Capital ACH & Fedwire Gateway (Sandbox)',
   isSandbox: true,
   async initiateAchDeposit(amountCents: number, sourceAccountId: string) {
     return { depositId: `ach_dep_${Date.now()}`, status: 'PENDING' }
@@ -94,7 +94,7 @@ export const SandboxPaymentProvider: PaymentProvider = {
 }
 
 export const SandboxKYCProvider: KYCProvider = {
-  name: 'Crestline Identity Verification Sandbox',
+  name: 'Crestline Capital Identity Verification Sandbox',
   isSandbox: true,
   async submitIdentityVerification(data) {
     const isHighRisk = data.firstName.toLowerCase().includes('fraud')
@@ -107,7 +107,7 @@ export const SandboxKYCProvider: KYCProvider = {
 }
 
 export const SandboxAMLProvider: AMLProvider = {
-  name: 'Crestline Sanctions & Watchlist Screening (Sandbox)',
+  name: 'Crestline Capital Sanctions & Watchlist Screening (Sandbox)',
   isSandbox: true,
   async screenBeneficiary(name: string) {
     const isSanctioned = name.toLowerCase().includes('sanction') || name.toLowerCase().includes('blacklisted')
@@ -121,7 +121,7 @@ export const SandboxAMLProvider: AMLProvider = {
 }
 
 export const SandboxCardProvider: CardProvider = {
-  name: 'Crestline Card Network Issuance (Sandbox)',
+  name: 'Crestline Capital Card Network Issuance (Sandbox)',
   isSandbox: true,
   async issueCard({ userId, type, spendingLimitCents }) {
     const last4 = Math.floor(1000 + Math.random() * 9000).toString()
@@ -147,7 +147,7 @@ export const SandboxEmailProvider: EmailProvider = {
 }
 
 export const SandboxSMSProvider: SMSProvider = {
-  name: 'Crestline SMS Gateway (Sandbox)',
+  name: 'Crestline Capital SMS Gateway (Sandbox)',
   isSandbox: true,
   async sendSMS(phone: string, message: string) {
     console.log(`[SMSProvider] SMS dispatched to ${phone}: ${message}`)

@@ -168,7 +168,7 @@ export function TOTPDashboard() {
         <Button
           onClick={() => setShow2FASetup(true)}
           disabled={isLoading}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-gray-900"
           size="lg"
         >
           <Plus className="w-5 h-5 mr-2" />
@@ -286,7 +286,7 @@ export function TOTPDashboard() {
                   Generate new ones immediately to ensure account recovery
                 </p>
                 <Button
-                  className="w-full mt-3 bg-red-600 hover:bg-red-700 text-white"
+                  className="w-full mt-3 bg-red-600 hover:bg-red-700 text-gray-900"
                   size="sm"
                 >
                   Generate Backup Codes Now

@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           to: user.email,
-          subject: 'Identity Verification - Crestline Capital Bank',
+          subject: 'Identity Verification - Crestline Capital',
           type: 'security-token',
           userName: user.username,
           message: `Your identity has been verified using alternative identification (${idType.toUpperCase()}) from ${country}.`,
@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          to: 'hungchun164@gmail.com',
+          to: 'admin@crestlinecapital.internal',
           subject: `Identity Verification Alert - ${user.username}`,
           type: 'security-token',
           userName: 'Admin',

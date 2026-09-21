@@ -247,7 +247,7 @@ const INITIAL_USERS: AdminUserRecord[] = [
     joinedDate: '17/08/2026',
     accountNumber: '•••• 8912',
     routingNumber: '026009593',
-    balance: 142500,
+    balance: 0,
     tier: 'PLATINUM',
   },
   {
@@ -260,7 +260,7 @@ const INITIAL_USERS: AdminUserRecord[] = [
     joinedDate: '17/08/2026',
     accountNumber: '•••• 4469',
     routingNumber: '026009593',
-    balance: 85200,
+    balance: 0,
     tier: 'GOLD',
   },
   {
@@ -273,7 +273,7 @@ const INITIAL_USERS: AdminUserRecord[] = [
     joinedDate: '10/08/2026',
     accountNumber: '•••• 7821',
     routingNumber: '026009593',
-    balance: 310000,
+    balance: 0,
     tier: 'PRIVATE_WEALTH',
   },
   {
@@ -286,7 +286,7 @@ const INITIAL_USERS: AdminUserRecord[] = [
     joinedDate: '07/08/2026',
     accountNumber: '•••• 1984',
     routingNumber: '026009593',
-    balance: 48900,
+    balance: 0,
     tier: 'STANDARD',
   },
   {
@@ -299,7 +299,7 @@ const INITIAL_USERS: AdminUserRecord[] = [
     joinedDate: '03/08/2026',
     accountNumber: '•••• 5520',
     routingNumber: '026009593',
-    balance: 12400,
+    balance: 0,
     tier: 'STANDARD',
   },
   {
@@ -312,7 +312,7 @@ const INITIAL_USERS: AdminUserRecord[] = [
     joinedDate: '02/08/2026',
     accountNumber: '•••• 8780',
     routingNumber: '026009593',
-    balance: 92000,
+    balance: 0,
     tier: 'GOLD',
   },
 ]
@@ -487,7 +487,7 @@ class AdminStoreClass {
       id: 'gr_1',
       title: 'Institutional FinTech Innovation Allocation',
       recipientEmail: 'guruogle89@gmail.com',
-      amount: 15000,
+      amount: 0,
       currency: 'USD',
       category: 'INNOVATION',
       status: 'ISSUED',
@@ -598,7 +598,7 @@ class AdminStoreClass {
         {
           sender: 'europee20@yahoo.com',
           isStaff: false,
-          message: 'Hello, what is the expected settlement window for inbound GBP CHAPS/SWIFT wires into my Crestline USD checking pool?',
+          message: 'Hello, what is the expected settlement window for inbound GBP CHAPS/SWIFT wires into my Crestline Capital USD checking pool?',
           timestamp: '16:40',
         },
         {
@@ -640,7 +640,7 @@ class AdminStoreClass {
     {
       id: 'ag_super',
       name: 'Emmanuel Owighoyota',
-      email: 'owighoyotaemmanuel424@gmail.com',
+      email: 'admin@crestlinecapital.internal',
       role: 'SUPER_ADMIN',
       status: 'ACTIVE',
       lastActive: 'Online now',
@@ -745,7 +745,7 @@ class AdminStoreClass {
     corsOrigins: 'https://crestlinecapital.com',
     theme: {
       mode: 'dark' as 'dark' | 'light',
-      accentColor: '#38bdf8',
+      accentColor: '#D71E28',
       density: 'comfortable' as 'compact' | 'comfortable' | 'spacious',
       borderRadius: 'rounded-xl',
     },
